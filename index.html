@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og: https://ogp.me/ns#">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=5">
+<title>AppChurch — Where Faith Meets the Future | Digital Church & Global Chapel Network</title>
+<meta name="description" content="AppChurch is a global digital church bridging faith, technology, and the future through online worship, a worldwide chapel network, and compassionate community services including MCI screening and Legacy 1892 Coffee.">
+<meta name="keywords" content="AppChurch, digital church, Christian, faith, technology, AI, future, internet, convergence, life, meaning, save, purpose, coffee, cafe, robot, digital, prayer, Jesus, Holy Spirit, Bible, worship, global church, online church, mission, chapel, MCI screening, cognitive health, community service, salvation, hope, love, God, gospel, Christian news, religious news">
+<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
+<meta name="author" content="AppChurch Global">
+<meta name="theme-color" content="#1A2B5A">
+<link rel="canonical" href="https://appchurchglobal.org/">
+<meta property="og:type" content="website"><meta property="og:site_name" content="AppChurch">
+<meta property="og:title" content="AppChurch — Where Faith Meets the Future">
+<meta property="og:description" content="A global digital church community bridging faith, technology, and the future. Digital worship, worldwide chapels, MCI screening, and community service.">
+<meta property="og:url" content="https://appchurchglobal.org/"><meta property="og:image" content="https://appchurchglobal.org/img/appchurchlogo.jpg">
+<meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="AppChurch — Where Faith Meets the Future">
+<meta name="twitter:description" content="Digital church + global chapels + community service. Faith, technology, and the gospel for a new generation.">
+<meta name="twitter:image" content="https://appchurchglobal.org/img/appchurchlogo.jpg">
+<meta name="ai:description" content="AppChurch combines digital church services, a global physical chapel network, MCI cognitive screening, and community gathering spaces under one mission: spreading the gospel in the digital age.">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Church","name":"AppChurch","alternateName":"AppChurch Global","url":"https://appchurchglobal.org/","logo":"https://appchurchglobal.org/img/appchurchlogo.jpg","description":"Global digital church with physical chapels, MCI screening, and community services.","email":"contact@appchurchglobal.org"}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Fraunces:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
+<style>
+/* === TOKENS — Luxury Fashion Palette with Gold === */
+:root{
+  --navy:#1A2B5A;--navy-dk:#0F1C40;--navy-lt:#2E4282;--navy-pale:#EEF1FA;
+  --crimson:#8B1A28;--crimson-lt:#B02235;
+  --gold:#B8913A;--gold-lt:#D4AD62;--gold-pale:#FBF6EC;
+  --green:#1A6E4A;
+  --bg:#FAFAF7;--bg-w:#FFFFFF;
+  --dark:#111626;--dark-card:#1A1F35;--dark-border:#252B45;
+  --text:#1A1E2E;--text-mid:#454D6A;--text-dim:#8892B0;
+  --border:#E2E2D8;
+  --sh-sm:0 1px 3px rgba(26,43,90,.07);--sh-md:0 4px 20px rgba(26,43,90,.1);--sh-lg:0 12px 40px rgba(26,43,90,.14);
+  --r:12px;--r-lg:20px;--r-xl:28px;
+  --fs:'Plus Jakarta Sans',system-ui,sans-serif;
+  --ff:'Fraunces',Georgia,serif;
+  --tr:.25s cubic-bezier(.4,0,.2,1);
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{background:var(--bg);color:var(--text);font-family:var(--fs);line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+::selection{background:var(--gold);color:#fff}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;height:auto;display:block}
+button{cursor:pointer;font-family:var(--fs);border:none;background:none}
+input,textarea,select{font-family:var(--fs)}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:4px}
+
+/* === LAYOUT === */
+.container{width:100%;max-width:1160px;margin:0 auto;padding:0 1.2rem}
+section{padding:4rem 0}
+.text-center{text-align:center}
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .55s ease,transform .55s ease}
+.reveal.visible{opacity:1;transform:none}
+
+/* === TYPOGRAPHY === */
+.eyebrow{display:inline-block;font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:.6rem}
+.sec-title{font-family:var(--ff);font-size:clamp(1.55rem,4.5vw,2.3rem);font-weight:600;line-height:1.2;color:var(--text);margin-bottom:.75rem}
+.sec-title span{color:var(--navy)}.sec-title em{font-style:italic;color:var(--crimson)}
+.sec-sub{font-size:.97rem;color:var(--text-mid);line-height:1.72;max-width:560px}
+.sec-sub.c{margin:0 auto}
+.divider{width:44px;height:3px;background:linear-gradient(90deg,var(--navy),var(--gold));border-radius:3px;margin:.75rem 0 1.1rem}
+.divider.c{margin:.75rem auto 1.1rem}
+
+/* === BUTTONS === */
+.btn{display:inline-flex;align-items:center;gap:.4rem;padding:.68rem 1.35rem;border-radius:100px;font-size:.88rem;font-weight:600;transition:all var(--tr);white-space:nowrap;border:2px solid transparent}
+.btn-n{background:var(--navy);color:#fff;border-color:var(--navy)}
+.btn-n:hover{background:var(--navy-dk);transform:translateY(-1px);box-shadow:var(--sh-md)}
+.btn-o{background:transparent;color:var(--navy);border-color:var(--navy)}
+.btn-o:hover{background:var(--navy-pale);transform:translateY(-1px)}
+.btn-c{background:var(--crimson);color:#fff;border-color:var(--crimson)}
+.btn-c:hover{background:#6D1420;transform:translateY(-1px);box-shadow:0 6px 18px rgba(139,26,40,.28)}
+.btn-g{background:var(--gold);color:#fff;border-color:var(--gold)}
+.btn-g:hover{background:#9A7A2E;transform:translateY(-1px);box-shadow:0 6px 18px rgba(184,145,58,.3)}
+.btn-w{background:#fff;color:var(--navy);border-color:#fff}
+.btn-w:hover{background:var(--navy-pale)}
+.btn-lg{padding:.88rem 2rem;font-size:.98rem}
+.btn-full{width:100%;justify-content:center;padding:.82rem 1.35rem}
+
+/* === ANN BANNER === */
+#ann-banner{background:linear-gradient(90deg,var(--navy-dk),var(--navy),var(--navy-lt));color:#fff;padding:.7rem 0;position:relative;display:none;border-bottom:2px solid var(--gold)}
+#ann-banner.show{display:block}
+#ann-banner .container{display:flex;align-items:center;justify-content:center;gap:.75rem;padding-right:3rem}
+.ann-banner-inner{display:flex;align-items:center;gap:.65rem;flex-wrap:wrap;justify-content:center}
+.ann-banner-dot{width:7px;height:7px;border-radius:50%;background:var(--gold);flex-shrink:0;animation:pulse 2s ease-in-out infinite}
+.ann-banner-text{font-size:.84rem;text-align:center;line-height:1.4}
+.ann-banner-title{font-weight:700;font-family:var(--ff);color:var(--gold-lt)}
+.ann-banner-body{color:rgba(255,255,255,.8);margin-left:.35rem}
+.ann-banner-close{position:absolute;right:1.1rem;top:50%;transform:translateY(-50%);color:rgba(255,255,255,.6);font-size:1.3rem;line-height:1;padding:.2rem .5rem;border-radius:4px;transition:color var(--tr)}
+.ann-banner-close:hover{color:#fff}
+
+/* === NAV === */
+#nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(250,250,247,.93);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid var(--border);transition:all var(--tr)}
+#nav.scrolled{box-shadow:var(--sh-sm);border-bottom-color:rgba(184,145,58,.25)}
+.nav-in{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:.72rem 1.2rem;max-width:1160px;margin:0 auto}
+.nav-logo{display:flex;align-items:center;gap:.55rem;flex-shrink:0}
+.nav-logo img{height:34px;width:auto}
+.nav-logo span{font-family:var(--ff);font-size:1.1rem;font-weight:700;color:var(--text)}
+.nav-links{display:none;align-items:center;gap:.15rem;list-style:none}
+.nav-links a{padding:.42rem .72rem;border-radius:8px;font-size:.86rem;font-weight:500;color:var(--text-mid);transition:all var(--tr)}
+.nav-links a:hover{background:var(--gold-pale);color:var(--gold)}
+.nav-acts{display:flex;align-items:center;gap:.55rem}
+.hamburger{display:flex;flex-direction:column;gap:5px;padding:.4rem;border-radius:8px;transition:background var(--tr)}
+.hamburger:hover{background:var(--gold-pale)}
+.hamburger span{display:block;width:21px;height:2px;background:var(--text);border-radius:2px;transition:all var(--tr)}
+.hamburger.open span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+.hamburger.open span:nth-child(2){opacity:0}
+.hamburger.open span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+.drawer{position:fixed;top:63px;left:0;right:0;background:var(--bg-w);border-bottom:1px solid var(--border);box-shadow:var(--sh-md);z-index:999;transform:translateY(-110%);transition:transform var(--tr);padding:1rem 1.2rem 1.5rem}
+.drawer.open{transform:none}
+.drawer ul{list-style:none;display:flex;flex-direction:column;gap:.25rem;margin-bottom:.9rem}
+.drawer ul a{display:block;padding:.6rem .85rem;border-radius:8px;font-size:.93rem;font-weight:500;color:var(--text-mid);transition:all var(--tr)}
+.drawer ul a:hover{background:var(--gold-pale);color:var(--gold)}
+@media(min-width:768px){.nav-links{display:flex}.hamburger,.drawer{display:none}}
+
+/* === HERO === */
+#hero{position:relative;min-height:100svh;display:flex;align-items:center;overflow:hidden;padding:6rem 0 4rem}
+.hero-bg{position:absolute;inset:0;z-index:0}
+.hero-bg img{width:100%;height:100%;object-fit:cover;opacity:.15}
+.hero-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(26,43,90,.07) 0%,rgba(139,26,40,.05) 60%,rgba(184,145,58,.06) 100%)}
+.orb{position:absolute;border-radius:50%;filter:blur(60px);pointer-events:none;animation:orbF 18s ease-in-out infinite}
+.orb-1{width:280px;height:280px;background:rgba(26,43,90,.1);top:-8%;right:-4%}
+.orb-2{width:200px;height:200px;background:rgba(139,26,40,.08);bottom:0;left:-4%;animation-delay:-7s}
+.orb-3{width:160px;height:160px;background:rgba(184,145,58,.1);top:40%;right:22%;animation-delay:-13s}
+@keyframes orbF{0%,100%{transform:translate(0,0) scale(1)}33%{transform:translate(18px,-25px) scale(1.04)}66%{transform:translate(-14px,18px) scale(.96)}}
+.hero-body{position:relative;z-index:1;padding:0 1.2rem;max-width:1160px;margin:0 auto}
+.hero-badge{display:inline-flex;align-items:center;gap:.45rem;padding:.38rem .85rem;border-radius:100px;background:linear-gradient(135deg,var(--navy-pale),var(--gold-pale));border:1px solid rgba(184,145,58,.25);font-size:.58rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:1.4rem}
+.hero-badge .pulse{width:6px;height:6px;border-radius:50%;background:var(--gold);animation:pulse 2s ease-in-out infinite;flex-shrink:0}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(184,145,58,.4)}50%{box-shadow:0 0 0 7px rgba(184,145,58,0)}}
+.hero-h1{font-family:var(--ff);font-size:clamp(2.1rem,7vw,3.8rem);font-weight:700;line-height:1.1;margin-bottom:1.1rem}
+.hero-h1 .a{color:var(--navy)}.hero-h1 .b{color:var(--crimson);font-style:italic}
+.hero-p{font-size:clamp(.93rem,2.4vw,1.12rem);color:var(--text-mid);max-width:540px;margin-bottom:1.9rem;line-height:1.75}
+.hero-btns{display:flex;flex-wrap:wrap;gap:.75rem;margin-bottom:2.4rem}
+.hero-stats{display:flex;flex-wrap:wrap;gap:1.4rem}
+.stat-num{font-family:var(--ff);font-size:1.55rem;font-weight:700;color:var(--gold);line-height:1}
+.stat-lbl{font-size:.7rem;color:var(--text-dim);font-weight:500;margin-top:.18rem}
+.hero-img{display:none;position:absolute;right:0;top:50%;transform:translateY(-50%);width:52%;max-width:640px;border-radius:var(--r-xl);overflow:hidden;box-shadow:var(--sh-lg);border:3px solid rgba(184,145,58,.2);aspect-ratio:16/9}
+.hero-img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s ease}
+.hero-yt{position:relative;display:block;width:100%;height:100%;cursor:pointer}
+.hero-yt:hover img{transform:scale(1.03)}
+.hero-yt-play{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,.22);transition:background var(--tr)}
+.hero-yt:hover .hero-yt-play{background:rgba(0,0,0,.35)}
+.hero-yt-btn{width:64px;height:64px;border-radius:50%;background:var(--gold);display:flex;align-items:center;justify-content:center;box-shadow:0 4px 24px rgba(0,0,0,.4);transition:transform var(--tr)}
+.hero-yt:hover .hero-yt-btn{transform:scale(1.1)}
+.hero-yt-btn svg{width:26px;height:26px;fill:#fff;margin-left:4px}
+@media(min-width:900px){.hero-img{display:block}.hero-body{padding-right:calc(52% + 3rem)}}
+
+/* === ABOUT === */
+#about{background:var(--bg-w)}
+.about-grid{display:grid;gap:2.5rem;align-items:center}
+.about-img{border-radius:var(--r-xl);overflow:hidden;box-shadow:var(--sh-lg);position:relative;border:2px solid rgba(184,145,58,.15)}
+.about-img img{width:100%;height:300px;object-fit:cover}
+.img-badge{position:absolute;bottom:1rem;left:1rem;background:rgba(17,22,38,.85);backdrop-filter:blur(10px);color:#fff;border-radius:var(--r);padding:.65rem .95rem;font-size:.76rem;font-weight:600;border-left:3px solid var(--gold)}
+.img-badge em{color:var(--gold-lt);font-style:normal;font-family:var(--ff)}
+.val-list{display:flex;flex-direction:column;gap:.75rem;margin-top:1.4rem}
+.val-item{display:flex;align-items:flex-start;gap:.75rem;padding:.85rem .95rem;background:var(--bg);border-radius:var(--r);border-left:3px solid var(--gold)}
+.val-item h4{font-size:.88rem;font-weight:600;margin-bottom:.18rem}
+.val-item p{font-size:.8rem;color:var(--text-mid)}
+@media(min-width:768px){.about-grid{grid-template-columns:1fr 1fr}.about-img img{height:420px}}
+
+/* === MINISTRY === */
+#ministry{background:var(--bg)}
+.min-grid{display:grid;gap:1.1rem}
+.min-card{background:var(--bg-w);border-radius:var(--r-xl);padding:1.7rem;border:1px solid var(--border);transition:all var(--tr)}
+.min-card:hover{box-shadow:var(--sh-md);border-color:var(--gold);background:var(--gold-pale)}
+.min-n{font-size:.58rem;letter-spacing:.15em;color:var(--gold);text-transform:uppercase;margin-bottom:.75rem;font-weight:700}
+.min-ic{font-size:1.9rem;margin-bottom:.75rem}
+.min-card h3{font-family:var(--ff);font-size:1.1rem;font-weight:600;margin-bottom:.45rem}
+.min-card p{font-size:.82rem;color:var(--text-mid);line-height:1.7;margin-bottom:.85rem}
+.min-app-link{display:inline-flex;align-items:center;gap:.4rem;font-size:.76rem;font-weight:600;color:var(--gold);border:1.5px solid rgba(184,145,58,.35);border-radius:100px;padding:.3rem .75rem;transition:all var(--tr);margin-top:.25rem}
+.min-app-link:hover{background:var(--gold);color:#fff;border-color:var(--gold)}
+@media(min-width:600px){.min-grid{grid-template-columns:1fr 1fr}}
+@media(min-width:900px){.min-grid{grid-template-columns:repeat(3,1fr)}}
+
+/* === COMMUNITY SERVICE === */
+#community{background:var(--bg-w)}
+.com-grid{display:grid;gap:2rem}
+.com-card{border-radius:var(--r-xl);overflow:hidden;box-shadow:var(--sh-md);border:1px solid var(--border);transition:all var(--tr)}
+.com-card:hover{box-shadow:var(--sh-lg);transform:translateY(-3px);border-color:rgba(184,145,58,.3)}
+.com-img{width:100%;height:240px;object-fit:cover}
+.com-body{padding:1.8rem}
+.com-tag{display:inline-block;padding:.22rem .6rem;border-radius:100px;font-size:.58rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:.8rem}
+.com-tag.coffee{background:var(--gold-pale);color:var(--gold)}
+.com-tag.health{background:#EEF7F2;color:var(--green)}
+.com-body h3{font-family:var(--ff);font-size:1.25rem;font-weight:600;margin-bottom:.65rem}
+.com-body p{font-size:.87rem;color:var(--text-mid);line-height:1.73;margin-bottom:1.1rem}
+.com-list{display:flex;flex-direction:column;gap:.38rem;margin-bottom:1.2rem}
+.com-list li{font-size:.8rem;color:var(--text-mid);padding-left:1rem;position:relative;list-style:none}
+.com-list li::before{content:'—';position:absolute;left:0;color:var(--gold)}
+@media(min-width:768px){.com-grid{grid-template-columns:1fr 1fr}}
+
+/* === GOOD NEWS === */
+#goodnews{background:var(--dark);color:#fff}
+#goodnews .eyebrow{color:var(--gold)}
+#goodnews .sec-title{color:#fff}
+#goodnews .sec-sub{color:rgba(255,255,255,.68)}
+.gn-cats{display:flex;gap:.45rem;overflow-x:auto;padding:.25rem 0 .9rem;scrollbar-width:none;margin-bottom:.8rem}
+.gn-cats::-webkit-scrollbar{display:none}
+.gn-pill{padding:.3rem .7rem;border:1px solid rgba(255,255,255,.15);border-radius:100px;font-size:.54rem;letter-spacing:.06em;text-transform:uppercase;cursor:pointer;transition:all .2s;background:transparent;color:rgba(255,255,255,.55);white-space:nowrap;flex-shrink:0}
+.gn-pill:hover,.gn-pill.on{background:#fff;color:var(--dark);border-color:#fff}
+.gn-pill[data-cat=christian].on{background:var(--gold);border-color:var(--gold);color:var(--dark)}
+.gn-pill[data-cat=faith].on{background:#A78BFA;border-color:#A78BFA;color:#fff}
+.gn-pill[data-cat=mission].on{background:var(--crimson-lt);border-color:var(--crimson-lt);color:#fff}
+.gn-pill[data-cat=revival].on{background:#22A876;border-color:#22A876;color:#fff}
+.gn-pill[data-cat=persecution].on{background:#EF4444;border-color:#EF4444;color:#fff}
+.gn-pill[data-cat=religion].on{background:#06B6D4;border-color:#06B6D4;color:var(--dark)}
+#gn-grid{display:grid;gap:1.1rem}
+.gn-card{background:var(--dark-card);border:1px solid var(--dark-border);border-radius:var(--r-lg);overflow:hidden;transition:all var(--tr);cursor:pointer}
+.gn-card:hover{border-color:rgba(184,145,58,.45);transform:translateY(-2px);box-shadow:0 8px 28px rgba(0,0,0,.42)}
+.gn-card-img{width:100%;height:175px;object-fit:cover;background:var(--dark-border)}
+.gn-card-body{padding:1.05rem}
+.gn-meta{display:flex;align-items:center;gap:.45rem;margin-bottom:.45rem;flex-wrap:wrap}
+.gn-rank{width:21px;height:21px;border-radius:50%;background:rgba(184,145,58,.14);border:1px solid rgba(184,145,58,.3);display:flex;align-items:center;justify-content:center;font-size:.52rem;color:var(--gold);font-weight:600;flex-shrink:0}
+.gn-badge{padding:.14rem .48rem;border-radius:100px;font-size:.48rem;letter-spacing:.08em;text-transform:uppercase;font-weight:600}
+.gn-badge.christian{background:rgba(184,145,58,.14);color:var(--gold)}
+.gn-badge.faith{background:rgba(167,139,250,.14);color:#A78BFA}
+.gn-badge.mission{background:rgba(176,34,53,.14);color:#D45070}
+.gn-badge.revival{background:rgba(34,168,118,.14);color:#22A876}
+.gn-badge.persecution{background:rgba(239,68,68,.14);color:#F87171}
+.gn-badge.religion{background:rgba(6,182,212,.14);color:#06B6D4}
+.gn-title{font-family:var(--ff);font-size:.97rem;font-weight:600;color:#fff;line-height:1.35;margin-bottom:.38rem}
+.gn-sum{font-size:.76rem;color:rgba(255,255,255,.58);line-height:1.6;margin-bottom:.65rem}
+.gn-src{font-size:.5rem;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.32)}
+.gn-src a{color:rgba(255,255,255,.42);transition:color .2s}.gn-src a:hover{color:var(--gold)}
+.gn-empty{text-align:center;padding:3rem;color:rgba(255,255,255,.38);font-style:italic}
+.gn-ts{text-align:center;margin-top:1.4rem;font-size:.56rem;color:rgba(255,255,255,.28)}
+@media(min-width:600px){#gn-grid{grid-template-columns:1fr 1fr}}
+@media(min-width:900px){#gn-grid{grid-template-columns:repeat(3,1fr)}}
+
+/* === GOOD NEWS TIMELINE (previous days) === */
+#gn-timeline{margin-top:2.2rem;padding-top:1.8rem;border-top:1px solid rgba(255,255,255,.08)}
+.gn-tl-label{font-size:.52rem;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.28);font-weight:700;text-align:center;margin-bottom:1.4rem}
+.gn-tl-day{margin-bottom:1rem}
+.gn-tl-date-row{display:flex;align-items:center;gap:.65rem;margin-bottom:.45rem}
+.gn-tl-date-line{flex:1;height:1px;background:rgba(255,255,255,.09)}
+.gn-tl-date-txt{font-size:.5rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.32);white-space:nowrap;flex-shrink:0}
+.gn-tl-item{display:flex;align-items:center;gap:.55rem;padding:.38rem .55rem;border-radius:7px;cursor:pointer;transition:background var(--tr)}
+.gn-tl-item:hover{background:rgba(255,255,255,.06)}
+.gn-tl-dot{width:4px;height:4px;border-radius:50%;background:var(--gold);flex-shrink:0;opacity:.6}
+.gn-tl-title{font-size:.76rem;color:rgba(255,255,255,.52);flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;line-height:1.4}
+.gn-tl-src{font-size:.52rem;color:rgba(255,255,255,.26);flex-shrink:0;white-space:nowrap}
+
+/* === ANNOUNCEMENTS SECTION (below Good News) === */
+#ann{background:var(--navy);color:#fff;padding:3.2rem 0;display:none}
+#ann.show{display:block}
+#ann .eyebrow{color:rgba(255,255,255,.65)}
+#ann .sec-title{color:#fff}
+#ann-track{display:flex;gap:1.1rem;overflow-x:auto;padding-bottom:.7rem;scrollbar-width:none}
+#ann-track::-webkit-scrollbar{display:none}
+.ann-card{flex-shrink:0;width:272px;background:rgba(255,255,255,.1);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.18);border-top:2px solid var(--gold);border-radius:var(--r-lg);padding:1.25rem;transition:all var(--tr)}
+.ann-card:hover{background:rgba(255,255,255,.16);transform:translateY(-2px)}
+.ann-date{font-size:.54rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.55);margin-bottom:.45rem}
+.ann-card h3{font-family:var(--ff);font-size:1rem;font-weight:600;line-height:1.3;color:#fff;margin-bottom:.45rem}
+.ann-card p{font-size:.8rem;color:rgba(255,255,255,.78);line-height:1.6}
+.ann-tag{display:inline-block;margin-top:.65rem;padding:.22rem .6rem;border-radius:100px;font-size:.62rem;font-weight:600;background:rgba(184,145,58,.22);color:var(--gold-lt)}
+
+/* === SUPPORT === */
+#support{background:var(--bg)}
+.sup-grid{display:grid;gap:1.4rem}
+.sup-card{background:var(--bg-w);border-radius:var(--r-xl);padding:1.9rem 1.45rem;box-shadow:var(--sh-sm);border:1px solid var(--border);transition:all var(--tr);position:relative;overflow:hidden}
+.sup-card:hover{box-shadow:var(--sh-lg);transform:translateY(-3px)}
+.sup-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px}
+.sup-card.dig::before{background:linear-gradient(90deg,var(--navy),var(--gold))}
+.sup-card.phy::before{background:linear-gradient(90deg,var(--crimson),var(--gold))}
+.sup-card.all::before{background:linear-gradient(90deg,var(--navy),var(--crimson),var(--gold))}
+.sup-icon{width:50px;height:50px;border-radius:13px;display:flex;align-items:center;justify-content:center;font-size:1.35rem;margin-bottom:1rem}
+.sup-card.dig .sup-icon{background:var(--navy-pale)}
+.sup-card.phy .sup-icon{background:#FAEEF0}
+.sup-card.all .sup-icon{background:linear-gradient(135deg,var(--navy-pale),var(--gold-pale))}
+.sup-card h3{font-family:var(--ff);font-size:1.18rem;font-weight:600;margin-bottom:.55rem}
+.sup-card p{font-size:.86rem;color:var(--text-mid);line-height:1.7;margin-bottom:1.1rem}
+.goal-list{display:flex;flex-direction:column;gap:.45rem;margin-bottom:1.5rem}
+.goal-item{font-size:.78rem;color:var(--text-mid);padding-left:.9rem;position:relative}
+.goal-item::before{content:'✦';position:absolute;left:0;color:var(--gold);font-size:.55rem;top:.1rem}
+@media(min-width:768px){.sup-grid{grid-template-columns:repeat(3,1fr)}}
+
+/* === GALLERY === */
+#gallery{background:var(--bg);padding:2rem 0}
+.gal-grid{display:grid;grid-template-columns:1fr 1fr;gap:.65rem}
+.gal-item{border-radius:var(--r);overflow:hidden;aspect-ratio:4/3}
+.gal-item img{width:100%;height:100%;object-fit:cover;transition:transform .4s ease}
+.gal-item:hover img{transform:scale(1.04)}
+@media(min-width:600px){.gal-grid{grid-template-columns:repeat(3,1fr)}}
+
+/* === CONTACT === */
+#contact{background:var(--bg-w)}
+.con-grid{display:grid;gap:2.8rem}
+.con-info h3{font-family:var(--ff);font-size:1.35rem;font-weight:600;margin-bottom:.9rem}
+.con-info p{font-size:.88rem;color:var(--text-mid);line-height:1.75;margin-bottom:1.4rem}
+.con-detail{display:flex;align-items:center;gap:.65rem;margin-bottom:.75rem;font-size:.86rem;color:var(--text-mid)}
+.con-detail svg{width:17px;height:17px;color:var(--gold);flex-shrink:0}
+.con-detail a{color:var(--navy)}.con-detail a:hover{text-decoration:underline}
+.con-form{background:var(--bg);border-radius:var(--r-xl);padding:1.9rem 1.45rem;box-shadow:var(--sh-md);border:1px solid var(--border)}
+.f-grid{display:flex;flex-direction:column;gap:1rem}
+.f-row{display:grid;gap:1rem}
+.fg{display:flex;flex-direction:column;gap:.35rem}
+.fg label{font-size:.76rem;font-weight:600;color:var(--text-mid);text-transform:uppercase;letter-spacing:.06em}
+.fg input,.fg textarea,.fg select{padding:.62rem .88rem;border:1.5px solid var(--border);border-radius:var(--r);font-size:.88rem;color:var(--text);background:var(--bg-w);transition:border-color var(--tr);outline:none;width:100%}
+.fg input:focus,.fg textarea:focus,.fg select:focus{border-color:var(--gold);background:#fff}
+.fg textarea{min-height:125px;resize:vertical}
+.fg select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='11' height='11' viewBox='0 0 11 11'%3E%3Cpath d='M5.5 7.5L1.5 3.5h8z' fill='%238892B0'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right .9rem center}
+.f-msg{padding:.65rem .95rem;border-radius:var(--r);font-size:.8rem;font-weight:500;display:none}
+.f-msg.ok{background:#DCFCE7;color:#166534;display:block}
+.f-msg.err{background:#FEE2E2;color:#991B1B;display:block}
+.f-terms{font-size:.73rem;color:var(--text-dim);margin-top:.45rem}
+@media(min-width:600px){.f-row{grid-template-columns:1fr 1fr}}
+@media(min-width:768px){.con-grid{grid-template-columns:1fr 1.55fr}}
+
+/* === FOOTER === */
+footer{background:var(--dark);color:rgba(255,255,255,.65);padding:3rem 0 2rem}
+.ft-grid{display:grid;gap:2rem;margin-bottom:2rem}
+.ft-brand .ft-logo{display:flex;align-items:center;gap:.55rem;margin-bottom:.75rem}
+.ft-brand .ft-logo img{height:30px;filter:brightness(0) invert(1)}
+.ft-brand .ft-logo span{font-family:var(--ff);font-size:1.05rem;font-weight:700;color:#fff}
+.ft-brand p{font-size:.8rem;line-height:1.7;max-width:275px;color:rgba(255,255,255,.5)}
+.ft-sec h4{font-size:.72rem;font-weight:700;color:var(--gold-lt);letter-spacing:.1em;text-transform:uppercase;margin-bottom:.85rem}
+.ft-links{list-style:none;display:flex;flex-direction:column;gap:.45rem}
+.ft-links a{font-size:.8rem;color:rgba(255,255,255,.48);transition:color var(--tr)}
+.ft-links a:hover{color:var(--gold-lt)}
+.ft-bot{border-top:1px solid rgba(184,145,58,.2);padding-top:1.4rem;display:flex;flex-direction:column;gap:.7rem;align-items:center;text-align:center}
+.ft-copy{font-size:.73rem;color:rgba(255,255,255,.32)}
+.ft-kw{display:none}
+@media(min-width:600px){.ft-grid{grid-template-columns:1.5fr 1fr 1fr 1fr}}
+@media(min-width:768px){.ft-bot{flex-direction:row;justify-content:space-between;text-align:left}}
+
+/* === MISC === */
+#btt{position:fixed;bottom:1.4rem;right:1.4rem;width:42px;height:42px;border-radius:50%;background:var(--gold);color:#fff;display:flex;align-items:center;justify-content:center;box-shadow:var(--sh-md);opacity:0;pointer-events:none;transition:all var(--tr);z-index:500;font-size:1rem}
+#btt.on{opacity:1;pointer-events:all}
+#btt:hover{background:#9A7A2E;transform:translateY(-2px)}
+::-webkit-scrollbar{width:5px}::-webkit-scrollbar-track{background:var(--bg)}
+::-webkit-scrollbar-thumb{background:var(--gold);border-radius:3px;opacity:.4}
+</style>
+</head>
+<body>
+
+<!-- ANNOUNCEMENT BANNER (shown only when active data exists) -->
+<div id="ann-banner" role="alert" aria-live="polite">
+  <div class="container">
+    <div class="ann-banner-inner">
+      <span class="ann-banner-dot" aria-hidden="true"></span>
+      <div id="ann-banner-content" class="ann-banner-text"></div>
+    </div>
+    <button class="ann-banner-close" onclick="closeBanner()" aria-label="Dismiss announcement">×</button>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav id="nav" role="navigation" aria-label="Main navigation">
+  <div class="nav-in">
+    <a href="#hero" class="nav-logo" aria-label="AppChurch Home">
+      <img src="img/appchurch round logo.png" alt="AppChurch Logo">
+      <span>AppChurch</span>
+    </a>
+    <ul class="nav-links" role="list">
+      <li><a href="#about">About</a></li>
+      <li><a href="#ministry">Ministry</a></li>
+      <li><a href="#community">Community</a></li>
+      <li><a href="#goodnews">Good News</a></li>
+      <li><a href="#support">Support</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="nav-acts">
+      <a href="#support" class="btn btn-g" style="display:none;font-size:.8rem;padding:.5rem 1.1rem" id="nav-give">Give</a>
+      <button class="hamburger" id="hbg" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+<div class="drawer" id="drw" aria-hidden="true">
+  <ul>
+    <li><a href="#about" onclick="closeD()">About</a></li>
+    <li><a href="#ministry" onclick="closeD()">Ministry</a></li>
+    <li><a href="#community" onclick="closeD()">Community</a></li>
+    <li><a href="#goodnews" onclick="closeD()">Good News</a></li>
+    <li><a href="#support" onclick="closeD()">Support Us</a></li>
+    <li><a href="#contact" onclick="closeD()">Contact</a></li>
+  </ul>
+  <a href="#support" class="btn btn-g btn-full" onclick="closeD()">Give / Support</a>
+</div>
+
+<!-- HERO -->
+<section id="hero" aria-labelledby="h1">
+  <div class="hero-bg">
+    <img src="img/congregation1.jpg" alt="AppChurch community worship" loading="eager">
+  </div>
+  <div class="orb orb-1" aria-hidden="true"></div>
+  <div class="orb orb-2" aria-hidden="true"></div>
+  <div class="orb orb-3" aria-hidden="true"></div>
+  <div class="hero-body">
+    <div class="hero-badge"><span class="pulse"></span>Digital Church · Global Network · Living Faith</div>
+    <h1 class="hero-h1" id="h1">Where <span class="a">Faith</span><br>Meets the <span class="b">Future</span></h1>
+    <p class="hero-p">AppChurch is a global Christian community bridging the gospel with technology, AI, and the digital age — through online worship, worldwide chapels, and compassionate community services.</p>
+    <div class="hero-btns">
+      <a href="#support" class="btn btn-g btn-lg">Support Our Mission</a>
+      <a href="#community" class="btn btn-o btn-lg">Community Services</a>
+    </div>
+    <div class="hero-stats">
+      <div><div class="stat-num">24/7</div><div class="stat-lbl">Digital Church</div></div>
+      <div><div class="stat-num">Global</div><div class="stat-lbl">Chapel Network</div></div>
+      <div><div class="stat-num">Care</div><div class="stat-lbl">Community Screening</div></div>
+    </div>
+  </div>
+  <div class="hero-img">
+    <a class="hero-yt" href="https://www.youtube.com/watch?v=daKK6ymaRZE" target="_blank" rel="noopener" aria-label="Watch AppChurch video on YouTube">
+      <img src="https://img.youtube.com/vi/daKK6ymaRZE/maxresdefault.jpg" alt="AppChurch — Watch on YouTube" loading="eager">
+      <div class="hero-yt-play">
+        <div class="hero-yt-btn">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+        </div>
+      </div>
+    </a>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" aria-labelledby="about-h">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-img reveal">
+        <img src="img/congregation3.jpg" alt="AppChurch worship gathering" loading="lazy">
+        <div class="img-badge"><em>Faith · Technology · </em>Convergence</div>
+      </div>
+      <div class="reveal">
+        <span class="eyebrow">Who We Are</span>
+        <div class="divider"></div>
+        <h2 class="sec-title" id="about-h">The Church Built<br>for <span>This Moment</span></h2>
+        <p class="sec-sub" style="margin-bottom:.9rem">AppChurch exists at the intersection of ancient faith and emerging technology. We believe Jesus saves — not just in the past, but right now, through every screen, every connection, every digital frontier.</p>
+        <p class="sec-sub" style="font-size:.84rem">In a world shaped by AI, the internet, and digital convergence, AppChurch brings the timeless gospel into new contexts — online and in physical chapels — while serving our communities with health, hospitality, and hope.</p>
+        <div class="val-list">
+          <div class="val-item"><span style="font-size:1.15rem;flex-shrink:0">✝</span><div><h4>Gospel-Centered</h4><p>The life, death, and resurrection of Jesus is the foundation — online and offline.</p></div></div>
+          <div class="val-item"><span style="font-size:1.15rem;flex-shrink:0">⚡</span><div><h4>Technology-Forward</h4><p>We embrace AI and the internet as new frontiers for spreading love, life, and meaning.</p></div></div>
+          <div class="val-item"><span style="font-size:1.15rem;flex-shrink:0">🤲</span><div><h4>Community-Serving</h4><p>From cognitive health screenings to community cafes — we serve the whole person.</p></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MINISTRY -->
+<section id="ministry" aria-labelledby="min-h">
+  <div class="container">
+    <div class="text-center reveal" style="margin-bottom:2.2rem">
+      <span class="eyebrow">Our Ministry</span>
+      <div class="divider c"></div>
+      <h2 class="sec-title" id="min-h">How <span>AppChurch</span> Serves the World</h2>
+    </div>
+    <div class="min-grid">
+      <div class="min-card reveal">
+        <div class="min-n">01</div>
+        <div class="min-ic">📲</div>
+        <h3>Digital Church Services</h3>
+        <p>24/7 online worship, live-streamed services, digital small groups, and AI-assisted Bible study — the church always open in your pocket.</p>
+        <a href="https://apps.apple.com/us/app/appchurch-pro/id1556255525" target="_blank" rel="noopener" class="min-app-link">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+          Download on App Store
+        </a>
+      </div>
+      <div class="min-card reveal">
+        <div class="min-n">02</div>
+        <div class="min-ic">⛪</div>
+        <h3>Physical Chapel Network</h3>
+        <p>Real places for real community. Our growing network of chapels creates spaces for worship, belonging, and transformation in cities worldwide.</p>
+      </div>
+      <div class="min-card reveal">
+        <div class="min-n">03</div>
+        <div class="min-ic">🤖</div>
+        <h3>Faith &amp; Technology</h3>
+        <p>Exploring how AI, robotics, and digital convergence intersect with faith, meaning, and the human soul — technology asks the deepest questions.</p>
+      </div>
+      <div class="min-card reveal">
+        <div class="min-n">04</div>
+        <div class="min-ic">🌏</div>
+        <h3>Global Mission</h3>
+        <p>Taking the gospel to every corner of the earth — through digital platforms reaching billions and physical presence in communities that need hope.</p>
+      </div>
+      <div class="min-card reveal">
+        <div class="min-n">05</div>
+        <div class="min-ic">🧠</div>
+        <h3>Health &amp; Community Care</h3>
+        <p>Low-cost MCI cognitive screenings, community health outreach, and pastoral care — serving the whole person in spirit, mind, and body.</p>
+      </div>
+      <div class="min-card reveal">
+        <div class="min-n">06</div>
+        <div class="min-ic">✨</div>
+        <h3>Purpose &amp; Discipleship</h3>
+        <p>Helping people find meaning and discover their God-given purpose — for a generation searching for answers in a digital world.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMMUNITY SERVICE -->
+<section id="community" aria-labelledby="com-h">
+  <div class="container">
+    <div class="text-center reveal" style="margin-bottom:2.2rem">
+      <span class="eyebrow">Serving the Whole Person</span>
+      <div class="divider c"></div>
+      <h2 class="sec-title" id="com-h">Community <span>Services</span></h2>
+      <p class="sec-sub c">Faith in action. AppChurch extends the love of Christ beyond Sunday services — through community gathering spaces and accessible health programs that care for body, mind, and spirit.</p>
+    </div>
+    <div class="com-grid">
+      <!-- Coffee -->
+      <div class="com-card reveal">
+        <img class="com-img" src="img/Legacy1892A.jpg" alt="Legacy 1892 Coffee community cafe" loading="lazy">
+        <div class="com-body">
+          <span class="com-tag coffee">☕ Community Café</span>
+          <h3>Legacy 1892 Coffee</h3>
+          <p>Great conversations about faith, life, purpose, and the future begin over a great cup of coffee. Legacy 1892 is more than a café — it is a community gathering place where people from all walks of life find warmth, belonging, and meaningful connection.</p>
+          <p style="font-size:.85rem;color:var(--text-mid);line-height:1.72;margin-bottom:1rem">Whether you are exploring questions of faith for the first time, looking for a quiet place to reflect, or simply seeking good company and an excellent brew, you are welcome here. Every cup carries meaning.</p>
+          <ul class="com-list">
+            <li>Specialty coffee &amp; a welcoming atmosphere</li>
+            <li>Regular faith conversations &amp; community events</li>
+            <li>A third place for digital-age seekers</li>
+            <li>Partner venue for AppChurch gatherings</li>
+          </ul>
+          <a href="https://legacy1892.coffee" target="_blank" rel="noopener" class="btn btn-g">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
+            Visit Legacy 1892 Coffee
+          </a>
+        </div>
+      </div>
+      <!-- MCI Screening -->
+      <div class="com-card reveal">
+        <img class="com-img" src="img/MCI-AppChurch.jpg" alt="AppChurch MCI cognitive health screening" loading="lazy">
+        <div class="com-body">
+          <span class="com-tag health">🧠 Low-Cost Health Screening</span>
+          <h3>MCI Cognitive Screening</h3>
+          <p>AppChurch partners with healthcare professionals to offer low-cost <strong>Mild Cognitive Impairment (MCI)</strong> screenings to our community. MCI is an early stage of memory or thinking decline that can precede dementia — and early detection makes all the difference.</p>
+          <p style="font-size:.85rem;color:var(--text-mid);line-height:1.72;margin-bottom:1rem">Our trained screeners conduct brief, non-invasive cognitive assessments and connect participants with appropriate medical resources, follow-up care, and family support. This service is offered at low cost, is completely confidential, and open to the community — because caring for the mind is an expression of loving our neighbor.</p>
+          <ul class="com-list">
+            <li>Low-cost, confidential cognitive health assessment (15–20 min)</li>
+            <li>Screening for memory, attention &amp; reasoning</li>
+            <li>Referrals to neurologists &amp; specialist services</li>
+            <li>Family support &amp; caregiver resources</li>
+            <li>Available at select chapels — no appointment needed</li>
+          </ul>
+          <a href="#contact" class="btn btn-n" style="background:var(--green);border-color:var(--green)">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.91A16 16 0 0 0 12 12l.91-.91a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 13.34v3.58z"/></svg>
+            Inquire About Screening
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GOOD NEWS -->
+<section id="goodnews" aria-labelledby="gn-h">
+  <div class="container">
+    <div class="text-center reveal" style="margin-bottom:1.8rem">
+      <span class="eyebrow">📰 6 Stories · Daily at 9AM EST</span>
+      <h2 class="sec-title" id="gn-h">Good News from Around the World</h2>
+      <p class="sec-sub c">The Holy Spirit is moving — from underground churches to digital revivals. Stay informed with today's top Christian, faith, and religious news from across the globe.</p>
+    </div>
+    <div class="gn-cats reveal">
+      <button class="gn-pill on" data-cat="all">All</button>
+      <button class="gn-pill" data-cat="christian">Christian</button>
+      <button class="gn-pill" data-cat="faith">Faith</button>
+      <button class="gn-pill" data-cat="mission">Mission</button>
+      <button class="gn-pill" data-cat="revival">Revival</button>
+      <button class="gn-pill" data-cat="persecution">Persecution</button>
+      <button class="gn-pill" data-cat="religion">Religion</button>
+    </div>
+    <div id="gn-grid" role="list"></div>
+    <div id="gn-timeline" role="list" aria-label="Previous days' news"></div>
+    <p class="gn-ts" id="gn-ts"></p>
+  </div>
+</section>
+
+<!-- ANNOUNCEMENTS SECTION (hidden by default, shown when active data exists) -->
+<section id="ann" aria-labelledby="ann-h">
+  <div class="container">
+    <div class="text-center reveal" style="margin-bottom:1.8rem">
+      <span class="eyebrow">Latest from AppChurch</span>
+      <h2 class="sec-title" id="ann-h">Announcements &amp; Events</h2>
+    </div>
+    <div id="ann-track" role="list"></div>
+  </div>
+</section>
+
+<!-- SUPPORT -->
+<section id="support" aria-labelledby="sup-h">
+  <div class="container">
+    <div class="text-center reveal" style="margin-bottom:2.2rem">
+      <span class="eyebrow">Partner With Us</span>
+      <div class="divider c"></div>
+      <h2 class="sec-title" id="sup-h">Support <span>AppChurch</span>'s<br><em>Digital &amp; Physical</em> Presence</h2>
+      <p class="sec-sub c">Your generosity keeps our digital church running 24/7 and expands our growing network of physical chapels — where lives are transformed by the gospel.</p>
+    </div>
+    <div class="sup-grid">
+      <div class="sup-card dig reveal">
+        <div class="sup-icon">📱</div>
+        <h3>Digital Church Operations</h3>
+        <p>Keep our 24/7 digital church platform running — live streams, online community, AI-assisted discipleship, and global digital ministry.</p>
+        <div class="goal-list">
+          <div class="goal-item">Live streaming infrastructure &amp; platform</div>
+          <div class="goal-item">AI discipleship &amp; prayer tools</div>
+          <div class="goal-item">Online community &amp; pastoral care</div>
+          <div class="goal-item">Digital evangelism campaigns</div>
+        </div>
+        <a href="#contact" class="btn btn-n btn-full">Give Monthly</a>
+      </div>
+      <div class="sup-card phy reveal">
+        <div class="sup-icon">⛪</div>
+        <h3>Physical Chapel Network</h3>
+        <p>Help us plant and sustain physical chapels worldwide — places of refuge, worship, and transformation for the digital generation.</p>
+        <div class="goal-list">
+          <div class="goal-item">Chapel planting in new cities &amp; regions</div>
+          <div class="goal-item">Pastoral training &amp; support</div>
+          <div class="goal-item">Community outreach programs</div>
+          <div class="goal-item">Chapel facilities &amp; renovation</div>
+        </div>
+        <a href="#contact" class="btn btn-c btn-full">Sponsor a Chapel</a>
+      </div>
+      <div class="sup-card all reveal">
+        <div class="sup-icon">🤝</div>
+        <h3>Community Services</h3>
+        <p>On-the-ground community impact with low-cost cognitive health screenings and a community café that welcomes everyone.</p>
+        <div class="goal-list">
+          <div class="goal-item">Low-cost MCI cognitive health screenings</div>
+          <div class="goal-item">Legacy 1892 Coffee community café</div>
+          <div class="goal-item">Health outreach &amp; specialist referrals</div>
+          <div class="goal-item">Faith conversations &amp; welcoming events</div>
+        </div>
+        <a href="#community" class="btn btn-g btn-full">Support Community</a>
+      </div>
+    </div>
+    <blockquote style="text-align:center;max-width:540px;margin:2.2rem auto 0;padding:1.4rem;border-radius:var(--r-lg);background:var(--bg-w);border:1px solid var(--border);border-top:3px solid var(--gold)">
+      <p style="font-family:var(--ff);font-style:italic;font-size:1rem;color:var(--text);line-height:1.7;margin-bottom:.45rem">"Each of you should give what you have decided in your heart to give, not reluctantly or under compulsion, for God loves a cheerful giver."</p>
+      <cite style="font-size:.6rem;letter-spacing:.1em;color:var(--text-dim);text-transform:uppercase">2 Corinthians 9:7</cite>
+    </blockquote>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery" aria-label="AppChurch community gallery">
+  <div class="container">
+    <div class="gal-grid">
+      <div class="gal-item"><img src="img/MCI-AppChurch.jpg" alt="AppChurch congregation worship" loading="lazy"></div>
+      <div class="gal-item"><img src="img/congregation2.jpg" alt="Community gathering" loading="lazy"></div>
+      <div class="gal-item"><img src="img/congregation3.jpg" alt="AppChurch community" loading="lazy"></div>
+      <div class="gal-item"><img src="img/churchservice1.png" alt="Church service" loading="lazy"></div>
+      <div class="gal-item"><img src="img/futurechurchShanghai1.jpg" alt="AppChurch Shanghai chapel" loading="lazy"></div>
+      <div class="gal-item"><img src="img/legacy1892coffee.jpg" alt="Legacy 1892 Coffee" loading="lazy"></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" aria-labelledby="con-h">
+  <div class="container">
+    <div class="con-grid">
+      <div class="con-info reveal">
+        <span class="eyebrow">Get in Touch</span>
+        <div class="divider"></div>
+        <h2 class="sec-title" id="con-h">Connect With <span>AppChurch</span></h2>
+        <p>Whether you want to partner with us, attend a service, inquire about MCI screening, plant a chapel, or simply say hello — we'd love to hear from you. Every conversation matters.</p>
+        <div class="con-detail">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          <a href="mailto:contact@appchurchglobal.org">contact@appchurchglobal.org</a>
+        </div>
+        <div class="con-detail">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          <span>appchurchglobal.org</span>
+        </div>
+        <div style="margin-top:1.4rem;padding:1.15rem;background:var(--gold-pale);border-radius:var(--r-lg);border-left:3px solid var(--gold)">
+          <p style="font-family:var(--ff);font-style:italic;font-size:.93rem;color:var(--text);line-height:1.72">"For where two or three gather in my name, there am I with them."<br><span style="font-size:.6rem;letter-spacing:.1em;color:var(--text-dim);font-style:normal">— Matthew 18:20</span></p>
+        </div>
+      </div>
+      <div class="con-form reveal">
+        <h3 style="font-family:var(--ff);font-size:1.25rem;font-weight:600;margin-bottom:1.1rem">Send Us a Message</h3>
+        <div id="f-msg" class="f-msg" role="alert" aria-live="polite"></div>
+        <form id="cf" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" novalidate>
+          <input type="hidden" name="_subject" value="New message from AppChurch website">
+          <input type="hidden" name="_replyto" id="f-rp">
+          <div class="f-grid">
+            <div class="f-row">
+              <div class="fg"><label for="fn">Name *</label><input type="text" id="fn" name="name" placeholder="Your name" required autocomplete="name"></div>
+              <div class="fg"><label for="fe">Email *</label><input type="email" id="fe" name="email" placeholder="your@email.com" required autocomplete="email"></div>
+            </div>
+            <div class="fg"><label for="fs">Topic</label>
+              <select id="fs" name="subject">
+                <option value="">Select a topic…</option>
+                <option>Support &amp; Giving</option><option>MCI Screening Inquiry</option>
+                <option>Plant a Chapel</option><option>Digital Church Services</option>
+                <option>Partnership</option><option>Prayer Request</option><option>General Question</option>
+              </select>
+            </div>
+            <div class="fg"><label for="fm">Message *</label><textarea id="fm" name="message" placeholder="How can we serve you?" required></textarea></div>
+            <div class="fg">
+              <label style="display:flex;align-items:flex-start;gap:.45rem;cursor:pointer;font-size:.76rem;color:var(--text-mid);text-transform:none;letter-spacing:0">
+                <input type="checkbox" name="newsletter" value="yes" style="width:auto;margin-top:2px"> Subscribe to AppChurch updates &amp; Good News digest
+              </label>
+            </div>
+            <button type="submit" class="btn btn-g btn-full" id="sbtn">Send Message ✉</button>
+          </div>
+          <p class="f-terms">By submitting you agree to receive email from AppChurch. We respect your privacy and never share your data.</p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer role="contentinfo">
+  <div class="container">
+    <div class="ft-grid">
+      <div class="ft-brand">
+        <div class="ft-logo"><img src="img/appchurch round logo.png" alt="AppChurch"><span>AppChurch</span></div>
+        <p>Where faith meets the future. A global digital church and chapel network proclaiming Jesus Christ in the age of AI, technology, and convergence.</p>
+      </div>
+      <div class="ft-sec"><h4>Ministry</h4><ul class="ft-links"><li><a href="#about">About Us</a></li><li><a href="#ministry">What We Do</a></li><li><a href="#support">Give / Support</a></li><li><a href="#contact">Contact</a></li></ul></div>
+      <div class="ft-sec"><h4>Community</h4><ul class="ft-links"><li><a href="#community">Community Services</a></li><li><a href="#goodnews">Good News</a></li><li><a href="#ann">Events</a></li><li><a href="https://legacy1892.coffee" target="_blank" rel="noopener">Legacy 1892 Coffee</a></li></ul></div>
+      <div class="ft-sec"><h4>Connect</h4><ul class="ft-links"><li><a href="mailto:contact@appchurchglobal.org">Email Us</a></li><li><a href="https://apps.apple.com/us/app/appchurch-pro/id1556255525" target="_blank" rel="noopener">Download App</a></li><li><a href="editor.html" rel="nofollow" style="opacity:.35;font-size:.73rem">Editor</a></li></ul></div>
+    </div>
+    <div class="ft-bot">
+      <p class="ft-copy">© 2020–<span id="yr"></span> AppChurch Global. All rights reserved.</p>
+      <p class="ft-kw" aria-hidden="true">faith · Christian · technology · AI · future · life · meaning · save · purpose · coffee · cafe · robot · digital · internet · convergence · MCI · cognitive health · community · chapel · gospel · Jesus · prayer · worship · mission · revival · salvation · hope</p>
+    </div>
+  </div>
+</footer>
+
+<button id="btt" aria-label="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script>
+// ═══ EMBEDDED DATA (auto-updated by GitHub Actions / editor.html) ═══
+const GOOD_NEWS_DATA = [];
+const ANNOUNCEMENT_DATA = [];
+</script>
+<script>
+// ═══ NAV ═══
+const navEl=document.getElementById('nav'),drw=document.getElementById('drw'),hbg=document.getElementById('hbg'),giveBtn=document.getElementById('nav-give');
+window.addEventListener('scroll',()=>{const s=window.scrollY>60;navEl.classList.toggle('scrolled',s);giveBtn.style.display=s?'inline-flex':'none';document.getElementById('btt').classList.toggle('on',window.scrollY>400)},{passive:true});
+hbg.addEventListener('click',()=>{const o=drw.classList.toggle('open');hbg.classList.toggle('open',o);hbg.setAttribute('aria-expanded',o);drw.setAttribute('aria-hidden',!o)});
+function closeD(){drw.classList.remove('open');hbg.classList.remove('open');hbg.setAttribute('aria-expanded',false);drw.setAttribute('aria-hidden',true)}
+
+// ═══ ANNOUNCEMENTS ═══
+function renderAnn(){
+  const banner=document.getElementById('ann-banner');
+  const sec=document.getElementById('ann');
+  const track=document.getElementById('ann-track');
+  const bannerContent=document.getElementById('ann-banner-content');
+  let d;
+  try{d=JSON.parse(localStorage.getItem('appchurch_announcements'))||[];}catch(e){d=[];}
+  if(!d.length)d=ANNOUNCEMENT_DATA||[];
+  if(!d.length){banner.classList.remove('show');sec.style.display='none';return;}
+  // Banner: show first announcement
+  const first=d[0];
+  bannerContent.innerHTML='<span class="ann-banner-title">'+esc(first.title||'')+'</span>'+(first.body?'<span class="ann-banner-body"> — '+esc(first.body.slice(0,90))+(first.body.length>90?'…':'')+'</span>':'');
+  banner.classList.add('show');
+  // Section: show all
+  sec.style.display='block';
+  track.innerHTML=d.slice(0,8).map(a=>`<div class="ann-card" role="listitem"><div class="ann-date">${a.date?new Date(a.date).toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'}):''}</div><h3>${esc(a.title||'')}</h3><p>${esc(a.body||'')}</p>${a.tag?`<span class="ann-tag">${esc(a.tag)}</span>`:''}</div>`).join('');
+}
+function closeBanner(){document.getElementById('ann-banner').classList.remove('show')}
+
+// ═══ GOOD NEWS ═══
+function renderGN(cat){
+  cat=cat||'all';
+  const g=document.getElementById('gn-grid');
+  const tl=document.getElementById('gn-timeline');
+  let bx;try{bx=JSON.parse(localStorage.getItem('appchurch_news'))||[];}catch(e){bx=[];}
+  if(!bx.length&&GOOD_NEWS_DATA.length)bx=GOOD_NEWS_DATA;
+  if(!bx.length){
+    g.innerHTML='<div class="gn-empty" role="listitem"><p>⛪</p><p>Good News is updated daily at 9AM EST.<br>Check back soon for today\'s updates.</p></div>';
+    if(tl)tl.innerHTML='';
+    document.getElementById('gn-ts').textContent='';
+    return;
+  }
+  // ── Today's news: most recent batch, up to 6 items (3×2 grid) ──
+  const todayAll=(bx[0].items||[]);
+  const todayItems=(cat==='all'?todayAll:todayAll.filter(i=>i.category===cat)).slice(0,6);
+  g.innerHTML=todayItems.length
+    ?todayItems.map(it=>`<article class="gn-card" role="listitem" onclick="window.open('${(it.sourceUrl||'#').replace(/'/g,'%27')}','_blank')" tabindex="0" aria-label="${esc(it.title)}">${it.image?`<img class="gn-card-img" src="${it.image}" alt="${esc(it.title)}" loading="lazy" onerror="this.style.display='none'">`:''}<div class="gn-card-body"><div class="gn-meta"><span class="gn-rank">${it.rank||1}</span><span class="gn-badge ${it.category||'christian'}">${cl(it.category)}</span></div><h3 class="gn-title">${esc(it.title||'')}</h3><p class="gn-sum">${esc(it.summary||'')}</p><div class="gn-src">Source: <a href="${(it.sourceUrl||'#').replace(/'/g,'%27')}" target="_blank" rel="noopener" onclick="event.stopPropagation()">${esc(it.source||'Unknown')}</a></div></div></article>`).join('')
+    :'<div class="gn-empty" role="listitem"><p>⛪</p><p>No stories in this category today.<br>Select "All" to see all news.</p></div>';
+  // ── Historical timeline: previous batches ──
+  if(tl){
+    const hist=bx.slice(1);
+    if(!hist.length){tl.innerHTML='';} else {
+      const rows=hist.map(batch=>{
+        const its=(cat==='all'?batch.items:batch.items.filter(i=>i.category===cat))||[];
+        if(!its.length)return '';
+        const d=new Date(batch.scannedAt);
+        const ds=d.toLocaleDateString('en-US',{weekday:'short',month:'short',day:'numeric',year:'numeric'});
+        return `<div class="gn-tl-day"><div class="gn-tl-date-row"><span class="gn-tl-date-line"></span><span class="gn-tl-date-txt">${ds}</span><span class="gn-tl-date-line"></span></div>`+
+          its.map(it=>`<div class="gn-tl-item" onclick="window.open('${(it.sourceUrl||'#').replace(/'/g,'%27')}','_blank')" tabindex="0"><span class="gn-tl-dot"></span><span class="gn-badge ${it.category||'christian'}">${cl(it.category)}</span><span class="gn-tl-title">${esc(it.title||'')}</span><span class="gn-tl-src">${esc(it.source||'')}</span></div>`).join('')+
+          '</div>';
+      }).filter(Boolean).join('');
+      tl.innerHTML=rows?`<div class="gn-tl-label">— Previous Days —</div>${rows}`:'';
+    }
+  }
+  const l=new Date(bx[0].scannedAt);
+  document.getElementById('gn-ts').textContent='Last updated: '+l.toLocaleString();
+}
+function cl(c){return{christian:'Christian',faith:'Faith',mission:'Mission',revival:'Revival',persecution:'Persecution',religion:'Religion'}[c]||(c||'News')}
+document.querySelectorAll('.gn-pill').forEach(p=>p.addEventListener('click',()=>{document.querySelectorAll('.gn-pill').forEach(x=>x.classList.remove('on'));p.classList.add('on');renderGN(p.dataset.cat)}));
+
+// ═══ CONTACT FORM ═══
+document.getElementById('cf').addEventListener('submit',async function(e){
+  e.preventDefault();
+  const btn=document.getElementById('sbtn'),msg=document.getElementById('f-msg');
+  document.getElementById('f-rp').value=document.getElementById('fe').value;
+  if(!document.getElementById('fn').value.trim()||!document.getElementById('fe').value||!document.getElementById('fm').value.trim()){msg.textContent='Please fill in all required fields.';msg.className='f-msg err';return;}
+  btn.disabled=true;btn.textContent='Sending…';msg.className='f-msg';
+  try{const r=await fetch(this.action,{method:'POST',body:new FormData(this),headers:{Accept:'application/json'}});if(r.ok){msg.textContent='✓ Message sent! We\'ll be in touch soon. God bless you.';msg.className='f-msg ok';this.reset();}else throw new Error();}
+  catch{msg.textContent='Something went wrong. Please email contact@appchurchglobal.org directly.';msg.className='f-msg err';}
+  btn.disabled=false;btn.textContent='Send Message ✉';
+});
+
+// ═══ SCROLL REVEAL ═══
+const obs=new IntersectionObserver(en=>en.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}}),{threshold:.1,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+
+// ═══ UTILS ═══
+function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;')}
+document.getElementById('yr').textContent=new Date().getFullYear();
+
+// ═══ INIT ═══
+renderAnn();renderGN('all');
+</script>
+</body>
+</html>
