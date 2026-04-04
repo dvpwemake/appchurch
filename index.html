@@ -126,7 +126,7 @@ section{padding:4rem 0}
 .orb-3{width:160px;height:160px;background:rgba(184,145,58,.1);top:40%;right:22%;animation-delay:-13s}
 @keyframes orbF{0%,100%{transform:translate(0,0) scale(1)}33%{transform:translate(18px,-25px) scale(1.04)}66%{transform:translate(-14px,18px) scale(.96)}}
 .hero-body{position:relative;z-index:1;padding:0 1.2rem;max-width:1160px;margin:0 auto}
-.hero-badge{display:inline-flex;align-items:center;gap:.45rem;padding:.38rem .85rem;border-radius:100px;background:linear-gradient(135deg,var(--navy-pale),var(--gold-pale));border:1px solid rgba(184,145,58,.25);font-size:.58rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:1.4rem}
+.hero-badge{display:inline-flex;align-items:center;gap:.45rem;padding:.38rem .85rem;border-radius:100px;background:linear-gradient(135deg,var(--navy-pale),var(--gold-pale));border:1px solid rgba(184,145,58,.25);font-size:.58rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:1.4rem;white-space:nowrap}
 .hero-badge .pulse{width:6px;height:6px;border-radius:50%;background:var(--gold);animation:pulse 2s ease-in-out infinite;flex-shrink:0}
 @keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(184,145,58,.4)}50%{box-shadow:0 0 0 7px rgba(184,145,58,0)}}
 .hero-h1{font-family:var(--ff);font-size:clamp(2.1rem,7vw,3.8rem);font-weight:700;line-height:1.1;margin-bottom:1.1rem}
@@ -138,7 +138,7 @@ section{padding:4rem 0}
 .stat-lbl{font-size:.7rem;color:var(--text-dim);font-weight:500;margin-top:.18rem}
 .hero-img{display:none;position:absolute;right:0;top:50%;transform:translateY(-50%);width:52%;max-width:640px;border-radius:var(--r-xl);overflow:hidden;box-shadow:var(--sh-lg);border:3px solid rgba(184,145,58,.2);aspect-ratio:16/9}
 .hero-img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s ease}
-.hero-yt{position:relative;display:block;width:100%;height:100%;cursor:pointer}
+.hero-yt{position:relative;display:block;width:100%;height:100%;cursor:pointer;background:none;border:none;padding:0}
 .hero-yt:hover img{transform:scale(1.03)}
 .hero-yt-play{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,.22);transition:background var(--tr)}
 .hero-yt:hover .hero-yt-play{background:rgba(0,0,0,.35)}
@@ -177,10 +177,10 @@ section{padding:4rem 0}
 /* === COMMUNITY SERVICE === */
 #community{background:var(--bg-w)}
 .com-grid{display:grid;gap:2rem}
-.com-card{border-radius:var(--r-xl);overflow:hidden;box-shadow:var(--sh-md);border:1px solid var(--border);transition:all var(--tr)}
+.com-card{border-radius:var(--r-xl);overflow:hidden;box-shadow:var(--sh-md);border:1px solid var(--border);transition:all var(--tr);display:flex;flex-direction:column}
 .com-card:hover{box-shadow:var(--sh-lg);transform:translateY(-3px);border-color:rgba(184,145,58,.3)}
-.com-img{width:100%;height:240px;object-fit:cover}
-.com-body{padding:1.8rem}
+.com-img{width:100%;height:240px;object-fit:cover;flex-shrink:0}
+.com-body{padding:1.8rem;display:flex;flex-direction:column;flex:1}
 .com-tag{display:inline-block;padding:.22rem .6rem;border-radius:100px;font-size:.58rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:.8rem}
 .com-tag.coffee{background:var(--gold-pale);color:var(--gold)}
 .com-tag.health{background:#EEF7F2;color:var(--green)}
@@ -189,6 +189,7 @@ section{padding:4rem 0}
 .com-list{display:flex;flex-direction:column;gap:.38rem;margin-bottom:1.2rem}
 .com-list li{font-size:.8rem;color:var(--text-mid);padding-left:1rem;position:relative;list-style:none}
 .com-list li::before{content:'—';position:absolute;left:0;color:var(--gold)}
+.com-body>.btn{margin-top:auto}
 @media(min-width:768px){.com-grid{grid-template-columns:1fr 1fr}}
 
 /* === GOOD NEWS === */
@@ -312,7 +313,7 @@ section{padding:4rem 0}
 footer{background:var(--dark);color:rgba(255,255,255,.65);padding:3rem 0 2rem}
 .ft-grid{display:grid;gap:2rem;margin-bottom:2rem}
 .ft-brand .ft-logo{display:flex;align-items:center;gap:.55rem;margin-bottom:.75rem}
-.ft-brand .ft-logo img{height:30px;filter:brightness(0) invert(1)}
+.ft-brand .ft-logo img{height:30px;border-radius:50%}
 .ft-brand .ft-logo span{font-family:var(--ff);font-size:1.05rem;font-weight:700;color:#fff}
 .ft-brand p{font-size:.8rem;line-height:1.7;max-width:275px;color:rgba(255,255,255,.5)}
 .ft-sec h4{font-size:.72rem;font-weight:700;color:var(--gold-lt);letter-spacing:.1em;text-transform:uppercase;margin-bottom:.85rem}
@@ -329,7 +330,13 @@ footer{background:var(--dark);color:rgba(255,255,255,.65);padding:3rem 0 2rem}
 #btt{position:fixed;bottom:1.4rem;right:1.4rem;width:42px;height:42px;border-radius:50%;background:var(--gold);color:#fff;display:flex;align-items:center;justify-content:center;box-shadow:var(--sh-md);opacity:0;pointer-events:none;transition:all var(--tr);z-index:500;font-size:1rem}
 #btt.on{opacity:1;pointer-events:all}
 #btt:hover{background:#9A7A2E;transform:translateY(-2px)}
-::-webkit-scrollbar{width:5px}::-webkit-scrollbar-track{background:var(--bg)}
+/* === YOUTUBE MODAL === */
+#yt-modal{display:none;position:fixed;inset:0;z-index:2000;background:rgba(0,0,0,.88);align-items:center;justify-content:center;padding:1rem}
+#yt-modal .yt-wrap{position:relative;width:100%;max-width:900px;aspect-ratio:16/9;border-radius:var(--r-lg);overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.6)}
+#yt-modal iframe{width:100%;height:100%;border:none;display:block}
+#yt-modal .yt-close{position:absolute;top:-2.4rem;right:0;background:none;border:none;color:#fff;font-size:1.8rem;cursor:pointer;line-height:1;opacity:.7;transition:opacity .2s}
+#yt-modal .yt-close:hover{opacity:1}
+
 ::-webkit-scrollbar-thumb{background:var(--gold);border-radius:3px;opacity:.4}
 </style>
 </head>
@@ -362,7 +369,7 @@ footer{background:var(--dark);color:rgba(255,255,255,.65);padding:3rem 0 2rem}
       <li><a href="#contact">Contact</a></li>
     </ul>
     <div class="nav-acts">
-      <a href="#support" class="btn btn-g" style="display:none;font-size:.8rem;padding:.5rem 1.1rem" id="nav-give">Give</a>
+      <a href="https://www.zeffy.com/en-US/donation-form/donate-to-appchurch" target="_blank" rel="noopener" class="btn btn-g" style="display:none;font-size:.8rem;padding:.5rem 1.1rem" id="nav-give">Give</a>
       <button class="hamburger" id="hbg" aria-label="Toggle menu" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
@@ -378,7 +385,7 @@ footer{background:var(--dark);color:rgba(255,255,255,.65);padding:3rem 0 2rem}
     <li><a href="#support" onclick="closeD()">Support Us</a></li>
     <li><a href="#contact" onclick="closeD()">Contact</a></li>
   </ul>
-  <a href="#support" class="btn btn-g btn-full" onclick="closeD()">Give / Support</a>
+  <a href="https://www.zeffy.com/en-US/donation-form/donate-to-appchurch" target="_blank" rel="noopener" class="btn btn-g btn-full" onclick="closeD()">Give / Support</a>
 </div>
 
 <!-- HERO -->
@@ -404,16 +411,24 @@ footer{background:var(--dark);color:rgba(255,255,255,.65);padding:3rem 0 2rem}
     </div>
   </div>
   <div class="hero-img">
-    <a class="hero-yt" href="https://www.youtube.com/watch?v=daKK6ymaRZE" target="_blank" rel="noopener" aria-label="Watch AppChurch video on YouTube">
-      <img src="https://img.youtube.com/vi/daKK6ymaRZE/maxresdefault.jpg" alt="AppChurch — Watch on YouTube" loading="eager">
+    <button class="hero-yt" id="yt-play-btn" aria-label="Watch AppChurch video">
+      <img src="https://img.youtube.com/vi/daKK6ymaRZE/maxresdefault.jpg" alt="Watch AppChurch on YouTube" loading="eager">
       <div class="hero-yt-play">
         <div class="hero-yt-btn">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
         </div>
       </div>
-    </a>
+    </button>
   </div>
 </section>
+
+<!-- YOUTUBE MODAL -->
+<div id="yt-modal" role="dialog" aria-modal="true" aria-label="AppChurch video">
+  <div class="yt-wrap">
+    <button class="yt-close" id="yt-close-btn" aria-label="Close video">×</button>
+    <iframe id="yt-iframe" src="" allow="autoplay;encrypted-media;picture-in-picture" allowfullscreen title="AppChurch Video"></iframe>
+  </div>
+</div>
 
 <!-- ABOUT -->
 <section id="about" aria-labelledby="about-h">
@@ -601,7 +616,7 @@ footer{background:var(--dark);color:rgba(255,255,255,.65);padding:3rem 0 2rem}
           <div class="goal-item">Online community &amp; pastoral care</div>
           <div class="goal-item">Digital evangelism campaigns</div>
         </div>
-        <a href="#contact" class="btn btn-n btn-full">Give Monthly</a>
+        <a href="https://www.zeffy.com/en-US/donation-form/donate-to-appchurch" target="_blank" rel="noopener" class="btn btn-n btn-full">Give Monthly</a>
       </div>
       <div class="sup-card phy reveal">
         <div class="sup-icon">⛪</div>
@@ -613,7 +628,7 @@ footer{background:var(--dark);color:rgba(255,255,255,.65);padding:3rem 0 2rem}
           <div class="goal-item">Community outreach programs</div>
           <div class="goal-item">Chapel facilities &amp; renovation</div>
         </div>
-        <a href="#contact" class="btn btn-c btn-full">Sponsor a Chapel</a>
+        <a href="https://www.zeffy.com/en-US/donation-form/donate-to-appchurch" target="_blank" rel="noopener" class="btn btn-c btn-full">Sponsor a Chapel</a>
       </div>
       <div class="sup-card all reveal">
         <div class="sup-icon">🤝</div>
@@ -625,7 +640,7 @@ footer{background:var(--dark);color:rgba(255,255,255,.65);padding:3rem 0 2rem}
           <div class="goal-item">Health outreach &amp; specialist referrals</div>
           <div class="goal-item">Faith conversations &amp; welcoming events</div>
         </div>
-        <a href="#community" class="btn btn-g btn-full">Support Community</a>
+        <a href="https://www.zeffy.com/en-US/donation-form/donate-to-appchurch" target="_blank" rel="noopener" class="btn btn-g btn-full">Support Community</a>
       </div>
     </div>
     <blockquote style="text-align:center;max-width:540px;margin:2.2rem auto 0;padding:1.4rem;border-radius:var(--r-lg);background:var(--bg-w);border:1px solid var(--border);border-top:3px solid var(--gold)">
@@ -802,24 +817,74 @@ document.querySelectorAll('.gn-pill').forEach(p=>p.addEventListener('click',()=>
 document.getElementById('cf').addEventListener('submit',async function(e){
   e.preventDefault();
   const btn=document.getElementById('sbtn'),msg=document.getElementById('f-msg');
-  document.getElementById('f-rp').value=document.getElementById('fe').value;
-  if(!document.getElementById('fn').value.trim()||!document.getElementById('fe').value||!document.getElementById('fm').value.trim()){msg.textContent='Please fill in all required fields.';msg.className='f-msg err';return;}
+  const name=document.getElementById('fn').value.trim();
+  const email=document.getElementById('fe').value.trim();
+  const message=document.getElementById('fm').value.trim();
+  document.getElementById('f-rp').value=email;
+  if(!name||!email||!message){msg.textContent='Please fill in all required fields.';msg.className='f-msg err';return;}
+  // If Formspree not yet configured, fall back to mailto
+  if(this.action.includes('YOUR_FORM_ID')){
+    const subject=encodeURIComponent('AppChurch Website Inquiry');
+    const body=encodeURIComponent('Name: '+name+'\nEmail: '+email+'\n\nMessage:\n'+message);
+    window.location.href='mailto:contact@appchurchglobal.org?subject='+subject+'&body='+body;
+    msg.textContent='✓ Opening your email client. Thank you for reaching out!';msg.className='f-msg ok';
+    return;
+  }
   btn.disabled=true;btn.textContent='Sending…';msg.className='f-msg';
-  try{const r=await fetch(this.action,{method:'POST',body:new FormData(this),headers:{Accept:'application/json'}});if(r.ok){msg.textContent='✓ Message sent! We\'ll be in touch soon. God bless you.';msg.className='f-msg ok';this.reset();}else throw new Error();}
-  catch{msg.textContent='Something went wrong. Please email contact@appchurchglobal.org directly.';msg.className='f-msg err';}
+  try{
+    const r=await fetch(this.action,{method:'POST',body:new FormData(this),headers:{Accept:'application/json'}});
+    if(r.ok){msg.textContent='✓ Message sent! We\'ll be in touch soon. God bless you.';msg.className='f-msg ok';this.reset();}
+    else{const d=await r.json().catch(()=>({}));throw new Error(d.error||'Server error');}
+  }catch(err){
+    msg.textContent='Something went wrong. Please email contact@appchurchglobal.org directly.';
+    msg.className='f-msg err';
+    console.error('Form error:',err);
+  }
   btn.disabled=false;btn.textContent='Send Message ✉';
 });
 
 // ═══ SCROLL REVEAL ═══
 const obs=new IntersectionObserver(en=>en.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}}),{threshold:.1,rootMargin:'0px 0px -40px 0px'});
-document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+// ═══ YOUTUBE MODAL ═══
+(function(){
+  var YT_ID = 'daKK6ymaRZE';
+  var modal  = document.getElementById('yt-modal');
+  var iframe = document.getElementById('yt-iframe');
+  var playBtn  = document.getElementById('yt-play-btn');
+  var closeBtn = document.getElementById('yt-close-btn');
+
+  function openYT(){
+    iframe.src = 'https://www.youtube-nocookie.com/embed/' + YT_ID + '?autoplay=1&rel=0&modestbranding=1';
+    modal.style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+    closeBtn.focus();
+  }
+  function closeYT(){
+    modal.style.display = 'none';
+    iframe.src = '';
+    document.body.style.overflow = '';
+    if(playBtn) playBtn.focus();
+  }
+
+  if(playBtn)  playBtn.addEventListener('click', openYT);
+  if(closeBtn) closeBtn.addEventListener('click', closeYT);
+  if(modal)    modal.addEventListener('click', function(e){ if(e.target === modal) closeYT(); });
+  document.addEventListener('keydown', function(e){ if(e.key === 'Escape' && modal.style.display === 'flex') closeYT(); });
+})();
+
+// ═══ YEAR ═══
+document.getElementById('yr').textContent = new Date().getFullYear();
 
 // ═══ UTILS ═══
-function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;')}
-document.getElementById('yr').textContent=new Date().getFullYear();
+function esc(s){
+  return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
 
 // ═══ INIT ═══
-renderAnn();renderGN('all');
+renderAnn();
+renderGN('all');
 </script>
 </body>
 </html>
