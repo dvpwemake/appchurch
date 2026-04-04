@@ -688,7 +688,7 @@ footer{background:var(--dark);color:rgba(255,255,255,.65);padding:3rem 0 2rem}
       <div class="con-form reveal">
         <h3 style="font-family:var(--ff);font-size:1.25rem;font-weight:600;margin-bottom:1.1rem">Send Us a Message</h3>
         <div id="f-msg" class="f-msg" role="alert" aria-live="polite"></div>
-        <form id="cf" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" novalidate>
+        <form id="cf" action="https://formspree.io/f/https://formspree.io/f/mqeggedw" method="POST" novalidate>
           <input type="hidden" name="_subject" value="New message from AppChurch website">
           <input type="hidden" name="_replyto" id="f-rp">
           <div class="f-grid">
@@ -823,7 +823,7 @@ document.getElementById('cf').addEventListener('submit',async function(e){
   document.getElementById('f-rp').value=email;
   if(!name||!email||!message){msg.textContent='Please fill in all required fields.';msg.className='f-msg err';return;}
   // If Formspree not yet configured, fall back to mailto
-  if(this.action.includes('YOUR_FORM_ID')){
+  if(this.action.includes('https://formspree.io/f/mqeggedw')){
     const subject=encodeURIComponent('AppChurch Website Inquiry');
     const body=encodeURIComponent('Name: '+name+'\nEmail: '+email+'\n\nMessage:\n'+message);
     window.location.href='mailto:contact@appchurchglobal.org?subject='+subject+'&body='+body;
