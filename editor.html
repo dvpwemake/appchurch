@@ -826,10 +826,9 @@ async function ghApi(path, method='GET', body=null){
   return { ok: res.ok, status: res.status, data };
 }
 
-// Get file SHA for updates
 async function getFileSha(path){
   const c = ghCreds();
-  const r = await ghApi(`repos/${c.repo}/contents/${path}?ref=${c.branch||'main'}`);
+  const r = await ghApi(`repos/${c.repo}/contents/${path}?ref=${c.branch||'main'}&t=${Date.now()}`);
   return r.ok ? r.data.sha : null;
 }
 
@@ -1182,7 +1181,7 @@ async function saveAnnToGithub(){
   const c = ghCreds();
   if(!c.repo||!c.token){ alert('Configure GitHub credentials first.'); return; }
   // Patch ANNOUNCEMENT_DATA in index.html
-  const r = await ghApi(`repos/${c.repo}/contents/index.html?ref=${c.branch||'main'}`);
+  const r = await ghApi(`repos/${c.repo}/contents/index.html?ref=${c.branch||'main'}&t=${Date.now()}`);
   if(!r.ok){ alert('✗ Could not fetch index.html: '+(r.data?.message||'')); return; }
   let html = decodeURIComponent(escape(atob(r.data.content.replace(/\n/g,''))));
   const annJson = JSON.stringify(ANNS, null, 0);
