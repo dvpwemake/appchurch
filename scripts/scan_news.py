@@ -101,9 +101,13 @@ def parse_rss(content, source_name, source_category):
     ATOM = 'http://www.w3.org/2005/Atom'
     DC   = 'http://purl.org/dc/elements/1.1/'
     CONT = 'http://purl.org/rss/1.0/modules/content/'
+    MEDIA = 'http://search.yahoo.com/mrss/'
 
     def txt(el):
         return strip_tags(el.text) if el is not None and el.text else ''
+
+    def txt_raw(el):
+        return el.text if el is not None and el.text else ''
 
     def find_any(parent, *tags):
         for tag in tags:
@@ -112,15 +116,37 @@ def parse_rss(content, source_name, source_category):
                 return strip_tags(el.text)
         return ''
 
+    def find_any_raw(parent, *tags):
+        for tag in tags:
+            el = parent.find(tag)
+            if el is not None and el.text:
+                return el.text
+        return ''
+
+    def get_image(item, raw_desc):
+        for tag in [f'{{{MEDIA}}}content', f'{{{MEDIA}}}thumbnail']:
+            el = item.find(tag)
+            if el is not None and el.get('url'):
+                return el.get('url')
+        encl = item.find('enclosure')
+        if encl is not None and encl.get('type', '').startswith('image/') and encl.get('url'):
+            return encl.get('url')
+        if raw_desc:
+            m = re.search(r'<img[^>]+src=["\'](https?://[^"\']+)["\']', raw_desc, re.IGNORECASE)
+            if m: return m.group(1)
+        return ''
+
     # RSS 2.0
     for item in root.iter('item'):
         title  = txt(item.find('title'))
         link   = txt(item.find('link')) or txt(item.find('guid'))
-        desc   = find_any(item,'description','summary',f'{{{CONT}}}encoded')
+        raw_desc = find_any_raw(item,'description',f'{{{CONT}}}encoded')
+        desc   = strip_tags(raw_desc) or find_any(item,'summary')
         dt     = parse_date(txt(item.find('pubDate')) or txt(item.find(f'{{{DC}}}date')))
+        image  = get_image(item, raw_desc)
         if title and link:
             items.append({'title':title[:200],'summary':desc[:350],'link':link,
-                          'dt':dt,'source':source_name,'category':source_category})
+                          'dt':dt,'source':source_name,'category':source_category, 'image': image})
 
     # Atom
     if not items:
@@ -131,11 +157,13 @@ def parse_rss(content, source_name, source_category):
             pub_el   = entry.find(f'{{{ATOM}}}published') or entry.find(f'{{{ATOM}}}updated')
             title = txt(title_el)
             link  = link_el.get('href','') if link_el is not None else ''
-            desc  = txt(sum_el)[:350]
+            raw_desc = txt_raw(sum_el)
+            desc  = strip_tags(raw_desc)[:350]
             dt    = parse_date(txt(pub_el))
+            image = get_image(entry, raw_desc)
             if title and link:
                 items.append({'title':title[:200],'summary':desc,'link':link,
-                              'dt':dt,'source':source_name,'category':source_category})
+                              'dt':dt,'source':source_name,'category':source_category, 'image': image})
     return items
 
 def score_item(item, config, now):
@@ -252,13 +280,16 @@ def main():
         print('\n⚠  WARNING: No stories found at all. Keeping existing data.')
         return
 
-    output = [
-        {'rank': i+1, 'title': s['title'],
-         'summary': s['summary'][:240].rstrip() + ('…' if len(s['summary']) > 240 else ''),
-         'source': s['source'], 'sourceUrl': s['link'],
-         'category': s['category'], 'image': ''}
-        for i, s in enumerate(selected)
-    ]
+    fallback_imgs = ['img/hero2.jpg', 'img/hero3.jpg', 'img/hero4.jpg', 'img/hero5.jpg', 'img/hero6.jpg', 'img/congregation1.jpg']
+    output = []
+    for i, s in enumerate(selected):
+        img_url = s.get('image') or fallback_imgs[i % len(fallback_imgs)]
+        output.append({
+            'rank': i+1, 'title': s['title'],
+            'summary': s['summary'][:240].rstrip() + ('…' if len(s['summary']) > 240 else ''),
+            'source': s['source'], 'sourceUrl': s['link'],
+            'category': s['category'], 'image': img_url
+        })
 
     batch = {'scannedAt': now.isoformat(), 'scanDate': TODAY, 'items': output}
 
