@@ -1,0 +1,1226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AppChurch Editor</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Fraunces:ital,wght@0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#1A2B5A;--navy-dk:#0F1C40;--navy-lt:#2E4282;--navy-pale:#EEF1FA;
+  --crimson:#8B1A28;--gold:#B8913A;--gold-lt:#D4AD62;--gold-pale:#FBF6EC;
+  --green:#1A6E4A;--green-lt:#22915e;
+  --bg:#F4F5F8;--bg-w:#FFFFFF;
+  --text:#1A1E2E;--text-mid:#454D6A;--text-dim:#8892B0;
+  --border:#E2E2D8;--border-md:#CBD0DC;
+  --r:10px;--r-lg:16px;
+  --fs:'Plus Jakarta Sans',system-ui,sans-serif;
+  --fm:'JetBrains Mono',monospace;
+  --tr:.2s ease;
+  --sh:0 2px 12px rgba(26,43,90,.09);
+  --sh-lg:0 8px 32px rgba(26,43,90,.13);
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:var(--fs);font-size:14px;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:var(--navy);text-decoration:none}
+button{cursor:pointer;font-family:var(--fs);border:none;background:none}
+input,textarea,select{font-family:var(--fs);font-size:13px;color:var(--text)}
+:focus-visible{outline:2px solid var(--gold);outline-offset:2px;border-radius:4px}
+
+/* ── Auth Gate ── */
+#auth-gate{position:fixed;inset:0;background:linear-gradient(135deg,var(--navy-dk),var(--navy),#1a2b5a);display:flex;align-items:center;justify-content:center;z-index:9999;transition:opacity .3s}
+#auth-gate.hidden{opacity:0;pointer-events:none}
+.auth-box{background:#fff;border-radius:var(--r-lg);padding:2.5rem 2.2rem;width:360px;box-shadow:var(--sh-lg);text-align:center}
+.auth-logo{font-size:2rem;margin-bottom:.3rem}
+.auth-box h2{font-family:'Fraunces',Georgia,serif;font-size:1.4rem;color:var(--navy);margin-bottom:.25rem}
+.auth-box p{color:var(--text-dim);font-size:.82rem;margin-bottom:1.5rem}
+.auth-input{width:100%;padding:.7rem 1rem;border:1.5px solid var(--border-md);border-radius:var(--r);font-size:.95rem;text-align:center;letter-spacing:.15em;margin-bottom:.9rem;transition:border-color var(--tr)}
+.auth-input:focus{border-color:var(--gold);outline:none}
+.auth-btn{width:100%;padding:.72rem;background:var(--navy);color:#fff;border-radius:var(--r);font-size:.9rem;font-weight:600;transition:background var(--tr)}
+.auth-btn:hover{background:var(--navy-dk)}
+.auth-err{color:var(--crimson);font-size:.8rem;margin-top:.5rem;min-height:1.2em}
+.auth-hint{font-size:.72rem;color:var(--text-dim);margin-top:.9rem}
+
+/* ── Layout ── */
+#app{display:none}
+#app.visible{display:flex;flex-direction:column;min-height:100vh}
+.topbar{background:linear-gradient(90deg,var(--navy-dk),var(--navy));color:#fff;padding:.7rem 1.5rem;display:flex;align-items:center;justify-content:space-between;box-shadow:var(--sh)}
+.topbar-brand{display:flex;align-items:center;gap:.6rem;font-weight:700;font-size:1rem}
+.topbar-brand span{font-family:'Fraunces',serif;font-size:1.1rem}
+.topbar-right{display:flex;align-items:center;gap:.75rem}
+.tb-site{font-size:.78rem;color:rgba(255,255,255,.65);background:rgba(255,255,255,.08);padding:.3rem .75rem;border-radius:100px;border:1px solid rgba(255,255,255,.12)}
+.tb-site a{color:rgba(255,255,255,.85);text-decoration:underline;text-underline-offset:2px}
+.tb-logout{font-size:.78rem;color:rgba(255,255,255,.55);padding:.28rem .7rem;border-radius:100px;border:1px solid rgba(255,255,255,.12);transition:all var(--tr)}
+.tb-logout:hover{color:#fff;border-color:rgba(255,255,255,.3)}
+
+.main-layout{display:grid;grid-template-columns:220px 1fr;flex:1}
+.sidebar{background:#fff;border-right:1px solid var(--border);padding:1.2rem .75rem;display:flex;flex-direction:column;gap:.25rem}
+.sidebar-section{font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--text-dim);font-weight:700;padding:.6rem .6rem .25rem;margin-top:.5rem}
+.sidebar-section:first-child{margin-top:0}
+.nav-item{display:flex;align-items:center;gap:.55rem;padding:.52rem .8rem;border-radius:8px;font-size:.84rem;font-weight:500;color:var(--text-mid);transition:all var(--tr);cursor:pointer;user-select:none}
+.nav-item:hover{background:var(--navy-pale);color:var(--navy)}
+.nav-item.active{background:var(--navy-pale);color:var(--navy);font-weight:600}
+.nav-item .ni-icon{font-size:1rem;width:20px;text-align:center;flex-shrink:0}
+.nav-item .ni-badge{margin-left:auto;font-size:.62rem;background:var(--gold);color:#fff;padding:.1rem .42rem;border-radius:100px;font-weight:700}
+
+.content{padding:1.5rem;overflow-y:auto;flex:1}
+.panel{display:none}
+.panel.active{display:block}
+.panel-title{font-family:'Fraunces',serif;font-size:1.35rem;color:var(--navy);margin-bottom:.25rem}
+.panel-sub{font-size:.83rem;color:var(--text-mid);margin-bottom:1.5rem}
+
+/* ── Cards ── */
+.card{background:#fff;border-radius:var(--r-lg);box-shadow:var(--sh);border:1px solid var(--border);padding:1.25rem 1.4rem;margin-bottom:1rem}
+.card-title{font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--text-dim);margin-bottom:.9rem;display:flex;align-items:center;gap:.5rem}
+.card-title .ct-badge{background:var(--navy-pale);color:var(--navy);padding:.12rem .5rem;border-radius:4px;font-size:.68rem}
+
+/* ── GitHub Panel ── */
+.gh-panel{background:linear-gradient(135deg,#f6f8ff,var(--navy-pale));border:1px solid rgba(26,43,90,.12);border-radius:var(--r-lg);padding:1.1rem 1.3rem;margin-bottom:1.2rem}
+.gh-panel-title{font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--navy);margin-bottom:.8rem;display:flex;align-items:center;gap:.5rem}
+.gh-fields{display:grid;grid-template-columns:1fr 1fr auto;gap:.6rem;align-items:end}
+.gh-field label{display:block;font-size:.72rem;font-weight:600;color:var(--text-mid);margin-bottom:.25rem}
+.gh-input{width:100%;padding:.52rem .75rem;border:1.5px solid var(--border-md);border-radius:8px;font-size:.82rem;background:#fff;transition:border-color var(--tr)}
+.gh-input:focus{border-color:var(--gold);outline:none}
+.gh-status{margin-top:.7rem;font-size:.78rem;min-height:1.3em;padding:.35rem .75rem;border-radius:6px;display:none}
+.gh-status.ok{display:block;background:#ecfdf5;color:#166534;border:1px solid #bbf7d0}
+.gh-status.err{display:block;background:#fef2f2;color:#991b1b;border:1px solid #fecaca}
+.gh-status.info{display:block;background:var(--navy-pale);color:var(--navy);border:1px solid rgba(26,43,90,.15)}
+
+/* ── Buttons ── */
+.btn{display:inline-flex;align-items:center;gap:.4rem;padding:.52rem 1.1rem;border-radius:8px;font-size:.82rem;font-weight:600;transition:all var(--tr);white-space:nowrap;border:1.5px solid transparent}
+.btn-primary{background:var(--navy);color:#fff;border-color:var(--navy)}
+.btn-primary:hover{background:var(--navy-dk)}
+.btn-primary:disabled{opacity:.5;cursor:not-allowed}
+.btn-gold{background:var(--gold);color:#fff;border-color:var(--gold)}
+.btn-gold:hover{background:#9A7A2E}
+.btn-gold:disabled{opacity:.5;cursor:not-allowed}
+.btn-green{background:var(--green);color:#fff;border-color:var(--green)}
+.btn-green:hover{background:var(--green-lt)}
+.btn-green:disabled{opacity:.5;cursor:not-allowed}
+.btn-ghost{background:transparent;color:var(--text-mid);border-color:var(--border-md)}
+.btn-ghost:hover{background:var(--bg);color:var(--navy)}
+.btn-danger{background:transparent;color:var(--crimson);border-color:var(--crimson)}
+.btn-danger:hover{background:#fef2f2}
+.btn-sm{padding:.3rem .7rem;font-size:.76rem}
+.btn-icon{padding:.38rem .55rem}
+
+/* ── Sources Table ── */
+.src-toolbar{display:flex;align-items:center;justify-content:space-between;margin-bottom:.9rem;gap:.7rem;flex-wrap:wrap}
+.src-search{flex:1;min-width:180px;padding:.5rem .85rem;border:1.5px solid var(--border-md);border-radius:8px;font-size:.82rem;transition:border-color var(--tr)}
+.src-search:focus{border-color:var(--gold);outline:none}
+.src-table-wrap{overflow-x:auto;border-radius:var(--r);border:1px solid var(--border)}
+table{width:100%;border-collapse:collapse;font-size:.82rem}
+thead th{background:var(--bg);padding:.6rem .85rem;text-align:left;font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--text-dim);border-bottom:1px solid var(--border);white-space:nowrap}
+tbody tr{border-bottom:1px solid var(--border);transition:background var(--tr)}
+tbody tr:last-child{border-bottom:none}
+tbody tr:hover{background:#fafafa}
+tbody td{padding:.6rem .85rem;vertical-align:middle}
+.td-url{max-width:220px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-family:var(--fm);font-size:.74rem;color:var(--text-mid)}
+.td-name{font-weight:600;color:var(--text)}
+.cat-badge{display:inline-block;font-size:.65rem;padding:.1rem .45rem;border-radius:4px;font-weight:700;text-transform:uppercase;letter-spacing:.05em}
+.cat-christian{background:#EEF1FA;color:#1A2B5A}
+.cat-faith{background:#f0fdf4;color:#166534}
+.cat-mission{background:#fffbeb;color:#92400e}
+.cat-revival{background:#fdf4ff;color:#6b21a8}
+.cat-persecution{background:#fef2f2;color:#991b1b}
+.cat-religion{background:#f0f9ff;color:#0369a1}
+.toggle-switch{position:relative;width:36px;height:20px;flex-shrink:0}
+.toggle-switch input{opacity:0;width:0;height:0;position:absolute}
+.toggle-track{position:absolute;inset:0;border-radius:100px;background:var(--border-md);cursor:pointer;transition:background var(--tr)}
+.toggle-track::before{content:'';position:absolute;left:3px;top:3px;width:14px;height:14px;border-radius:50%;background:#fff;box-shadow:0 1px 3px rgba(0,0,0,.2);transition:transform var(--tr)}
+.toggle-switch input:checked+.toggle-track{background:var(--green)}
+.toggle-switch input:checked+.toggle-track::before{transform:translateX(16px)}
+.row-actions{display:flex;align-items:center;gap:.3rem}
+
+/* ── Source Editor Modal ── */
+.modal-overlay{position:fixed;inset:0;background:rgba(15,28,64,.55);z-index:1000;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .2s;backdrop-filter:blur(4px)}
+.modal-overlay.open{opacity:1;pointer-events:all}
+.modal{background:#fff;border-radius:var(--r-lg);width:520px;max-width:95vw;box-shadow:var(--sh-lg);padding:1.8rem 2rem}
+.modal-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:1.3rem}
+.modal-title{font-family:'Fraunces',serif;font-size:1.15rem;color:var(--navy)}
+.modal-close{font-size:1.4rem;color:var(--text-dim);padding:.2rem .4rem;border-radius:4px;transition:color var(--tr);line-height:1}
+.modal-close:hover{color:var(--text)}
+.form-row{margin-bottom:.85rem}
+.form-row label{display:block;font-size:.75rem;font-weight:600;color:var(--text-mid);margin-bottom:.3rem}
+.form-input{width:100%;padding:.58rem .85rem;border:1.5px solid var(--border-md);border-radius:8px;font-size:.85rem;transition:border-color var(--tr)}
+.form-input:focus{border-color:var(--gold);outline:none}
+.form-select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23888' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right .75rem center;padding-right:2.2rem}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:.85rem}
+.modal-footer{display:flex;justify-content:flex-end;gap:.6rem;margin-top:1.4rem;padding-top:1rem;border-top:1px solid var(--border)}
+
+/* ── Config Panel ── */
+.config-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.tag-input-wrap{border:1.5px solid var(--border-md);border-radius:8px;padding:.5rem;min-height:80px;display:flex;flex-wrap:wrap;gap:.35rem;align-items:flex-start;cursor:text;transition:border-color var(--tr)}
+.tag-input-wrap:focus-within{border-color:var(--gold)}
+.tag{display:inline-flex;align-items:center;gap:.3rem;padding:.15rem .55rem;border-radius:100px;font-size:.76rem;font-weight:600;background:var(--navy-pale);color:var(--navy)}
+.tag-exclude{background:#fef2f2;color:var(--crimson)}
+.tag-x{opacity:.55;cursor:pointer;font-size:.85rem;line-height:1;transition:opacity var(--tr)}
+.tag-x:hover{opacity:1}
+.tag-input{border:none;outline:none;font-size:.82rem;min-width:120px;padding:.15rem .3rem;flex:1;background:transparent}
+.range-row{display:flex;align-items:center;gap:.85rem}
+.range-row input[type=range]{flex:1;accent-color:var(--gold)}
+.range-val{min-width:3ch;font-weight:700;color:var(--navy);font-size:.9rem}
+
+/* ── Scan / Preview Panel ── */
+.scan-actions{display:flex;gap:.75rem;flex-wrap:wrap;margin-bottom:1.2rem;align-items:center}
+.scan-log{background:var(--navy-dk);color:#a8b8d8;font-family:var(--fm);font-size:.78rem;border-radius:var(--r);padding:1rem 1.2rem;min-height:120px;max-height:260px;overflow-y:auto;white-space:pre-wrap;line-height:1.7;margin-bottom:1rem}
+.scan-log .log-ok{color:#86efac}
+.scan-log .log-err{color:#fca5a5}
+.scan-log .log-warn{color:#fde68a}
+.news-preview-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:.85rem;margin-top:.75rem}
+.np-card{background:#fff;border:1px solid var(--border);border-radius:var(--r);padding:.9rem 1rem;transition:box-shadow var(--tr)}
+.np-card:hover{box-shadow:var(--sh)}
+.np-rank{display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:50%;background:var(--navy);color:#fff;font-size:.72rem;font-weight:700;margin-bottom:.5rem}
+.np-title{font-weight:600;font-size:.84rem;color:var(--text);margin-bottom:.4rem;line-height:1.4}
+.np-sum{font-size:.77rem;color:var(--text-mid);line-height:1.55;margin-bottom:.5rem;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.np-meta{display:flex;align-items:center;gap:.5rem;font-size:.72rem;color:var(--text-dim)}
+.np-meta a{color:var(--navy);text-decoration:underline;text-underline-offset:2px}
+
+/* ── Announcements Panel ── */
+.ann-list{display:flex;flex-direction:column;gap:.7rem;margin-bottom:1rem}
+.ann-item{background:#fff;border:1px solid var(--border);border-radius:var(--r);padding:.85rem 1rem;display:flex;align-items:flex-start;gap:.85rem}
+.ann-item-body{flex:1}
+.ann-item-title{font-weight:600;font-size:.86rem;margin-bottom:.2rem}
+.ann-item-date{font-size:.74rem;color:var(--text-dim);margin-bottom:.3rem}
+.ann-item-body p{font-size:.82rem;color:var(--text-mid)}
+.ann-tag-pill{font-size:.65rem;padding:.1rem .45rem;background:var(--gold-pale);color:var(--gold);border-radius:4px;font-weight:600}
+.ann-empty{padding:2rem;text-align:center;color:var(--text-dim);font-size:.85rem}
+
+/* ── Password change ── */
+.pw-change-row{display:flex;gap:.6rem;align-items:center;flex-wrap:wrap}
+
+/* ── Utilities ── */
+.flex{display:flex}.gap-sm{gap:.5rem}.gap-md{gap:.85rem}.ai-c{align-items:center}.jb{justify-content:space-between}
+.mt-sm{margin-top:.5rem}.mt-md{margin-top:1rem}
+.text-dim{color:var(--text-dim)}.text-sm{font-size:.78rem}
+.badge-count{display:inline-block;padding:.08rem .4rem;border-radius:4px;font-size:.68rem;font-weight:700;background:var(--gold-pale);color:var(--gold)}
+.divider{height:1px;background:var(--border);margin:1rem 0}
+.spinner{display:inline-block;width:14px;height:14px;border:2px solid rgba(255,255,255,.3);border-top-color:#fff;border-radius:50%;animation:spin .6s linear infinite;flex-shrink:0}
+@keyframes spin{to{transform:rotate(360deg)}}
+.tip{font-size:.74rem;color:var(--text-dim);margin-top:.35rem;line-height:1.5}
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar{width:6px;height:6px}
+::-webkit-scrollbar-track{background:transparent}
+::-webkit-scrollbar-thumb{background:var(--border-md);border-radius:3px}
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     AUTH GATE
+═══════════════════════════════════════════════════════════════ -->
+<div id="auth-gate">
+  <div class="auth-box">
+    <div class="auth-logo">✝</div>
+    <h2>AppChurch Editor</h2>
+    <p>Enter your editor password to continue</p>
+    <input id="pw-input" type="password" class="auth-input" placeholder="Password" autocomplete="current-password">
+    <button class="auth-btn" onclick="doLogin()">Enter Editor</button>
+    <div id="auth-err" class="auth-err"></div>
+    <div class="auth-hint">Default: <code>appchurch2024</code> — change in Settings</div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     MAIN APP
+═══════════════════════════════════════════════════════════════ -->
+<div id="app">
+
+  <!-- Top Bar -->
+  <div class="topbar">
+    <div class="topbar-brand">
+      <span>✝</span><span>AppChurch Editor</span>
+      <span style="font-size:.7rem;opacity:.45;font-weight:400;margin-left:.3rem">v2.0</span>
+    </div>
+    <div class="topbar-right">
+      <div class="tb-site">🌐 <a href="https://appchurchglobal.org" target="_blank" rel="noopener">appchurchglobal.org</a></div>
+      <button class="tb-logout" onclick="doLogout()">Lock ⎋</button>
+    </div>
+  </div>
+
+  <div class="main-layout">
+
+    <!-- Sidebar -->
+    <nav class="sidebar">
+      <div class="sidebar-section">Content</div>
+      <div class="nav-item active" onclick="showPanel('sources')" id="nav-sources">
+        <span class="ni-icon">📡</span> News Sources
+        <span class="ni-badge" id="src-count-badge">—</span>
+      </div>
+      <div class="nav-item" onclick="showPanel('config')" id="nav-config">
+        <span class="ni-icon">⚙️</span> Scan Algorithm
+      </div>
+      <div class="nav-item" onclick="showPanel('scan')" id="nav-scan">
+        <span class="ni-icon">🔄</span> Run Scan
+      </div>
+      <div class="nav-item" onclick="showPanel('preview')" id="nav-preview">
+        <span class="ni-icon">👁</span> News Preview
+      </div>
+      <div class="sidebar-section">Site</div>
+      <div class="nav-item" onclick="showPanel('ann')" id="nav-ann">
+        <span class="ni-icon">📢</span> Announcements
+        <span class="ni-badge" id="ann-count-badge" style="display:none">!</span>
+      </div>
+      <div class="sidebar-section">System</div>
+      <div class="nav-item" onclick="showPanel('github')" id="nav-github">
+        <span class="ni-icon">🐙</span> GitHub Settings
+      </div>
+      <div class="nav-item" onclick="showPanel('settings')" id="nav-settings">
+        <span class="ni-icon">🔒</span> Security
+      </div>
+    </nav>
+
+    <!-- Content Area -->
+    <main class="content">
+
+      <!-- ── GitHub mini-panel (shown on most panels) ── -->
+      <div id="gh-quick" class="gh-panel" style="margin-bottom:1.2rem">
+        <div class="gh-panel-title">🐙 GitHub Connection <span id="gh-conn-indicator" style="font-size:.7rem;font-weight:400;text-transform:none;letter-spacing:0;margin-left:.4rem;color:var(--text-dim)">not configured</span></div>
+        <div class="gh-fields">
+          <div class="gh-field">
+            <label>Repository (owner/repo)</label>
+            <input id="gh-repo" class="gh-input" type="text" placeholder="dvpwemake/appchurch" autocomplete="off">
+          </div>
+          <div class="gh-field">
+            <label>Personal Access Token</label>
+            <input id="gh-token" class="gh-input" type="password" placeholder="ghp_…" autocomplete="off">
+          </div>
+          <button class="btn btn-primary btn-sm" onclick="saveGhCreds()" style="white-space:nowrap;flex-shrink:0">Save & Test</button>
+        </div>
+        <div id="gh-status" class="gh-status"></div>
+      </div>
+
+      <!-- ════════════════════════════════════════
+           PANEL: News Sources
+      ════════════════════════════════════════ -->
+      <div class="panel active" id="panel-sources">
+        <div class="panel-title">📡 News Sources</div>
+        <div class="panel-sub">Manage RSS feeds for the Good News crawler. Enable/disable sources, add new ones, or remove outdated feeds. Changes are saved to <code>data/news-sources.json</code> in your GitHub repo.</div>
+
+        <div class="card">
+          <div class="src-toolbar">
+            <input type="text" class="src-search" id="src-search" placeholder="🔍  Filter sources…" oninput="renderSourcesTable()">
+            <div class="flex gap-sm">
+              <button class="btn btn-primary btn-sm" onclick="openAddSource()">+ Add Source</button>
+              <button class="btn btn-gold btn-sm" onclick="saveSourcesJson()" id="btn-save-sources">💾 Save to GitHub</button>
+            </div>
+          </div>
+          <div class="src-table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th style="width:34px">On</th>
+                  <th>Name</th>
+                  <th>RSS URL</th>
+                  <th>Category</th>
+                  <th style="width:90px">Actions</th>
+                </tr>
+              </thead>
+              <tbody id="src-tbody"></tbody>
+            </table>
+          </div>
+          <div class="tip mt-sm" id="src-summary"></div>
+        </div>
+      </div>
+
+      <!-- ════════════════════════════════════════
+           PANEL: Scan Algorithm Config
+      ════════════════════════════════════════ -->
+      <div class="panel" id="panel-config">
+        <div class="panel-title">⚙️ Scan Algorithm</div>
+        <div class="panel-sub">Tune how the scanner selects, ranks, and categorises stories. Settings are saved to <code>data/news-sources.json</code> alongside the source list.</div>
+
+        <div class="config-grid">
+          <!-- Left -->
+          <div>
+            <div class="card">
+              <div class="card-title">📊 Scan Parameters</div>
+              <div class="form-row">
+                <label>Max stories per scan</label>
+                <div class="range-row">
+                  <input type="range" id="cfg-max" min="3" max="12" value="6" oninput="document.getElementById('cfg-max-val').textContent=this.value">
+                  <span class="range-val" id="cfg-max-val">6</span>
+                </div>
+              </div>
+              <div class="form-row">
+                <label>Lookback window (hours)</label>
+                <div class="range-row">
+                  <input type="range" id="cfg-hours" min="6" max="168" step="6" value="48" oninput="document.getElementById('cfg-hours-val').textContent=this.value+'h'">
+                  <span class="range-val" id="cfg-hours-val">48h</span>
+                </div>
+              </div>
+              <div class="form-row">
+                <label>Minimum relevance score</label>
+                <div class="range-row">
+                  <input type="range" id="cfg-minscore" min="0" max="10" value="1" oninput="document.getElementById('cfg-minscore-val').textContent=this.value">
+                  <span class="range-val" id="cfg-minscore-val">1</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card-title">❌ Exclude Keywords <span class="badge-count" id="excl-count">0</span></div>
+              <div class="tag-input-wrap" id="excl-wrap" onclick="document.getElementById('excl-input').focus()">
+                <input id="excl-input" class="tag-input" placeholder="type & press Enter…" onkeydown="handleTagInput(event,'excl')">
+              </div>
+              <div class="tip">Stories containing these words will be excluded regardless of other scores.</div>
+            </div>
+          </div>
+
+          <!-- Right -->
+          <div>
+            <div class="card">
+              <div class="card-title">🔑 Relevance Keywords <span class="badge-count" id="kw-count">0</span></div>
+              <div class="tag-input-wrap" id="kw-wrap" onclick="document.getElementById('kw-input').focus()">
+                <input id="kw-input" class="tag-input" placeholder="type & press Enter…" onkeydown="handleTagInput(event,'kw')">
+              </div>
+              <div class="tip">Each matched keyword adds +2 to a story's relevance score. Recency adds up to +30.</div>
+            </div>
+
+            <div class="card">
+              <div class="card-title">🏷 Category Keywords</div>
+              <div id="cat-kw-container"></div>
+              <div class="tip">When a story's text matches these words, it is assigned that category.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex gap-sm" style="justify-content:flex-end;margin-top:.5rem">
+          <button class="btn btn-ghost" onclick="loadConfigFromStore()">↩ Reset</button>
+          <button class="btn btn-gold" onclick="saveConfigJson()">💾 Save to GitHub</button>
+        </div>
+      </div>
+
+      <!-- ════════════════════════════════════════
+           PANEL: Run Scan
+      ════════════════════════════════════════ -->
+      <div class="panel" id="panel-scan">
+        <div class="panel-title">🔄 Run Scan</div>
+        <div class="panel-sub">Trigger the GitHub Actions workflow to run the RSS scanner immediately. No API key required — uses your configured sources and algorithm.</div>
+
+        <div class="card">
+          <div class="card-title">🚀 Manual Trigger</div>
+          <div class="scan-actions">
+            <button class="btn btn-green" id="btn-trigger" onclick="triggerWorkflow()">
+              ▶ Run Scan Now (workflow_dispatch)
+            </button>
+            <button class="btn btn-ghost btn-sm" onclick="checkWorkflowStatus()">🔍 Check Last Run Status</button>
+          </div>
+          <div id="trigger-status" class="gh-status" style="display:none"></div>
+          <div class="tip">This triggers the <code>scan-news.yml</code> GitHub Actions workflow via <code>workflow_dispatch</code>.<br>
+          The workflow fetches RSS feeds, ranks stories, and updates <code>index.html</code> automatically.<br>
+          GitHub Pages will re-deploy within ~30 seconds after the workflow completes (~2–3 min total).</div>
+        </div>
+
+        <div class="card">
+          <div class="card-title">📋 Workflow Log <span class="badge-count" id="log-run-id"></span></div>
+          <div class="scan-log" id="scan-log">Ready. Configure GitHub credentials above, then click "Run Scan Now".
+
+Scan workflow: .github/workflows/scan-news.yml
+Schedule: Daily at 09:00 EST (14:00 UTC)
+Method: RSS crawler — no API key required</div>
+          <div class="flex gap-sm mt-sm">
+            <button class="btn btn-ghost btn-sm" onclick="document.getElementById('scan-log').textContent=''">Clear</button>
+            <a id="gh-actions-link" href="#" target="_blank" rel="noopener" class="btn btn-ghost btn-sm" style="display:none">Open GitHub Actions ↗</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- ════════════════════════════════════════
+           PANEL: News Preview
+      ════════════════════════════════════════ -->
+      <div class="panel" id="panel-preview">
+        <div class="panel-title">👁 News Preview</div>
+        <div class="panel-sub">Live preview of the current Good News data embedded in the site. This reflects what visitors see right now.</div>
+        <div class="card">
+          <div class="flex ai-c jb" style="margin-bottom:.85rem">
+            <div class="card-title" style="margin:0">Current Stories</div>
+            <div class="text-sm text-dim" id="preview-ts"></div>
+          </div>
+          <div class="news-preview-grid" id="preview-grid">
+            <div class="ann-empty">Loading…</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ════════════════════════════════════════
+           PANEL: Announcements
+      ════════════════════════════════════════ -->
+      <div class="panel" id="panel-ann">
+        <div class="panel-title">📢 Announcements</div>
+        <div class="panel-sub">Manage announcements shown in the top banner and the Announcements section. Saved directly to <code>index.html</code> via GitHub.</div>
+
+        <div class="card">
+          <div class="flex ai-c jb" style="margin-bottom:1rem">
+            <div class="card-title" style="margin:0">Active Announcements <span class="badge-count" id="ann-list-count">0</span></div>
+            <button class="btn btn-primary btn-sm" onclick="openAddAnn()">+ New Announcement</button>
+          </div>
+          <div class="ann-list" id="ann-list">
+            <div class="ann-empty">No announcements. Click "New Announcement" to add one.</div>
+          </div>
+          <div class="flex gap-sm" style="justify-content:flex-end">
+            <button class="btn btn-gold" onclick="saveAnnToGithub()">💾 Save to GitHub</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- ════════════════════════════════════════
+           PANEL: GitHub Settings
+      ════════════════════════════════════════ -->
+      <div class="panel" id="panel-github">
+        <div class="panel-title">🐙 GitHub Settings</div>
+        <div class="panel-sub">Configure your GitHub Personal Access Token and repository. This editor uses the GitHub API to save config files and trigger workflows directly — no server required.</div>
+
+        <div class="card">
+          <div class="card-title">🔑 Credentials</div>
+          <div class="form-row">
+            <label>Repository (owner/repo)</label>
+            <input id="gh-repo2" class="form-input" type="text" placeholder="dvpwemake/appchurch">
+          </div>
+          <div class="form-row">
+            <label>Personal Access Token (PAT)</label>
+            <input id="gh-token2" class="form-input" type="password" placeholder="ghp_xxxxxxxxxxxxxxxxxxxx">
+            <div class="tip">Create at GitHub → Settings → Developer Settings → Personal Access Tokens → Fine-grained tokens.<br>
+            Required scopes: <strong>Contents</strong> (read & write) + <strong>Actions</strong> (read & write)</div>
+          </div>
+          <div class="form-row">
+            <label>Branch</label>
+            <input id="gh-branch" class="form-input" type="text" placeholder="main" value="main">
+          </div>
+          <div class="flex gap-sm mt-md">
+            <button class="btn btn-primary" onclick="saveGhCredsMain()">Save Credentials</button>
+            <button class="btn btn-ghost" onclick="testGhConnection()">🔗 Test Connection</button>
+          </div>
+          <div id="gh-main-status" class="gh-status mt-sm"></div>
+        </div>
+
+        <div class="card">
+          <div class="card-title">⏰ Workflow Schedule</div>
+          <p class="text-sm" style="color:var(--text-mid);line-height:1.7">
+            Current schedule: <strong>Daily at 09:00 AM EST</strong> (14:00 UTC) — set in <code>.github/workflows/scan-news.yml</code><br>
+            Cron: <code>0 14 * * *</code><br><br>
+            To change the schedule, edit the workflow file directly on GitHub or via this editor's file upload.<br>
+            You can also trigger a scan any time using the <strong>Run Scan</strong> panel.
+          </p>
+          <div class="flex gap-sm mt-md">
+            <a id="gh-workflow-link" href="#" target="_blank" rel="noopener" class="btn btn-ghost btn-sm">Open Workflow File ↗</a>
+            <a id="gh-actions-link2" href="#" target="_blank" rel="noopener" class="btn btn-ghost btn-sm">View Run History ↗</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- ════════════════════════════════════════
+           PANEL: Security / Settings
+      ════════════════════════════════════════ -->
+      <div class="panel" id="panel-settings">
+        <div class="panel-title">🔒 Security</div>
+        <div class="panel-sub">Editor access is protected by a local password stored in your browser. This does not affect site visitors.</div>
+
+        <div class="card">
+          <div class="card-title">🔑 Change Editor Password</div>
+          <div class="form-row">
+            <label>Current Password</label>
+            <input id="pw-current" class="form-input" type="password" placeholder="Current password">
+          </div>
+          <div class="form-row">
+            <label>New Password</label>
+            <input id="pw-new" class="form-input" type="password" placeholder="New password (min 6 chars)">
+          </div>
+          <div class="form-row">
+            <label>Confirm New Password</label>
+            <input id="pw-confirm" class="form-input" type="password" placeholder="Repeat new password">
+          </div>
+          <button class="btn btn-primary" onclick="changePassword()">Update Password</button>
+          <div id="pw-status" class="gh-status mt-sm"></div>
+        </div>
+
+        <div class="card">
+          <div class="card-title">🗑 Clear Local Data</div>
+          <p class="text-sm text-dim" style="margin-bottom:.85rem;line-height:1.7">
+            Clear editor credentials and cached data stored in your browser.<br>
+            GitHub token, repository settings, and news data will be removed.<br>
+            <strong>This does not affect the live site.</strong>
+          </p>
+          <button class="btn btn-danger btn-sm" onclick="clearAll()">Clear All Local Data</button>
+        </div>
+      </div>
+
+    </main><!-- /content -->
+  </div><!-- /main-layout -->
+</div><!-- /app -->
+
+<!-- ════════ SOURCE EDITOR MODAL ════════ -->
+<div class="modal-overlay" id="src-modal">
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-src-title">
+    <div class="modal-header">
+      <h2 class="modal-title" id="modal-src-title">Add Source</h2>
+      <button class="modal-close" onclick="closeSrcModal()" aria-label="Close">×</button>
+    </div>
+    <input type="hidden" id="src-edit-idx" value="">
+    <div class="form-row">
+      <label>RSS Feed URL *</label>
+      <input id="src-url" class="form-input" type="url" placeholder="https://example.com/feed.rss">
+    </div>
+    <div class="form-grid">
+      <div class="form-row">
+        <label>Publication Name *</label>
+        <input id="src-name" class="form-input" type="text" placeholder="Christianity Today">
+      </div>
+      <div class="form-row">
+        <label>Default Category</label>
+        <select id="src-cat" class="form-input form-select">
+          <option value="christian">Christian</option>
+          <option value="faith">Faith</option>
+          <option value="mission">Mission</option>
+          <option value="revival">Revival</option>
+          <option value="persecution">Persecution</option>
+          <option value="religion">Religion</option>
+        </select>
+      </div>
+    </div>
+    <div class="form-row">
+      <label>Notes (optional)</label>
+      <input id="src-note" class="form-input" type="text" placeholder="Brief description of this source">
+    </div>
+    <div class="form-row">
+      <label style="display:flex;align-items:center;gap:.6rem;cursor:pointer">
+        <label class="toggle-switch" style="cursor:pointer">
+          <input type="checkbox" id="src-enabled" checked>
+          <span class="toggle-track"></span>
+        </label>
+        Enable this source immediately
+      </label>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-ghost" onclick="closeSrcModal()">Cancel</button>
+      <button class="btn btn-primary" onclick="saveSrcModal()">Save Source</button>
+    </div>
+  </div>
+</div>
+
+<!-- ════════ ANNOUNCEMENT MODAL ════════ -->
+<div class="modal-overlay" id="ann-modal">
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-ann-title">
+    <div class="modal-header">
+      <h2 class="modal-title" id="modal-ann-title">New Announcement</h2>
+      <button class="modal-close" onclick="closeAnnModal()" aria-label="Close">×</button>
+    </div>
+    <input type="hidden" id="ann-edit-idx" value="">
+    <div class="form-row">
+      <label>Title *</label>
+      <input id="ann-title" class="form-input" type="text" placeholder="Easter Service — April 20th">
+    </div>
+    <div class="form-row">
+      <label>Body / Details</label>
+      <textarea id="ann-body" class="form-input" rows="3" placeholder="Join us for our special Easter celebration service…" style="resize:vertical"></textarea>
+    </div>
+    <div class="form-grid">
+      <div class="form-row">
+        <label>Date</label>
+        <input id="ann-date" class="form-input" type="date">
+      </div>
+      <div class="form-row">
+        <label>Tag (optional)</label>
+        <input id="ann-tag" class="form-input" type="text" placeholder="Event / Update / Alert">
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-ghost" onclick="closeAnnModal()">Cancel</button>
+      <button class="btn btn-primary" onclick="saveAnnModal()">Save Announcement</button>
+    </div>
+  </div>
+</div>
+
+<script>
+// ═══════════════════════════════════════════════════════════════════
+//  STATE
+// ═══════════════════════════════════════════════════════════════════
+const LS = {
+  get: k => { try { return JSON.parse(localStorage.getItem('appchurch_ed_'+k)); } catch(e) { return null; } },
+  set: (k,v) => localStorage.setItem('appchurch_ed_'+k, JSON.stringify(v)),
+  del: k => localStorage.removeItem('appchurch_ed_'+k)
+};
+
+let SOURCES  = [];
+let CONFIG   = {};
+let ANNS     = [];
+let KW_TAGS  = [];
+let EXCL_TAGS= [];
+let CAT_KWS  = {};
+
+const DEFAULT_CONFIG = {
+  maxItems: 6, hoursWindow: 48, minKeywordScore: 1,
+  keywords: ['christian','church','faith','jesus','bible','gospel','prayer','mission','revival','persecution','worship','ministry'],
+  excludeKeywords: ['casino','gambling','sex scandal','explicit'],
+  categoryKeywords: {
+    revival:     ['revival','awakening','outpouring','pentecost'],
+    persecution: ['persecution','martyr','jailed','prison','arrested','killed'],
+    mission:     ['mission','missionary','unreached','evangelism'],
+    faith:       ['faith','discipleship','devotion','spiritual growth']
+  }
+};
+const DEFAULT_SOURCES = [
+  {url:'https://www.christianitytoday.com/news/rss.xml',       name:'Christianity Today',   category:'christian',   enabled:true,  note:'Leading evangelical magazine'},
+  {url:'https://www.thegospelcoalition.org/feed/',             name:'The Gospel Coalition',  category:'faith',       enabled:true,  note:'Reformed evangelical perspective'},
+  {url:'https://www.christianpost.com/rss/news.rss',           name:'Christian Post',        category:'christian',   enabled:true,  note:'Daily Christian news'},
+  {url:'https://religionnews.com/feed/',                       name:'Religion News Service', category:'religion',    enabled:true,  note:'Broad religion coverage'},
+  {url:'https://wng.org/feed',                                 name:'World Magazine',        category:'christian',   enabled:true,  note:'News from a Christian worldview'},
+  {url:'https://www.baptistpress.com/feed/',                   name:'Baptist Press',         category:'mission',     enabled:true,  note:'SBC news'},
+  {url:'https://churchleaders.com/feed/',                      name:'Church Leaders',        category:'faith',       enabled:true,  note:'Church leadership'},
+  {url:'https://persecution.org/feed/',                        name:'Intl Christian Concern',category:'persecution', enabled:true,  note:'Global persecution tracker'},
+  {url:'https://www.opendoorsusa.org/feed/',                   name:'Open Doors USA',        category:'persecution', enabled:true,  note:'Persecution & mission'},
+  {url:'https://missionfrontiers.org/feed/',                   name:'Mission Frontiers',     category:'mission',     enabled:true,  note:'Frontier mission focus'},
+  {url:'https://www1.cbn.com/rss-cbn-news-finance-headlines',  name:'CBN News',              category:'christian',   enabled:true,  note:'Christian Broadcasting Network'},
+  {url:'https://www.catholicnewsagency.com/rssfeed/news/en/rss.xml',name:'Catholic News Agency',category:'christian',enabled:true, note:'Catholic worldwide news'},
+];
+
+// ═══════════════════════════════════════════════════════════════════
+//  AUTH
+// ═══════════════════════════════════════════════════════════════════
+function getPassword() { return LS.get('pw') || 'appchurch2024'; }
+
+function doLogin(){
+  const pw = document.getElementById('pw-input').value;
+  if(pw === getPassword()){
+    document.getElementById('auth-gate').classList.add('hidden');
+    document.getElementById('app').classList.add('visible');
+    initApp();
+  } else {
+    document.getElementById('auth-err').textContent = 'Incorrect password. Try again.';
+    document.getElementById('pw-input').value = '';
+    document.getElementById('pw-input').focus();
+  }
+}
+function doLogout(){
+  document.getElementById('auth-gate').classList.remove('hidden');
+  document.getElementById('app').classList.remove('visible');
+  document.getElementById('pw-input').value = '';
+  document.getElementById('auth-err').textContent = '';
+}
+document.getElementById('pw-input').addEventListener('keydown', e => { if(e.key === 'Enter') doLogin(); });
+
+// ═══════════════════════════════════════════════════════════════════
+//  INIT
+// ═══════════════════════════════════════════════════════════════════
+function initApp(){
+  loadGhCredsToUI();
+  loadSourcesFromStore();
+  loadConfigFromStore();
+  loadAnnsFromStore();
+  updateGhLinks();
+  renderPreview();
+  showPanel('sources');
+}
+
+// ═══════════════════════════════════════════════════════════════════
+//  PANEL NAVIGATION
+// ═══════════════════════════════════════════════════════════════════
+function showPanel(id){
+  document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.nav-item').forEach(n=>n.classList.remove('active'));
+  document.getElementById('panel-'+id).classList.add('active');
+  document.getElementById('nav-'+id).classList.add('active');
+  if(id==='preview') renderPreview();
+  if(id==='ann')     renderAnnList();
+  if(id==='github')  syncGhPanels();
+}
+
+// ═══════════════════════════════════════════════════════════════════
+//  GITHUB CREDENTIALS
+// ═══════════════════════════════════════════════════════════════════
+function ghCreds(){
+  return { repo: LS.get('gh_repo')||'', token: LS.get('gh_token')||'', branch: LS.get('gh_branch')||'main' };
+}
+function loadGhCredsToUI(){
+  const c = ghCreds();
+  ['gh-repo','gh-repo2'].forEach(id=>{ const el=document.getElementById(id); if(el) el.value=c.repo; });
+  if(document.getElementById('gh-branch')) document.getElementById('gh-branch').value = c.branch;
+  updateGhIndicator();
+}
+function updateGhIndicator(){
+  const c = ghCreds();
+  const el = document.getElementById('gh-conn-indicator');
+  el.textContent = c.repo && c.token ? '✓ '+c.repo : 'not configured';
+  el.style.color = c.repo && c.token ? 'var(--green)' : 'var(--text-dim)';
+}
+function updateGhLinks(){
+  const c = ghCreds();
+  const base = c.repo ? 'https://github.com/'+c.repo : '#';
+  ['gh-actions-link','gh-actions-link2'].forEach(id=>{
+    const el=document.getElementById(id);
+    if(el){ el.href = base+'/actions'; el.style.display = c.repo?'inline-flex':'none'; }
+  });
+  const wf = document.getElementById('gh-workflow-link');
+  if(wf){ wf.href = base+'/blob/main/.github/workflows/scan-news.yml'; wf.style.display=c.repo?'inline-flex':'none'; }
+}
+function saveGhCreds(){
+  const repo  = document.getElementById('gh-repo').value.trim();
+  const token = document.getElementById('gh-token').value.trim();
+  if(!repo||!token){ showGhStatus('gh-status','Please enter both repo and token.','err'); return; }
+  LS.set('gh_repo', repo);
+  LS.set('gh_token', token);
+  LS.set('gh_branch', LS.get('gh_branch')||'main');
+  updateGhIndicator();
+  updateGhLinks();
+  syncGhPanels();
+  testGhConnection();
+}
+function saveGhCredsMain(){
+  const repo   = document.getElementById('gh-repo2').value.trim();
+  const token  = document.getElementById('gh-token2').value.trim();
+  const branch = document.getElementById('gh-branch').value.trim()||'main';
+  if(!repo||!token){ showGhStatus('gh-main-status','Please fill in repo and token.','err'); return; }
+  LS.set('gh_repo', repo); LS.set('gh_token', token); LS.set('gh_branch', branch);
+  document.getElementById('gh-repo').value  = repo;
+  document.getElementById('gh-token').value = token;
+  updateGhIndicator(); updateGhLinks(); syncGhPanels();
+  showGhStatus('gh-main-status','Saved. Testing connection…','info');
+  testGhConnection('gh-main-status');
+}
+function syncGhPanels(){
+  const c = ghCreds();
+  document.getElementById('gh-repo2').value = c.repo;
+  if(document.getElementById('gh-branch')) document.getElementById('gh-branch').value = c.branch||'main';
+}
+async function testGhConnection(statusId='gh-status'){
+  const c = ghCreds();
+  if(!c.repo||!c.token){ showGhStatus(statusId,'Enter repo and token first.','err'); return; }
+  showGhStatus(statusId,'Testing connection…','info');
+  try{
+    const r = await ghApi(`repos/${c.repo}`);
+    if(r.ok){ showGhStatus(statusId,'✓ Connected to '+r.data.full_name+' ('+r.data.default_branch+')','ok'); }
+    else     { showGhStatus(statusId,'✗ '+( r.data?.message||'Connection failed'),'err'); }
+  }catch(e){ showGhStatus(statusId,'✗ Network error: '+e.message,'err'); }
+}
+function showGhStatus(id,msg,type){
+  const el=document.getElementById(id);
+  if(!el)return;
+  el.textContent=msg; el.className='gh-status '+type;
+  el.style.display='block';
+}
+
+// ═══════════════════════════════════════════════════════════════════
+//  GITHUB API HELPER
+// ═══════════════════════════════════════════════════════════════════
+async function ghApi(path, method='GET', body=null){
+  const c = ghCreds();
+  const opts = {
+    method,
+    headers: {
+      'Authorization': 'Bearer '+c.token,
+      'Accept':        'application/vnd.github+json',
+      'X-GitHub-Api-Version': '2022-11-28',
+      ...(body ? {'Content-Type':'application/json'} : {})
+    },
+    ...(body ? {body: JSON.stringify(body)} : {})
+  };
+  const res = await fetch('https://api.github.com/'+path, opts);
+  const data = await res.json().catch(()=>({}));
+  return { ok: res.ok, status: res.status, data };
+}
+
+// Get file SHA for updates
+async function getFileSha(path){
+  const c = ghCreds();
+  const r = await ghApi(`repos/${c.repo}/contents/${path}?ref=${c.branch||'main'}`);
+  return r.ok ? r.data.sha : null;
+}
+
+// Commit a file (create or update)
+async function ghCommitFile(filePath, content, message){
+  const c = ghCreds();
+  const b64 = btoa(unescape(encodeURIComponent(content)));
+  const sha  = await getFileSha(filePath);
+  const body = { message, content: b64, branch: c.branch||'main', ...(sha?{sha}:{}) };
+  return await ghApi(`repos/${c.repo}/contents/${filePath}`, 'PUT', body);
+}
+
+// ═══════════════════════════════════════════════════════════════════
+//  SOURCES
+// ═══════════════════════════════════════════════════════════════════
+function loadSourcesFromStore(){
+  SOURCES = LS.get('sources') || JSON.parse(JSON.stringify(DEFAULT_SOURCES));
+  renderSourcesTable();
+}
+function renderSourcesTable(){
+  const q = document.getElementById('src-search').value.toLowerCase();
+  const tbody = document.getElementById('src-tbody');
+  const filtered = SOURCES.filter(s =>
+    !q || s.name.toLowerCase().includes(q) || s.url.toLowerCase().includes(q) || (s.category||'').includes(q)
+  );
+  tbody.innerHTML = filtered.length ? filtered.map((s,i)=>{
+    const realIdx = SOURCES.indexOf(s);
+    return `<tr>
+      <td>
+        <label class="toggle-switch">
+          <input type="checkbox" ${s.enabled?'checked':''} onchange="toggleSource(${realIdx},this.checked)">
+          <span class="toggle-track"></span>
+        </label>
+      </td>
+      <td><div class="td-name">${esc(s.name)}</div>${s.note?`<div class="text-sm text-dim" style="margin-top:.15rem">${esc(s.note)}</div>`:''}</td>
+      <td><div class="td-url" title="${esc(s.url)}">${esc(s.url)}</div></td>
+      <td><span class="cat-badge cat-${s.category}">${s.category}</span></td>
+      <td><div class="row-actions">
+        <button class="btn btn-ghost btn-icon btn-sm" onclick="openEditSource(${realIdx})" title="Edit">✏️</button>
+        <button class="btn btn-icon btn-sm" style="color:var(--crimson)" onclick="deleteSource(${realIdx})" title="Delete">🗑</button>
+      </div></td>
+    </tr>`;
+  }).join('') : `<tr><td colspan="5" style="text-align:center;padding:2rem;color:var(--text-dim)">No sources match your filter.</td></tr>`;
+
+  const en  = SOURCES.filter(s=>s.enabled).length;
+  document.getElementById('src-count-badge').textContent = en;
+  document.getElementById('src-summary').textContent = `${en} of ${SOURCES.length} sources enabled`;
+}
+function toggleSource(idx, val){ SOURCES[idx].enabled = val; LS.set('sources',SOURCES); renderSourcesTable(); }
+function deleteSource(idx){
+  if(!confirm(`Delete "${SOURCES[idx].name}"?`)) return;
+  SOURCES.splice(idx,1); LS.set('sources',SOURCES); renderSourcesTable();
+}
+function openAddSource(){
+  document.getElementById('modal-src-title').textContent='Add Source';
+  document.getElementById('src-edit-idx').value='';
+  ['src-url','src-name','src-note'].forEach(id=>document.getElementById(id).value='');
+  document.getElementById('src-cat').value='christian';
+  document.getElementById('src-enabled').checked=true;
+  document.getElementById('src-modal').classList.add('open');
+}
+function openEditSource(idx){
+  const s=SOURCES[idx];
+  document.getElementById('modal-src-title').textContent='Edit Source';
+  document.getElementById('src-edit-idx').value=idx;
+  document.getElementById('src-url').value=s.url;
+  document.getElementById('src-name').value=s.name;
+  document.getElementById('src-cat').value=s.category;
+  document.getElementById('src-note').value=s.note||'';
+  document.getElementById('src-enabled').checked=s.enabled;
+  document.getElementById('src-modal').classList.add('open');
+}
+function closeSrcModal(){ document.getElementById('src-modal').classList.remove('open'); }
+function saveSrcModal(){
+  const url=document.getElementById('src-url').value.trim();
+  const name=document.getElementById('src-name').value.trim();
+  if(!url||!name){ alert('URL and Name are required.'); return; }
+  const obj={ url, name, category:document.getElementById('src-cat').value,
+               note:document.getElementById('src-note').value.trim(),
+               enabled:document.getElementById('src-enabled').checked };
+  const idx=document.getElementById('src-edit-idx').value;
+  if(idx!=='') SOURCES[parseInt(idx)]=obj; else SOURCES.push(obj);
+  LS.set('sources',SOURCES); renderSourcesTable(); closeSrcModal();
+}
+
+async function saveSourcesJson(){
+  const c = ghCreds();
+  if(!c.repo||!c.token){ alert('Configure GitHub credentials first (top of page).'); return; }
+  const btn=document.getElementById('btn-save-sources');
+  btn.disabled=true; btn.textContent='Saving…';
+  const cfg = LS.get('config') || DEFAULT_CONFIG;
+  const payload = JSON.stringify({
+    _comment:'AppChurch Good News Scanner config — edit via editor.html',
+    _version:'2.0',
+    config: cfg,
+    sources: SOURCES
+  }, null, 2);
+  try{
+    const r = await ghCommitFile('data/news-sources.json', payload, 'Update news sources via editor');
+    if(r.ok){ alert('✓ news-sources.json saved to GitHub! Run a scan to apply changes.'); }
+    else     { alert('✗ Error: '+(r.data?.message||'Unknown error')); }
+  }catch(e){ alert('✗ Network error: '+e.message); }
+  btn.disabled=false; btn.textContent='💾 Save to GitHub';
+}
+
+// ═══════════════════════════════════════════════════════════════════
+//  CONFIG / ALGORITHM
+// ═══════════════════════════════════════════════════════════════════
+function loadConfigFromStore(){
+  CONFIG = LS.get('config') || JSON.parse(JSON.stringify(DEFAULT_CONFIG));
+  KW_TAGS   = [...(CONFIG.keywords||[])];
+  EXCL_TAGS = [...(CONFIG.excludeKeywords||[])];
+  CAT_KWS   = JSON.parse(JSON.stringify(CONFIG.categoryKeywords||{}));
+
+  document.getElementById('cfg-max').value = CONFIG.maxItems||6;
+  document.getElementById('cfg-max-val').textContent = CONFIG.maxItems||6;
+  document.getElementById('cfg-hours').value = CONFIG.hoursWindow||48;
+  document.getElementById('cfg-hours-val').textContent = (CONFIG.hoursWindow||48)+'h';
+  document.getElementById('cfg-minscore').value = CONFIG.minKeywordScore||1;
+  document.getElementById('cfg-minscore-val').textContent = CONFIG.minKeywordScore||1;
+
+  renderTagList('kw-wrap','kw-input', KW_TAGS, 'kw');
+  renderTagList('excl-wrap','excl-input', EXCL_TAGS, 'excl');
+  renderCatKwEditor();
+}
+function renderTagList(wrapId, inputId, arr, type){
+  const wrap = document.getElementById(wrapId);
+  const input = document.getElementById(inputId);
+  wrap.querySelectorAll('.tag').forEach(t=>t.remove());
+  arr.forEach((kw,i)=>{
+    const tag = document.createElement('span');
+    tag.className = 'tag'+(type==='excl'?' tag-exclude':'');
+    tag.innerHTML = esc(kw)+' <span class="tag-x" onclick="removeTag(\''+type+'\','+i+')">×</span>';
+    wrap.insertBefore(tag, input);
+  });
+  document.getElementById(type==='kw'?'kw-count':'excl-count').textContent = arr.length;
+}
+function handleTagInput(e, type){
+  if(e.key==='Enter'||e.key===','){
+    e.preventDefault();
+    const val = e.target.value.trim().replace(/,$/,'');
+    if(!val) return;
+    if(type==='kw') KW_TAGS.push(val); else EXCL_TAGS.push(val);
+    e.target.value='';
+    renderTagList(type==='kw'?'kw-wrap':'excl-wrap', e.target.id, type==='kw'?KW_TAGS:EXCL_TAGS, type);
+  }
+}
+function removeTag(type, idx){
+  if(type==='kw') KW_TAGS.splice(idx,1); else EXCL_TAGS.splice(idx,1);
+  renderTagList(type==='kw'?'kw-wrap':'excl-wrap', type==='kw'?'kw-input':'excl-input', type==='kw'?KW_TAGS:EXCL_TAGS, type);
+}
+function renderCatKwEditor(){
+  const cats=['revival','persecution','mission','faith'];
+  const container=document.getElementById('cat-kw-container');
+  container.innerHTML=cats.map(cat=>`
+    <div style="margin-bottom:.75rem">
+      <label style="font-size:.74rem;font-weight:700;text-transform:capitalize;color:var(--text-mid);display:flex;align-items:center;gap:.4rem;margin-bottom:.3rem">
+        <span class="cat-badge cat-${cat}">${cat}</span>
+      </label>
+      <input class="form-input" style="font-size:.8rem" id="cat-kw-${cat}"
+        value="${esc((CAT_KWS[cat]||[]).join(', '))}"
+        placeholder="${cat} keywords, comma-separated">
+    </div>`).join('');
+}
+function readCatKws(){
+  const cats=['revival','persecution','mission','faith'];
+  const out={};
+  cats.forEach(cat=>{
+    const v=document.getElementById('cat-kw-'+cat).value;
+    out[cat]=v.split(',').map(s=>s.trim()).filter(Boolean);
+  });
+  return out;
+}
+
+async function saveConfigJson(){
+  CONFIG = {
+    maxItems: parseInt(document.getElementById('cfg-max').value)||6,
+    hoursWindow: parseInt(document.getElementById('cfg-hours').value)||48,
+    minKeywordScore: parseInt(document.getElementById('cfg-minscore').value)||1,
+    keywords: KW_TAGS,
+    excludeKeywords: EXCL_TAGS,
+    categoryKeywords: readCatKws()
+  };
+  LS.set('config', CONFIG);
+  const c = ghCreds();
+  if(!c.repo||!c.token){ alert('Config saved locally. Configure GitHub to push.'); return; }
+  const payload = JSON.stringify({
+    _comment:'AppChurch Good News Scanner config — edit via editor.html',
+    _version:'2.0',
+    config: CONFIG,
+    sources: SOURCES
+  },null,2);
+  try{
+    const r = await ghCommitFile('data/news-sources.json', payload, 'Update scan algorithm config via editor');
+    if(r.ok) alert('✓ Config saved to GitHub!');
+    else     alert('✗ '+(r.data?.message||'Error'));
+  }catch(e){ alert('✗ '+e.message); }
+}
+
+// ═══════════════════════════════════════════════════════════════════
+//  WORKFLOW TRIGGER
+// ═══════════════════════════════════════════════════════════════════
+async function triggerWorkflow(){
+  const c = ghCreds();
+  if(!c.repo||!c.token){ showGhStatus('trigger-status','Configure GitHub credentials first.','err'); return; }
+  const btn=document.getElementById('btn-trigger');
+  btn.disabled=true;
+  btn.innerHTML='<span class="spinner"></span> Triggering…';
+  log('Sending workflow_dispatch to '+c.repo+' …');
+  try{
+    const r = await ghApi(`repos/${c.repo}/actions/workflows/scan-news.yml/dispatches`,'POST',{ref:c.branch||'main'});
+    if(r.ok||r.status===204){
+      showGhStatus('trigger-status','✓ Scan triggered! GitHub Actions is running. Check status in ~30s.','ok');
+      log('✓ Workflow dispatched successfully.','ok');
+      log('The workflow will:\n  1. Fetch RSS feeds from your configured sources\n  2. Rank and select top '+((LS.get('config')||DEFAULT_CONFIG).maxItems||6)+' stories\n  3. Update index.html\n  4. Deploy to GitHub Pages (~30s after completion)');
+      setTimeout(checkWorkflowStatus, 8000);
+    } else {
+      showGhStatus('trigger-status','✗ Error '+r.status+': '+(r.data?.message||'Failed'),'err');
+      log('✗ Error: '+(r.data?.message||'Unknown'),'err');
+    }
+  }catch(e){
+    showGhStatus('trigger-status','✗ Network error: '+e.message,'err');
+    log('✗ Network error: '+e.message,'err');
+  }
+  btn.disabled=false; btn.innerHTML='▶ Run Scan Now (workflow_dispatch)';
+}
+
+async function checkWorkflowStatus(){
+  const c = ghCreds();
+  if(!c.repo||!c.token){ log('Configure GitHub credentials first.','warn'); return; }
+  log('Checking workflow status…');
+  try{
+    const r = await ghApi(`repos/${c.repo}/actions/workflows/scan-news.yml/runs?per_page=5`);
+    if(!r.ok){ log('✗ Could not fetch run history: '+(r.data?.message||r.status),'err'); return; }
+    const runs = r.data.workflow_runs||[];
+    if(!runs.length){ log('No workflow runs found yet.','warn'); return; }
+    const latest = runs[0];
+    const badge = document.getElementById('log-run-id');
+    badge.textContent = '#'+latest.run_number;
+    const statusIcon = {completed:'✓',in_progress:'⏳',queued:'⏳',failure:'✗',cancelled:'⛔'}[latest.conclusion||latest.status]||'?';
+    const statusColor = {completed:'ok',failure:'err',cancelled:'err'}[latest.conclusion]||(latest.status==='in_progress'?'warn':'');
+    log(`${statusIcon} Run #${latest.run_number} — ${latest.status}${latest.conclusion?' / '+latest.conclusion:''}\n  Started: ${new Date(latest.created_at).toLocaleString()}\n  URL: ${latest.html_url}`, statusColor||'');
+  }catch(e){ log('✗ '+e.message,'err'); }
+}
+
+function log(msg, type=''){
+  const el=document.getElementById('scan-log');
+  const ts=new Date().toLocaleTimeString();
+  const cls=type?` class="log-${type}"`:'';
+  el.innerHTML+=`<span${cls}>[${ts}] ${esc(msg)}</span>\n`;
+  el.scrollTop=el.scrollHeight;
+}
+
+// ═══════════════════════════════════════════════════════════════════
+//  PREVIEW
+// ═══════════════════════════════════════════════════════════════════
+function renderPreview(){
+  const grid=document.getElementById('preview-grid');
+  const tsEl=document.getElementById('preview-ts');
+  // Try to read GOOD_NEWS_DATA from parent frame (if opened from same origin)
+  // Otherwise parse from stored data
+  let batches = [];
+  try{
+    const raw = window.opener?.GOOD_NEWS_DATA || null;
+    if(raw) batches = raw;
+  }catch(e){}
+  if(!batches.length) batches = LS.get('cached_news') || [];
+  if(!batches.length){ grid.innerHTML='<div class="ann-empty">No cached data. Run a scan to populate news stories.<br><br>Or open this editor from the live site to see current data.</div>'; tsEl.textContent=''; return; }
+  const batch=batches[0];
+  const items=batch.items||[];
+  tsEl.textContent='Scanned: '+(batch.scanDate||'unknown');
+  grid.innerHTML=items.map(it=>`
+    <div class="np-card">
+      <div class="np-rank">${it.rank}</div>
+      <div class="np-title">${esc(it.title)}</div>
+      <div class="np-sum">${esc(it.summary)}</div>
+      <div class="np-meta">
+        <span class="cat-badge cat-${it.category}">${it.category}</span>
+        <a href="${esc(it.sourceUrl)}" target="_blank" rel="noopener">${esc(it.source)}</a>
+      </div>
+    </div>`).join('');
+}
+
+// ═══════════════════════════════════════════════════════════════════
+//  ANNOUNCEMENTS
+// ═══════════════════════════════════════════════════════════════════
+function loadAnnsFromStore(){
+  ANNS = LS.get('anns') || [];
+  updateAnnBadge();
+}
+function updateAnnBadge(){
+  const badge=document.getElementById('ann-count-badge');
+  badge.textContent=ANNS.length;
+  badge.style.display=ANNS.length?'inline':'none';
+  document.getElementById('ann-list-count').textContent=ANNS.length;
+}
+function renderAnnList(){
+  const list=document.getElementById('ann-list');
+  if(!ANNS.length){ list.innerHTML='<div class="ann-empty">No announcements. Click "New Announcement" to add one.</div>'; updateAnnBadge(); return; }
+  list.innerHTML=ANNS.map((a,i)=>`
+    <div class="ann-item">
+      <div class="ann-item-body">
+        <div class="flex ai-c gap-sm" style="margin-bottom:.2rem">
+          <div class="ann-item-title">${esc(a.title)}</div>
+          ${a.tag?`<span class="ann-tag-pill">${esc(a.tag)}</span>`:''}
+        </div>
+        ${a.date?`<div class="ann-item-date">${new Date(a.date).toLocaleDateString('en-US',{month:'long',day:'numeric',year:'numeric'})}</div>`:''}
+        ${a.body?`<p>${esc(a.body)}</p>`:''}
+      </div>
+      <div class="flex gap-sm">
+        <button class="btn btn-ghost btn-icon btn-sm" onclick="openEditAnn(${i})" title="Edit">✏️</button>
+        <button class="btn btn-icon btn-sm" style="color:var(--crimson)" onclick="deleteAnn(${i})" title="Delete">🗑</button>
+      </div>
+    </div>`).join('');
+  updateAnnBadge();
+}
+function openAddAnn(){
+  document.getElementById('modal-ann-title').textContent='New Announcement';
+  document.getElementById('ann-edit-idx').value='';
+  ['ann-title','ann-body','ann-tag'].forEach(id=>document.getElementById(id).value='');
+  document.getElementById('ann-date').value=new Date().toISOString().split('T')[0];
+  document.getElementById('ann-modal').classList.add('open');
+}
+function openEditAnn(idx){
+  const a=ANNS[idx];
+  document.getElementById('modal-ann-title').textContent='Edit Announcement';
+  document.getElementById('ann-edit-idx').value=idx;
+  document.getElementById('ann-title').value=a.title||'';
+  document.getElementById('ann-body').value=a.body||'';
+  document.getElementById('ann-date').value=a.date||'';
+  document.getElementById('ann-tag').value=a.tag||'';
+  document.getElementById('ann-modal').classList.add('open');
+}
+function closeAnnModal(){ document.getElementById('ann-modal').classList.remove('open'); }
+function saveAnnModal(){
+  const title=document.getElementById('ann-title').value.trim();
+  if(!title){ alert('Title is required.'); return; }
+  const obj={title, body:document.getElementById('ann-body').value.trim(),
+              date:document.getElementById('ann-date').value,
+              tag:document.getElementById('ann-tag').value.trim()};
+  const idx=document.getElementById('ann-edit-idx').value;
+  if(idx!=='') ANNS[parseInt(idx)]=obj; else ANNS.unshift(obj);
+  LS.set('anns',ANNS); renderAnnList(); closeAnnModal();
+}
+function deleteAnn(idx){ if(!confirm('Delete this announcement?')) return; ANNS.splice(idx,1); LS.set('anns',ANNS); renderAnnList(); }
+
+async function saveAnnToGithub(){
+  const c = ghCreds();
+  if(!c.repo||!c.token){ alert('Configure GitHub credentials first.'); return; }
+  // Patch ANNOUNCEMENT_DATA in index.html
+  const r = await ghApi(`repos/${c.repo}/contents/index.html?ref=${c.branch||'main'}`);
+  if(!r.ok){ alert('✗ Could not fetch index.html: '+(r.data?.message||'')); return; }
+  let html = decodeURIComponent(escape(atob(r.data.content.replace(/\n/g,''))));
+  const annJson = JSON.stringify(ANNS, null, 0);
+  const patched = html.replace(
+    /const ANNOUNCEMENT_DATA\s*=\s*\[.*?\];/s,
+    `const ANNOUNCEMENT_DATA = ${annJson};`
+  );
+  if(patched===html && !html.includes('const ANNOUNCEMENT_DATA')){ alert('✗ Could not find ANNOUNCEMENT_DATA in index.html'); return; }
+  const result = await ghCommitFile('index.html', patched, 'Update announcements via editor');
+  if(result.ok) alert('✓ Announcements saved to index.html on GitHub!');
+  else          alert('✗ '+(result.data?.message||'Error saving'));
+}
+
+// ═══════════════════════════════════════════════════════════════════
+//  SECURITY / SETTINGS
+// ═══════════════════════════════════════════════════════════════════
+function changePassword(){
+  const cur=document.getElementById('pw-current').value;
+  const nw=document.getElementById('pw-new').value;
+  const conf=document.getElementById('pw-confirm').value;
+  if(cur!==getPassword()){ showGhStatus('pw-status','Current password is incorrect.','err'); return; }
+  if(nw.length<6){ showGhStatus('pw-status','New password must be at least 6 characters.','err'); return; }
+  if(nw!==conf){ showGhStatus('pw-status','Passwords do not match.','err'); return; }
+  LS.set('pw',nw);
+  ['pw-current','pw-new','pw-confirm'].forEach(id=>document.getElementById(id).value='');
+  showGhStatus('pw-status','✓ Password updated successfully.','ok');
+}
+function clearAll(){
+  if(!confirm('Clear all local editor data? (GitHub token, repo, cached news, sources, config)\n\nThis does NOT affect the live site.')) return;
+  ['pw','gh_repo','gh_token','gh_branch','sources','config','anns','cached_news'].forEach(k=>LS.del(k));
+  alert('Local data cleared. Reload the page.');
+  location.reload();
+}
+
+// ═══════════════════════════════════════════════════════════════════
+//  UTILS
+// ═══════════════════════════════════════════════════════════════════
+function esc(s){ return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+
+// Close modals on overlay click
+document.querySelectorAll('.modal-overlay').forEach(o=>{
+  o.addEventListener('click', e=>{ if(e.target===o) o.classList.remove('open'); });
+});
+document.addEventListener('keydown', e=>{ if(e.key==='Escape') document.querySelectorAll('.modal-overlay.open').forEach(o=>o.classList.remove('open')); });
+</script>
+</body>
+</html>
