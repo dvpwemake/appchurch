@@ -1,5 +1,7 @@
 name: Good News Auto-Scan
 
+# RSS-based crawler — no API key required. Runs daily 09:00 EST / 14:00 UTC.
+
 on:
   schedule:
     - cron: '0 14 * * *'
@@ -11,22 +13,15 @@ permissions:
 jobs:
   scan-news:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 15
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Verify API key
-        run: |
-          if [ -z "${{ secrets.ANTHROPIC_API_KEY }}" ]; then
-            echo "ERROR: ANTHROPIC_API_KEY secret not set in Settings > Secrets > Actions"
-            exit 1
-          fi
-          echo "ANTHROPIC_API_KEY is set."
-
-      - name: Set up Python
+      - name: Set up Python 3.11
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
@@ -34,75 +29,18 @@ jobs:
       - name: Install dependencies
         run: pip install requests
 
-      - name: Run Good News scan
-        env:
-          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
-        run: |
-          python3 << 'PYEOF'
-          import json, os, re, requests
-          from datetime import datetime, timezone
-
-          API_KEY = os.environ['ANTHROPIC_API_KEY']
-          TODAY = datetime.now(timezone.utc).strftime('%B %d, %Y')
-
-          payload = {
-            'model': 'claude-sonnet-4-20250514',
-            'max_tokens': 2000,
-            'tools': [{'type': 'web_search_20250305', 'name': 'web_search'}],
-            'system': (
-              'You are a Christian news curator. '
-              'Search the web and return ONLY a valid JSON array (no markdown, no preamble). '
-              'Each element must have exactly these keys: '
-              'rank (int 1-6), title (string), summary (string 1-2 sentences), '
-              'source (string publication name), sourceUrl (string full URL), '
-              'category (one of: christian faith mission revival persecution religion), '
-              'image (string direct image URL or empty string). '
-              'Return the 6 most significant worldwide Christian faith news stories '
-              'from today or past 48 hours. Output ONLY the JSON array.'
-            ),
-            'messages': [{'role': 'user', 'content': f'Top 6 Christian news for {TODAY}. JSON only.'}]
-          }
-
-          resp = requests.post(
-            'https://api.anthropic.com/v1/messages',
-            headers={'x-api-key': API_KEY, 'anthropic-version': '2023-06-01', 'content-type': 'application/json'},
-            json=payload, timeout=90
-          )
-          resp.raise_for_status()
-          data = resp.json()
-
-          raw = ' '.join(b.get('text','') for b in data.get('content',[]) if b.get('type')=='text')
-          m = re.search(r'\[.*?\]', raw, re.DOTALL)
-          if not m: raise ValueError('No JSON array in response: ' + raw[:200])
-          items = json.loads(m.group(0))
-          if not items: raise ValueError('Empty array')
-
-          batch = {'scannedAt': datetime.now(timezone.utc).isoformat(), 'scanDate': TODAY, 'items': items}
-
-          with open('index.html', 'r', encoding='utf-8') as f: html = f.read()
-          om = re.search(r'const GOOD_NEWS_DATA\s*=\s*(\[.*?\]);', html, re.DOTALL)
-          old = json.loads(om.group(1)) if om else []
-          all_b = [batch] + old[:6]
-          new_html = re.sub(
-            r'const GOOD_NEWS_DATA\s*=\s*\[.*?\];',
-            f'const GOOD_NEWS_DATA = {json.dumps(all_b, ensure_ascii=False, separators=(",",":"))};',
-            html, flags=re.DOTALL
-          )
-          if new_html == html: raise ValueError('GOOD_NEWS_DATA placeholder not found')
-          with open('index.html', 'w', encoding='utf-8') as f: f.write(new_html)
-          print(f'Done: {len(items)} stories for {TODAY}')
-          for it in items: print(f'  [{it.get("rank")}] {it.get("title","")[:60]}')
-          PYEOF
+      - name: Run Good News scanner
+        run: python3 scripts/scan_news.py
 
       - name: Commit and deploy
         run: |
-          git config --local user.email 'github-actions[bot]@users.noreply.github.com'
-          git config --local user.name 'Good News Bot'
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name  "Good News Bot"
           git add index.html
           if git diff --staged --quiet; then
-            echo 'No changes.'
+            echo "No changes to commit."
           else
-            git commit -m 'Good News scan $(date -u +%Y-%m-%d)'
+            git commit -m "Good News scan $(date -u +%Y-%m-%d)"
             git push
-            echo 'Deployed.'
+            echo "Deployed."
           fi
