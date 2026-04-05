@@ -844,7 +844,7 @@ function renderGN(cat){
   }
   // ── Today's news: most recent batch, up to 6 items (3×2 grid) ──
   const todayAll=(bx[0].items||[]);
-  let todayItems=(cat==='all'?todayAll:todayAll.filter(i=>i.category===cat));
+  let todayItems=(cat==='all'?[...todayAll]:todayAll.filter(i=>i.category===cat));
 
   let anns;
   try{anns=JSON.parse(localStorage.getItem('appchurch_announcements'))||[];}catch(e){anns=[];}
@@ -858,7 +858,7 @@ function renderGN(cat){
       sourceUrl: "#",
       category: "announcement",
       rank: "📢",
-      image: "img/appchurchlogo.jpg"
+      image: a.image || "img/appchurchlogo.jpg"
     });
   }
   todayItems = todayItems.slice(0,6);

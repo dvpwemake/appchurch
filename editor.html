@@ -617,6 +617,10 @@ Method: RSS crawler — no API key required</div>
       <label>Body / Details</label>
       <textarea id="ann-body" class="form-input" rows="3" placeholder="Join us for our special Easter celebration service…" style="resize:vertical"></textarea>
     </div>
+    <div class="form-row">
+      <label>Head Image URL</label>
+      <input id="ann-image" class="form-input" type="url" placeholder="https://... or img/hero.jpg">
+    </div>
     <div class="form-grid">
       <div class="form-row">
         <label>Date</label>
@@ -1145,7 +1149,7 @@ function renderAnnList(){
 function openAddAnn(){
   document.getElementById('modal-ann-title').textContent='New Announcement';
   document.getElementById('ann-edit-idx').value='';
-  ['ann-title','ann-body','ann-tag'].forEach(id=>document.getElementById(id).value='');
+  ['ann-title','ann-body','ann-tag','ann-image'].forEach(id=>document.getElementById(id).value='');
   document.getElementById('ann-date').value=new Date().toISOString().split('T')[0];
   document.getElementById('ann-modal').classList.add('open');
 }
@@ -1155,6 +1159,7 @@ function openEditAnn(idx){
   document.getElementById('ann-edit-idx').value=idx;
   document.getElementById('ann-title').value=a.title||'';
   document.getElementById('ann-body').value=a.body||'';
+  document.getElementById('ann-image').value=a.image||'';
   document.getElementById('ann-date').value=a.date||'';
   document.getElementById('ann-tag').value=a.tag||'';
   document.getElementById('ann-modal').classList.add('open');
@@ -1164,6 +1169,7 @@ function saveAnnModal(){
   const title=document.getElementById('ann-title').value.trim();
   if(!title){ alert('Title is required.'); return; }
   const obj={title, body:document.getElementById('ann-body').value.trim(),
+              image:document.getElementById('ann-image').value.trim(),
               date:document.getElementById('ann-date').value,
               tag:document.getElementById('ann-tag').value.trim()};
   const idx=document.getElementById('ann-edit-idx').value;
