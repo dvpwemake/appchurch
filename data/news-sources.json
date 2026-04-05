@@ -1,0 +1,56 @@
+{
+  "_comment": "AppChurch Good News Scanner — source & algorithm configuration. Edit via editor.html or directly.",
+  "_version": "2.0",
+  "config": {
+    "maxItems": 6,
+    "hoursWindow": 48,
+    "minKeywordScore": 1,
+    "keywords": [
+      "christian", "church", "faith", "jesus", "bible", "gospel",
+      "prayer", "mission", "revival", "persecution", "worship",
+      "ministry", "pastor", "theology", "evangelical", "protestant",
+      "catholic", "orthodox", "baptism", "holy spirit", "resurrection",
+      "salvation", "cross", "sermon", "congregation", "disciples",
+      "global", "worldwide", "international"
+    ],
+    "excludeKeywords": [
+      "casino", "gambling", "sex scandal", "explicit", "pornography"
+    ],
+    "categoryKeywords": {
+      "revival": [
+        "revival", "awakening", "outpouring", "pentecost", "movement",
+        "thousands saved", "healing", "spiritual renewal"
+      ],
+      "persecution": [
+        "persecution", "martyr", "jailed", "prison", "arrested",
+        "killed", "attack", "ban", "outlawed", "imprisoned", "detained"
+      ],
+      "mission": [
+        "mission", "missionary", "unreached", "evangelism",
+        "church planting", "global outreach"
+      ],
+      "faith": [
+        "faith", "discipleship", "devotion", "spiritual growth",
+        "prayer movement", "bible study", "testimony"
+      ]
+    }
+  },
+  "sources": [
+    {"url": "https://www.christianitytoday.com/news/rss.xml",              "name": "Christianity Today",            "category": "christian",    "enabled": true,  "note": "Leading evangelical magazine"},
+    {"url": "https://www.thegospelcoalition.org/feed/",                    "name": "The Gospel Coalition",          "category": "faith",        "enabled": true,  "note": "Reformed evangelical perspective"},
+    {"url": "https://www.christianpost.com/rss/news.rss",                  "name": "Christian Post",                "category": "christian",    "enabled": true,  "note": "Daily Christian news"},
+    {"url": "https://religionnews.com/feed/",                              "name": "Religion News Service",         "category": "religion",     "enabled": true,  "note": "Broad religion coverage"},
+    {"url": "https://wng.org/feed",                                        "name": "World Magazine",                "category": "christian",    "enabled": true,  "note": "News from a Christian worldview"},
+    {"url": "https://www.baptistpress.com/feed/",                          "name": "Baptist Press",                 "category": "mission",      "enabled": true,  "note": "Southern Baptist convention news"},
+    {"url": "https://churchleaders.com/feed/",                             "name": "Church Leaders",                "category": "faith",        "enabled": true,  "note": "Church leadership & ministry"},
+    {"url": "https://persecution.org/feed/",                               "name": "Intl Christian Concern",        "category": "persecution",  "enabled": true,  "note": "Global persecution tracker"},
+    {"url": "https://www.opendoorsusa.org/feed/",                          "name": "Open Doors USA",                "category": "persecution",  "enabled": true,  "note": "Persecution & mission"},
+    {"url": "https://missionfrontiers.org/feed/",                          "name": "Mission Frontiers",             "category": "mission",      "enabled": true,  "note": "Frontier mission focus"},
+    {"url": "https://www1.cbn.com/rss-cbn-news-finance-headlines",        "name": "CBN News",                      "category": "christian",    "enabled": true,  "note": "Christian Broadcasting Network"},
+    {"url": "https://www.catholicnewsagency.com/rssfeed/news/en/rss.xml", "name": "Catholic News Agency",          "category": "christian",    "enabled": true,  "note": "Catholic worldwide news"},
+    {"url": "https://www.crosswalk.com/blogs/feeds/",                      "name": "Crosswalk",                     "category": "faith",        "enabled": false, "note": "Faith & lifestyle — enable if needed"},
+    {"url": "https://www.churchtimes.co.uk/rss/news",                      "name": "Church Times",                  "category": "religion",     "enabled": false, "note": "UK Anglican perspective"},
+    {"url": "https://www.premierchristianity.com/feed",                    "name": "Premier Christianity",          "category": "christian",    "enabled": false, "note": "UK evangelical magazine"},
+    {"url": "https://www.christianheadlines.com/rss/category/all",        "name": "Christian Headlines",           "category": "christian",    "enabled": false, "note": "Aggregated headlines"}
+  ]
+}
