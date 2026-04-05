@@ -280,7 +280,7 @@ def main():
     new_json = json.dumps(all_batches, ensure_ascii=False, separators=(',',':'))
     new_html = re.sub(
         r'const GOOD_NEWS_DATA\s*=\s*\[.*?\];',
-        f'const GOOD_NEWS_DATA = {new_json};',
+        lambda _: f'const GOOD_NEWS_DATA = {new_json};',
         html, flags=re.DOTALL
     )
     if new_html == html:
