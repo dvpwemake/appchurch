@@ -1,0 +1,1901 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>World Alzheimer's Day 2026 — Times Square, New York</title>
+<meta name="description" content="Free dementia screening at Times Square on September 21, 2026. Hosted by AppChurch Global Foundation, Bergen County Senior Services, and the Borough of Palisades Park, NJ.">
+<meta property="og:title" content="World Alzheimer's Day 2026 — Free Dementia Screening">
+<meta property="og:description" content="September 21, 2026 · Times Square, NYC · Free for everyone">
+<meta property="og:url" content="https://appchurchglobal.org/2026wdd.html">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Manrope:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+/* ============================================================
+   PALETTE — warm, bright, clean (dementia-friendly contrast)
+   ============================================================ */
+:root {
+  --paper:    #FBF7F0;
+  --surface:  #F5EDE0;
+  --surface2: #F0E4D2;
+  --ink:      #1A1A1A;          /* near-black for max contrast */
+  --ink-soft: #555048;
+  --line:     rgba(26, 26, 26, 0.12);
+  --line-mid: rgba(26, 26, 26, 0.26);
+
+  --coral:    #D85F3D;           /* deeper coral for stronger contrast */
+  --coral-dk: #B14A2C;
+  --sage:     #7E8E5E;
+  --butter:   #F0C972;
+  --blush:    #C99577;
+  --sky:      #9CB8C2;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: 'Manrope', system-ui, -apple-system, sans-serif;
+  font-weight: 400;
+  font-size: 19px;              /* dementia-friendly: larger base */
+  line-height: 1.65;
+  letter-spacing: -0.003em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.poster {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 64px 80px;
+}
+
+/* ===== TYPE SYSTEM ===== */
+.serif {
+  font-family: 'DM Serif Display', Georgia, serif;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+}
+.eyebrow {
+  font-family: 'DM Mono', ui-monospace, monospace;
+  font-size: 0.82rem;            /* up from 0.7 */
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--coral-dk);
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+}
+.eyebrow::before {
+  content: "";
+  width: 28px; height: 1.5px;
+  background: var(--coral-dk);
+}
+
+.label {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.78rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  font-weight: 500;
+}
+
+/* ===== TOP BAR ===== */
+.topstrip {
+  padding: 28px 0 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--line);
+  font-family: 'DM Mono', monospace;
+  font-size: 0.82rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+.topstrip .center { color: var(--coral-dk); font-weight: 500; }
+
+/* ===== HERO ===== */
+.hero {
+  padding: 56px 0 80px;
+  border-bottom: 1px solid var(--line);
+  position: relative;
+}
+
+/* full-width title row */
+.hero-title {
+  margin-bottom: 56px;
+}
+.hero-title .eyebrow { margin-bottom: 28px; }
+.hero h1 {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(56px, 8.5vw, 116px);
+  line-height: 0.96;
+  letter-spacing: -0.035em;
+  font-weight: 400;
+  color: var(--ink);
+  max-width: 18ch;
+}
+.hero h1 .accent {
+  font-style: italic;
+  color: var(--coral-dk);
+}
+
+/* below-title: quote + video */
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.25fr;
+  gap: 48px;
+  align-items: stretch;
+}
+
+/* left column: Bill Gates quote */
+.hero-quote {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 32px 36px 32px 0;
+  border-left: 3px solid var(--coral-dk);
+  padding-left: 32px;
+}
+.hero-quote .lbl {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.78rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--coral-dk);
+  font-weight: 500;
+  margin-bottom: 18px;
+}
+.hero-quote blockquote {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(20px, 1.85vw, 26px);
+  line-height: 1.32;
+  color: var(--ink);
+  letter-spacing: -0.012em;
+  margin: 0 0 18px;
+}
+.hero-quote .quote-context {
+  font-family: 'Manrope', sans-serif;
+  font-size: 0.96rem;
+  line-height: 1.5;
+  color: var(--ink-soft);
+  margin: 0 0 24px;
+  flex: 1;
+}
+.hero-quote .cite {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding-top: 18px;
+  border-top: 1px solid var(--line);
+}
+.hero-quote .cite .who {
+  font-family: 'Manrope', sans-serif;
+  font-weight: 600;
+  font-size: 1rem;
+  color: var(--ink);
+  letter-spacing: 0.01em;
+}
+.hero-quote .cite a {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.74rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--coral-dk);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+.hero-quote .cite a:hover {
+  color: var(--ink);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+/* right column: video — click-to-play facade */
+.hero-media {
+  position: relative;
+  display: flex;
+  align-items: stretch;
+}
+.video-frame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 6px;
+  overflow: hidden;
+  background: #1a1a1a;
+  box-shadow: 0 1px 0 var(--line-mid), 0 12px 32px rgba(26,26,26,0.10);
+}
+.video-frame iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+}
+.video-facade {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  padding: 0;
+  background: #1a1a1a;
+  cursor: pointer;
+  display: block;
+  overflow: hidden;
+  font: inherit;
+  color: inherit;
+}
+.facade-thumb {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: filter 0.25s ease, transform 0.4s ease;
+}
+.video-facade:hover .facade-thumb {
+  filter: brightness(0.82);
+  transform: scale(1.02);
+}
+.facade-play {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 88px;
+  height: 62px;
+  filter: drop-shadow(0 4px 14px rgba(0,0,0,0.45));
+  transition: transform 0.2s ease;
+  pointer-events: none;
+}
+.facade-play svg { width: 100%; height: 100%; display: block; }
+.video-facade:hover .facade-play {
+  transform: translate(-50%, -50%) scale(1.08);
+}
+.facade-label {
+  position: absolute;
+  bottom: 14px;
+  left: 14px;
+  background: rgba(26, 26, 26, 0.85);
+  color: var(--paper);
+  font-family: 'DM Mono', monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  padding: 7px 12px;
+  border-radius: 3px;
+  font-weight: 500;
+  pointer-events: none;
+}
+
+/* error state — shown if iframe also fails after click */
+.video-error {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  background: #1a1a1a;
+  color: var(--paper);
+  text-align: center;
+  padding: 32px;
+}
+.video-error .msg {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.3rem;
+  line-height: 1.3;
+  max-width: 360px;
+}
+.video-error .sub {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.74rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(251, 247, 240, 0.6);
+}
+.video-error a {
+  color: var(--coral);
+  font-family: 'DM Mono', monospace;
+  font-size: 0.78rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: 1px solid var(--coral);
+  padding: 10px 18px;
+  border-radius: 3px;
+  font-weight: 500;
+}
+.video-error a:hover { background: var(--coral); color: #1a1a1a; }
+
+/* ===== EVENT META BAR ===== */
+.event-meta {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border-bottom: 1px solid var(--line);
+}
+.meta-cell {
+  padding: 36px 28px;
+  border-right: 1px solid var(--line);
+}
+.meta-cell:last-child { border-right: none; }
+.meta-cell .k {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.78rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--coral-dk);
+  margin-bottom: 14px;
+  display: block;
+  font-weight: 500;
+}
+.meta-cell .v {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.55rem;
+  line-height: 1.15;
+  color: var(--ink);
+  letter-spacing: -0.015em;
+}
+.meta-cell .sub {
+  font-size: 0.98rem;
+  color: var(--ink-soft);
+  margin-top: 8px;
+  font-weight: 400;
+}
+
+/* ===== SECTION SCAFFOLD ===== */
+section {
+  padding: 96px 0;
+  border-bottom: 1px solid var(--line);
+}
+.section-head {
+  margin-bottom: 64px;
+  max-width: 880px;
+}
+.section-head .eyebrow { margin-bottom: 24px; }
+.section-head h2 {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(44px, 5.5vw, 76px);
+  line-height: 1.02;
+  letter-spacing: -0.025em;
+  font-weight: 400;
+  color: var(--ink);
+}
+.section-head h2 em {
+  font-style: italic;
+  color: var(--coral-dk);
+}
+.section-intro {
+  margin-top: 32px;
+  font-size: 1.2rem;            /* larger */
+  line-height: 1.55;
+  color: var(--ink);
+  max-width: 640px;
+  font-weight: 400;
+}
+.section-intro strong { color: var(--ink); font-weight: 700; }
+
+/* ===== HOSTS ===== */
+.hosts {
+  background: var(--surface);
+  margin: 0 -64px;
+  padding: 64px 64px;
+}
+.hosts-inner { max-width: 1180px; margin: 0 auto; }
+.hosts .label { margin-bottom: 36px; text-align: center; display: block; }
+.host-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+}
+.host {
+  text-align: center;
+  padding: 0 32px;
+  border-left: 1px solid var(--line-mid);
+}
+.host:first-child { border-left: none; }
+.host .name {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.55rem;
+  line-height: 1.2;
+  color: var(--ink);
+  letter-spacing: -0.015em;
+  margin-bottom: 10px;
+}
+.host .role {
+  font-family: 'Manrope', sans-serif;
+  font-weight: 400;
+  font-size: 1rem;
+  color: var(--ink-soft);
+}
+
+/* ============================================================
+   TRIBUTE — 3 large portraits (Bruce Willis, Reagan, Ali)
+   ============================================================ */
+.portrait-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 48px;
+  align-items: stretch;
+}
+.portrait {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+/* paired before/after photos */
+.portrait .photo-pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+.portrait .photo-pair figure {
+  margin: 0;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+.portrait .photo-pair .img-frame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  border-radius: 4px;
+  background: var(--surface2);
+  box-shadow: 0 1px 0 rgba(26,26,26,0.06), 0 4px 14px rgba(26,26,26,0.06);
+}
+.portrait .photo-pair img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 22%;
+  display: block;
+  background: var(--surface2);
+}
+.portrait .photo-pair .silhouette {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.portrait .photo-pair .silhouette svg {
+  width: 100%;
+  height: 100%;
+}
+.portrait .photo-pair img {
+  z-index: 2;
+}
+.portrait .photo-pair img.failed {
+  display: none;
+}
+.portrait .photo-pair figcaption {
+  margin-top: 10px;
+  font-family: 'DM Mono', monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  text-align: center;
+  font-weight: 500;
+}
+.portrait .photo-pair figcaption.before { color: var(--ink-soft); }
+.portrait .photo-pair figcaption.after { color: var(--coral-dk); }
+
+/* tinted frame backgrounds per portrait */
+.portrait:nth-child(1) .photo-pair .img-frame { background: #FCE5DA; }
+.portrait:nth-child(2) .photo-pair .img-frame { background: #E5EBD7; }
+.portrait:nth-child(3) .photo-pair .img-frame { background: #FBEACB; }
+
+/* row alignment — same height for each meta line across all three cards */
+.portrait .name {
+  font-family: 'DM Serif Display', serif;
+  font-size: 2rem;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  margin: 8px 0 6px;
+  min-height: 2.3em;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+.portrait .role {
+  font-family: 'Manrope', sans-serif;
+  font-weight: 500;
+  font-size: 1.05rem;
+  color: var(--ink-soft);
+  margin-bottom: 18px;
+  min-height: 1.55em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.portrait .diag {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.78rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--coral-dk);
+  border-top: 1.5px solid var(--coral-dk);
+  border-bottom: 1.5px solid var(--coral-dk);
+  margin: 0 auto 18px;
+  font-weight: 500;
+  width: 100%;
+  max-width: 320px;
+  min-height: 3em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 18px;
+  text-align: center;
+  line-height: 1.35;
+}
+.portrait .diag .yr { color: var(--ink-soft); margin-left: 8px; }
+.portrait .blurb {
+  font-family: 'Manrope', sans-serif;
+  font-weight: 400;
+  font-size: 1.02rem;
+  line-height: 1.55;
+  color: var(--ink);
+  max-width: 320px;
+  margin: 0 auto 14px;
+  flex: 1;
+  min-height: 4.5em;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+.portrait .photo-credit {
+  display: block;
+  font-family: 'DM Mono', monospace;
+  font-size: 0.66rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  opacity: 0.7;
+  margin-top: auto;
+  padding-top: 8px;
+  min-height: 2em;
+}
+
+/* ============================================================
+   UMBRELLA EXPLAINER
+   ============================================================ */
+.umbrella {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: stretch;
+}
+.umbrella-text {
+  display: flex;
+  flex-direction: column;
+}
+.umbrella-text .eyebrow { margin-bottom: 22px; }
+.umbrella-title {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(52px, 6.4vw, 92px);
+  line-height: 0.98;
+  letter-spacing: -0.03em;
+  font-weight: 400;
+  color: var(--ink);
+  margin-bottom: 36px;
+}
+.umbrella-title em {
+  font-style: italic;
+  color: var(--coral-dk);
+}
+.umbrella-prose {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.umbrella-prose p {
+  font-size: 1.15rem;
+  line-height: 1.6;
+  color: var(--ink);
+  margin-bottom: 18px;
+}
+.umbrella-prose p:last-child { margin-bottom: 0; }
+.umbrella-prose p:first-child::first-letter {
+  font-family: 'DM Serif Display', serif;
+  font-size: 4rem;
+  line-height: 0.85;
+  float: left;
+  padding: 6px 12px 0 0;
+  color: var(--coral-dk);
+}
+.types {
+  background: var(--surface);
+  padding: 36px 36px;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+}
+.types h4 {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.82rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ink);
+  margin-bottom: 20px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--line-mid);
+  font-weight: 500;
+}
+.types ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  justify-content: space-between;
+}
+.types li {
+  display: grid;
+  grid-template-columns: 90px 1fr;
+  gap: 18px;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--line);
+  align-items: baseline;
+}
+.types li:last-child { border-bottom: none; }
+.types .pct {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.55rem;
+  color: var(--coral-dk);
+  font-feature-settings: "tnum";
+  letter-spacing: -0.02em;
+}
+.types .nm {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.15rem;
+  color: var(--ink);
+  letter-spacing: -0.01em;
+}
+.types .nm small {
+  display: block;
+  font-family: 'Manrope', sans-serif;
+  font-weight: 400;
+  font-size: 0.92rem;
+  color: var(--ink-soft);
+  margin-top: 3px;
+  line-height: 1.45;
+}
+
+/* ============================================================
+   8 EARLY WARNING SIGNS — clear, breathable
+   ============================================================ */
+.signs-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  border-top: 1px solid var(--line);
+  border-left: 1px solid var(--line);
+}
+.sign {
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  padding: 36px 32px 40px;
+  background: var(--paper);
+  transition: background 0.2s ease;
+}
+.sign:hover { background: var(--surface); }
+.sign .num {
+  font-family: 'DM Serif Display', serif;
+  font-style: italic;
+  font-size: 3rem;
+  color: var(--coral-dk);
+  line-height: 1;
+  margin-bottom: 18px;
+  letter-spacing: -0.02em;
+}
+.sign h4 {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.3rem;
+  line-height: 1.22;
+  color: var(--ink);
+  margin-bottom: 12px;
+  letter-spacing: -0.012em;
+}
+.sign p {
+  font-size: 1rem;
+  line-height: 1.55;
+  color: var(--ink-soft);
+}
+
+/* ============================================================
+   AD8 CALLOUT
+   ============================================================ */
+.ad8 {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+.ad8 .label { color: var(--coral-dk); margin-bottom: 18px; display: block; }
+.ad8 h3 {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(36px, 4.6vw, 56px);
+  line-height: 1.05;
+  color: var(--ink);
+  margin-bottom: 28px;
+  letter-spacing: -0.025em;
+}
+.ad8 h3 em { font-style: italic; color: var(--coral-dk); }
+.ad8 p {
+  font-size: 1.12rem;
+  line-height: 1.6;
+  color: var(--ink);
+  margin-bottom: 16px;
+}
+.ad8 p strong { color: var(--ink); font-weight: 700; }
+.ad8-card {
+  background: var(--butter);
+  padding: 52px 44px 48px;
+  border-radius: 4px;
+}
+.ad8-card .num {
+  font-family: 'DM Serif Display', serif;
+  font-size: 7rem;
+  line-height: 0.85;
+  color: var(--ink);
+  letter-spacing: -0.04em;
+  font-feature-settings: "tnum";
+}
+.ad8-card .num sup {
+  font-size: 0.28em;
+  vertical-align: super;
+  font-family: 'Manrope', sans-serif;
+  font-weight: 600;
+  margin-left: 8px;
+  letter-spacing: 0;
+  color: var(--ink);
+}
+.ad8-card .desc {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.18rem;
+  line-height: 1.4;
+  margin-top: 26px;
+  padding-top: 24px;
+  border-top: 1.5px solid rgba(26,26,26,0.2);
+  color: var(--ink);
+}
+
+/* ============================================================
+   PREVENTION CARDS — soft tints + app links
+   ============================================================ */
+.prev-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+.prev {
+  padding: 36px 32px 28px;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  min-height: 360px;
+}
+.prev:nth-child(1) { background: #FBEACB; }   /* Get screened — butter */
+.prev:nth-child(2) { background: #FCE5DA; }   /* Mind in motion — peach */
+.prev:nth-child(3) { background: #E5EBD7; }   /* Move every day — sage tint */
+.prev:nth-child(4) { background: #F0DCD0; }   /* Eat for brain — blush */
+.prev:nth-child(5) { background: #DDE7E8; }   /* Manage chronic — sky */
+.prev:nth-child(6) { background: var(--surface); } /* Sleep — cream */
+
+.prev .top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 22px;
+}
+.prev .step {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.78rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  padding-top: 8px;
+  font-weight: 500;
+}
+.prev .icon {
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+}
+.prev .icon * {
+  stroke: var(--ink);
+  stroke-width: 1.6;
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.prev .icon .accent { stroke: var(--coral-dk); }
+.prev .icon .fill { fill: var(--coral-dk); stroke: none; }
+.prev h4 {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.6rem;
+  line-height: 1.12;
+  color: var(--ink);
+  margin-bottom: 12px;
+  letter-spacing: -0.02em;
+}
+.prev p {
+  font-size: 1.02rem;
+  line-height: 1.55;
+  color: var(--ink);
+  margin-bottom: 18px;
+}
+.prev .stat {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.82rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  font-weight: 500;
+  margin-bottom: 14px;
+}
+.prev .app-link {
+  margin-top: auto;
+  padding-top: 18px;
+  border-top: 1.5px solid rgba(26,26,26,0.18);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  color: var(--ink);
+  font-family: 'Manrope', sans-serif;
+  font-weight: 600;
+  font-size: 0.98rem;
+  transition: color 0.2s ease;
+}
+.prev .app-link:hover { color: var(--coral-dk); }
+.prev .app-link .app-icon {
+  width: 36px;
+  height: 36px;
+  flex-shrink: 0;
+  background: var(--ink);
+  color: var(--paper);
+  border-radius: 8px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.prev .app-link .app-icon svg {
+  width: 20px;
+  height: 20px;
+  fill: var(--paper);
+}
+.prev .app-link .app-info { display: flex; flex-direction: column; line-height: 1.3; }
+.prev .app-link .app-info .nm { font-weight: 600; font-size: 0.98rem; }
+.prev .app-link .app-info .src {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.66rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  font-weight: 500;
+  margin-top: 2px;
+}
+.prev .app-link .arrow {
+  margin-left: auto;
+  font-size: 1.15rem;
+  color: var(--coral-dk);
+  font-weight: 500;
+}
+
+/* ============================================================
+   EVENT BLOCK
+   ============================================================ */
+.event {
+  background: var(--surface);
+  margin: 0 -64px;
+  padding: 96px 64px;
+}
+.event-inner { max-width: 1180px; margin: 0 auto; }
+.event h2 {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(48px, 7vw, 96px);
+  line-height: 1;
+  color: var(--ink);
+  margin: 18px 0 56px;
+  letter-spacing: -0.03em;
+}
+.event h2 em { font-style: italic; color: var(--coral-dk); }
+.event-cols {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 72px;
+  align-items: start;
+}
+.event-detail {
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  padding: 24px 0;
+  border-bottom: 1px solid var(--line-mid);
+}
+.event-detail:first-of-type { border-top: 1px solid var(--line-mid); }
+.event-detail .k {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.78rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--coral-dk);
+  padding-top: 4px;
+  font-weight: 500;
+}
+.event-detail .v {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.35rem;
+  line-height: 1.3;
+  color: var(--ink);
+  letter-spacing: -0.015em;
+}
+.event-detail .v small {
+  display: block;
+  font-family: 'Manrope', sans-serif;
+  font-weight: 400;
+  font-size: 0.98rem;
+  color: var(--ink-soft);
+  margin-top: 6px;
+}
+.event-side {
+  background: var(--paper);
+  padding: 36px 36px 40px;
+  border-radius: 4px;
+}
+.event-side h4 {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.82rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--coral-dk);
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--line-mid);
+  font-weight: 500;
+}
+.event-side ul { list-style: none; }
+.event-side li {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.08rem;
+  line-height: 1.4;
+  padding: 13px 0;
+  border-bottom: 1px solid var(--line);
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  color: var(--ink);
+  letter-spacing: -0.005em;
+}
+.event-side li:last-child { border-bottom: none; }
+.event-side li::before {
+  content: "—";
+  color: var(--coral-dk);
+  flex-shrink: 0;
+  font-family: 'Manrope', sans-serif;
+  font-weight: 500;
+}
+
+/* ============================================================
+   CTA
+   ============================================================ */
+.cta {
+  text-align: center;
+  padding: 120px 0 80px;
+}
+.cta .eyebrow { justify-content: center; display: inline-flex; }
+.cta h2 {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(48px, 7vw, 96px);
+  line-height: 1;
+  color: var(--ink);
+  letter-spacing: -0.03em;
+  margin: 28px auto 36px;
+  max-width: 880px;
+}
+.cta h2 em { font-style: italic; color: var(--coral-dk); }
+.cta .lede {
+  max-width: 600px;
+  margin: 0 auto 48px;
+  font-family: 'Manrope', sans-serif;
+  font-size: 1.2rem;
+  line-height: 1.55;
+  color: var(--ink);
+  font-weight: 400;
+}
+.cta-btns {
+  display: inline-flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 20px 32px;
+  font-family: 'DM Mono', monospace;
+  font-size: 0.86rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+  font-weight: 500;
+  cursor: pointer;
+  border: 1.5px solid var(--ink);
+}
+.btn-primary { background: var(--ink); color: var(--paper); }
+.btn-primary:hover { background: var(--coral-dk); border-color: var(--coral-dk); }
+.btn-ghost { background: transparent; color: var(--ink); border-color: var(--line-mid); }
+.btn-ghost:hover { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+
+/* share success toast */
+.share-toast {
+  position: fixed;
+  bottom: 32px;
+  left: 50%;
+  transform: translateX(-50%) translateY(20px);
+  background: var(--ink);
+  color: var(--paper);
+  padding: 16px 28px;
+  border-radius: 6px;
+  font-family: 'Manrope', sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.18);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.share-toast.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+.share-toast .url {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.84rem;
+  color: var(--butter);
+}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+footer {
+  border-top: 1px solid var(--line);
+  padding: 56px 0 16px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 40px;
+}
+.foot-block .name {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.2rem;
+  color: var(--ink);
+  margin-bottom: 8px;
+  letter-spacing: -0.01em;
+}
+.foot-block .det {
+  font-family: 'Manrope', sans-serif;
+  font-size: 0.96rem;
+  color: var(--ink-soft);
+  font-weight: 400;
+  line-height: 1.55;
+}
+footer .center { text-align: center; }
+footer .right { text-align: right; }
+.colophon {
+  text-align: center;
+  margin-top: 40px;
+  font-family: 'DM Serif Display', serif;
+  font-style: italic;
+  font-size: 1rem;
+  color: var(--ink-soft);
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 920px) {
+  .poster { padding: 0 28px 60px; }
+  .hosts, .event { margin: 0 -28px; padding: 56px 28px; }
+  .hero { padding: 48px 0 64px; }
+  .hero-title { margin-bottom: 36px; }
+  .hero-grid { grid-template-columns: 1fr; gap: 32px; }
+  .hero-quote { padding: 0 0 0 24px; border-left-width: 2px; }
+  .event-meta { grid-template-columns: 1fr 1fr; }
+  .meta-cell:nth-child(2) { border-right: none; }
+  .meta-cell:nth-child(1), .meta-cell:nth-child(2) { border-bottom: 1px solid var(--line); }
+  .host-grid { grid-template-columns: 1fr; gap: 32px; }
+  .host { border-left: none; padding: 0; padding-bottom: 24px; border-bottom: 1px solid var(--line); }
+  .host:last-child { border-bottom: none; padding-bottom: 0; }
+  .portrait-grid { grid-template-columns: 1fr; gap: 56px; }
+  .umbrella { grid-template-columns: 1fr; gap: 40px; }
+  .signs-grid { grid-template-columns: repeat(2, 1fr); }
+  .ad8 { grid-template-columns: 1fr; gap: 40px; }
+  .prev-grid { grid-template-columns: 1fr; }
+  .event-cols { grid-template-columns: 1fr; gap: 40px; }
+  footer { grid-template-columns: 1fr; gap: 24px; }
+  footer .right, footer .center { text-align: left; }
+}
+@media (max-width: 540px) {
+  body { font-size: 17px; }
+  .signs-grid { grid-template-columns: 1fr; }
+  .event-detail { grid-template-columns: 1fr; gap: 6px; }
+  .portrait .photo-pair { gap: 6px; }
+}
+@media print {
+  .poster { max-width: 100%; padding: 0 20px; }
+  section { break-inside: avoid; padding: 36px 0; }
+  .event { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .hero-media, .cta-btns { display: none; }
+}
+</style>
+</head>
+
+<body>
+<div class="poster">
+
+  <!-- ========== TOP STRIP ========== -->
+  <div class="topstrip">
+    <span>World Dementia Day</span>
+    <span class="center">A Free Dementia Screening · Open to All</span>
+    <span>21 September 2026</span>
+  </div>
+
+  <!-- ========== HERO with VIDEO ========== -->
+  <header class="hero">
+
+    <!-- Full-width title row -->
+    <div class="hero-title">
+      <div class="eyebrow">World Alzheimer's Day · 21 Sept 2026</div>
+      <h1>Hold on to <span class="accent">the memories</span> that made us.</h1>
+    </div>
+
+    <!-- Side-by-side: quote on left, video on right -->
+    <div class="hero-grid">
+
+      <aside class="hero-quote">
+        <span class="lbl">A Voice on the Cure</span>
+        <blockquote>
+          "When we lost my dad, an Alzheimer's diagnosis was a death sentence."
+        </blockquote>
+        <p class="quote-context">Bill Gates writes that, just five years on, that grim picture is finally beginning to change — pointing to a wave of new science.</p>
+        <div class="cite">
+          <span class="who">— Bill Gates</span>
+          <a href="https://www.gatesnotes.com/work/cure-alzheimer-s/reader/welcome-to-the-next-phase-of-the-alzheimers-fight" target="_blank" rel="noopener">Read the full essay at gatesnotes.com&nbsp;→</a>
+        </div>
+      </aside>
+
+      <div class="hero-media" id="heroMedia">
+        <div class="video-frame" id="videoFrame">
+          <!-- Click-to-play facade: loads the iframe in-place on click, not on a new page -->
+          <button type="button" class="video-facade" id="videoFacade" aria-label="Play video">
+            <img
+              class="facade-thumb"
+              src="https://i.ytimg.com/vi/EW9inhcWDAQ/maxresdefault.jpg"
+              alt="Featured video thumbnail"
+              onerror="this.onerror=null; this.src='https://i.ytimg.com/vi/EW9inhcWDAQ/hqdefault.jpg';">
+            <span class="facade-play" aria-hidden="true">
+              <svg viewBox="0 0 68 48"><path d="M66.5 7.7c-.8-2.9-3-5.2-5.9-6C55.4.5 34 .5 34 .5S12.6.5 7.4 1.7C4.5 2.5 2.3 4.8 1.5 7.7.3 13 .3 24 .3 24s0 11 1.2 16.3c.8 2.9 3 5.2 5.9 6 5.2 1.2 26.6 1.2 26.6 1.2s21.4 0 26.6-1.2c2.9-.8 5.2-3 5.9-6 1.2-5.3 1.2-16.3 1.2-16.3s0-11-1.2-16.3z" fill="#FF0000"/><path d="M27 34.5l17.8-10.5L27 13.5z" fill="#FFF"/></svg>
+            </span>
+            <span class="facade-label">Watch · 2 min</span>
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- ========== EVENT META BAR ========== -->
+  <div class="event-meta">
+    <div class="meta-cell">
+      <span class="k">Date</span>
+      <div class="v">Mon, Sept&nbsp;21</div>
+      <div class="sub">2026 · 10 AM – 6 PM</div>
+    </div>
+    <div class="meta-cell">
+      <span class="k">Place</span>
+      <div class="v">Times Square</div>
+      <div class="sub">Manhattan, New York</div>
+    </div>
+    <div class="meta-cell">
+      <span class="k">Cost</span>
+      <div class="v">Free</div>
+      <div class="sub">No appointment needed</div>
+    </div>
+    <div class="meta-cell">
+      <span class="k">For</span>
+      <div class="v">Adults 50+</div>
+      <div class="sub">Family welcome</div>
+    </div>
+  </div>
+
+  <!-- ========== HOSTS ========== -->
+  <div class="hosts">
+    <div class="hosts-inner">
+      <span class="label">Presented in Partnership By</span>
+      <div class="host-grid">
+        <div class="host">
+          <div class="name">AppChurch Global Foundation</div>
+          <div class="role">Lead host &amp; community outreach</div>
+        </div>
+        <div class="host">
+          <div class="name">Bergen County Senior Services</div>
+          <div class="role">State of New Jersey · Aging &amp; care</div>
+        </div>
+        <div class="host">
+          <div class="name">Office of the Mayor</div>
+          <div class="role">Borough of Palisades Park, NJ</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== TRIBUTE — 3 LARGE PORTRAITS ========== -->
+  <section id="tribute">
+    <div class="section-head">
+      <span class="eyebrow">The Fact is</span>
+      <h2>Dementia can strike ANYONE, regardless of<br><em>wealth, fame, or status.</em></h2>
+      <p class="section-intro">
+      SCIENTIFIC FACTS: <srtong>42% lifetime risk</strong> of dementia. No cure once it strikes. But up to <strong>51%</strong> of cases can be <strong>REVERSED</strong> — if detected <strong>early.</strong>
+      </p>
+    </div>
+
+    <div class="portrait-grid">
+
+      <div class="portrait">
+        <div class="photo-pair">
+          <figure>
+            <div class="img-frame">
+              <div class="silhouette" aria-hidden="true">
+                <svg viewBox="0 0 100 125"><circle cx="50" cy="42" r="18" fill="#D85F3D" opacity="0.35"/><path d="M 18 125 Q 18 80 50 80 Q 82 80 82 125 Z" fill="#D85F3D" opacity="0.35"/></svg>
+              </div>
+              <img
+                src="img/bruce1.jpg"
+                alt="Bruce Willis, earlier years"
+                loading="lazy"
+                referrerpolicy="no-referrer"
+                onerror="this.classList.add('failed')">
+            </div>
+            <figcaption class="before">Before Dementia</figcaption>
+          </figure>
+          <figure>
+            <div class="img-frame">
+              <div class="silhouette" aria-hidden="true">
+                <svg viewBox="0 0 100 125"><circle cx="50" cy="42" r="18" fill="#D85F3D" opacity="0.35"/><path d="M 18 125 Q 18 80 50 80 Q 82 80 82 125 Z" fill="#D85F3D" opacity="0.35"/></svg>
+              </div>
+              <img
+                src="img/bruce2.jpg"
+                alt="Bruce Willis, recent years"
+                loading="lazy"
+                referrerpolicy="no-referrer"
+                onerror="this.classList.add('failed')">
+            </div>
+            <figcaption class="after">After Dementia</figcaption>
+          </figure>
+        </div>
+        <div class="name">Bruce Willis</div>
+        <div class="role">Actor</div>
+        <div class="diag">Frontotemporal Dementia <span class="yr">· 2023</span></div>
+        <p class="blurb">His family went public to raise awareness of FTD — a less-known form of dementia.</p>
+        <span class="photo-credit">Photos via news media · License before reuse</span>
+      </div>
+
+      <div class="portrait">
+        <div class="photo-pair">
+          <figure>
+            <div class="img-frame">
+              <div class="silhouette" aria-hidden="true">
+                <svg viewBox="0 0 100 125"><circle cx="50" cy="42" r="18" fill="#7E8E5E" opacity="0.35"/><path d="M 18 125 Q 18 80 50 80 Q 82 80 82 125 Z" fill="#7E8E5E" opacity="0.35"/></svg>
+              </div>
+              <img
+                src="img/reagan1.jpg"
+                loading="lazy"
+                referrerpolicy="no-referrer"
+                onerror="this.classList.add('failed')">
+            </div>
+            <figcaption class="before">Before · 1981</figcaption>
+          </figure>
+          <figure>
+            <div class="img-frame">
+              <div class="silhouette" aria-hidden="true">
+                <svg viewBox="0 0 100 125"><circle cx="50" cy="42" r="18" fill="#7E8E5E" opacity="0.35"/><path d="M 18 125 Q 18 80 50 80 Q 82 80 82 125 Z" fill="#7E8E5E" opacity="0.35"/></svg>
+              </div>
+              <img
+                src="img/reagan2.jpg"
+                alt="Ronald Reagan, later years"
+                loading="lazy"
+                referrerpolicy="no-referrer"
+                onerror="this.classList.add('failed')">
+            </div>
+            <figcaption class="after">After Dementia</figcaption>
+          </figure>
+        </div>
+        <div class="name">Ronald Reagan</div>
+        <div class="role">40th U.S. President</div>
+        <div class="diag">Alzheimer's Disease <span class="yr">· 1994</span></div>
+        <p class="blurb">His handwritten letter to America remains one of the most moving moments in dementia awareness.</p>
+        <span class="photo-credit">Left: White House (PD) · Right: license before reuse</span>
+      </div>
+
+      <div class="portrait">
+        <div class="photo-pair">
+          <figure>
+            <div class="img-frame">
+              <div class="silhouette" aria-hidden="true">
+                <svg viewBox="0 0 100 125"><circle cx="50" cy="42" r="18" fill="#F0C972" opacity="0.6"/><path d="M 18 125 Q 18 80 50 80 Q 82 80 82 125 Z" fill="#F0C972" opacity="0.6"/></svg>
+              </div>
+              <img
+                src="img/ali1.jpg"
+                alt="Muhammad Ali, earlier years"
+                loading="lazy"
+                referrerpolicy="no-referrer"
+                onerror="this.classList.add('failed')">
+            </div>
+            <figcaption class="before">Before Dementia</figcaption>
+          </figure>
+          <figure>
+            <div class="img-frame">
+              <div class="silhouette" aria-hidden="true">
+                <svg viewBox="0 0 100 125"><circle cx="50" cy="42" r="18" fill="#F0C972" opacity="0.6"/><path d="M 18 125 Q 18 80 50 80 Q 82 80 82 125 Z" fill="#F0C972" opacity="0.6"/></svg>
+              </div>
+              <img
+                src="img/ali2.jpg"
+                alt="Muhammad Ali, later years"
+                loading="lazy"
+                referrerpolicy="no-referrer"
+                onerror="this.classList.add('failed')">
+            </div>
+            <figcaption class="after">After Dementia</figcaption>
+          </figure>
+        </div>
+        <div class="name">Muhammad Ali</div>
+        <div class="role">Heavyweight Champion</div>
+        <div class="diag">Parkinson's Disease <span class="yr">· 1984</span></div>
+        <p class="blurb">Lived publicly with his diagnosis and pushed for more research worldwide.</p>
+        <span class="photo-credit">Left: VOA News · Right: license before reuse</span>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========== UMBRELLA EXPLAINER ========== -->
+  <section id="umbrella">
+    <div class="umbrella">
+      <div class="umbrella-text">
+        <span class="eyebrow">Understanding the truth about dementia</span>
+        <h2 class="umbrella-title">Dementia has no cure,<br><em>but, can be stopped.</em></h2>
+        <div class="umbrella-prose">
+          <p><strong>"Dementia"</strong> patients have a <strong>X7.5</strong> times higher mortality rate than others their age. Yet <strong>92%</strong> of Americans are never formally diagnosed — until it’s too late.</p>
+          <p>There are 100+ different types of Dementia. Knowing which one matters: treatment, planning, and outlook all depend on it. Every year of detection delay represents an average loss of 0.8 to 1.2 years of healthy life expectancy.</p>
+          <p>That is why screening early is crucial.</p>
+        </div>
+      </div>
+      <div class="types">
+        <h4>The Key Facts</h4>
+        <ul>
+          <li>
+            <span class="pct">60–80%</span>
+            <span class="nm">Alzheimer's<small>The most common type of Dementia. Memory loss usually first.</small></span>
+          </li>
+          <li>
+            <span class="pct">>92%</span>
+            <span class="nm">Patients Never Diagnosed (U.S.)<small>Mild Cognitive Impairment (MCI), precursor stage of Dementia, the last golden window to stop Dementia.</small></span>
+          </li>
+          <li>
+            <span class="pct">~42%</span>
+            <span class="nm">Lifetime risk of Dementia<small>After age 55 without intervention ~42% of MCI patients progress to dementia within 3-5 years.</small></span>
+          </li>
+          <li>
+            <span class="pct">~51%</span>
+            <span class="nm">Is Reversalable<small>With early detection and intervention intervention, progression from MCI to Dementia can be halted or reversed.</small></span>
+          </li>
+          <li>
+            <span class="pct">x7.5</span>
+            <span class="nm">Higher Mortality Rate<small>Dementia patients' all-cause mortality is about 7.5 times higher than in cognitively normal peers of the same age.</small></span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 8 EARLY WARNING SIGNS ========== -->
+  <section id="signs">
+    <div class="section-head">
+      <span class="eyebrow">Early Warning Signs</span>
+      <h2>Eight Signs <em>worth a second look!</em></h2>
+      <p class="section-intro">
+        Forgetting one thing is normal. <strong>Forgetting often, or losing track of daily life, is a reason to ask.</strong>
+      </p>
+    </div>
+
+    <div class="signs-grid">
+      <div class="sign">
+        <span class="num">01</span>
+        <h4>Forgetting things that just happened</h4>
+        <p>Recent talks or plans slip away while older memories stay clear.</p>
+      </div>
+      <div class="sign">
+        <span class="num">02</span>
+        <h4>Poor judgment, out of character</h4>
+        <p>Strange money decisions. Falling for scams. Ignoring hygiene.</p>
+      </div>
+      <div class="sign">
+        <span class="num">03</span>
+        <h4>Things put in odd places</h4>
+        <p>Keys in the freezer. Glasses in the dishwasher. No memory of how.</p>
+      </div>
+      <div class="sign">
+        <span class="num">04</span>
+        <h4>Trouble with familiar tasks</h4>
+        <p>Forgetting steps in a recipe known by heart. Lost on a familiar route.</p>
+      </div>
+      <div class="sign">
+        <span class="num">05</span>
+        <h4>Words that won't come</h4>
+        <p>Stopping mid-sentence. Calling a wristwatch a "hand clock."</p>
+      </div>
+      <div class="sign">
+        <span class="num">06</span>
+        <h4>New mood or personality</h4>
+        <p>Sudden anger, worry, suspicion — or a flat indifference.</p>
+      </div>
+      <div class="sign">
+        <span class="num">07</span>
+        <h4>Confused about time or place</h4>
+        <p>Losing track of seasons or how they got somewhere.</p>
+      </div>
+      <div class="sign">
+        <span class="num">08</span>
+        <h4>Pulling away from people</h4>
+        <p>Dropping hobbies. Avoiding friends and family events.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== AD8 CALLOUT ========== -->
+  <section id="ad8">
+    <div class="ad8">
+      <div>
+        <span class="label">The Initial Screening Tool We Use · AD8</span>
+        <h3>Eight short questions.<br><em>5 minutes only.</em></h3>
+        <p>The AD8 is an <strong>internationally trusted</strong> screening tool. A trained staff member walks you through it, one-on-one, in plain language.</p>
+        <p>A quick, reliable screening to see if you need a full Mild Cognitive Impairment (MCI) assessment. Results are confidential.</p>
+      </div>
+      <div class="ad8-card">
+        <div class="num">8<sup> questions</sup></div>
+        <p class="desc">"Has there been a change?" That is the heart of the AD8 — designed for a family member, but you can also take it yourself.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== PREVENTION CARDS — REORDERED with APPS ========== -->
+  <section id="prevent">
+    <div class="section-head">
+      <span class="eyebrow">Six Steps That Help</span>
+      <h2>You can't control everything.<br><em>But you can do a lot.</em></h2>
+      <p class="section-intro">
+        Mild Cognitive Impairment (MCI), the precursor stage to dementia, is the only window for effective intervention— <strong>up to 51%</strong> of patients <strong> can return to normal</strong> cognition if identified and treated early.Together, these habits move the odds.
+      </p>
+    </div>
+
+    <div class="prev-grid">
+
+      <!-- 01 GET SCREENED EARLY (moved to first) — MoCA Assessment App -->
+      <div class="prev">
+        <div class="top">
+          <span class="step">Step 01</span>
+          <svg class="icon" viewBox="0 0 64 64" aria-hidden="true">
+            <!-- Clipboard with check — medical screening -->
+            <rect x="14" y="14" width="36" height="42" rx="3"/>
+            <rect x="22" y="8" width="20" height="10" rx="2"/>
+            <path d="M22 32 L 28 38 L 40 26" class="accent" stroke-width="2.4"/>
+            <line x1="22" y1="46" x2="38" y2="46"/>
+            <line x1="22" y1="51" x2="34" y2="51"/>
+          </svg>
+        </div>
+        <h4>Get screened — early</h4>
+        <p>If something has felt off for six months or more, don't wait. Earlier testing means more options.</p>
+        <div class="stat">Sept 21 · Times Square · Free</div>
+        <a class="app-link" href="https://apps.apple.com/us/app/moca-assessment/id6756805471" target="_blank" rel="noopener">
+          <span class="app-icon">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.5 12.5c0-2.5 2-3.7 2.1-3.7-1.1-1.7-2.9-1.9-3.5-1.9-1.5-.2-2.9.9-3.6.9-.8 0-1.9-.9-3.1-.9-1.6 0-3.1.9-3.9 2.4-1.7 2.9-.4 7.2 1.2 9.5.8 1.1 1.7 2.4 3 2.4 1.2-.1 1.6-.8 3-.8s1.8.8 3 .8c1.3 0 2.1-1.1 2.9-2.3.9-1.3 1.3-2.6 1.3-2.7-.1 0-2.4-.9-2.4-3.7zM15.3 5.4c.6-.8 1.1-1.9 1-3-.9.1-2 .6-2.7 1.4-.6.7-1.1 1.8-1 2.8 1 .1 2-.5 2.7-1.2z"/></svg>
+          </span>
+          <span class="app-info">
+            <span class="nm">MoCA Assessment</span>
+            <span class="src">iOS · App Store</span>
+          </span>
+          <span class="arrow">→</span>
+        </a>
+      </div>
+
+      <!-- 02 KEEP MIND IN MOTION (moved to second) — Memory Enhancement App -->
+      <div class="prev">
+        <div class="top">
+          <span class="step">Step 02</span>
+          <svg class="icon" viewBox="0 0 64 64" aria-hidden="true">
+            <!-- Brain with sparkle — active cognition -->
+            <path d="M22 22 C 22 16, 28 14, 32 16 C 36 14, 42 16, 42 22 C 46 22, 48 26, 46 30 C 48 34, 46 38, 42 38 C 42 44, 36 46, 32 44 C 28 46, 22 44, 22 38 C 18 38, 16 34, 18 30 C 16 26, 18 22, 22 22 Z"/>
+            <path d="M32 16 L 32 44" stroke-dasharray="1.8 2.5"/>
+            <path d="M24 26 Q 28 28 28 32"/>
+            <path d="M40 26 Q 36 28 36 32"/>
+            <!-- spark -->
+            <path d="M52 18 L 52 26 M 48 22 L 56 22" class="accent" stroke-width="2"/>
+          </svg>
+        </div>
+        <h4>Keep your mind in motion</h4>
+        <p>Read. Play cards. Learn something new. The brain works best with regular use.</p>
+        <div class="stat">Goal · 30 minutes a day</div>
+        <a class="app-link" href="https://apps.apple.com/il/app/memory-enhancement/id6762328155" target="_blank" rel="noopener">
+          <span class="app-icon">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.5 12.5c0-2.5 2-3.7 2.1-3.7-1.1-1.7-2.9-1.9-3.5-1.9-1.5-.2-2.9.9-3.6.9-.8 0-1.9-.9-3.1-.9-1.6 0-3.1.9-3.9 2.4-1.7 2.9-.4 7.2 1.2 9.5.8 1.1 1.7 2.4 3 2.4 1.2-.1 1.6-.8 3-.8s1.8.8 3 .8c1.3 0 2.1-1.1 2.9-2.3.9-1.3 1.3-2.6 1.3-2.7-.1 0-2.4-.9-2.4-3.7zM15.3 5.4c.6-.8 1.1-1.9 1-3-.9.1-2 .6-2.7 1.4-.6.7-1.1 1.8-1 2.8 1 .1 2-.5 2.7-1.2z"/></svg>
+          </span>
+          <span class="app-info">
+            <span class="nm">Memory Enhancement</span>
+            <span class="src">iOS · App Store</span>
+          </span>
+          <span class="arrow">→</span>
+        </a>
+      </div>
+
+      <!-- 03 MOVE EVERY DAY — Motor Function App -->
+      <div class="prev">
+        <div class="top">
+          <span class="step">Step 03</span>
+          <svg class="icon" viewBox="0 0 64 64" aria-hidden="true">
+            <!-- Walking person with motion -->
+            <circle cx="38" cy="14" r="4.5"/>
+            <path d="M38 19 L 34 32"/>
+            <path d="M34 32 L 26 28" class="accent" stroke-width="2"/>
+            <path d="M34 32 L 44 30"/>
+            <path d="M34 32 L 28 46 L 22 56"/>
+            <path d="M34 32 L 40 44 L 48 50"/>
+            <!-- motion lines -->
+            <path d="M12 22 L 18 22" class="accent" stroke-width="1.4"/>
+            <path d="M10 28 L 16 28" class="accent" stroke-width="1.4"/>
+            <path d="M14 34 L 18 34" class="accent" stroke-width="1.4"/>
+          </svg>
+        </div>
+        <h4>Move every day</h4>
+        <p>Walking. Tai chi. Dancing. Anything that gets your heart rate up helps the brain.</p>
+        <div class="stat">Goal · 150 minutes a week</div>
+        <a class="app-link" href="https://apps.apple.com/il/app/motor-function/id6763461844" target="_blank" rel="noopener">
+          <span class="app-icon">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.5 12.5c0-2.5 2-3.7 2.1-3.7-1.1-1.7-2.9-1.9-3.5-1.9-1.5-.2-2.9.9-3.6.9-.8 0-1.9-.9-3.1-.9-1.6 0-3.1.9-3.9 2.4-1.7 2.9-.4 7.2 1.2 9.5.8 1.1 1.7 2.4 3 2.4 1.2-.1 1.6-.8 3-.8s1.8.8 3 .8c1.3 0 2.1-1.1 2.9-2.3.9-1.3 1.3-2.6 1.3-2.7-.1 0-2.4-.9-2.4-3.7zM15.3 5.4c.6-.8 1.1-1.9 1-3-.9.1-2 .6-2.7 1.4-.6.7-1.1 1.8-1 2.8 1 .1 2-.5 2.7-1.2z"/></svg>
+          </span>
+          <span class="app-info">
+            <span class="nm">Motor Function</span>
+            <span class="src">iOS · App Store</span>
+          </span>
+          <span class="arrow">→</span>
+        </a>
+      </div>
+
+      <!-- 04 EAT FOR YOUR BRAIN -->
+      <div class="prev">
+        <div class="top">
+          <span class="step">Step 04</span>
+          <svg class="icon" viewBox="0 0 64 64" aria-hidden="true">
+            <!-- Apple with leaf — fresh food -->
+            <path d="M30 22 C 22 22, 16 28, 16 38 C 16 48, 22 56, 32 56 C 42 56, 48 48, 48 38 C 48 28, 42 22, 34 22 C 33 22, 32.5 22.5, 32 23 C 31.5 22.5, 31 22, 30 22 Z"/>
+            <path d="M32 22 L 32 16"/>
+            <path d="M32 16 Q 38 12, 44 14 Q 40 20, 33 19" class="accent" fill="currentColor" stroke="none" style="fill: var(--coral-dk);"/>
+            <circle cx="26" cy="34" r="1.8" class="fill"/>
+          </svg>
+        </div>
+        <h4>Eat for your brain</h4>
+        <p>Greens, berries, olive oil, fish twice a week. Less red meat, sugar, and fried food.</p>
+        <div class="stat">Goal · 5+ vegetable servings a day</div>
+      </div>
+
+      <!-- 05 MANAGE CHRONIC CONDITIONS -->
+      <div class="prev">
+        <div class="top">
+          <span class="step">Step 05</span>
+          <svg class="icon" viewBox="0 0 64 64" aria-hidden="true">
+            <!-- Heart with pulse line — chronic conditions / cardiovascular -->
+            <path d="M32 52 C 32 52, 14 40, 14 26 C 14 20, 19 16, 24 17 C 27 18, 30 20, 32 24 C 34 20, 37 18, 40 17 C 45 16, 50 20, 50 26 C 50 40, 32 52, 32 52 Z"/>
+            <path d="M14 32 L 22 32 L 26 26 L 30 38 L 34 28 L 38 32 L 50 32" class="accent" stroke-width="2"/>
+          </svg>
+        </div>
+        <h4>Manage chronic conditions</h4>
+        <p>High blood pressure, diabetes, and high cholesterol all hurt the brain. Take meds. Get checkups.</p>
+        <div class="stat">Blood pressure · under 130/80</div>
+      </div>
+
+      <!-- 06 SLEEP WELL, STAY CONNECTED -->
+      <div class="prev">
+        <div class="top">
+          <span class="step">Step 06</span>
+          <svg class="icon" viewBox="0 0 64 64" aria-hidden="true">
+            <!-- Crescent moon with stars — sleep -->
+            <path d="M44 16 A 18 18 0 1 0 48 42 A 14 14 0 0 1 44 16 Z"/>
+            <!-- stars -->
+            <path d="M16 18 L 18 22 L 22 22 L 19 25 L 20 29 L 16 27 L 12 29 L 13 25 L 10 22 L 14 22 Z" class="fill" transform="scale(0.5) translate(20 18)"/>
+            <circle cx="14" cy="38" r="1.5" class="fill"/>
+            <circle cx="20" cy="48" r="1.2" class="fill"/>
+            <circle cx="10" cy="28" r="1" class="fill"/>
+            <!-- Z's -->
+            <path d="M50 50 L 56 50 L 50 56 L 56 56" class="accent" stroke-width="1.6"/>
+          </svg>
+        </div>
+        <h4>Sleep well, stay close</h4>
+        <p>Seven to eight hours of real sleep. The brain clears waste while you sleep. Loneliness also raises risk.</p>
+        <div class="stat">Goal · 7–8 hours nightly</div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========== EVENT BLOCK ========== -->
+  <div class="event">
+    <div class="event-inner">
+      <span class="eyebrow">Save the Date · World Alzheimer's Day</span>
+      <h2>Meet us in <em>Times Square.</em></h2>
+
+      <div class="event-cols">
+        <div>
+          <div class="event-detail">
+            <span class="k">Date</span>
+            <span class="v">Monday, September 21, 2026<small>World Alzheimer's Day, observed since 1994.</small></span>
+          </div>
+          <div class="event-detail">
+            <span class="k">Hours</span>
+            <span class="v">10:00 AM – 6:00 PM<small>Drop in any time. Bring your loved ones. No appointment.</small></span>
+          </div>
+          <div class="event-detail">
+            <span class="k">Location</span>
+            <span class="v">Father Duffy Square, Times Square<small>Broadway between 46th &amp; 47th, Manhattan, NY 10036.</small></span>
+          </div>
+          <div class="event-detail">
+            <span class="k">Subway</span>
+            <span class="v">N · Q · R · W · S · 1 · 2 · 3 · 7<small>Times Sq–42 St / 49 St stations.</small></span>
+          </div>
+          <div class="event-detail">
+            <span class="k">Languages</span>
+            <span class="v">English · Spanish · Mandarin · Korean<small> Multi-lingual Facilitators on site.</small></span>
+          </div>
+          <div class="event-detail">
+            <span class="k">Cost</span>
+            <span class="v">Completely free<small>No insurance, no ID, no registration required.</small></span>
+          </div>
+        </div>
+
+        <aside class="event-side">
+          <h4>What to expect</h4>
+          <ul>
+            <li>Free initial dementia/MCI screening </li>
+            <li>Sign up appointment for full MCI test</li>
+            <li>One-on-one Q&amp;A with facilitators</li>
+            <li>MCI intervention resource recommendation</li>
+            <li>Caregiver resources kits</li>
+            <li>"Memory Tree" — honor someone you love</li>
+            <li>Refreshments and a shaded rest area</li>
+            <li>Wheelchair accessible · service animals welcome</li>
+          </ul>
+        </aside>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== CTA ========== -->
+  <section class="cta">
+    <span class="eyebrow">Bring Someone You Love</span>
+    <h2>Five minutes today.<br>Years of <em>Quality Life</em> ahead.</h2>
+    <p class="lede">Worried about a parent, a spouse, or yourself? The bravest thing you can do is show up and ask. We'll meet you where you are.</p>
+    <div class="cta-btns">
+      <a class="btn btn-primary" href="#" onclick="addToCalendar(event)">Add to Calendar →</a>
+      <a class="btn btn-ghost" href="mailto:info@appchurchglobal.org?subject=Volunteer%20-%20World%20Alzheimer's%20Day%202026">Volunteer with Us</a>
+      <a class="btn btn-ghost" href="#" onclick="sharePoster(event)" id="shareBtn">Share This Poster</a>
+    </div>
+  </section>
+
+  <!-- ========== FOOTER ========== -->
+  <footer>
+    <div class="foot-block">
+      <div class="name">AppChurch Global Foundation</div>
+      <div class="det">info@appchurchglobal.org<br>appchurchglobal.org</div>
+    </div>
+    <div class="foot-block center">
+      <div class="name">Bergen County Senior Services</div>
+      <div class="det">One Bergen County Plaza<br>Hackensack, NJ 07601</div>
+    </div>
+    <div class="foot-block right">
+      <div class="name">Borough of Palisades Park</div>
+      <div class="det">275 Broad Avenue<br>Palisades Park, NJ 07650</div>
+    </div>
+  </footer>
+
+  <div class="colophon">
+    A FREE Dementia Screening Event · World Alzheimer's Day, MMXXVI
+  </div>
+
+</div>
+
+<!-- share toast -->
+<div class="share-toast" id="shareToast">
+  <span>Link copied to clipboard</span>
+  <span class="url">appchurchglobal.org/2026wdd.html</span>
+</div>
+
+<script>
+// ============================================================
+// YOUTUBE — click-to-play facade
+// On click, the facade swaps for an iframe IN PLACE on the same
+// page. The iframe never loads until the user clicks (avoiding
+// page-load Error 153). If it still errors, we show a clean
+// in-place message with an "Open on YouTube" link that opens
+// in a new tab — never navigating away from this page.
+// ============================================================
+
+const VIDEO_ID = 'EW9inhcWDAQ';
+let ytPlayerInstance = null;
+let ytApiLoaded = false;
+
+document.addEventListener('DOMContentLoaded', () => {
+  const facade = document.getElementById('videoFacade');
+  if (facade) facade.addEventListener('click', activateVideo);
+});
+
+function activateVideo() {
+  const frame = document.getElementById('videoFrame');
+  if (!frame) return;
+
+  // Load the YouTube IFrame API once
+  if (!ytApiLoaded) {
+    const tag = document.createElement('script');
+    tag.src = 'https://www.youtube.com/iframe_api';
+    document.head.appendChild(tag);
+    ytApiLoaded = true;
+  }
+
+  // Replace facade with a fresh iframe — autoplay with sound
+  // is allowed here because this is a user-initiated action.
+  frame.innerHTML = `
+    <iframe
+      id="ytPlayer"
+      src="https://www.youtube.com/embed/${VIDEO_ID}?autoplay=1&enablejsapi=1&rel=0&modestbranding=1&playsinline=1"
+      title="Featured video"
+      frameborder="0"
+      allow="autoplay; encrypted-media; picture-in-picture; fullscreen"
+      allowfullscreen></iframe>
+  `;
+
+  // Give YouTube a moment to load, then bind the API for volume + error handling.
+  // If the API isn't ready yet, retry until it is.
+  bindPlayer();
+}
+
+function bindPlayer(retries = 0) {
+  if (typeof YT === 'undefined' || typeof YT.Player !== 'function') {
+    if (retries < 30) setTimeout(() => bindPlayer(retries + 1), 200);
+    return;
+  }
+  try {
+    ytPlayerInstance = new YT.Player('ytPlayer', {
+      events: {
+        'onReady': (e) => {
+          try { e.target.setVolume(50); } catch (err) {}
+        },
+        'onError': (e) => {
+          // Codes: 100 not found, 101/150 embedding disabled, 153 config error
+          showInPlaceError(e.data);
+        }
+      }
+    });
+  } catch (err) {
+    console.warn('Player binding failed:', err);
+  }
+}
+
+// Called by YouTube IFrame API when ready (for any pre-existing iframe).
+// Required global hook — does not need to do anything since we bind manually.
+function onYouTubeIframeAPIReady() { /* hook */ }
+
+function showInPlaceError(errorCode) {
+  const frame = document.getElementById('videoFrame');
+  if (!frame) return;
+  const isEmbedDisabled = errorCode === 101 || errorCode === 150 || errorCode === 153;
+  const message = isEmbedDisabled
+    ? "This video isn't available for embedded playback."
+    : "Something went wrong loading the video.";
+  frame.innerHTML = `
+    <div class="video-error">
+      <span class="sub">YouTube · Error ${errorCode || ''}</span>
+      <p class="msg">${message}</p>
+      <a href="https://youtu.be/${VIDEO_ID}" target="_blank" rel="noopener">Open on YouTube ↗</a>
+    </div>
+  `;
+}
+
+// ============================================================
+// SHARE & CALENDAR
+// ============================================================
+const POSTER_URL = 'https://appchurchglobal.org/2026wdd.html';
+const POSTER_TITLE = "World Alzheimer's Day 2026 — Free Dementia Screening";
+const POSTER_TEXT = 'Free dementia screening · Sept 21, 2026 · Times Square, NYC';
+
+function sharePoster(e) {
+  e.preventDefault();
+  if (navigator.share) {
+    navigator.share({
+      title: POSTER_TITLE,
+      text: POSTER_TEXT,
+      url: POSTER_URL
+    }).catch(() => copyToClipboard());
+  } else {
+    copyToClipboard();
+  }
+}
+
+function copyToClipboard() {
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(POSTER_URL).then(showToast).catch(fallbackCopy);
+  } else {
+    fallbackCopy();
+  }
+}
+
+function fallbackCopy() {
+  const ta = document.createElement('textarea');
+  ta.value = POSTER_URL;
+  ta.style.position = 'fixed';
+  ta.style.opacity = '0';
+  document.body.appendChild(ta);
+  ta.select();
+  try { document.execCommand('copy'); showToast(); } catch (err) {}
+  document.body.removeChild(ta);
+}
+
+function showToast() {
+  const toast = document.getElementById('shareToast');
+  toast.classList.add('show');
+  setTimeout(() => toast.classList.remove('show'), 2800);
+}
+
+function addToCalendar(e) {
+  e.preventDefault();
+  // 10 AM EDT = 14:00 UTC, 6 PM EDT = 22:00 UTC on Sept 21, 2026
+  const start = '20260921T140000Z';
+  const end = '20260921T220000Z';
+  const params = new URLSearchParams({
+    action: 'TEMPLATE',
+    text: "World Alzheimer's Day Free Dementia Screening",
+    dates: `${start}/${end}`,
+    location: 'Father Duffy Square, Times Square, New York, NY 10036',
+    details: `Free dementia screening at Times Square on World Alzheimer's Day. Hosted by AppChurch Global Foundation, Bergen County Senior Services, and the Borough of Palisades Park, NJ.\\n\\nMore: ${POSTER_URL}`
+  });
+  window.open('https://calendar.google.com/calendar/render?' + params.toString(), '_blank');
+}
+</script>
+
+</body>
+</html>
