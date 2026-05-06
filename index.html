@@ -441,7 +441,7 @@ footer{background:var(--dark);color:rgba(255,248,230,.65);padding:3rem 0 2rem}
 <!-- ANNOUNCEMENT BANNER (shown only when active data exists) -->
 <div id="ann-banner" role="alert" aria-live="polite">
   <div class="container">
-    <div class="ann-banner-inner" onclick="window.location.href='announcements.html'" style="cursor:pointer; transition: opacity .2s" onmouseover="this.style.opacity='0.8'" onmouseout="this.style.opacity='1'" title="Open Announcements">
+    <div id="ann-banner-link" class="ann-banner-inner" style="cursor:pointer; transition: opacity .2s" onmouseover="this.style.opacity='0.8'" onmouseout="this.style.opacity='1'" title="Open Announcement">
       <span class="ann-banner-dot" aria-hidden="true"></span>
       <div id="ann-banner-content" class="ann-banner-text"></div>
     </div>
@@ -514,6 +514,7 @@ footer{background:var(--dark);color:rgba(255,248,230,.65);padding:3rem 0 2rem}
       <p class="hero-ann-desc" id="hero-ann-desc"></p>
       <span class="hero-ann-arrow">→</span>
     </a>
+    <!-- (hero-ann-card href is updated dynamically by renderAnn() to the announcement's target page) -->
 
     <div class="hero-btns">
       <a href="#support" class="btn btn-g btn-lg">Support Our Mission</a>
@@ -887,8 +888,8 @@ footer{background:var(--dark);color:rgba(255,248,230,.65);padding:3rem 0 2rem}
 
 <script>
 // ═══ EMBEDDED DATA (auto-updated by GitHub Actions / editor.html) ═══
-const GOOD_NEWS_DATA = [{"scannedAt":"2026-05-06T16:01:40.113248+00:00","scanDate":"May 06, 2026","items":[{"rank":1,"title":"‘Jesus said to draw them in’: Idaho Christians push back on transgender bathroom law","summary":"(FāVS News) — Pastors at two Boise churches say welcoming transgender people is a matter of faith — and the new state law puts them in an impossible position.","source":"Religion News Service","sourceUrl":"https://religionnews.com/2026/05/05/jesus-said-to-draw-them-in-idaho-christians-push-back-on-transgender-bathroom-law/","category":"faith","image":"img/hero2.jpg"},{"rank":2,"title":"‘Who’s Bad?’ Moral Evasion in ‘Michael’","summary":"‘Michael’ chooses escapism over hard moral questions, box-office success over truth.","source":"The Gospel Coalition","sourceUrl":"https://www.thegospelcoalition.org/article/whos-bad-moral-evasion-michael/","category":"faith","image":"https://media.thegospelcoalition.org/wp-content/uploads/2026/05/01182245/whos-bad-moral-evasion-in-michael.jpg"},{"rank":3,"title":"When Persecution Fuels the Mission: The Early Church Discovers the Cost of Following Jesus","summary":"By Pieter Vermeulen, ICC Board Member, as part of a series, “Persecuted but not Forsaken.” The Book of Acts tells the story of the early church as it began to proclaim the gospel in a world that was often hostile to its message. What we dis…","source":"Intl Christian Concern","sourceUrl":"https://persecution.org/2026/05/04/when-persecution-fuels-the-mission-the-early-church-discovers-the-cost-of-following-jesus/","category":"persecution","image":"img/hero4.jpg"},{"rank":4,"title":"After she complained of gender bias, a PCA church fired her. A judge ruled it retaliation.","summary":"(RNS) — A judge for the Illinois Human Rights Commission ruled that Naperville Presbyterian Church fired a longtime staffer after she complained of being treated differently from male leaders. The church is led by author and pastor Dane Ort…","source":"Religion News Service","sourceUrl":"https://religionnews.com/2026/05/05/pca-church-retaliated-against-female-director-illinois-judge-rules-dane-ortlund/","category":"mission","image":"img/hero5.jpg"},{"rank":5,"title":"‘Lord Thank You’—Worship Director Jordan McCullough Joins Hannah Harper and Keyla Richardson in ‘American Idol’ Top 3","summary":"Jordan McCullough thanked God for being in the Top 3 of “American Idol,” where he joins fellow Christians Hannah Harper and Keyla Richardson.","source":"Church Leaders","sourceUrl":"https://churchleaders.com/news/2216924-jordan-mccullough-hannah-harper-keyla-richardson-american-idol-top-3.html","category":"faith","image":"https://cdn.churchleaders.com/wp-content/uploads/2026/05/keyla-richardson-jordan-mccullough-hannah-harper-american-idol.jpg"},{"rank":6,"title":"Community Grieves Teenage Christian’s Death","summary":"The death of a Christian teenager has left a void in Mwingi, Kenya. During a recent evening in the Nguni area, Somali gunmen moving through grazing routes along local farmland shot 14-year-old James Mutemi, killing him. Another local escape…","source":"Intl Christian Concern","sourceUrl":"https://persecution.org/2026/05/05/community-grieves-teenage-christians-death/","category":"persecution","image":"img/congregation1.jpg"}]},{"scannedAt":"2026-05-05T15:57:59.966462+00:00","scanDate":"May 05, 2026","items":[{"rank":1,"title":"Rubio plans to visit the Vatican this week as tensions between Trump and the pope rise","summary":"WASHINGTON (AP) — The trip comes as Trump has criticized Leo for his stances on the Middle East and elsewhere and as the president has drawn pushback for posting a social media image likening himself to Jesus Christ.","source":"Religion News Service","sourceUrl":"https://religionnews.com/2026/05/05/rubio-plans-to-visit-the-vatican-this-week-as-tensions-between-trump-and-the-pope-rise/","category":"religion","image":"img/hero2.jpg"},{"rank":2,"title":"Melkite Catholic bishops express concern over Israeli demolitions in southern Lebanon","summary":"BEIRUT (AP) — The Council of Melkite Greek Catholic Bishops in Lebanon urged the Lebanese government and the United Nations to protect the property of civilians and religious institutions in southern Lebanon.","source":"Religion News Service","sourceUrl":"https://religionnews.com/2026/05/05/melkite-catholic-bishops-express-concern-over-israeli-demolitions-in-southern-lebanon/","category":"religion","image":"img/hero3.jpg"},{"rank":3,"title":"When Persecution Fuels the Mission: The Early Church Discovers the Cost of Following Jesus","summary":"By Pieter Vermeulen, ICC Board Member, as part of a series, “Persecuted but not Forsaken.” The Book of Acts tells the story of the early church as it began to proclaim the gospel in a world that was often hostile to its message. What we dis…","source":"Intl Christian Concern","sourceUrl":"https://persecution.org/2026/05/04/when-persecution-fuels-the-mission-the-early-church-discovers-the-cost-of-following-jesus/","category":"persecution","image":"img/hero4.jpg"},{"rank":4,"title":"Why Therapy Can’t Replace the Church","summary":"Collin Hansen talks with Brad Edwards about the need for the church amid rampant anxiety, division, and individualism.","source":"The Gospel Coalition","sourceUrl":"https://www.thegospelcoalition.org/podcasts/gospelbound/therapy-cant-replace-church/","category":"faith","image":"https://media.thegospelcoalition.org/wp-content/uploads/2026/04/28163207/182.-Gospelbound-Episode-Thumbnail-%E2%80%94-Brad-Edwards-1.jpg"},{"rank":5,"title":"Introducing the New-and-Improved TGC Church Directory","summary":"We are pleased to announce the launch of our new-and-improved TGC Church Directory. Apply today to list your church.","source":"The Gospel Coalition","sourceUrl":"https://www.thegospelcoalition.org/article/new-improved-tgc-church-directory/","category":"faith","image":"https://media.thegospelcoalition.org/wp-content/uploads/2026/05/23213139/new-improved-tgc-church-directory.jpg"},{"rank":6,"title":"SBC Megachurch Pastor Resigns Suddenly, Says There’s ‘Nothing in My Life That Disqualifies Me’ From Ministry","summary":"George Wright, an Alabama megachurch pastor, resigned suddenly, preaching his last sermon just days after announcing he would step down.","source":"Church Leaders","sourceUrl":"https://churchleaders.com/news/2216882-pastor-george-wright-resigns-suddenly.html","category":"faith","image":"https://cdn.churchleaders.com/wp-content/uploads/2026/05/George-Wright.png"}]},{"scannedAt":"2026-04-04T17:14:33.557525+00:00","scanDate":"April 04, 2026","items":[{"rank":1,"title":"LDS Church's 196th General Conference Features New First Presidency and Apostles","summary":"The Church of Jesus Christ of Latter-day Saints held its April 2026 general conference with a solemn assembly, sustaining President Dallin H. Oaks as new church president and calling two new apostles. The historic Easter weekend conference featured leadership changes following President Holland's passing.","source":"The Church News","sourceUrl":"https://www.thechurchnews.com/leaders/2026/04/04/april-2026-general-conference-begins-with-solemn-assembly/","category":"christian faith","image":""},{"rank":2,"title":"Supreme Court Rules for Christian Therapist in Colorado Conversion Therapy Case","summary":"In an 8-1 ruling, the Supreme Court sided with Christian counselor Kaley Chiles, striking down Colorado's ban on conversion therapy as a violation of First Amendment free speech rights. The decision affects similar laws in nearly two dozen states.","source":"NBC News","sourceUrl":"https://www.nbcnews.com/politics/supreme-court/supreme-court-rules-colorados-ban-conversion-therapy-aimed-lgbtq-youth-rcna245858","category":"religion","image":""},{"rank":3,"title":"Finnish Supreme Court Convicts Christian Lawmaker for Hate Speech","summary":"Finland's Supreme Court found Dr. Päivi Räsänen guilty of hate speech laws in a stunning reversal of previous rulings. The former government minister and Christian legislator faces continued persecution for her biblical views on sexuality.","source":"International Christian Concern","sourceUrl":"https://persecution.org/2026/","category":"persecution","image":""},{"rank":4,"title":"'Prayer at the Heart' Movement Launches Easter Call for One Million Americans","summary":"A new nationwide prayer initiative launched Easter Sunday aims to mobilize one million Americans to pray for one million people to come to faith in Christ. The 50-day movement runs from Passover to Pentecost amid what organizers call a 'crisis of faith and hope' in America.","source":"Religion News Service","sourceUrl":"https://religionnews.com/2026/03/31/new-prayer-movement-aims-to-unite-divided-americans-as-crisis-of-faith-hope-grips-nation/","category":"mission","image":""},{"rank":5,"title":"Christian Persecution Reaches Record High with 388 Million Affected Worldwide","summary":"Open Doors' 2026 World Watch List reveals Christian persecution has reached unprecedented levels, with 388 million believers facing high levels of persecution globally. Nigeria remains the deadliest country for Christians, accounting for 70% of faith-related killings.","source":"Vatican News","sourceUrl":"https://www.vaticannews.va/en/church/news/2026-01/open-doors-world-watch-list-2026-report-christians-persecuted.html","category":"persecution","image":""},{"rank":6,"title":"Barna Study: 80 Million Americans Anticipate Spiritual Revival","summary":"A new Barna Group report reveals 29% of U.S. adults—roughly 80 million people—believe a spiritual revival is likely within the next year. Gen Z leads the surge as younger generations seek meaning amid anxiety and social disruption.","source":"Worthy News","sourceUrl":"https://www.worthynews.com/113420-millions-of-americans-anticipate-spiritual-awakening-barna-report-finds","category":"revival","image":""}]}];
-const ANNOUNCEMENT_DATA = [{"title":"Dementia & MCI Screening","body":"AppChurch is working with community partners to provide Mild Cognitive Impairment (MCI) screening. Please contact us if your organization wants to co-host and share this information with your loved ones, who need it.","image":"https://appchurchglobal.org/img/bruce2.jpg","date":"2026-04-05","tag":"MCI screening"}];
+const GOOD_NEWS_DATA = [{"scannedAt":"2026-04-04T17:14:33.557525+00:00","scanDate":"April 04, 2026","items":[{"rank":1,"title":"LDS Church's 196th General Conference Features New First Presidency and Apostles","summary":"The Church of Jesus Christ of Latter-day Saints held its April 2026 general conference with a solemn assembly, sustaining President Dallin H. Oaks as new church president and calling two new apostles. The historic Easter weekend conference featured leadership changes following President Holland's passing.","source":"The Church News","sourceUrl":"https://www.thechurchnews.com/leaders/2026/04/04/april-2026-general-conference-begins-with-solemn-assembly/","category":"christian faith","image":""},{"rank":2,"title":"Supreme Court Rules for Christian Therapist in Colorado Conversion Therapy Case","summary":"In an 8-1 ruling, the Supreme Court sided with Christian counselor Kaley Chiles, striking down Colorado's ban on conversion therapy as a violation of First Amendment free speech rights. The decision affects similar laws in nearly two dozen states.","source":"NBC News","sourceUrl":"https://www.nbcnews.com/politics/supreme-court/supreme-court-rules-colorados-ban-conversion-therapy-aimed-lgbtq-youth-rcna245858","category":"religion","image":""},{"rank":3,"title":"Finnish Supreme Court Convicts Christian Lawmaker for Hate Speech","summary":"Finland's Supreme Court found Dr. Päivi Räsänen guilty of hate speech laws in a stunning reversal of previous rulings. The former government minister and Christian legislator faces continued persecution for her biblical views on sexuality.","source":"International Christian Concern","sourceUrl":"https://persecution.org/2026/","category":"persecution","image":""},{"rank":4,"title":"'Prayer at the Heart' Movement Launches Easter Call for One Million Americans","summary":"A new nationwide prayer initiative launched Easter Sunday aims to mobilize one million Americans to pray for one million people to come to faith in Christ. The 50-day movement runs from Passover to Pentecost amid what organizers call a 'crisis of faith and hope' in America.","source":"Religion News Service","sourceUrl":"https://religionnews.com/2026/03/31/new-prayer-movement-aims-to-unite-divided-americans-as-crisis-of-faith-hope-grips-nation/","category":"mission","image":""},{"rank":5,"title":"Christian Persecution Reaches Record High with 388 Million Affected Worldwide","summary":"Open Doors' 2026 World Watch List reveals Christian persecution has reached unprecedented levels, with 388 million believers facing high levels of persecution globally. Nigeria remains the deadliest country for Christians, accounting for 70% of faith-related killings.","source":"Vatican News","sourceUrl":"https://www.vaticannews.va/en/church/news/2026-01/open-doors-world-watch-list-2026-report-christians-persecuted.html","category":"persecution","image":""},{"rank":6,"title":"Barna Study: 80 Million Americans Anticipate Spiritual Revival","summary":"A new Barna Group report reveals 29% of U.S. adults—roughly 80 million people—believe a spiritual revival is likely within the next year. Gen Z leads the surge as younger generations seek meaning amid anxiety and social disruption.","source":"Worthy News","sourceUrl":"https://www.worthynews.com/113420-millions-of-americans-anticipate-spiritual-awakening-barna-report-finds","category":"revival","image":""}]}];
+const ANNOUNCEMENT_DATA = [];
 </script>
 <script>
 // ═══ NAV ═══
@@ -898,31 +899,46 @@ hbg.addEventListener('click',()=>{const o=drw.classList.toggle('open');hbg.class
 function closeD(){drw.classList.remove('open');hbg.classList.remove('open');hbg.setAttribute('aria-expanded',false);drw.setAttribute('aria-hidden',true)}
 
 // ═══ ANNOUNCEMENTS ═══
+function annTargetLink(a){
+  // Resolve the click-through target for an announcement.
+  // Falls back to announcements.html when no per-announcement link is set.
+  return (a && a.link && String(a.link).trim()) ? String(a.link).trim() : 'announcements.html';
+}
 function renderAnn(){
   const banner=document.getElementById('ann-banner');
   const sec=document.getElementById('ann');
   const track=document.getElementById('ann-track');
   const bannerContent=document.getElementById('ann-banner-content');
+  const bannerLink=document.getElementById('ann-banner-link');
   let d;
   try{d=JSON.parse(localStorage.getItem('appchurch_announcements'))||[];}catch(e){d=[];}
   if(!d.length)d=ANNOUNCEMENT_DATA||[];
   if(!d.length){banner.classList.remove('show');sec.style.display='none';return;}
-  // Banner: show first announcement
+  // Banner: show first announcement, link to its target page
   const first=d[0];
+  const firstLink=annTargetLink(first);
   bannerContent.innerHTML='<span class="ann-banner-title">'+esc(first.title||'')+'</span>'+(first.body?'<span class="ann-banner-body"> — '+esc(first.body.slice(0,90))+(first.body.length>90?'…':'')+'</span>':'');
+  if(bannerLink){
+    bannerLink.onclick=function(){ window.location.href=firstLink; };
+    bannerLink.setAttribute('title','Open: '+(first.title||'Announcement'));
+  }
   banner.classList.add('show');
 
-  // Hero Overlay Card
+  // Hero Overlay Card — point to first announcement's target page
   const heroCard = document.getElementById('hero-ann-card');
   if (heroCard) {
     document.getElementById('hero-ann-title').textContent = first.title || '';
     document.getElementById('hero-ann-desc').textContent = first.body || '';
+    heroCard.setAttribute('href', firstLink);
     heroCard.style.display = 'block';
   }
 
-  // Section: show all
+  // Section: show all — each card links to its own announcement target page
   sec.style.display='block';
-  track.innerHTML=d.slice(0,8).map(a=>`<div class="ann-card" role="listitem"><div class="ann-date">${a.date?new Date(a.date).toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'}):''}</div><h3>${esc(a.title||'')}</h3><p>${esc(a.body||'')}</p>${a.tag?`<span class="ann-tag">${esc(a.tag)}</span>`:''}</div>`).join('');
+  track.innerHTML=d.slice(0,8).map(a=>{
+    const href=annTargetLink(a);
+    return `<div class="ann-card" role="listitem" style="cursor:pointer" onclick="window.location.href='${href.replace(/'/g,'%27')}'" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();window.location.href='${href.replace(/'/g,'%27')}'}"><div class="ann-date">${a.date?new Date(a.date).toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'}):''}</div><h3>${esc(a.title||'')}</h3><p>${esc(a.body||'')}</p>${a.tag?`<span class="ann-tag">${esc(a.tag)}</span>`:''}</div>`;
+  }).join('');
 }
 function closeBanner(){document.getElementById('ann-banner').classList.remove('show')}
 
@@ -952,7 +968,7 @@ function renderGN(cat){
       title: a.title,
       summary: a.body,
       source: "AppChurch",
-      sourceUrl: "#",
+      sourceUrl: annTargetLink(a),
       category: "announcement",
       rank: "📢",
       image: a.image || "img/appchurchlogo.jpg"
@@ -1082,7 +1098,7 @@ function initNewsTicker(){
   if(!anns.length) anns = ANNOUNCEMENT_DATA || [];
   anns.slice(0,3).forEach(function(a){
     var txt = (a.title||'') + (a.body ? ' — '+a.body.slice(0,70)+(a.body.length>70?'…':'') : '');
-    if(txt) items.push({type:'ann', text:txt, href:null});
+    if(txt) items.push({type:'ann', text:txt, href:annTargetLink(a)});
   });
 
   // Latest 6 news headlines

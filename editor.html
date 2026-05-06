@@ -621,6 +621,11 @@ Method: RSS crawler — no API key required</div>
       <label>Head Image URL</label>
       <input id="ann-image" class="form-input" type="url" placeholder="https://... or img/hero.jpg">
     </div>
+    <div class="form-row">
+      <label>Target Announcement Page Link</label>
+      <input id="ann-link" class="form-input" type="text" placeholder="announcements.html or https://example.com/event">
+      <div class="tip">When the announcement is clicked (banner, hero card, or section card) it will jump to this URL. Leave blank to default to <code>announcements.html</code>.</div>
+    </div>
     <div class="form-grid">
       <div class="form-row">
         <label>Date</label>
@@ -741,6 +746,7 @@ function ghCreds(){
 function loadGhCredsToUI(){
   const c = ghCreds();
   ['gh-repo','gh-repo2'].forEach(id=>{ const el=document.getElementById(id); if(el) el.value=c.repo; });
+  ['gh-token','gh-token2'].forEach(id=>{ const el=document.getElementById(id); if(el) el.value=c.token; });
   if(document.getElementById('gh-branch')) document.getElementById('gh-branch').value = c.branch;
   updateGhIndicator();
 }
@@ -786,7 +792,9 @@ function saveGhCredsMain(){
 }
 function syncGhPanels(){
   const c = ghCreds();
-  document.getElementById('gh-repo2').value = c.repo;
+  document.getElementById('gh-repo2').value  = c.repo;
+  document.getElementById('gh-token2').value = c.token;
+  document.getElementById('gh-token').value  = c.token;
   if(document.getElementById('gh-branch')) document.getElementById('gh-branch').value = c.branch||'main';
 }
 async function testGhConnection(statusId='gh-status'){
@@ -1137,6 +1145,7 @@ function renderAnnList(){
         </div>
         ${a.date?`<div class="ann-item-date">${new Date(a.date).toLocaleDateString('en-US',{month:'long',day:'numeric',year:'numeric'})}</div>`:''}
         ${a.body?`<p>${esc(a.body)}</p>`:''}
+        ${a.link?`<div class="text-sm text-dim" style="margin-top:.35rem;font-family:var(--fm)">🔗 ${esc(a.link)}</div>`:''}
       </div>
       <div class="flex gap-sm">
         <button class="btn btn-ghost btn-icon btn-sm" onclick="openEditAnn(${i})" title="Edit">✏️</button>
@@ -1148,7 +1157,7 @@ function renderAnnList(){
 function openAddAnn(){
   document.getElementById('modal-ann-title').textContent='New Announcement';
   document.getElementById('ann-edit-idx').value='';
-  ['ann-title','ann-body','ann-tag','ann-image'].forEach(id=>document.getElementById(id).value='');
+  ['ann-title','ann-body','ann-tag','ann-image','ann-link'].forEach(id=>document.getElementById(id).value='');
   document.getElementById('ann-date').value=new Date().toISOString().split('T')[0];
   document.getElementById('ann-modal').classList.add('open');
 }
@@ -1159,6 +1168,7 @@ function openEditAnn(idx){
   document.getElementById('ann-title').value=a.title||'';
   document.getElementById('ann-body').value=a.body||'';
   document.getElementById('ann-image').value=a.image||'';
+  document.getElementById('ann-link').value=a.link||'';
   document.getElementById('ann-date').value=a.date||'';
   document.getElementById('ann-tag').value=a.tag||'';
   document.getElementById('ann-modal').classList.add('open');
@@ -1169,6 +1179,7 @@ function saveAnnModal(){
   if(!title){ alert('Title is required.'); return; }
   const obj={title, body:document.getElementById('ann-body').value.trim(),
               image:document.getElementById('ann-image').value.trim(),
+              link:document.getElementById('ann-link').value.trim(),
               date:document.getElementById('ann-date').value,
               tag:document.getElementById('ann-tag').value.trim()};
   const idx=document.getElementById('ann-edit-idx').value;
