@@ -1161,6 +1161,168 @@ footer .right { text-align: right; }
 </head>
 
 <body>
+
+<!-- ════════════════════════════════════════════════════════════════
+     APPCHURCH SITE HEADER (announcement banner, nav, drawer, news ticker)
+     — shared with index.html. Scoped CSS to avoid touching the poster.
+════════════════════════════════════════════════════════════════ -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Fraunces:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
+<style>
+/* ── AppChurch shared chrome — scoped to avoid clashing with the poster ── */
+:root{
+  --ac-gold:#B8913A;--ac-gold-lt:#D4AD62;--ac-gold-pale:#FBF6EC;
+  --ac-dark:#221A0A;
+  --ac-text:#1A1E2E;--ac-text-mid:#454D6A;
+  --ac-bg-w:#FFFFFF;
+  --ac-border-gold:rgba(184,145,58,.28);
+  --ac-sh-md:0 4px 20px rgba(184,145,58,.14);
+  --ac-fs:'Plus Jakarta Sans',system-ui,sans-serif;
+  --ac-ff:'Fraunces',Georgia,serif;
+  --ac-tr:.25s cubic-bezier(.4,0,.2,1);
+}
+@keyframes ac-pulse{0%,100%{box-shadow:0 0 0 0 rgba(184,145,58,.4)}50%{box-shadow:0 0 0 7px rgba(184,145,58,0)}}
+@keyframes ac-ticker-scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* Announcement banner */
+#ann-banner{background:linear-gradient(90deg,#3D2E12,var(--ac-dark),#2E2210);color:#fff;padding:.7rem 0;position:relative;display:none;border-bottom:2px solid var(--ac-gold);font-family:var(--ac-fs);font-size:14px;line-height:1.5}
+#ann-banner.show{display:block}
+#ann-banner .ac-container{display:flex;align-items:center;justify-content:center;gap:.75rem;padding:0 3rem 0 1.2rem;width:100%;max-width:1160px;margin:0 auto}
+.ann-banner-inner{display:flex;align-items:center;gap:.65rem;flex-wrap:wrap;justify-content:center}
+.ann-banner-dot{width:7px;height:7px;border-radius:50%;background:var(--ac-gold);flex-shrink:0;animation:ac-pulse 2s ease-in-out infinite}
+.ann-banner-text{font-size:.84rem;text-align:center;line-height:1.4}
+.ann-banner-title{font-weight:700;font-family:var(--ac-ff);color:var(--ac-gold-lt)}
+.ann-banner-body{color:rgba(255,255,255,.8);margin-left:.35rem}
+.ann-banner-close{position:absolute;right:1.1rem;top:50%;transform:translateY(-50%);color:rgba(255,255,255,.6);font-size:1.3rem;line-height:1;padding:.2rem .5rem;border-radius:4px;transition:color var(--ac-tr);background:none;border:none;cursor:pointer;font-family:inherit}
+.ann-banner-close:hover{color:#fff}
+
+/* Nav */
+#nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(255,253,247,.96);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1.5px solid var(--ac-border-gold);transition:all var(--ac-tr);font-family:var(--ac-fs)}
+#nav.scrolled{box-shadow:0 2px 20px rgba(184,145,58,.12);border-bottom-color:var(--ac-gold)}
+.nav-in{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:.72rem 1.2rem;max-width:1160px;margin:0 auto}
+.nav-logo{display:flex;align-items:center;gap:.55rem;flex-shrink:0;text-decoration:none}
+.nav-logo img{height:34px;width:auto;display:block}
+.nav-logo span{font-family:var(--ac-ff);font-size:1.1rem;font-weight:700;color:var(--ac-text)}
+.nav-links{display:none;align-items:center;gap:.15rem;list-style:none;margin:0;padding:0}
+.nav-links a{padding:.42rem .72rem;border-radius:8px;font-size:.86rem;font-weight:500;color:var(--ac-text-mid);transition:all var(--ac-tr);text-decoration:none}
+.nav-links a:hover{background:var(--ac-gold-pale);color:var(--ac-gold)}
+.nav-acts{display:flex;align-items:center;gap:.55rem}
+.ac-give-btn{display:inline-flex;align-items:center;gap:.4rem;padding:.5rem 1.1rem;border-radius:100px;font-size:.8rem;font-weight:600;background:var(--ac-gold);color:#fff;border:2px solid var(--ac-gold);text-decoration:none;transition:all var(--ac-tr);white-space:nowrap;font-family:var(--ac-fs)}
+.ac-give-btn:hover{background:#9A7A2E;transform:translateY(-1px);box-shadow:0 6px 18px rgba(184,145,58,.3)}
+.hamburger{display:flex;flex-direction:column;gap:5px;padding:.4rem;border-radius:8px;transition:background var(--ac-tr);background:none;border:none;cursor:pointer}
+.hamburger:hover{background:var(--ac-gold-pale)}
+.hamburger span{display:block;width:21px;height:2px;background:var(--ac-text);border-radius:2px;transition:all var(--ac-tr)}
+.hamburger.open span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+.hamburger.open span:nth-child(2){opacity:0}
+.hamburger.open span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+.drawer{position:fixed;top:63px;left:0;right:0;background:var(--ac-bg-w);border-bottom:1px solid var(--ac-border-gold);box-shadow:var(--ac-sh-md);z-index:999;transform:translateY(-110%);transition:transform var(--ac-tr);padding:1rem 1.2rem 1.5rem;font-family:var(--ac-fs)}
+.drawer.open{transform:none}
+.drawer ul{list-style:none;display:flex;flex-direction:column;gap:.25rem;margin:0 0 .9rem 0;padding:0}
+.drawer ul a{display:block;padding:.6rem .85rem;border-radius:8px;font-size:.93rem;font-weight:500;color:var(--ac-text-mid);transition:all var(--ac-tr);text-decoration:none}
+.drawer ul a:hover{background:var(--ac-gold-pale);color:var(--ac-gold)}
+.drawer .ac-give-btn{width:100%;justify-content:center;padding:.82rem 1.35rem;font-size:.88rem}
+@media(min-width:768px){.nav-links{display:flex}.hamburger,.drawer{display:none}}
+
+/* News ticker */
+#news-ticker{background:linear-gradient(90deg,var(--ac-gold-pale),#FEF9EE,var(--ac-gold-pale));border-bottom:1.5px solid var(--ac-border-gold);overflow:hidden;height:40px;position:sticky;top:63px;z-index:900;font-family:var(--ac-fs)}
+.nt-inner{display:flex;align-items:stretch;height:100%}
+.nt-label{flex-shrink:0;padding:0 1.1rem;font-size:.62rem;letter-spacing:.17em;text-transform:uppercase;color:var(--ac-gold);font-weight:700;border-right:1.5px solid var(--ac-border-gold);white-space:nowrap;display:flex;align-items:center;gap:.45rem;background:rgba(184,145,58,.07)}
+.nt-label .tl-dot{width:6px;height:6px;border-radius:50%;background:var(--ac-gold);animation:ac-pulse 2s ease-in-out infinite;flex-shrink:0}
+.nt-scroll{flex:1;overflow:hidden;display:flex;align-items:center}
+.nt-track{display:flex;align-items:center;white-space:nowrap;will-change:transform}
+.nt-item{display:inline-flex;align-items:center;gap:.5rem;padding:0 2rem;font-size:.79rem;color:var(--ac-text-mid);cursor:pointer;transition:color .2s}
+.nt-item:hover{color:var(--ac-gold)}
+.nt-badge{font-size:.58rem;padding:.1rem .42rem;border-radius:4px;font-weight:700;letter-spacing:.06em;flex-shrink:0;text-transform:uppercase}
+.nt-badge.ann{background:var(--ac-gold);color:#fff}
+.nt-badge.news{background:var(--ac-gold-pale);color:var(--ac-gold);border:1px solid var(--ac-border-gold)}
+.nt-title{overflow:hidden;text-overflow:ellipsis;color:var(--ac-text)}
+.nt-sep{color:var(--ac-gold);padding:0 .35rem;font-size:.75rem;opacity:.5;flex-shrink:0}
+
+/* Footer (scoped to role=contentinfo so the poster's own <footer> is untouched) */
+footer[role="contentinfo"]{background:var(--ac-dark);color:rgba(255,248,230,.65);padding:3rem 0 2rem;font-family:var(--ac-fs);font-size:14px;line-height:1.65}
+footer[role="contentinfo"] .ac-container{width:100%;max-width:1160px;margin:0 auto;padding:0 1.2rem}
+footer[role="contentinfo"] .ft-grid{display:grid;gap:2rem;margin-bottom:2rem}
+footer[role="contentinfo"] .ft-brand .ft-logo{display:flex;align-items:center;gap:.55rem;margin-bottom:.75rem}
+footer[role="contentinfo"] .ft-brand .ft-logo img{height:30px;border-radius:50%}
+footer[role="contentinfo"] .ft-brand .ft-logo span{font-family:var(--ac-ff);font-size:1.05rem;font-weight:700;color:#fff}
+footer[role="contentinfo"] .ft-brand p{font-size:.8rem;line-height:1.7;max-width:275px;color:rgba(255,248,230,.5)}
+footer[role="contentinfo"] .ft-sec h4{font-size:.72rem;font-weight:700;color:var(--ac-gold-lt);letter-spacing:.1em;text-transform:uppercase;margin-bottom:.85rem}
+footer[role="contentinfo"] .ft-links{list-style:none;display:flex;flex-direction:column;gap:.45rem;margin:0;padding:0}
+footer[role="contentinfo"] .ft-links a{font-size:.8rem;color:rgba(255,248,230,.45);transition:color var(--ac-tr);text-decoration:none}
+footer[role="contentinfo"] .ft-links a:hover{color:var(--ac-gold-lt)}
+footer[role="contentinfo"] .ft-bot{border-top:1px solid rgba(184,145,58,.25);padding-top:1.4rem;display:flex;flex-direction:column;gap:.7rem;align-items:center;text-align:center}
+footer[role="contentinfo"] .ft-copy{font-size:.73rem;color:rgba(255,248,230,.3)}
+footer[role="contentinfo"] .ft-kw{display:none}
+@media(min-width:768px){footer[role="contentinfo"] .ft-grid{grid-template-columns:1.6fr 1fr 1fr 1fr;gap:2.5rem}footer[role="contentinfo"] .ft-bot{flex-direction:row;justify-content:space-between;text-align:left}}
+
+/* Back-to-top */
+#btt{position:fixed;bottom:1.4rem;right:1.4rem;width:42px;height:42px;border-radius:50%;background:var(--ac-gold);color:#fff;display:flex;align-items:center;justify-content:center;box-shadow:var(--ac-sh-md);opacity:0;pointer-events:none;transition:all var(--ac-tr);z-index:500;font-size:1rem;border:none;cursor:pointer;font-family:var(--ac-fs)}
+#btt.on{opacity:1;pointer-events:all}
+#btt:hover{background:#9A7A2E;transform:translateY(-2px)}
+
+/* Spacer so the fixed nav doesn't overlap the poster's hero */
+.ac-spacer{height:63px;width:100%}
+</style>
+
+<!-- Announcement banner -->
+<div id="ann-banner" role="alert" aria-live="polite">
+  <div class="ac-container">
+    <div id="ann-banner-link" class="ann-banner-inner" style="cursor:pointer;transition:opacity .2s" onmouseover="this.style.opacity='0.8'" onmouseout="this.style.opacity='1'" title="Open Announcement">
+      <span class="ann-banner-dot" aria-hidden="true"></span>
+      <div id="ann-banner-content" class="ann-banner-text"></div>
+    </div>
+    <button class="ann-banner-close" onclick="acCloseBanner()" aria-label="Dismiss announcement">×</button>
+  </div>
+</div>
+
+<!-- Nav -->
+<nav id="nav" role="navigation" aria-label="Main navigation">
+  <div class="nav-in">
+    <a href="index.html" class="nav-logo" aria-label="AppChurch Home">
+      <img src="img/appchurch round logo.png" alt="AppChurch Logo">
+      <span>AppChurch</span>
+    </a>
+    <ul class="nav-links" role="list">
+      <li><a href="index.html#about">About</a></li>
+      <li><a href="index.html#ministry">Ministry</a></li>
+      <li><a href="index.html#community">Community</a></li>
+      <li><a href="index.html#goodnews">Good News</a></li>
+      <li><a href="index.html#support">Support</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+    <div class="nav-acts">
+      <a href="https://www.zeffy.com/en-US/donation-form/donate-to-appchurch" target="_blank" rel="noopener" class="ac-give-btn" style="display:none" id="nav-give">Give</a>
+      <button class="hamburger" id="hbg" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+<div class="drawer" id="drw" aria-hidden="true">
+  <ul>
+    <li><a href="index.html#about" onclick="acCloseDrawer()">About</a></li>
+    <li><a href="index.html#ministry" onclick="acCloseDrawer()">Ministry</a></li>
+    <li><a href="index.html#community" onclick="acCloseDrawer()">Community</a></li>
+    <li><a href="index.html#goodnews" onclick="acCloseDrawer()">Good News</a></li>
+    <li><a href="index.html#support" onclick="acCloseDrawer()">Support Us</a></li>
+    <li><a href="index.html#contact" onclick="acCloseDrawer()">Contact</a></li>
+  </ul>
+  <a href="https://www.zeffy.com/en-US/donation-form/donate-to-appchurch" target="_blank" rel="noopener" class="ac-give-btn" onclick="acCloseDrawer()">Give / Support</a>
+</div>
+
+<!-- News ticker -->
+<div id="news-ticker" aria-hidden="true">
+  <div class="nt-inner">
+    <div class="nt-label"><span class="tl-dot"></span>Good News</div>
+    <div class="nt-scroll">
+      <div class="nt-track" id="nt-track"></div>
+    </div>
+  </div>
+</div>
+
+<div class="ac-spacer" aria-hidden="true"></div>
+
 <div class="poster">
 
   <!-- ========== TOP STRIP ========== -->
@@ -1896,6 +2058,122 @@ function addToCalendar(e) {
   });
   window.open('https://calendar.google.com/calendar/render?' + params.toString(), '_blank');
 }
+</script>
+
+<!-- ════════════════════════════════════════════════════════════════
+     APPCHURCH SITE FOOTER (shared with index.html)
+════════════════════════════════════════════════════════════════ -->
+<footer role="contentinfo">
+  <div class="ac-container">
+    <div class="ft-grid">
+      <div class="ft-brand">
+        <div class="ft-logo"><img src="img/appchurch round logo.png" alt="AppChurch"><span>AppChurch</span></div>
+        <p>Where faith meets the future. A global digital church and chapel network proclaiming Jesus Christ in the age of AI, technology, and convergence.</p>
+      </div>
+      <div class="ft-sec"><h4>Ministry</h4><ul class="ft-links"><li><a href="index.html#about">About Us</a></li><li><a href="index.html#ministry">What We Do</a></li><li><a href="index.html#support">Give / Support</a></li><li><a href="index.html#contact">Contact</a></li></ul></div>
+      <div class="ft-sec"><h4>Community</h4><ul class="ft-links"><li><a href="index.html#community">Community Services</a></li><li><a href="index.html#goodnews">Good News</a></li><li><a href="index.html#ann">Events</a></li><li><a href="https://legacy1892.coffee" target="_blank" rel="noopener">Legacy 1892 Coffee</a></li></ul></div>
+      <div class="ft-sec"><h4>Connect</h4><ul class="ft-links"><li><a href="mailto:contact@appchurchglobal.org">Email Us</a></li><li><a href="https://apps.apple.com/us/app/appchurch-pro/id1556255525" target="_blank" rel="noopener">Download App</a></li><li><a href="editor.html" rel="nofollow" style="opacity:.35;font-size:.73rem">E</a></li></ul></div>
+    </div>
+    <div class="ft-bot">
+      <p class="ft-copy">© 2020–<span id="ac-yr"></span> AppChurch Global. All rights reserved.</p>
+      <p class="ft-kw" aria-hidden="true">faith · Christian · technology · AI · future · life · meaning · save · purpose · coffee · cafe · robot · digital · internet · convergence · MCI · cognitive health · community · chapel · gospel · Jesus · prayer · worship · mission · revival · salvation · hope</p>
+    </div>
+  </div>
+</footer>
+
+<button id="btt" aria-label="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script>
+// AppChurch shared chrome JS — wrapped in IIFE so it doesn't collide with the page's own scripts
+(function(){
+  function escHTML(s){return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
+  function annTargetLink(a){return (a&&a.link&&String(a.link).trim())?String(a.link).trim():'announcements.html';}
+
+  // Year stamp in footer
+  var yr=document.getElementById('ac-yr'); if(yr) yr.textContent=new Date().getFullYear();
+
+  // Nav scroll behaviour + back-to-top toggle
+  var navEl=document.getElementById('nav');
+  var btt=document.getElementById('btt');
+  var giveBtn=document.getElementById('nav-give');
+  window.addEventListener('scroll',function(){
+    var s=window.scrollY>60;
+    if(navEl) navEl.classList.toggle('scrolled',s);
+    if(giveBtn) giveBtn.style.display=s?'inline-flex':'none';
+    if(btt) btt.classList.toggle('on',window.scrollY>400);
+  },{passive:true});
+
+  // Drawer (mobile menu)
+  var drw=document.getElementById('drw'),hbg=document.getElementById('hbg');
+  if(hbg && drw){
+    hbg.addEventListener('click',function(){
+      var o=drw.classList.toggle('open');
+      hbg.classList.toggle('open',o);
+      hbg.setAttribute('aria-expanded',o);
+      drw.setAttribute('aria-hidden',!o);
+    });
+  }
+  window.acCloseDrawer=function(){
+    if(drw)drw.classList.remove('open');
+    if(hbg){hbg.classList.remove('open');hbg.setAttribute('aria-expanded',false);}
+    if(drw)drw.setAttribute('aria-hidden',true);
+  };
+  window.acCloseBanner=function(){var b=document.getElementById('ann-banner');if(b)b.classList.remove('show');};
+
+  // Announcement banner — read from localStorage (kept fresh by editor.html / index.html)
+  function renderAnnBanner(){
+    var banner=document.getElementById('ann-banner');
+    var bannerContent=document.getElementById('ann-banner-content');
+    var bannerLink=document.getElementById('ann-banner-link');
+    if(!banner||!bannerContent) return;
+    var d=[]; try{d=JSON.parse(localStorage.getItem('appchurch_announcements'))||[];}catch(e){}
+    if(!d.length){banner.classList.remove('show'); return;}
+    var first=d[0];
+    var firstLink=annTargetLink(first);
+    bannerContent.innerHTML='<span class="ann-banner-title">'+escHTML(first.title||'')+'</span>'+(first.body?'<span class="ann-banner-body"> — '+escHTML(first.body.slice(0,90))+(first.body.length>90?'…':'')+'</span>':'');
+    if(bannerLink){
+      bannerLink.onclick=function(){window.location.href=firstLink;};
+      bannerLink.setAttribute('title','Open: '+(first.title||'Announcement'));
+    }
+    banner.classList.add('show');
+  }
+
+  // News ticker
+  function initNewsTicker(){
+    var track=document.getElementById('nt-track');
+    var wrap=document.getElementById('news-ticker');
+    if(!track||!wrap) return;
+    var items=[];
+    var anns=[]; try{anns=JSON.parse(localStorage.getItem('appchurch_announcements'))||[];}catch(e){}
+    anns.slice(0,3).forEach(function(a){
+      var txt=(a.title||'')+(a.body?' — '+a.body.slice(0,70)+(a.body.length>70?'…':''):'');
+      if(txt) items.push({type:'ann',text:txt,href:annTargetLink(a)});
+    });
+    var bx=[]; try{bx=JSON.parse(localStorage.getItem('appchurch_news'))||[];}catch(e){}
+    var newsItems=(bx[0]&&bx[0].items)?bx[0].items:[];
+    newsItems.slice(0,6).forEach(function(n){if(n.title) items.push({type:'news',text:n.title,href:n.sourceUrl||null});});
+    if(!items.length){wrap.style.display='none';return;}
+    function mkSet(arr){
+      return arr.map(function(it){
+        var click=it.href?'onclick="window.open(\''+it.href.replace(/'/g,'%27')+'\',\'_blank\')"':'';
+        var badge=it.type==='ann'?'<span class="nt-badge ann">📢 Announcement</span>':'<span class="nt-badge news">✦ News</span>';
+        return '<span class="nt-item" '+click+'>'+badge+'<span class="nt-title">'+escHTML(it.text)+'</span></span><span class="nt-sep" aria-hidden="true">✦</span>';
+      }).join('');
+    }
+    track.innerHTML=mkSet(items)+mkSet(items);
+    requestAnimationFrame(function(){requestAnimationFrame(function(){
+      var half=track.scrollWidth/2;
+      var speed=52;
+      var dur=(half/speed).toFixed(2);
+      track.style.animation='ac-ticker-scroll '+dur+'s linear infinite';
+    });});
+    wrap.addEventListener('mouseenter',function(){track.style.animationPlayState='paused';});
+    wrap.addEventListener('mouseleave',function(){track.style.animationPlayState='running';});
+  }
+
+  renderAnnBanner();
+  initNewsTicker();
+})();
 </script>
 
 </body>
