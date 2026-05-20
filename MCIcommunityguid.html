@@ -1,0 +1,1143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=5">
+<title>MCI Community Guide — AppChurch World Alzheimer's Day MMXXVI</title>
+<meta name="description" content="A free community guide to Mild Cognitive Impairment from AppChurch. Learn early signs, take a free five-minute screen, and find caregiver support.">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://appchurchglobal.org/MCIcommunityguid.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Fraunces:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+
+<style>
+/* ============================================================
+   DESIGN TOKENS — Light / Warm palette with Gold & Black
+   ============================================================ */
+:root {
+  /* Backgrounds */
+  --bg:        #FFFDF7;
+  --bg-warm:   #FBF6EC;
+  --bg-warm2:  #F5EDD8;
+  --bg-card:   #FFFFFF;
+  --bg-dark:   #1A1208;
+
+  /* Gold */
+  --gold:      #B8913A;
+  --gold-lt:   #D4AD62;
+  --gold-pale: #FBF4E6;
+  --gold-dim:  rgba(184,145,58,.18);
+  --gold-bdr:  rgba(184,145,58,.28);
+
+  /* Black / Dark */
+  --dark:      #221A0A;
+  --ink:       #1A1E2E;
+  --ink-mid:   #454D6A;
+  --ink-dim:   #8892B0;
+
+  /* Borders */
+  --border:    #E8DFC8;
+  --border-g:  rgba(184,145,58,.28);
+
+  /* Shadows */
+  --sh-sm:  0 1px  4px rgba(184,145,58,.10);
+  --sh-md:  0 4px 22px rgba(184,145,58,.14);
+  --sh-lg:  0 12px 44px rgba(184,145,58,.18);
+
+  /* Typography */
+  --ff:  'Cormorant Garamond', Georgia, serif;
+  --ff2: 'Fraunces', Georgia, serif;
+  --fs:  'Plus Jakarta Sans', system-ui, sans-serif;
+
+  /* Radii */
+  --r:    10px;
+  --r-lg: 16px;
+  --r-xl: 22px;
+
+  /* Transition */
+  --tr: .24s cubic-bezier(.4,0,.2,1);
+}
+
+/* ============================================================
+   RESET
+   ============================================================ */
+*,*::before,*::after { margin:0; padding:0; box-sizing:border-box }
+html { scroll-behavior:smooth; -webkit-text-size-adjust:100% }
+body {
+  background:var(--bg);
+  color:var(--ink);
+  font-family:var(--fs);
+  line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+a { color:inherit; text-decoration:none }
+img { max-width:100%; height:auto; display:block }
+button { cursor:pointer; font-family:inherit; border:none; background:none }
+:focus-visible { outline:2px solid var(--gold); outline-offset:3px; border-radius:4px }
+::selection { background:var(--gold); color:#fff }
+
+/* ============================================================
+   LAYOUT
+   ============================================================ */
+.wrap {
+  width:100%; max-width:1160px;
+  margin:0 auto; padding:0 1.5rem;
+}
+
+/* ============================================================
+   UNIVERSAL NAV  (matches index.html light nav)
+   ============================================================ */
+#nav {
+  position:fixed; top:0; left:0; right:0; z-index:1000;
+  background:rgba(255,253,247,.96);
+  backdrop-filter:blur(16px); -webkit-backdrop-filter:blur(16px);
+  border-bottom:1.5px solid var(--border-g);
+  transition:box-shadow var(--tr), border-color var(--tr);
+}
+#nav.scrolled {
+  box-shadow:0 2px 20px rgba(184,145,58,.12);
+  border-bottom-color:var(--gold);
+}
+.nav-in {
+  display:flex; align-items:center;
+  justify-content:space-between; gap:1rem;
+  padding:.72rem 1.5rem;
+  max-width:1160px; margin:0 auto;
+}
+.nav-logo {
+  display:flex; align-items:center; gap:.55rem; flex-shrink:0;
+}
+.nav-logo img {
+  height:34px; width:auto; border-radius:50%;
+}
+.nav-logo span {
+  font-family:var(--ff2);
+  font-size:1.1rem; font-weight:700; color:var(--ink);
+}
+.nav-links {
+  display:none; align-items:center; gap:.1rem; list-style:none;
+}
+@media(min-width:768px) { .nav-links { display:flex } }
+.nav-links a {
+  padding:.42rem .72rem; border-radius:8px;
+  font-size:.86rem; font-weight:500; color:var(--ink-mid);
+  transition:all var(--tr);
+}
+.nav-links a:hover { background:var(--gold-pale); color:var(--gold) }
+.nav-acts { display:flex; align-items:center; gap:.55rem }
+.nav-give {
+  display:inline-flex; align-items:center;
+  padding:.48rem 1.15rem; border-radius:100px;
+  background:var(--gold); color:#fff;
+  font-size:.82rem; font-weight:700;
+  transition:all var(--tr);
+}
+.nav-give:hover { background:#9A7A2E; transform:translateY(-1px); box-shadow:0 4px 14px rgba(184,145,58,.35) }
+
+/* hamburger */
+.hambg {
+  display:flex; flex-direction:column; gap:5px;
+  padding:.4rem; border-radius:8px; transition:background var(--tr);
+}
+.hambg:hover { background:var(--gold-pale) }
+.hambg span {
+  display:block; width:21px; height:2px;
+  background:var(--ink); border-radius:2px; transition:all var(--tr);
+}
+.hambg.open span:nth-child(1) { transform:rotate(45deg) translate(5px,5px) }
+.hambg.open span:nth-child(2) { opacity:0 }
+.hambg.open span:nth-child(3) { transform:rotate(-45deg) translate(5px,-5px) }
+@media(min-width:768px) { .hambg { display:none } }
+
+/* drawer */
+.drawer {
+  position:fixed; top:61px; left:0; right:0; z-index:999;
+  background:var(--bg-card);
+  border-bottom:1px solid var(--border);
+  box-shadow:var(--sh-md);
+  transform:translateY(-110%); transition:transform var(--tr);
+  padding:1rem 1.5rem 1.5rem;
+}
+.drawer.open { transform:none }
+.drawer ul { list-style:none; display:flex; flex-direction:column; gap:.2rem; margin-bottom:.9rem }
+.drawer ul a {
+  display:block; padding:.6rem .85rem; border-radius:8px;
+  font-size:.92rem; font-weight:500; color:var(--ink-mid);
+  transition:all var(--tr);
+}
+.drawer ul a:hover { background:var(--gold-pale); color:var(--gold) }
+@media(min-width:768px) { .drawer { display:none } }
+
+/* ============================================================
+   BUTTONS
+   ============================================================ */
+.btn {
+  display:inline-flex; align-items:center; gap:.45rem;
+  padding:.7rem 1.65rem; border-radius:100px;
+  font-size:.86rem; font-weight:600; letter-spacing:.01em;
+  transition:all var(--tr); white-space:nowrap;
+  border:2px solid transparent;
+}
+.btn-gold {
+  background:var(--gold); color:#fff; border-color:var(--gold);
+}
+.btn-gold:hover {
+  background:#9A7A2E; border-color:#9A7A2E;
+  transform:translateY(-2px); box-shadow:0 6px 20px rgba(184,145,58,.35);
+}
+.btn-dark {
+  background:var(--dark); color:#fff; border-color:var(--dark);
+}
+.btn-dark:hover {
+  background:#0F0B05; transform:translateY(-2px);
+  box-shadow:0 6px 20px rgba(0,0,0,.25);
+}
+.btn-outline {
+  background:transparent; color:var(--gold); border-color:var(--gold-bdr);
+}
+.btn-outline:hover {
+  background:var(--gold-pale); border-color:var(--gold);
+  transform:translateY(-2px);
+}
+
+/* ============================================================
+   HERO
+   ============================================================ */
+.hero {
+  padding:130px 0 96px;
+  background:
+    radial-gradient(ellipse 70% 55% at 70% 0%,   rgba(184,145,58,.1) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 40% at 0%  100%,  rgba(184,145,58,.07) 0%, transparent 55%),
+    var(--bg);
+  border-bottom:1.5px solid var(--border-g);
+}
+.eyebrow {
+  display:inline-flex; align-items:center; gap:.5rem;
+  font-size:.6rem; letter-spacing:.2em; text-transform:uppercase;
+  color:var(--gold); font-weight:700; margin-bottom:1.1rem;
+}
+.eyebrow-dot {
+  width:5px; height:5px; border-radius:50%; background:var(--gold);
+  animation:blink 2.4s ease-in-out infinite; flex-shrink:0;
+}
+@keyframes blink { 0%,100%{opacity:1} 50%{opacity:.3} }
+
+/* Two-column hero grid */
+.hero-grid {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:64px; align-items:center;
+}
+@media(max-width:840px) { .hero-grid { grid-template-columns:1fr; gap:44px } }
+
+.hero-title {
+  font-family:var(--ff);
+  font-size:clamp(38px, 4.6vw, 68px);
+  font-weight:600; line-height:1.12;
+  color:var(--dark); letter-spacing:-.02em; margin-bottom:22px;
+}
+.hero-title em { font-style:italic; color:var(--gold) }
+
+.hero-lead {
+  font-family:'Lora', Georgia, serif;
+  font-size:clamp(.96rem, 1.4vw, 1.08rem);
+  color:var(--ink-mid); line-height:1.82; max-width:480px;
+}
+@media(max-width:840px) { .hero-lead { max-width:100% } }
+
+/* ---- Video ---- */
+.yt-wrap {
+  position:relative; width:100%; padding-bottom:56.25%;
+  background:var(--bg-warm2);
+  border:1.5px solid var(--border-g);
+  border-radius:var(--r-lg);
+  overflow:hidden; cursor:pointer;
+  box-shadow:var(--sh-lg);
+  transition:box-shadow var(--tr), border-color var(--tr);
+}
+.yt-wrap:hover {
+  border-color:var(--gold);
+  box-shadow:0 20px 60px rgba(184,145,58,.22);
+}
+.yt-wrap img,
+.yt-wrap iframe {
+  position:absolute; top:0; left:0; width:100%; height:100%;
+  border:0; object-fit:cover;
+}
+.yt-play {
+  position:absolute; top:50%; left:50%;
+  transform:translate(-50%,-50%);
+  width:72px; height:72px; border-radius:50%;
+  background:rgba(26,18,8,.75);
+  border:2px solid rgba(184,145,58,.65);
+  display:flex; align-items:center; justify-content:center;
+  transition:all .2s; pointer-events:none;
+}
+.yt-wrap:hover .yt-play {
+  background:var(--gold); border-color:var(--gold);
+  transform:translate(-50%,-50%) scale(1.08);
+}
+.yt-play svg { width:26px; height:26px; fill:#fff; margin-left:4px }
+.yt-wrap:hover .yt-play svg { fill:#fff }
+.yt-caption {
+  margin-top:10px;
+  font-size:.67rem; letter-spacing:.1em; text-transform:uppercase;
+  color:var(--ink-dim); text-align:center;
+}
+
+/* ---- Hero bottom: full-width meta + CTA ---- */
+.hero-bottom {
+  margin-top:60px;
+  border-top:1.5px solid var(--border-g);
+  padding-top:44px;
+}
+/* Three meta items in a horizontal row */
+.hero-meta {
+  display:flex; flex-direction:row; flex-wrap:wrap;
+  margin-bottom:32px;
+}
+.hero-meta-item {
+  flex:1; min-width:200px;
+  padding:0 32px 0 0;
+}
+.hero-meta-item + .hero-meta-item {
+  border-left:1.5px solid var(--border);
+  padding-left:32px;
+}
+.hero-meta-item:last-child { padding-right:0 }
+@media(max-width:600px) {
+  .hero-meta { flex-direction:column; gap:20px }
+  .hero-meta-item { border-left:none !important; padding:0 !important }
+  .hero-meta-item + .hero-meta-item {
+    border-top:1px solid var(--border); padding-top:20px !important;
+  }
+}
+.meta-label {
+  display:block;
+  font-size:.55rem; letter-spacing:.18em; text-transform:uppercase;
+  color:var(--gold); font-weight:700; margin-bottom:5px;
+}
+.meta-val {
+  font-size:.88rem; color:var(--ink-mid); line-height:1.62;
+}
+.hero-cta { display:flex; flex-wrap:wrap; gap:14px }
+
+/* ============================================================
+   SECTION BASE
+   ============================================================ */
+.section { padding:96px 0 }
+.section-warm { background:var(--bg-warm) }
+
+.section-label {
+  display:inline-flex; align-items:center; gap:.45rem;
+  font-size:.58rem; letter-spacing:.2em; text-transform:uppercase;
+  color:var(--gold); font-weight:700; margin-bottom:.8rem;
+}
+.section-title {
+  font-family:var(--ff);
+  font-size:clamp(1.7rem, 3vw, 2.5rem);
+  font-weight:600; color:var(--dark); line-height:1.18;
+  margin-bottom:1rem;
+}
+.section-title em { font-style:italic; color:var(--gold) }
+.section-lead {
+  font-family:'Lora', Georgia, serif;
+  font-size:clamp(.92rem, 1.3vw, 1.05rem);
+  color:var(--ink-mid); line-height:1.82;
+}
+.divider {
+  width:40px; height:2px;
+  background:linear-gradient(90deg, var(--gold), var(--gold-lt));
+  border-radius:2px; margin:.85rem 0 1.2rem;
+}
+
+/* ============================================================
+   INTRO BAND — two-column with image
+   ============================================================ */
+.intro-band {
+  padding:96px 0;
+  background:var(--bg-warm);
+  border-top:1.5px solid var(--border-g);
+  border-bottom:1.5px solid var(--border-g);
+}
+.intro-grid {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:72px; align-items:center;
+}
+@media(max-width:767px) { .intro-grid { grid-template-columns:1fr; gap:44px } }
+
+.intro-img-wrap {
+  position:relative; border-radius:var(--r-xl); overflow:hidden;
+  border:1.5px solid var(--border-g);
+  box-shadow:var(--sh-lg); aspect-ratio:4/3;
+}
+.intro-img-wrap img { width:100%; height:100%; object-fit:cover; display:block }
+.intro-img-badge {
+  position:absolute; bottom:1rem; left:1rem;
+  background:rgba(26,18,8,.88); backdrop-filter:blur(10px);
+  border-left:3px solid var(--gold);
+  padding:.6rem .95rem; border-radius:0 var(--r) var(--r) 0;
+  font-size:.74rem; color:rgba(255,248,230,.75); line-height:1.4;
+}
+.intro-img-badge strong { display:block; color:var(--gold-lt); font-size:.8rem }
+
+/* ============================================================
+   SYMPTOMS GRID
+   ============================================================ */
+.symptoms-grid {
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px; margin-top:44px;
+}
+@media(max-width:767px) { .symptoms-grid { grid-template-columns:1fr 1fr } }
+@media(max-width:479px) { .symptoms-grid { grid-template-columns:1fr } }
+
+.sym-card {
+  padding:26px 22px;
+  background:var(--bg-card);
+  border:1.5px solid var(--border);
+  border-radius:var(--r-lg);
+  box-shadow:var(--sh-sm);
+  transition:all var(--tr); position:relative; overflow:hidden;
+}
+.sym-card::after {
+  content:''; position:absolute; top:0; left:0; right:0; height:3px;
+  background:linear-gradient(90deg, var(--gold), var(--gold-lt));
+  transform:scaleX(0); transform-origin:left; transition:transform var(--tr);
+}
+.sym-card:hover {
+  border-color:var(--gold-bdr);
+  box-shadow:var(--sh-md);
+  transform:translateY(-3px);
+}
+.sym-card:hover::after { transform:scaleX(1) }
+.sym-icon { font-size:1.6rem; margin-bottom:14px }
+.sym-card h3 {
+  font-family:var(--ff2);
+  font-size:.95rem; font-weight:600; color:var(--dark); margin-bottom:8px;
+}
+.sym-card p { font-size:.82rem; color:var(--ink-mid); line-height:1.65 }
+
+/* ============================================================
+   SCREENING BAND — dark panel
+   ============================================================ */
+.screen-band {
+  padding:96px 0;
+  background:var(--bg-dark);
+  position:relative; overflow:hidden;
+}
+.screen-band::before {
+  content:'';
+  position:absolute; inset:0; pointer-events:none;
+  background:
+    radial-gradient(ellipse 60% 50% at 80% 50%, rgba(184,145,58,.12) 0%, transparent 65%),
+    radial-gradient(ellipse 40% 35% at 10% 20%, rgba(184,145,58,.07) 0%, transparent 55%);
+}
+.screen-grid {
+  position:relative; z-index:1;
+  display:grid;
+  grid-template-columns:1fr auto;
+  gap:56px; align-items:start;
+}
+@media(max-width:767px) { .screen-grid { grid-template-columns:1fr; gap:36px } }
+
+/* text side */
+.screen-band .section-label { color:var(--gold-lt) }
+.screen-band .section-title { color:#fff }
+.screen-band .section-title em { color:var(--gold-lt) }
+.screen-band .section-lead { color:rgba(255,248,230,.65) }
+
+.screen-steps { display:flex; flex-direction:column; gap:18px; margin-top:30px }
+.screen-step { display:flex; align-items:flex-start; gap:16px }
+.step-num {
+  width:32px; height:32px; flex-shrink:0; border-radius:50%;
+  background:var(--gold-dim); border:1px solid rgba(184,145,58,.4);
+  display:flex; align-items:center; justify-content:center;
+  font-size:.7rem; font-weight:700; color:var(--gold-lt);
+}
+.step-body { padding-top:5px }
+.step-body strong { display:block; font-size:.88rem; color:#fff; margin-bottom:2px }
+.step-body p { font-size:.84rem; color:rgba(255,248,230,.58); line-height:1.6 }
+.screen-cta { display:flex; flex-wrap:wrap; gap:14px; margin-top:32px }
+
+/* stat box */
+.stat-box {
+  background:rgba(255,255,255,.04);
+  border:1.5px solid rgba(184,145,58,.25);
+  border-radius:var(--r-xl);
+  padding:40px 36px; text-align:center;
+  min-width:230px; flex-shrink:0;
+}
+.stat-box .big {
+  font-family:var(--ff); font-size:4.5rem;
+  color:var(--gold-lt); line-height:1; font-weight:600;
+}
+.stat-box .unit {
+  font-size:.6rem; letter-spacing:.2em; text-transform:uppercase;
+  color:rgba(255,248,230,.35); margin:4px 0 20px;
+}
+.stat-box .note {
+  font-size:.76rem; color:rgba(255,248,230,.45);
+  line-height:1.55; margin-top:14px;
+}
+.stat-sep {
+  display:block; width:32px; height:1px;
+  background:rgba(184,145,58,.3); margin:0 auto 20px;
+}
+
+/* ============================================================
+   RESOURCES GRID
+   ============================================================ */
+.resources-grid {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:18px; margin-top:44px;
+}
+@media(max-width:639px) { .resources-grid { grid-template-columns:1fr } }
+
+.res-card {
+  display:flex; gap:18px; align-items:flex-start;
+  padding:24px;
+  background:var(--bg-card);
+  border:1.5px solid var(--border);
+  border-radius:var(--r-lg);
+  box-shadow:var(--sh-sm);
+  transition:all var(--tr);
+}
+.res-card:hover {
+  border-color:var(--gold-bdr);
+  box-shadow:var(--sh-md);
+  transform:translateY(-2px);
+}
+.res-icon { font-size:1.45rem; flex-shrink:0; margin-top:2px }
+.res-card h4 {
+  font-family:var(--ff2);
+  font-size:.93rem; font-weight:600; color:var(--dark); margin-bottom:5px;
+}
+.res-card p { font-size:.8rem; color:var(--ink-mid); line-height:1.62 }
+.res-card a {
+  display:inline-block; margin-top:8px;
+  font-size:.75rem; font-weight:600; color:var(--gold);
+  transition:color var(--tr);
+}
+.res-card a:hover { color:#9A7A2E }
+
+/* ============================================================
+   SCRIPTURE QUOTE
+   ============================================================ */
+.scripture {
+  margin-top:72px;
+  padding:44px 48px;
+  background:var(--gold-pale);
+  border:1.5px solid var(--border-g);
+  border-top:4px solid var(--gold);
+  border-radius:var(--r-xl);
+  text-align:center; position:relative; overflow:hidden;
+}
+.scripture::before {
+  content:'\201C';
+  position:absolute; top:-20px; left:20px;
+  font-family:var(--ff); font-size:10rem;
+  color:rgba(184,145,58,.08); line-height:1;
+  pointer-events:none; user-select:none;
+}
+.scripture blockquote {
+  font-family:var(--ff);
+  font-size:clamp(1.1rem, 2vw, 1.5rem);
+  font-style:italic; font-weight:400; color:var(--dark);
+  line-height:1.7; margin-bottom:16px; position:relative; z-index:1;
+}
+.scripture blockquote em { color:var(--gold); font-style:normal }
+.scripture cite {
+  font-size:.62rem; letter-spacing:.2em; text-transform:uppercase;
+  color:var(--ink-dim); font-style:normal;
+}
+
+/* ============================================================
+   FOOTER  (matches index.html footer)
+   ============================================================ */
+footer {
+  background:var(--bg-dark);
+  color:rgba(255,248,230,.65);
+  padding:3rem 0 2rem;
+}
+.ft-grid {
+  display:grid; gap:2rem; margin-bottom:2rem;
+}
+@media(min-width:600px) { .ft-grid { grid-template-columns:1.5fr 1fr 1fr 1fr } }
+
+.ft-brand .ft-logo {
+  display:flex; align-items:center; gap:.55rem; margin-bottom:.75rem;
+}
+.ft-brand .ft-logo img { height:30px; border-radius:50% }
+.ft-brand .ft-logo span {
+  font-family:var(--ff2); font-size:1.05rem; font-weight:700; color:#fff;
+}
+.ft-brand > p {
+  font-size:.8rem; line-height:1.72; max-width:275px;
+  color:rgba(255,248,230,.5); margin-bottom:12px;
+}
+.ft-guide-note {
+  font-size:.72rem; color:rgba(184,145,58,.55); line-height:1.65;
+  border-left:2px solid rgba(184,145,58,.22); padding-left:10px;
+  max-width:275px;
+}
+
+.ft-sec h4 {
+  font-size:.68rem; font-weight:700; color:var(--gold-lt);
+  letter-spacing:.1em; text-transform:uppercase; margin-bottom:.85rem;
+}
+.ft-links { list-style:none; display:flex; flex-direction:column; gap:.45rem }
+.ft-links a {
+  font-size:.8rem; color:rgba(255,248,230,.45); transition:color var(--tr);
+}
+.ft-links a:hover { color:var(--gold-lt) }
+
+.ft-bot {
+  border-top:1px solid rgba(184,145,58,.25);
+  padding-top:1.4rem;
+  display:flex; flex-wrap:wrap; gap:.7rem;
+  align-items:center; justify-content:space-between;
+}
+.ft-copy { font-size:.73rem; color:rgba(255,248,230,.3) }
+
+/* ============================================================
+   BACK TO TOP
+   ============================================================ */
+#btt {
+  position:fixed; bottom:1.5rem; right:1.5rem; z-index:500;
+  width:42px; height:42px; border-radius:50%;
+  background:var(--gold); color:#fff;
+  display:flex; align-items:center; justify-content:center;
+  font-size:1rem; font-weight:700;
+  box-shadow:0 4px 18px rgba(184,145,58,.4);
+  opacity:0; pointer-events:none; transition:all var(--tr);
+}
+#btt.on { opacity:1; pointer-events:all }
+#btt:hover { background:#9A7A2E; transform:translateY(-2px) }
+
+/* ============================================================
+   SCROLL REVEAL
+   ============================================================ */
+.reveal {
+  opacity:0; transform:translateY(22px);
+  transition:opacity .6s ease, transform .6s ease;
+}
+.reveal.visible { opacity:1; transform:none }
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     UNIVERSAL NAV  (same links as index.html)
+     ============================================================ -->
+<nav id="nav" role="navigation" aria-label="Main navigation">
+  <div class="nav-in">
+    <a href="/" class="nav-logo" aria-label="AppChurch Home">
+      <img src="img/appchurch round logo.png" alt="AppChurch Logo">
+      <span>AppChurch</span>
+    </a>
+    <ul class="nav-links" role="list">
+      <li><a href="/#about">About</a></li>
+      <li><a href="/#ministry">Ministry</a></li>
+      <li><a href="/#community">Community</a></li>
+      <li><a href="/#goodnews">Good News</a></li>
+      <li><a href="/#support">Support</a></li>
+      <li><a href="/#contact">Contact</a></li>
+    </ul>
+    <div class="nav-acts">
+      <a href="https://www.zeffy.com/en-US/donation-form/donate-to-appchurch"
+         target="_blank" rel="noopener" class="nav-give">Give</a>
+      <button class="hambg" id="hambg" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<div class="drawer" id="drawer" aria-hidden="true">
+  <ul>
+    <li><a href="/#about">About</a></li>
+    <li><a href="/#ministry">Ministry</a></li>
+    <li><a href="/#community">Community</a></li>
+    <li><a href="/#goodnews">Good News</a></li>
+    <li><a href="/#support">Support Us</a></li>
+    <li><a href="/#contact">Contact</a></li>
+  </ul>
+  <a href="https://www.zeffy.com/en-US/donation-form/donate-to-appchurch"
+     target="_blank" rel="noopener"
+     class="btn btn-gold" style="display:inline-flex">Give / Support</a>
+</div>
+
+
+<!-- ============================================================
+     HERO
+     ============================================================ -->
+<header class="hero" aria-labelledby="hero-h1">
+  <div class="wrap">
+
+    <p class="eyebrow reveal">
+      <span class="eyebrow-dot" aria-hidden="true"></span>
+      AppChurch Community Guide &nbsp;&middot;&nbsp; World Alzheimer&rsquo;s Day MMXXVI
+    </p>
+
+    <!-- Row 1 — equal columns: title/lead LEFT | video RIGHT -->
+    <div class="hero-grid">
+
+      <div class="reveal">
+        <h1 class="hero-title" id="hero-h1">
+          Protecting the<br><em>memories</em><br>that made us.
+        </h1>
+        <p class="hero-lead">
+          A community guide to Mild Cognitive Impairment &mdash; what it is,
+          how to spot the early signs, and the free five-minute screen
+          available to every adult 50&plus; through AppChurch.
+        </p>
+      </div>
+
+      <div class="reveal" style="transition-delay:.15s">
+        <!-- Click-to-play: thumbnail shown by default; iframe injected on click -->
+        <div class="yt-wrap" id="ytWrap"
+             onclick="ytPlay()" role="button" tabindex="0"
+             aria-label="Play MCI Awareness video"
+             onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();ytPlay()}">
+          <img
+            src="https://img.youtube.com/vi/ryk7Hz5D9bo/maxresdefault.jpg"
+            alt="MCI Awareness — AppChurch World Alzheimer's Day 2026 video thumbnail"
+            id="ytThumb"
+            onerror="this.src='https://img.youtube.com/vi/ryk7Hz5D9bo/hqdefault.jpg'">
+          <div class="yt-play" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+          </div>
+        </div>
+        <p class="yt-caption">
+          AppChurch &nbsp;&middot;&nbsp; MCI Awareness &nbsp;&middot;&nbsp; World Alzheimer&rsquo;s Day MMXXVI
+        </p>
+      </div>
+
+    </div><!-- /hero-grid -->
+
+    <!-- Row 2 — full width: meta facts then CTA buttons -->
+    <div class="hero-bottom reveal" style="transition-delay:.25s">
+
+      <div class="hero-meta" role="list">
+        <div class="hero-meta-item" role="listitem">
+          <span class="meta-label">For</span>
+          <span class="meta-val">Adults 50&plus; and family caregivers seeking early awareness and free cognitive health resources.</span>
+        </div>
+        <div class="hero-meta-item" role="listitem">
+          <span class="meta-label">Cost</span>
+          <span class="meta-val">Completely free. No insurance required. No appointment needed. Walk in and receive your results.</span>
+        </div>
+        <div class="hero-meta-item" role="listitem">
+          <span class="meta-label">Time</span>
+          <span class="meta-val">Five minutes for the screen &mdash; a lifetime of difference for the families we serve together.</span>
+        </div>
+      </div>
+
+      <div class="hero-cta">
+        <a class="btn btn-gold" href="#screen">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+          Take the Five-Minute Screen
+        </a>
+        <a class="btn btn-outline" href="#resources">Find Caregiver Resources</a>
+      </div>
+
+    </div><!-- /hero-bottom -->
+
+  </div><!-- /wrap -->
+</header>
+
+
+<!-- ============================================================
+     WHAT IS MCI
+     ============================================================ -->
+<section class="intro-band" id="about" aria-labelledby="about-h">
+  <div class="wrap">
+    <div class="intro-grid">
+
+      <div class="intro-img-wrap reveal">
+        <img src="img/MCI-AppChurch.jpg"
+             alt="AppChurch MCI cognitive health community" loading="lazy">
+        <div class="intro-img-badge">
+          <strong>Early Detection Matters</strong>
+          World Alzheimer&rsquo;s Day &mdash; 21 September 2026
+        </div>
+      </div>
+
+      <div class="reveal" style="transition-delay:.12s">
+        <p class="section-label">Understanding MCI</p>
+        <div class="divider"></div>
+        <h2 class="section-title" id="about-h">
+          What is Mild<br><em>Cognitive Impairment?</em>
+        </h2>
+        <p class="section-lead" style="margin-bottom:20px">
+          MCI is the stage between normal age-related memory changes and the
+          more serious decline of dementia. People with MCI notice changes in
+          memory or thinking greater than expected for their age &mdash; but
+          the changes are not severe enough to significantly interfere with
+          daily life.
+        </p>
+        <p class="section-lead">
+          Early identification changes outcomes. With the right support and
+          lifestyle adjustments, many individuals with MCI maintain independence
+          for years &mdash; and some improve. Knowing is the first step.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     EARLY SIGNS
+     ============================================================ -->
+<section class="section" id="signs" aria-labelledby="signs-h">
+  <div class="wrap">
+
+    <div class="reveal" style="max-width:580px; margin:0 auto; text-align:center">
+      <p class="section-label">Know the Signs</p>
+      <div class="divider" style="margin:0 auto 1.2rem"></div>
+      <h2 class="section-title" id="signs-h">
+        Recognising the <em>Early Warning Signs</em>
+      </h2>
+      <p class="section-lead">
+        These changes can be subtle. If you notice several of the following in
+        yourself or a loved one, a free five-minute screen can give you clarity.
+      </p>
+    </div>
+
+    <div class="symptoms-grid">
+      <div class="sym-card reveal">
+        <div class="sym-icon">🗓</div>
+        <h3>Memory Lapses</h3>
+        <p>Forgetting recent conversations, appointments, or the names of familiar people more frequently than usual.</p>
+      </div>
+      <div class="sym-card reveal" style="transition-delay:.06s">
+        <div class="sym-icon">💬</div>
+        <h3>Word-Finding Difficulty</h3>
+        <p>Pausing mid-sentence, substituting words, or struggling to recall a term that was once automatic.</p>
+      </div>
+      <div class="sym-card reveal" style="transition-delay:.12s">
+        <div class="sym-icon">🔑</div>
+        <h3>Misplacing Items</h3>
+        <p>Putting objects in unusual places and being unable to retrace steps to locate them later.</p>
+      </div>
+      <div class="sym-card reveal" style="transition-delay:.18s">
+        <div class="sym-icon">📋</div>
+        <h3>Planning Challenges</h3>
+        <p>More effort than before required to manage finances, follow multi-step recipes, or organise tasks.</p>
+      </div>
+      <div class="sym-card reveal" style="transition-delay:.24s">
+        <div class="sym-icon">🌡</div>
+        <h3>Mood &amp; Personality Shifts</h3>
+        <p>Increased anxiety, depression, or irritability &mdash; particularly in mentally demanding situations.</p>
+      </div>
+      <div class="sym-card reveal" style="transition-delay:.30s">
+        <div class="sym-icon">🗺</div>
+        <h3>Disorientation</h3>
+        <p>Confusion navigating familiar routes, neighbourhoods, or losing track of dates and seasons.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ============================================================
+     FREE SCREENING  (dark panel)
+     ============================================================ -->
+<section class="screen-band" id="screen" aria-labelledby="screen-h">
+  <div class="wrap">
+    <div class="screen-grid">
+
+      <div class="reveal">
+        <p class="section-label">Free &amp; Confidential</p>
+        <div class="divider"></div>
+        <h2 class="section-title" id="screen-h">
+          Our Free<br><em>Five-Minute Screening</em>
+        </h2>
+        <p class="section-lead">
+          AppChurch partners with certified cognitive health professionals to
+          offer a validated MCI screening to every adult 50&plus; in our
+          community. No appointment. No cost. No insurance required.
+        </p>
+
+        <div class="screen-steps">
+          <div class="screen-step">
+            <div class="step-num" aria-hidden="true">1</div>
+            <div class="step-body">
+              <strong>Walk in</strong>
+              <p>Visit any AppChurch partner location or contact us to arrange a home visit for those unable to travel.</p>
+            </div>
+          </div>
+          <div class="screen-step">
+            <div class="step-num" aria-hidden="true">2</div>
+            <div class="step-body">
+              <strong>Take the screen</strong>
+              <p>A trained screener guides you through a validated five-minute cognitive assessment. Completely private.</p>
+            </div>
+          </div>
+          <div class="screen-step">
+            <div class="step-num" aria-hidden="true">3</div>
+            <div class="step-body">
+              <strong>Receive your results</strong>
+              <p>Get your results immediately, along with specialist referrals and caregiver support if needed.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="screen-cta">
+          <a class="btn btn-gold" href="/#contact">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            Book Appointment
+          </a>
+          <a class="btn btn-outline" href="mailto:contact@appchurchglobal.org?subject=MCI Screening Request">
+            Email Us
+          </a>
+        </div>
+      </div>
+
+      <div class="stat-box reveal" style="transition-delay:.15s">
+        <div class="big">5</div>
+        <div class="unit">Minutes</div>
+        <span class="stat-sep"></span>
+        <p style="font-size:.88rem; color:rgba(255,248,230,.7); line-height:1.6; margin-bottom:0">
+          One brief assessment.<br>Clarity for you and the<br>people you love.
+        </p>
+        <p class="note">Open to all adults 50&plus; &mdash; Bergen County, NJ and partner locations</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     CAREGIVER RESOURCES
+     ============================================================ -->
+<section class="section section-warm" id="resources" aria-labelledby="res-h">
+  <div class="wrap">
+
+    <div class="reveal" style="max-width:560px">
+      <p class="section-label">You Are Not Alone</p>
+      <div class="divider"></div>
+      <h2 class="section-title" id="res-h">Caregiver <em>Resources</em></h2>
+      <p class="section-lead">
+        A diagnosis of MCI affects the whole family. These trusted resources
+        offer practical help, emotional support, and expert guidance for every
+        step of the journey.
+      </p>
+    </div>
+
+    <div class="resources-grid">
+      <div class="res-card reveal">
+        <span class="res-icon">📞</span>
+        <div>
+          <h4>Alzheimer&rsquo;s Association Helpline</h4>
+          <p>24/7 support for families navigating MCI and dementia. Free consultation in multiple languages.</p>
+          <a href="tel:18002723900">1-800-272-3900 &rarr;</a>
+        </div>
+      </div>
+      <div class="res-card reveal" style="transition-delay:.06s">
+        <span class="res-icon">🏛</span>
+        <div>
+          <h4>Bergen County Area Agency on Aging</h4>
+          <p>Local care management, caregiver support groups, and in-home assistance for seniors in our region.</p>
+          <a href="https://www.co.bergen.nj.us/human-services/aging" target="_blank" rel="noopener">Learn more &rarr;</a>
+        </div>
+      </div>
+      <div class="res-card reveal" style="transition-delay:.12s">
+        <span class="res-icon">🤝</span>
+        <div>
+          <h4>AppChurch Community Network</h4>
+          <p>Weekly caregiver circles, prayer support, and practical assistance from our Palisades Park congregation.</p>
+          <a href="/#contact">Connect with us &rarr;</a>
+        </div>
+      </div>
+      <div class="res-card reveal" style="transition-delay:.18s">
+        <span class="res-icon">📋</span>
+        <div>
+          <h4>Memory Care Planning Guide</h4>
+          <p>Step-by-step guidance on legal, financial, and care planning after a new MCI or dementia diagnosis.</p>
+          <a href="mailto:contact@appchurchglobal.org?subject=Planning Guide Request">Request guide &rarr;</a>
+        </div>
+      </div>
+      <div class="res-card reveal" style="transition-delay:.24s">
+        <span class="res-icon">🧠</span>
+        <div>
+          <h4>MCI at NIH &mdash; Research &amp; Trials</h4>
+          <p>Current clinical research and trial information for individuals with Mild Cognitive Impairment.</p>
+          <a href="https://www.nia.nih.gov/health/memory-loss-and-forgetfulness/what-mild-cognitive-impairment" target="_blank" rel="noopener">Visit NIH &rarr;</a>
+        </div>
+      </div>
+      <div class="res-card reveal" style="transition-delay:.30s">
+        <span class="res-icon">💙</span>
+        <div>
+          <h4>Caregiver Action Network</h4>
+          <p>Peer support, advocacy resources, and practical tools for family caregivers across the United States.</p>
+          <a href="https://www.caregiveraction.org" target="_blank" rel="noopener">Visit CAN &rarr;</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scripture -->
+    <div class="scripture reveal">
+      <blockquote>
+        &ldquo;Even to your old age I am he, and to grey hairs I will carry you.
+        I have made, and I will bear; I will <em>carry and will save.</em>&rdquo;
+      </blockquote>
+      <cite>Isaiah 46:4 &nbsp;&mdash;&nbsp; ESV</cite>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ============================================================
+     UNIVERSAL FOOTER  (matches index.html footer)
+     ============================================================ -->
+<footer role="contentinfo">
+  <div class="wrap">
+    <div class="ft-grid">
+
+      <div class="ft-brand">
+        <div class="ft-logo">
+          <img src="img/appchurch round logo.png" alt="AppChurch">
+          <span>AppChurch</span>
+        </div>
+        <p>Where faith meets the future. A global digital church and chapel network proclaiming Jesus Christ in the age of AI, technology, and convergence.</p>
+        <p class="ft-guide-note">
+          MCI Community Guide &mdash; produced by AppChurch Community Health in
+          partnership with Bergen County Senior Services.
+          WS/T &middot; 875&mdash;2026
+        </p>
+      </div>
+
+      <div class="ft-sec">
+        <h4>Ministry</h4>
+        <ul class="ft-links">
+          <li><a href="/#about">About Us</a></li>
+          <li><a href="/#ministry">What We Do</a></li>
+          <li><a href="/#support">Give / Support</a></li>
+          <li><a href="/#contact">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="ft-sec">
+        <h4>Community</h4>
+        <ul class="ft-links">
+          <li><a href="/#community">Community Services</a></li>
+          <li><a href="/#goodnews">Good News</a></li>
+          <li><a href="/#ann">Events</a></li>
+          <li><a href="https://legacy1892.coffee" target="_blank" rel="noopener">Legacy 1892 Coffee</a></li>
+        </ul>
+      </div>
+
+      <div class="ft-sec">
+        <h4>Connect</h4>
+        <ul class="ft-links">
+          <li><a href="mailto:contact@appchurchglobal.org">Email Us</a></li>
+          <li><a href="https://apps.apple.com/us/app/appchurch-pro/id1556255525" target="_blank" rel="noopener">Download App</a></li>
+          <li><a href="MCIpartner.html">MCI Partner Info</a></li>
+          <li><a href="wad2026.html">World Alzheimer&rsquo;s Day</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="ft-bot">
+      <p class="ft-copy">&copy; 2020&ndash;<span id="yr"></span> AppChurch Global. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<button id="btt" aria-label="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+
+<!-- ============================================================
+     JAVASCRIPT
+     ============================================================ -->
+<script>
+(function () {
+  'use strict';
+
+  /* Footer year */
+  var yr = document.getElementById('yr');
+  if (yr) yr.textContent = new Date().getFullYear();
+
+  /* Nav scroll */
+  var nav = document.getElementById('nav');
+  var btt = document.getElementById('btt');
+  window.addEventListener('scroll', function () {
+    nav.classList.toggle('scrolled', window.scrollY > 60);
+    btt.classList.toggle('on', window.scrollY > 400);
+  }, { passive: true });
+
+  /* Hamburger / mobile drawer */
+  var hambg  = document.getElementById('hambg');
+  var drawer = document.getElementById('drawer');
+  hambg.addEventListener('click', function () {
+    var open = drawer.classList.toggle('open');
+    hambg.classList.toggle('open', open);
+    hambg.setAttribute('aria-expanded', String(open));
+    drawer.setAttribute('aria-hidden', String(!open));
+  });
+  drawer.querySelectorAll('a').forEach(function (a) {
+    a.addEventListener('click', function () {
+      drawer.classList.remove('open');
+      hambg.classList.remove('open');
+      hambg.setAttribute('aria-expanded', 'false');
+      drawer.setAttribute('aria-hidden', 'true');
+    });
+  });
+
+  /* Scroll reveal */
+  if ('IntersectionObserver' in window) {
+    var obs = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(function (el) { obs.observe(el); });
+  } else {
+    /* Fallback for old browsers — show everything */
+    document.querySelectorAll('.reveal').forEach(function (el) { el.classList.add('visible'); });
+  }
+
+}());
+
+/*
+ * Click-to-play YouTube.
+ * Shows the real YouTube thumbnail (loads from any origin, no CORS).
+ * On user click → injects youtube-nocookie.com iframe with autoplay=1.
+ * This is the correct fix for YouTube Error 153, which occurs when the
+ * iframe initialises from a null/file:// origin without a user gesture.
+ */
+function ytPlay() {
+  var wrap = document.getElementById('ytWrap');
+  if (!wrap || wrap.dataset.playing) return;
+  wrap.dataset.playing = '1';
+  wrap.onclick   = null;
+  wrap.onkeydown = null;
+  wrap.style.cursor = 'default';
+  wrap.removeAttribute('role');
+  wrap.removeAttribute('tabindex');
+  wrap.innerHTML =
+    '<iframe ' +
+      'src="https://www.youtube-nocookie.com/embed/ryk7Hz5D9bo' +
+           '?autoplay=1&rel=0&modestbranding=1&color=white" ' +
+      'title="MCI Awareness — AppChurch World Alzheimer\'s Day 2026" ' +
+      'allow="accelerometer; autoplay; clipboard-write; encrypted-media; ' +
+             'gyroscope; picture-in-picture; web-share" ' +
+      'referrerpolicy="strict-origin-when-cross-origin" ' +
+      'allowfullscreen>' +
+    '</iframe>';
+}
+</script>
+</body>
+</html>
