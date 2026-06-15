@@ -451,15 +451,19 @@ Method: RSS crawler — no API key required</div>
       ════════════════════════════════════════ -->
       <div class="panel" id="panel-ann">
         <div class="panel-title">📢 Announcements</div>
-        <div class="panel-sub">Manage announcements shown in the top banner and the Announcements section. Saved directly to <code>index.html</code> via GitHub.</div>
+        <div class="panel-sub">Manage announcements shown in the top banner and the Announcements section. Published announcements are loaded from <code>index.html</code> automatically — edit or delete any item, then click <strong>Save to GitHub</strong> to update the live site.</div>
 
         <div class="card">
           <div class="flex ai-c jb" style="margin-bottom:1rem">
             <div class="card-title" style="margin:0">Active Announcements <span class="badge-count" id="ann-list-count">0</span></div>
-            <button class="btn btn-primary btn-sm" onclick="openAddAnn()">+ New Announcement</button>
+            <div class="flex gap-sm">
+              <button class="btn btn-ghost btn-sm" onclick="reloadAnnouncements()" title="Reload from index.html">↻ Reload</button>
+              <button class="btn btn-primary btn-sm" onclick="openAddAnn()">+ New Announcement</button>
+            </div>
           </div>
+          <div id="ann-load-status" class="text-sm text-dim" style="margin-bottom:.75rem"></div>
           <div class="ann-list" id="ann-list">
-            <div class="ann-empty">No announcements. Click "New Announcement" to add one.</div>
+            <div class="ann-empty">Loading announcements from site…</div>
           </div>
           <div class="flex gap-sm" style="justify-content:flex-end">
             <button class="btn btn-gold" onclick="saveAnnToGithub()">💾 Save to GitHub</button>
@@ -656,6 +660,7 @@ const LS = {
 let SOURCES  = [];
 let CONFIG   = {};
 let ANNS     = [];
+let ANNS_DIRTY = false;
 let KW_TAGS  = [];
 let EXCL_TAGS= [];
 let CAT_KWS  = {};
@@ -714,11 +719,11 @@ document.getElementById('pw-input').addEventListener('keydown', e => { if(e.key 
 // ═══════════════════════════════════════════════════════════════════
 //  INIT
 // ═══════════════════════════════════════════════════════════════════
-function initApp(){
+async function initApp(){
   loadGhCredsToUI();
   loadSourcesFromStore();
   loadConfigFromStore();
-  loadAnnsFromStore();
+  await loadAnnouncements();
   updateGhLinks();
   renderPreview();
   showPanel('sources');
@@ -733,7 +738,7 @@ function showPanel(id){
   document.getElementById('panel-'+id).classList.add('active');
   document.getElementById('nav-'+id).classList.add('active');
   if(id==='preview') renderPreview();
-  if(id==='ann')     renderAnnList();
+  if(id==='ann')     showAnnPanel();
   if(id==='github')  syncGhPanels();
 }
 
@@ -1123,10 +1128,124 @@ function renderPreview(){
 // ═══════════════════════════════════════════════════════════════════
 //  ANNOUNCEMENTS
 // ═══════════════════════════════════════════════════════════════════
-function loadAnnsFromStore(){
-  ANNS = LS.get('anns') || [];
+function decodeGhContent(b64){
+  return decodeURIComponent(escape(atob(String(b64||'').replace(/\n/g,''))));
+}
+
+function parseAnnouncementData(html){
+  const marker='const ANNOUNCEMENT_DATA';
+  const idx=html.indexOf(marker);
+  if(idx===-1) return null;
+  const start=html.indexOf('[', idx);
+  if(start===-1) return null;
+  let depth=0,inStr=false,esc=false,quote='';
+  for(let i=start;i<html.length;i++){
+    const ch=html[i];
+    if(inStr){
+      if(esc) esc=false;
+      else if(ch==='\\') esc=true;
+      else if(ch===quote) inStr=false;
+      continue;
+    }
+    if(ch==='"'||ch==="'"){ inStr=true; quote=ch; continue; }
+    if(ch==='[') depth++;
+    if(ch===']'){
+      depth--;
+      if(depth===0){
+        try{ return JSON.parse(html.slice(start,i+1)); }catch(e){ return null; }
+      }
+    }
+  }
+  return null;
+}
+
+function patchAnnouncementData(html, anns){
+  const marker='const ANNOUNCEMENT_DATA';
+  const idx=html.indexOf(marker);
+  if(idx===-1) return null;
+  const start=html.indexOf('[', idx);
+  if(start===-1) return null;
+  let depth=0,inStr=false,esc=false,quote='',end=-1;
+  for(let i=start;i<html.length;i++){
+    const ch=html[i];
+    if(inStr){
+      if(esc) esc=false;
+      else if(ch==='\\') esc=true;
+      else if(ch===quote) inStr=false;
+      continue;
+    }
+    if(ch==='"'||ch==="'"){ inStr=true; quote=ch; continue; }
+    if(ch==='[') depth++;
+    if(ch===']'){
+      depth--;
+      if(depth===0){ end=i; break; }
+    }
+  }
+  if(end===-1) return null;
+  const semi=html.indexOf(';', end);
+  if(semi===-1) return null;
+  const annJson=JSON.stringify(anns);
+  return html.slice(0,idx)+`const ANNOUNCEMENT_DATA = ${annJson};`+html.slice(semi+1);
+}
+
+async function fetchIndexHtml(){
+  const c=ghCreds();
+  if(c.repo&&c.token){
+    try{
+      const r=await ghApi(`repos/${c.repo}/contents/index.html?ref=${c.branch||'main'}&t=${Date.now()}`);
+      if(r.ok&&r.data?.content) return decodeGhContent(r.data.content);
+    }catch(e){}
+  }
+  try{
+    const r=await fetch('index.html?t='+Date.now());
+    if(r.ok) return await r.text();
+  }catch(e){}
+  return null;
+}
+
+function setAnnLoadStatus(msg, type){
+  const el=document.getElementById('ann-load-status');
+  if(!el) return;
+  el.textContent=msg||'';
+  el.style.color=type==='err'?'var(--crimson)':type==='ok'?'var(--green)':'var(--text-dim)';
+}
+
+async function loadAnnouncements(){
+  const html=await fetchIndexHtml();
+  let source='local cache';
+  if(html){
+    const published=parseAnnouncementData(html);
+    if(Array.isArray(published)){
+      ANNS=published;
+      ANNS_DIRTY=false;
+      LS.set('anns',ANNS);
+      source=ghCreds().repo&&ghCreds().token?'index.html on GitHub':'index.html on site';
+      setAnnLoadStatus(`Loaded ${ANNS.length} announcement${ANNS.length===1?'':'s'} from ${source}.`,'ok');
+      updateAnnBadge();
+      return;
+    }
+    setAnnLoadStatus('Could not parse ANNOUNCEMENT_DATA in index.html. Showing local cache.','err');
+  } else {
+    setAnnLoadStatus('Could not fetch index.html. Showing local cache.','err');
+  }
+  ANNS=LS.get('anns')||[];
+  if(ANNS.length) setAnnLoadStatus(`Showing ${ANNS.length} unsaved announcement${ANNS.length===1?'':'s'} from this browser.`,'ok');
   updateAnnBadge();
 }
+
+async function showAnnPanel(){
+  const list=document.getElementById('ann-list');
+  if(list) list.innerHTML='<div class="ann-empty">Loading announcements from site…</div>';
+  await loadAnnouncements();
+  renderAnnList();
+}
+
+async function reloadAnnouncements(){
+  if(ANNS_DIRTY && !confirm('Reload from site? Unsaved changes in this browser will be lost.')) return;
+  setAnnLoadStatus('Reloading…','');
+  await showAnnPanel();
+}
+
 function updateAnnBadge(){
   const badge=document.getElementById('ann-count-badge');
   badge.textContent=ANNS.length;
@@ -1135,15 +1254,16 @@ function updateAnnBadge(){
 }
 function renderAnnList(){
   const list=document.getElementById('ann-list');
-  if(!ANNS.length){ list.innerHTML='<div class="ann-empty">No announcements. Click "New Announcement" to add one.</div>'; updateAnnBadge(); return; }
+  if(!ANNS.length){ list.innerHTML='<div class="ann-empty">No announcements. Click "+ New Announcement" to add one.</div>'; updateAnnBadge(); return; }
   list.innerHTML=ANNS.map((a,i)=>`
     <div class="ann-item">
       <div class="ann-item-body">
         <div class="flex ai-c gap-sm" style="margin-bottom:.2rem">
           <div class="ann-item-title">${esc(a.title)}</div>
           ${a.tag?`<span class="ann-tag-pill">${esc(a.tag)}</span>`:''}
+          ${ANNS_DIRTY?'':'<span class="ann-tag-pill" style="background:var(--navy-pale);color:var(--navy)">Live</span>'}
         </div>
-        ${a.date?`<div class="ann-item-date">${new Date(a.date).toLocaleDateString('en-US',{month:'long',day:'numeric',year:'numeric'})}</div>`:''}
+        ${a.date?`<div class="ann-item-date">${new Date(a.date+'T12:00:00').toLocaleDateString('en-US',{month:'long',day:'numeric',year:'numeric'})}</div>`:''}
         ${a.body?`<p>${esc(a.body)}</p>`:''}
         ${a.link?`<div class="text-sm text-dim" style="margin-top:.35rem;font-family:var(--fm)">🔗 ${esc(a.link)}</div>`:''}
       </div>
@@ -1184,26 +1304,43 @@ function saveAnnModal(){
               tag:document.getElementById('ann-tag').value.trim()};
   const idx=document.getElementById('ann-edit-idx').value;
   if(idx!=='') ANNS[parseInt(idx)]=obj; else ANNS.unshift(obj);
-  LS.set('anns',ANNS); renderAnnList(); closeAnnModal();
+  ANNS_DIRTY=true;
+  LS.set('anns',ANNS);
+  setAnnLoadStatus('Unsaved changes — click "Save to GitHub" to publish.','err');
+  renderAnnList(); closeAnnModal();
 }
-function deleteAnn(idx){ if(!confirm('Delete this announcement?')) return; ANNS.splice(idx,1); LS.set('anns',ANNS); renderAnnList(); }
+async function deleteAnn(idx){
+  const label=ANNS[idx]?.title||'this announcement';
+  if(!confirm(`Delete "${label}" from the announcement list?`)) return;
+  ANNS.splice(idx,1);
+  ANNS_DIRTY=true;
+  LS.set('anns',ANNS);
+  setAnnLoadStatus('Unsaved changes — click "Save to GitHub" to publish.','err');
+  renderAnnList();
+  const c=ghCreds();
+  if(c.repo&&c.token&&confirm('Publish this change to the live site now?')){
+    await saveAnnToGithub();
+  }
+}
 
 async function saveAnnToGithub(){
   const c = ghCreds();
   if(!c.repo||!c.token){ alert('Configure GitHub credentials first.'); return; }
-  // Patch ANNOUNCEMENT_DATA in index.html
   const r = await ghApi(`repos/${c.repo}/contents/index.html?ref=${c.branch||'main'}&t=${Date.now()}`);
   if(!r.ok){ alert('✗ Could not fetch index.html: '+(r.data?.message||'')); return; }
-  let html = decodeURIComponent(escape(atob(r.data.content.replace(/\n/g,''))));
-  const annJson = JSON.stringify(ANNS, null, 0);
-  const patched = html.replace(
-    /const ANNOUNCEMENT_DATA\s*=\s*\[.*?\];/s,
-    `const ANNOUNCEMENT_DATA = ${annJson};`
-  );
-  if(patched===html && !html.includes('const ANNOUNCEMENT_DATA')){ alert('✗ Could not find ANNOUNCEMENT_DATA in index.html'); return; }
+  const html = decodeGhContent(r.data.content);
+  const patched = patchAnnouncementData(html, ANNS);
+  if(!patched){ alert('✗ Could not find ANNOUNCEMENT_DATA in index.html'); return; }
   const result = await ghCommitFile('index.html', patched, 'Update announcements via editor');
-  if(result.ok) alert('✓ Announcements saved to index.html on GitHub!');
-  else          alert('✗ '+(result.data?.message||'Error saving'));
+  if(result.ok){
+    ANNS_DIRTY=false;
+    LS.set('anns',ANNS);
+    setAnnLoadStatus(`Saved ${ANNS.length} announcement${ANNS.length===1?'':'s'} to index.html on GitHub.`,'ok');
+    renderAnnList();
+    alert('✓ Announcements saved to index.html on GitHub!');
+  } else {
+    alert('✗ '+(result.data?.message||'Error saving'));
+  }
 }
 
 // ═══════════════════════════════════════════════════════════════════
