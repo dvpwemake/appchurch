@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>AppChurch Editor</title>
+<title>ArkChurch Editor</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Fraunces:ital,wght@0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
@@ -215,7 +215,7 @@ tbody td{padding:.6rem .85rem;vertical-align:middle}
 <div id="auth-gate">
   <div class="auth-box">
     <div class="auth-logo">✝</div>
-    <h2>AppChurch Editor</h2>
+    <h2>ArkChurch Editor</h2>
     <p>Enter your editor password to continue</p>
     <input id="pw-input" type="password" class="auth-input" placeholder="Password" autocomplete="current-password">
     <button class="auth-btn" onclick="doLogin()">Enter Editor</button>
@@ -232,11 +232,11 @@ tbody td{padding:.6rem .85rem;vertical-align:middle}
   <!-- Top Bar -->
   <div class="topbar">
     <div class="topbar-brand">
-      <span>✝</span><span>AppChurch Editor</span>
+      <span>✝</span><span>ArkChurch Editor</span>
       <span style="font-size:.7rem;opacity:.45;font-weight:400;margin-left:.3rem">v2.0</span>
     </div>
     <div class="topbar-right">
-      <div class="tb-site">🌐 <a href="https://appchurchglobal.org" target="_blank" rel="noopener">appchurchglobal.org</a></div>
+      <div class="tb-site">🌐 <a href="https://arkchurch.church" target="_blank" rel="noopener">arkchurch.church</a></div>
       <button class="tb-logout" onclick="doLogout()">Lock ⎋</button>
     </div>
   </div>
@@ -282,7 +282,7 @@ tbody td{padding:.6rem .85rem;vertical-align:middle}
         <div class="gh-fields">
           <div class="gh-field">
             <label>Repository (owner/repo)</label>
-            <input id="gh-repo" class="gh-input" type="text" placeholder="dvpwemake/appchurch" autocomplete="off">
+            <input id="gh-repo" class="gh-input" type="text" placeholder="dvpwemake/ArkChurch" autocomplete="off">
           </div>
           <div class="gh-field">
             <label>Personal Access Token</label>
@@ -478,7 +478,7 @@ Method: RSS crawler — no API key required</div>
           <div class="card-title">🔑 Credentials</div>
           <div class="form-row">
             <label>Repository (owner/repo)</label>
-            <input id="gh-repo2" class="form-input" type="text" placeholder="dvpwemake/appchurch">
+            <input id="gh-repo2" class="form-input" type="text" placeholder="dvpwemake/ArkChurch">
           </div>
           <div class="form-row">
             <label>Personal Access Token (PAT)</label>
@@ -929,7 +929,7 @@ async function saveSourcesJson(){
   btn.disabled=true; btn.textContent='Saving…';
   const cfg = LS.get('config') || DEFAULT_CONFIG;
   const payload = JSON.stringify({
-    _comment:'AppChurch Good News Scanner config — edit via editor.html',
+    _comment:'ArkChurch Good News Scanner config — edit via editor.html',
     _version:'2.0',
     config: cfg,
     sources: SOURCES
@@ -1024,7 +1024,7 @@ async function saveConfigJson(){
   const c = ghCreds();
   if(!c.repo||!c.token){ alert('Config saved locally. Configure GitHub to push.'); return; }
   const payload = JSON.stringify({
-    _comment:'AppChurch Good News Scanner config — edit via editor.html',
+    _comment:'ArkChurch Good News Scanner config — edit via editor.html',
     _version:'2.0',
     config: CONFIG,
     sources: SOURCES

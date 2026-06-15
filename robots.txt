@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /editor.html
 
-Sitemap: https://appchurchglobal.org/sitemap.xml
+Sitemap: https://arkchurch.church/sitemap.xml

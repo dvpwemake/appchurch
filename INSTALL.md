@@ -1,4 +1,4 @@
-# AppChurch Website — Installation & Maintenance Guide
+# ArkChurch Website — Installation & Maintenance Guide
 
 **Version 2.0** · April 2026  
 **Stack:** Static HTML · GitHub Pages · GitHub Actions · Python RSS Crawler
@@ -21,7 +21,7 @@
 ## File Structure
 
 ```
-appchurch/
+ArkChurch/
 ├── index.html                  ← Main website (auto-updated by scanner)
 ├── editor.html                 ← Admin editor (access via /editor.html)
 ├── data/
@@ -43,7 +43,7 @@ appchurch/
 
 ### Step 1 — Upload Files to GitHub
 
-1. Go to your GitHub repo: `https://github.com/dvpwemake/appchurch`
+1. Go to your GitHub repo: `https://github.com/dvpwemake/ArkChurch`
 2. Upload all files from this zip, maintaining the folder structure.
 3. Key: make sure `scripts/scan_news.py` and `data/news-sources.json` are committed.
 
@@ -59,7 +59,7 @@ appchurch/
 
 ### Step 3 — Verify the Site
 
-1. Go to `https://appchurchglobal.org`
+1. Go to `https://arkchurch.church`
 2. You should see the **Live Feed ticker** at the bottom of the hero section scrolling through news and announcements.
 3. The **Good News** section should show 6 stories.
 
@@ -67,14 +67,14 @@ appchurch/
 
 ## 2. Using the Editor
 
-Access: `https://appchurchglobal.org/editor.html`  
+Access: `https://arkchurch.church/editor.html`  
 Default password: **`appchurch2024`** ← Change this immediately in Settings!
 
 ### First-Time Editor Setup
 
 1. **Open the editor** and log in.
 2. **Set your GitHub credentials** (shown at the top of every panel):
-   - Repository: `dvpwemake/appchurch`
+   - Repository: `dvpwemake/ArkChurch`
    - Personal Access Token: create one at [github.com/settings/tokens](https://github.com/settings/tokens)
      - Type: Fine-grained token
      - Required permissions: **Contents** (Read & Write) + **Actions** (Read & Write)
@@ -275,7 +275,7 @@ The scan ran but produced identical results to the last scan. This is normal if 
 
 ### Editor can't connect to GitHub
 - Verify your token has **Contents** + **Actions** permissions
-- Check the repo name format: `owner/repo` (e.g. `dvpwemake/appchurch`)
+- Check the repo name format: `owner/repo` (e.g. `dvpwemake/ArkChurch`)
 - Fine-grained tokens expire — check the expiry date
 
 ### Ticker not showing
@@ -303,10 +303,10 @@ The scan ran but produced identical results to the last scan. This is normal if 
 | Run scan immediately | editor.html → Run Scan |
 | Add announcement | editor.html → Announcements |
 | Change editor password | editor.html → Security |
-| View workflow logs | github.com/dvpwemake/appchurch/actions |
+| View workflow logs | github.com/dvpwemake/ArkChurch/actions |
 | Edit Python script | scripts/scan_news.py |
 | Edit source config | data/news-sources.json |
 
 ---
 
-*AppChurch · appchurchglobal.org · Where Faith Meets the Future*
+*ArkChurch · arkchurch.church · Where Faith Meets the Future*
