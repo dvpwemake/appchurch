@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-AppChurch Good News Scanner v2.1
+ArkChurch Good News Scanner v2.1
 RSS-based crawler — no API key required.
 Fixes: per-source cap (max 2), auto-expand window, score=0 fallback, summary truncation.
 
@@ -57,7 +57,7 @@ DEFAULT_CONFIG = {
     }
 }
 
-HEADERS = {'User-Agent': 'AppChurch-NewsCrawler/2.1 (+https://appchurchglobal.org)'}
+HEADERS = {'User-Agent': 'ArkChurch-NewsCrawler/2.1 (+https://arkchurch.church)'}
 
 def fetch_rss(url, timeout=20):
     try:
@@ -241,7 +241,7 @@ def load_config():
 
 def main():
     print('══════════════════════════════════════════════')
-    print('  AppChurch Good News Scanner  v2.1')
+    print('  ArkChurch Good News Scanner  v2.1')
     print('══════════════════════════════════════════════')
     if DRY_RUN: print('  ⚠  DRY RUN — index.html will NOT be modified\n')
 
