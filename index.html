@@ -3,22 +3,22 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=5">
-<title>ArkChurch — Where Faith Meets the Future | Digital Church & Global Chapel Network</title>
+<title>ArkChurch | Where Faith Meets the Future | Digital Church & Global Chapel Network</title>
 <meta name="description" content="ArkChurch is a global digital church bridging faith, technology, and the future through online worship, a worldwide chapel network, and compassionate community services including MCI screening and Legacy 1892 Coffee.">
-<meta name="keywords" content="ArkChurch, digital church, Christian, faith, technology, AI, future, internet, convergence, life, meaning, save, purpose, coffee, cafe, robot, digital, prayer, Jesus, Holy Spirit, Bible, worship, global church, online church, mission, chapel, MCI screening, cognitive health, community service, salvation, hope, love, God, gospel, Christian news, religious news">
+<meta name="keywords" content="ArkChurch, digital church, Christian, faith, technology, online worship, global chapel network, MCI screening, cognitive health, community service, gospel, Christian news">
 <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
 <meta name="author" content="ArkChurch">
 <meta name="theme-color" content="#1A2B5A">
 <link rel="canonical" href="https://arkchurch.church/">
 <meta property="og:type" content="website"><meta property="og:site_name" content="ArkChurch">
-<meta property="og:title" content="ArkChurch — Where Faith Meets the Future">
+<meta property="og:title" content="ArkChurch | Where Faith Meets the Future">
 <meta property="og:description" content="A global digital church community bridging faith, technology, and the future. Digital worship, worldwide chapels, MCI screening, and community service.">
 <meta property="og:url" content="https://arkchurch.church/"><meta property="og:image" content="https://arkchurch.church/img/appchurchlogo.jpg">
-<meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="ArkChurch — Where Faith Meets the Future">
+<meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="ArkChurch | Where Faith Meets the Future">
 <meta name="twitter:description" content="Digital church + global chapels + community service. Faith, technology, and the gospel for a new generation.">
 <meta name="twitter:image" content="https://arkchurch.church/img/appchurchlogo.jpg">
-<meta name="ai:description" content="ArkChurch combines digital church services, a global physical chapel network, MCI cognitive screening, and community gathering spaces under one mission: spreading the gospel in the digital age.">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Church","name":"ArkChurch","alternateName":"AppChurch Global Foundation","url":"https://arkchurch.church/","logo":"https://arkchurch.church/img/appchurchlogo.jpg","description":"Global digital church with physical chapels, MCI screening, and community services.","email":"contact@arkchurch.church"}</script>
+<meta name="ai:description" content="ArkChurch is a global digital church offering online worship, a worldwide chapel network, MCI cognitive screening, Legacy 1892 Coffee, and community services rooted in the gospel.">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Church","name":"ArkChurch","url":"https://arkchurch.church/","logo":"https://arkchurch.church/img/appchurchlogo.jpg","description":"Global digital church with physical chapels, MCI screening, and community services.","email":"contact@arkchurch.church","sameAs":["https://legacy1892.coffee"]}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Fraunces:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
 <style>
@@ -37,7 +37,10 @@
   --fs:'Plus Jakarta Sans',system-ui,sans-serif;
   --ff:'Fraunces',Georgia,serif;
   --tr:.25s cubic-bezier(.4,0,.2,1);
+  --nav-h:63px;--banner-h:0px;--ticker-h:40px;
 }
+body{padding-top:var(--nav-h)}
+body.has-ann-banner{padding-top:calc(var(--nav-h) + var(--banner-h))}
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
 body{background:var(--bg);color:var(--text);font-family:var(--fs);line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
@@ -80,7 +83,7 @@ section{padding:4rem 0}
 .btn-full{width:100%;justify-content:center;padding:.82rem 1.35rem}
 
 /* === ANN BANNER === */
-#ann-banner{background:linear-gradient(90deg,#3D2E12,var(--dark),#2E2210);color:#fff;padding:.7rem 0;position:relative;display:none;border-bottom:2px solid var(--gold)}
+#ann-banner{background:linear-gradient(90deg,#3D2E12,var(--dark),#2E2210);color:#fff;padding:.7rem 0;position:fixed;top:var(--nav-h);left:0;right:0;z-index:999;display:none;border-bottom:2px solid var(--gold)}
 #ann-banner.show{display:block}
 #ann-banner .container{display:flex;align-items:center;justify-content:center;gap:.75rem;padding-right:3rem}
 .ann-banner-inner{display:flex;align-items:center;gap:.65rem;flex-wrap:wrap;justify-content:center}
@@ -108,7 +111,7 @@ section{padding:4rem 0}
 .hamburger.open span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
 .hamburger.open span:nth-child(2){opacity:0}
 .hamburger.open span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
-.drawer{position:fixed;top:63px;left:0;right:0;background:var(--bg-w);border-bottom:1px solid var(--border);box-shadow:var(--sh-md);z-index:999;transform:translateY(-110%);transition:transform var(--tr);padding:1rem 1.2rem 1.5rem}
+.drawer{position:fixed;top:calc(var(--nav-h) + var(--banner-h));left:0;right:0;background:var(--bg-w);border-bottom:1px solid var(--border);box-shadow:var(--sh-md);z-index:998;transform:translateY(-110%);transition:transform var(--tr);padding:1rem 1.2rem 1.5rem}
 .drawer.open{transform:none}
 .drawer ul{list-style:none;display:flex;flex-direction:column;gap:.25rem;margin-bottom:.9rem}
 .drawer ul a{display:block;padding:.6rem .85rem;border-radius:8px;font-size:.93rem;font-weight:500;color:var(--text-mid);transition:all var(--tr)}
@@ -116,7 +119,7 @@ section{padding:4rem 0}
 @media(min-width:768px){.nav-links{display:flex}.hamburger,.drawer{display:none}}
 
 /* === HERO === */
-#hero{position:relative;min-height:100svh;display:flex;align-items:center;overflow:hidden;padding:5rem 0 4rem}
+#hero{position:relative;min-height:100svh;display:flex;align-items:center;overflow:hidden;padding:calc(var(--ticker-h) + 2rem) 0 4rem}
 @keyframes ticker-scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 .hero-bg{position:absolute;inset:0;z-index:0}
 .hero-bg img{width:100%;height:100%;object-fit:cover;opacity:.13}
@@ -158,7 +161,7 @@ section{padding:4rem 0}
 .slide-next{right:.65rem}
 
 /* === NEWS TICKER (between nav and hero) === */
-#news-ticker{background:linear-gradient(90deg,var(--gold-pale),#FEF9EE,var(--gold-pale));border-bottom:1.5px solid var(--border-gold);overflow:hidden;height:40px;position:sticky;top:63px;z-index:900}
+#news-ticker{background:linear-gradient(90deg,var(--gold-pale),#FEF9EE,var(--gold-pale));border-bottom:1.5px solid var(--border-gold);overflow:hidden;height:var(--ticker-h);position:sticky;top:calc(var(--nav-h) + var(--banner-h));z-index:900}
 .nt-inner{display:flex;align-items:stretch;height:100%}
 .nt-label{flex-shrink:0;padding:0 1.1rem;font-size:.62rem;letter-spacing:.17em;text-transform:uppercase;color:var(--gold);font-weight:700;border-right:1.5px solid var(--border-gold);white-space:nowrap;display:flex;align-items:center;gap:.45rem;background:rgba(184,145,58,.07)}
 .nt-label .tl-dot{width:6px;height:6px;border-radius:50%;background:var(--gold);animation:pulse 2s ease-in-out infinite;flex-shrink:0}
@@ -288,7 +291,7 @@ section{padding:4rem 0}
 .com-body p{font-size:.87rem;color:var(--text-mid);line-height:1.73;margin-bottom:1.1rem}
 .com-list{display:flex;flex-direction:column;gap:.38rem;margin-bottom:1.2rem}
 .com-list li{font-size:.8rem;color:var(--text-mid);padding-left:1rem;position:relative;list-style:none}
-.com-list li::before{content:'—';position:absolute;left:0;color:var(--gold)}
+.com-list li::before{content:'✦';position:absolute;left:0;color:var(--gold);font-size:.55rem;top:.15rem}
 .com-body>.btn{margin-top:auto}
 @media(min-width:768px){.com-grid{grid-template-columns:1fr 1fr}}
 
@@ -346,18 +349,27 @@ section{padding:4rem 0}
 .gn-tl-src{font-size:.52rem;color:var(--text-dim);flex-shrink:0;white-space:nowrap}
 
 /* === ANNOUNCEMENTS SECTION === */
-#ann{background:linear-gradient(135deg,var(--gold-pale),#FEF3D0,var(--gold-pale));border-top:1.5px solid var(--border-gold);border-bottom:1.5px solid var(--border-gold);padding:3.2rem 0;display:none}
+#ann{background:linear-gradient(135deg,var(--gold-pale),#FEF3D0,var(--gold-pale));border-top:1.5px solid var(--border-gold);border-bottom:1.5px solid var(--border-gold);padding:1.6rem 0;display:none}
 #ann.show{display:block}
 #ann .eyebrow{color:var(--gold)}
-#ann .sec-title{color:var(--text)}
-#ann-track{display:flex;gap:1.1rem;overflow-x:auto;padding-bottom:.7rem;scrollbar-width:none}
-#ann-track::-webkit-scrollbar{display:none}
-.ann-card{flex-shrink:0;width:272px;background:#fff;border:1.5px solid var(--border-gold);border-top:3px solid var(--gold);border-radius:var(--r-lg);padding:1.25rem;transition:all var(--tr);box-shadow:0 2px 12px rgba(184,145,58,.08)}
+#ann .sec-title{color:var(--text);margin-bottom:.35rem}
+#ann .text-center.reveal{margin-bottom:1rem!important}
+.ann-wrap{position:relative;width:100%}
+.ann-viewport{overflow:hidden;width:100%}
+#ann-track{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1rem;width:100%}
+.ann-card{background:#fff;border:1.5px solid var(--border-gold);border-top:3px solid var(--gold);border-radius:var(--r-lg);padding:1rem 1.1rem;transition:all var(--tr);box-shadow:0 2px 12px rgba(184,145,58,.08);min-width:0}
 .ann-card:hover{box-shadow:0 8px 24px rgba(184,145,58,.18);transform:translateY(-2px)}
-.ann-date{font-size:.54rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-bottom:.45rem}
-.ann-card h3{font-family:var(--ff);font-size:1rem;font-weight:600;line-height:1.3;color:var(--text);margin-bottom:.45rem}
-.ann-card p{font-size:.8rem;color:var(--text-mid);line-height:1.6}
-.ann-tag{display:inline-block;margin-top:.65rem;padding:.22rem .6rem;border-radius:100px;font-size:.62rem;font-weight:600;background:var(--gold-pale);color:var(--gold);border:1px solid var(--border-gold)}
+.ann-date{font-size:.54rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-bottom:.35rem}
+.ann-card h3{font-family:var(--ff);font-size:.95rem;font-weight:600;line-height:1.3;color:var(--text);margin-bottom:.35rem;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.ann-card p{font-size:.78rem;color:var(--text-mid);line-height:1.55;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.ann-tag{display:inline-block;margin-top:.5rem;padding:.2rem .55rem;border-radius:100px;font-size:.58rem;font-weight:600;background:var(--gold-pale);color:var(--gold);border:1px solid var(--border-gold)}
+.ann-nav{position:absolute;top:50%;transform:translateY(-50%);z-index:2;width:36px;height:36px;border-radius:50%;background:#fff;border:1.5px solid var(--border-gold);color:var(--gold);font-size:1.2rem;display:flex;align-items:center;justify-content:center;box-shadow:var(--sh-sm);transition:all var(--tr)}
+.ann-nav:hover{background:var(--gold);color:#fff;border-color:var(--gold)}
+.ann-nav.prev{left:-.35rem}
+.ann-nav.next{right:-.35rem}
+.ann-nav.hide{display:none}
+@media(max-width:899px){#ann-track{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:599px){#ann-track{grid-template-columns:1fr}}
 
 /* === SUPPORT === */
 #support{background:var(--bg)}
@@ -438,17 +450,6 @@ footer{background:var(--dark);color:rgba(255,248,230,.65);padding:3rem 0 2rem}
 </head>
 <body>
 
-<!-- ANNOUNCEMENT BANNER (shown only when active data exists) -->
-<div id="ann-banner" role="alert" aria-live="polite">
-  <div class="container">
-    <div id="ann-banner-link" class="ann-banner-inner" style="cursor:pointer; transition: opacity .2s" onmouseover="this.style.opacity='0.8'" onmouseout="this.style.opacity='1'" title="Open Announcement">
-      <span class="ann-banner-dot" aria-hidden="true"></span>
-      <div id="ann-banner-content" class="ann-banner-text"></div>
-    </div>
-    <button class="ann-banner-close" onclick="closeBanner()" aria-label="Dismiss announcement">×</button>
-  </div>
-</div>
-
 <!-- NAV -->
 <nav id="nav" role="navigation" aria-label="Main navigation">
   <div class="nav-in">
@@ -484,6 +485,17 @@ footer{background:var(--dark);color:rgba(255,248,230,.65);padding:3rem 0 2rem}
   <a href="https://www.zeffy.com/en-US/donation-form/donate-to-appchurch" target="_blank" rel="noopener" class="btn btn-g btn-full" onclick="closeD()">Give / Support</a>
 </div>
 
+<!-- ANNOUNCEMENT BANNER (shown only when active data exists) -->
+<div id="ann-banner" role="alert" aria-live="polite">
+  <div class="container">
+    <div id="ann-banner-link" class="ann-banner-inner" style="cursor:pointer; transition: opacity .2s" onmouseover="this.style.opacity='0.8'" onmouseout="this.style.opacity='1'" title="Open Announcement">
+      <span class="ann-banner-dot" aria-hidden="true"></span>
+      <div id="ann-banner-content" class="ann-banner-text"></div>
+    </div>
+    <button class="ann-banner-close" onclick="closeBanner()" aria-label="Dismiss announcement">×</button>
+  </div>
+</div>
+
 <!-- NEWS TICKER (between nav and hero) -->
 <div id="news-ticker" aria-hidden="true">
   <div class="nt-inner">
@@ -506,7 +518,7 @@ footer{background:var(--dark);color:rgba(255,248,230,.65);padding:3rem 0 2rem}
   <div class="hero-body">
     <div class="hero-badge"><span class="pulse"></span>Digital Church · Global Network · Living Faith</div>
     <h1 class="hero-h1" id="h1">Where <span class="a">Faith</span><br>Meets the <span class="b">Future</span></h1>
-    <p class="hero-p">ArkChurch is a global Christian community bridging the gospel with technology, AI, and the digital age — through online worship, worldwide chapels, and compassionate community services.</p>
+    <p class="hero-p">ArkChurch is a global Christian community bridging the gospel with technology and the digital age through online worship, worldwide chapels, and compassionate community services.</p>
     <!-- Announcement overlay -->
     <a href="announcements.html" class="hero-ann-card" id="hero-ann-card" style="display:none">
       <div class="hero-ann-badge">Latest Announcement</div>
@@ -531,12 +543,12 @@ footer{background:var(--dark);color:rgba(255,248,230,.65);padding:3rem 0 2rem}
   <div class="hero-slide-wrap" id="hero-slide-wrap" aria-label="ArkChurch photo carousel" role="region">
     <div class="hero-slides" id="hero-slides">
       <div class="hero-slide active">
-        <img src="img/congregation2.jpg" alt="Digital Church — online worship community" loading="eager">
+        <img src="img/congregation2.jpg" alt="Digital Church online worship community" loading="eager">
         <div class="hero-slide-overlay"></div>
         <div class="hero-slide-caption">
           <div class="slide-cat">✦ Digital Ministry</div>
           <div class="slide-title">24/7 Online Church</div>
-          <div class="slide-sub">Worship, prayer & discipleship — anytime, anywhere</div>
+          <div class="slide-sub">Worship, prayer and discipleship anytime, anywhere</div>
         </div>
       </div>
       <div class="hero-slide">
@@ -582,8 +594,8 @@ footer{background:var(--dark);color:rgba(255,248,230,.65);padding:3rem 0 2rem}
         <span class="eyebrow">Who We Are</span>
         <div class="divider"></div>
         <h2 class="sec-title" id="about-h">The Church Built for <span>This Moment</span></h2>
-        <p class="sec-sub" style="margin-bottom:.9rem">ArkChurch exists at the intersection of ancient faith and emerging technology. We believe Jesus saves — not just in the past, but right now, through every screen, every connection, every digital frontier.</p>
-        <p class="sec-sub" style="font-size:.84rem">In a world shaped by AI, the internet, and digital convergence, ArkChurch brings the timeless gospel into new contexts — online and in physical chapels — while serving our communities with health, hospitality, and hope.</p>
+        <p class="sec-sub" style="margin-bottom:.9rem">ArkChurch exists at the intersection of ancient faith and emerging technology. We believe Jesus saves not just in the past, but right now, through every screen, every connection, and every digital frontier.</p>
+        <p class="sec-sub" style="font-size:.84rem">In a world shaped by the internet and digital life, ArkChurch brings the timeless gospel into new contexts online and in physical chapels, while serving our communities with health, hospitality, and hope.</p>
       </div>
       <div class="about-bottom">
         <div class="about-img reveal">
@@ -591,9 +603,9 @@ footer{background:var(--dark);color:rgba(255,248,230,.65);padding:3rem 0 2rem}
           <div class="img-badge"><em>Faith · Technology · </em>Convergence</div>
         </div>
         <div class="val-list reveal">
-          <div class="val-item"><span style="font-size:1.15rem;flex-shrink:0">✝</span><div><h4>Gospel-Centered</h4><p>The life, death, and resurrection of Jesus is the foundation — online and offline.</p></div></div>
-          <div class="val-item"><span style="font-size:1.15rem;flex-shrink:0">⚡</span><div><h4>Technology-Forward</h4><p>We embrace AI and the internet as new frontiers for spreading love, life, and meaning.</p></div></div>
-          <div class="val-item"><span style="font-size:1.15rem;flex-shrink:0">🤲</span><div><h4>Community-Serving</h4><p>From cognitive health screenings to community cafes — we serve the whole person.</p></div></div>
+          <div class="val-item"><span style="font-size:1.15rem;flex-shrink:0">✝</span><div><h4>Gospel Centered</h4><p>The life, death, and resurrection of Jesus is the foundation online and offline.</p></div></div>
+          <div class="val-item"><span style="font-size:1.15rem;flex-shrink:0">⚡</span><div><h4>Technology Forward</h4><p>We embrace the internet and digital tools as new frontiers for spreading love, life, and meaning.</p></div></div>
+          <div class="val-item"><span style="font-size:1.15rem;flex-shrink:0">🤲</span><div><h4>Community Serving</h4><p>From cognitive health screenings to community cafes, we serve the whole person.</p></div></div>
         </div>
       </div>
     </div>
@@ -613,7 +625,7 @@ footer{background:var(--dark);color:rgba(255,248,230,.65);padding:3rem 0 2rem}
         <div class="min-n">01</div>
         <div class="min-ic">📲</div>
         <h3>Digital Church Services</h3>
-        <p>24/7 online worship, live-streamed services, digital small groups, and AI-assisted Bible study — the church always open in your pocket.</p>
+        <p>24/7 online worship, live streamed services, digital small groups, and Bible study resources. The church always open in your pocket.</p>
         <a href="https://apps.apple.com/us/app/appchurch-pro/id1556255525" target="_blank" rel="noopener" class="min-app-link">
           <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
           Download on App Store
@@ -629,25 +641,25 @@ footer{background:var(--dark);color:rgba(255,248,230,.65);padding:3rem 0 2rem}
         <div class="min-n">03</div>
         <div class="min-ic">🤖</div>
         <h3>Faith &amp; Technology</h3>
-        <p>Exploring how AI, robotics, and digital convergence intersect with faith, meaning, and the human soul — technology asks the deepest questions.</p>
+        <p>Exploring how technology, robotics, and digital life intersect with faith, meaning, and the human soul. Technology asks the deepest questions.</p>
       </div>
       <div class="min-card reveal">
         <div class="min-n">04</div>
         <div class="min-ic">🌏</div>
         <h3>Global Mission</h3>
-        <p>Taking the gospel to every corner of the earth — through digital platforms reaching billions and physical presence in communities that need hope.</p>
+        <p>Taking the gospel to every corner of the earth through digital platforms reaching billions and physical presence in communities that need hope.</p>
       </div>
       <div class="min-card reveal">
         <div class="min-n">05</div>
         <div class="min-ic">🧠</div>
         <h3>Health &amp; Community Care</h3>
-        <p>Low-cost MCI cognitive screenings, community health outreach, and pastoral care — serving the whole person in spirit, mind, and body.</p>
+        <p>Accessible MCI cognitive screenings, community health outreach, and pastoral care serving the whole person in spirit, mind, and body.</p>
       </div>
       <div class="min-card reveal">
         <div class="min-n">06</div>
         <div class="min-ic">✨</div>
         <h3>Purpose &amp; Discipleship</h3>
-        <p>Helping people find meaning and discover their God-given purpose — for a generation searching for answers in a digital world.</p>
+        <p>Helping people find meaning and discover their God given purpose for a generation searching for answers in a digital world.</p>
       </div>
     </div>
   </div>
@@ -660,7 +672,7 @@ footer{background:var(--dark);color:rgba(255,248,230,.65);padding:3rem 0 2rem}
       <span class="eyebrow">Serving the Whole Person</span>
       <div class="divider c"></div>
       <h2 class="sec-title" id="com-h">Community <span>Services</span></h2>
-      <p class="sec-sub c">Faith in action. ArkChurch extends the love of Christ beyond Sunday services — through community gathering spaces and accessible health programs that care for body, mind, and spirit.</p>
+      <p class="sec-sub c">Faith in action. ArkChurch extends the love of Christ beyond Sunday services through community gathering spaces and accessible health programs that care for body, mind, and spirit.</p>
     </div>
     <div class="com-grid">
       <!-- Coffee -->
@@ -669,7 +681,7 @@ footer{background:var(--dark);color:rgba(255,248,230,.65);padding:3rem 0 2rem}
         <div class="com-body">
           <span class="com-tag coffee">☕ Community Café</span>
           <h3>Legacy 1892 Coffee</h3>
-          <p>Great conversations about faith, life, purpose, and the future begin over a great cup of coffee. Legacy 1892 is more than a café — it is a community gathering place where people from all walks of life find warmth, belonging, and meaningful connection.</p>
+          <p>Great conversations about faith, life, purpose, and the future begin over a great cup of coffee. Legacy 1892 is more than a café. It is a community gathering place where people from all walks of life find warmth, belonging, and meaningful connection.</p>
           <p style="font-size:.85rem;color:var(--text-mid);line-height:1.72;margin-bottom:1rem">Whether you are exploring questions of faith for the first time, looking for a quiet place to reflect, or simply seeking good company and an excellent brew, you are welcome here. Every cup carries meaning.</p>
           <ul class="com-list">
             <li>Specialty coffee &amp; a welcoming atmosphere</li>
@@ -687,16 +699,16 @@ footer{background:var(--dark);color:rgba(255,248,230,.65);padding:3rem 0 2rem}
       <div class="com-card reveal">
         <img class="com-img" src="img/MCI-AppChurch.jpg" alt="ArkChurch MCI cognitive health screening" loading="lazy">
         <div class="com-body">
-          <span class="com-tag health">🧠 Low-Cost Health Screening</span>
+          <span class="com-tag health">🧠 Accessible Health Screening</span>
           <h3>MCI Cognitive Screening</h3>
-          <p>ArkChurch partners with healthcare professionals to offer low-cost <strong>Mild Cognitive Impairment (MCI)</strong> screenings to our community. MCI is an early stage of memory or thinking decline that can precede dementia — and early detection makes all the difference.</p>
-          <p style="font-size:.85rem;color:var(--text-mid);line-height:1.72;margin-bottom:1rem">Our trained screeners conduct brief, non-invasive cognitive assessments and connect participants with appropriate medical resources, follow-up care, and family support. This service is offered at low cost, is completely confidential, and open to the community — because caring for the mind is an expression of loving our neighbor.</p>
+          <p>ArkChurch partners with healthcare professionals to offer accessible <strong>Mild Cognitive Impairment (MCI)</strong> screenings to our community. MCI is an early stage of memory or thinking decline that can precede dementia, and early detection makes all the difference.</p>
+          <p style="font-size:.85rem;color:var(--text-mid);line-height:1.72;margin-bottom:1rem">Our trained screeners conduct brief, non invasive cognitive assessments and connect participants with appropriate medical resources, follow up care, and family support. This service is affordable, completely confidential, and open to the community because caring for the mind is an expression of loving our neighbor.</p>
           <ul class="com-list">
-            <li>Low-cost, confidential cognitive health assessment (15–20 min)</li>
+            <li>Affordable, confidential cognitive health assessment (15 to 20 min)</li>
             <li>Screening for memory, attention &amp; reasoning</li>
             <li>Referrals to neurologists &amp; specialist services</li>
             <li>Family support &amp; caregiver resources</li>
-            <li>Available at select chapels — no appointment needed</li>
+            <li>Available at select chapels, no appointment needed</li>
           </ul>
           <a href="https://arkchurch.church/wad2026.html" class="btn btn-n" style="background:var(--green);border-color:var(--green)">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.91A16 16 0 0 0 12 12l.91-.91a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 13.34v3.58z"/></svg>
@@ -711,11 +723,17 @@ footer{background:var(--dark);color:rgba(255,248,230,.65);padding:3rem 0 2rem}
 <!-- ANNOUNCEMENTS SECTION (hidden by default, shown when active data exists) -->
 <section id="ann" aria-labelledby="ann-h">
   <div class="container">
-    <div class="text-center reveal" style="margin-bottom:1.8rem">
+    <div class="text-center reveal">
       <span class="eyebrow">Latest from ArkChurch</span>
       <h2 class="sec-title" id="ann-h">Announcements &amp; Events</h2>
     </div>
-    <div id="ann-track" role="list"></div>
+    <div class="ann-wrap">
+      <button class="ann-nav prev hide" id="ann-prev" type="button" aria-label="Previous announcements" onclick="annPageNav(-1)">‹</button>
+      <div class="ann-viewport">
+        <div id="ann-track" role="list"></div>
+      </div>
+      <button class="ann-nav next hide" id="ann-next" type="button" aria-label="Next announcements" onclick="annPageNav(1)">›</button>
+    </div>
   </div>
 </section>
 
@@ -726,16 +744,16 @@ footer{background:var(--dark);color:rgba(255,248,230,.65);padding:3rem 0 2rem}
       <span class="eyebrow">Partner With Us</span>
       <div class="divider c"></div>
       <h2 class="sec-title" id="sup-h">Support <span>ArkChurch</span>'s<br><em>Digital &amp; Physical</em> Presence</h2>
-      <p class="sec-sub c">Your generosity keeps our digital church running 24/7 and expands our growing network of physical chapels — where lives are transformed by the gospel.</p>
+      <p class="sec-sub c">Your generosity keeps our digital church running 24/7 and expands our growing network of physical chapels where lives are transformed by the gospel.</p>
     </div>
     <div class="sup-grid">
       <div class="sup-card dig reveal">
         <div class="sup-icon">📱</div>
         <h3>Digital Church Operations</h3>
-        <p>Keep our 24/7 digital church platform running — live streams, online community, AI-assisted discipleship, and global digital ministry.</p>
+        <p>Keep our 24/7 digital church platform running with live streams, online community, discipleship resources, and global digital ministry.</p>
         <div class="goal-list">
           <div class="goal-item">Live streaming infrastructure &amp; platform</div>
-          <div class="goal-item">AI discipleship &amp; prayer tools</div>
+          <div class="goal-item">Digital discipleship &amp; prayer tools</div>
           <div class="goal-item">Online community &amp; pastoral care</div>
           <div class="goal-item">Digital evangelism campaigns</div>
         </div>
@@ -744,7 +762,7 @@ footer{background:var(--dark);color:rgba(255,248,230,.65);padding:3rem 0 2rem}
       <div class="sup-card phy reveal">
         <div class="sup-icon">⛪</div>
         <h3>Physical Chapel Network</h3>
-        <p>Help us plant and sustain physical chapels worldwide — places of refuge, worship, and transformation for the digital generation.</p>
+        <p>Help us plant and sustain physical chapels worldwide, places of refuge, worship, and transformation for the digital generation.</p>
         <div class="goal-list">
           <div class="goal-item">Chapel planting in new cities &amp; regions</div>
           <div class="goal-item">Pastoral training &amp; support</div>
@@ -756,9 +774,9 @@ footer{background:var(--dark);color:rgba(255,248,230,.65);padding:3rem 0 2rem}
       <div class="sup-card all reveal">
         <div class="sup-icon">🤝</div>
         <h3>Community Services</h3>
-        <p>On-the-ground community impact with low-cost cognitive health screenings and a community café that welcomes everyone.</p>
+        <p>On the ground community impact with accessible cognitive health screenings and a community café that welcomes everyone.</p>
         <div class="goal-list">
-          <div class="goal-item">Low-cost MCI cognitive health screenings</div>
+          <div class="goal-item">Accessible MCI cognitive health screenings</div>
           <div class="goal-item">Legacy 1892 Coffee community café</div>
           <div class="goal-item">Health outreach &amp; specialist referrals</div>
           <div class="goal-item">Faith conversations &amp; welcoming events</div>
@@ -793,7 +811,7 @@ footer{background:var(--dark);color:rgba(255,248,230,.65);padding:3rem 0 2rem}
     <div class="text-center reveal" style="margin-bottom:1.8rem">
       <span class="eyebrow">📰 6 Stories · Daily at 9AM EST</span>
       <h2 class="sec-title" id="gn-h">Good News from Around the World</h2>
-      <p class="sec-sub c">The Holy Spirit is moving — from underground churches to digital revivals. Stay informed with today's top Christian, faith, and religious news from across the globe.</p>
+      <p class="sec-sub c">The Holy Spirit is moving from underground churches to digital revivals. Stay informed with today's top Christian, faith, and religious news from across the globe.</p>
     </div>
     <div class="gn-cats reveal">
       <button class="gn-pill on" data-cat="all">All</button>
@@ -818,7 +836,7 @@ footer{background:var(--dark);color:rgba(255,248,230,.65);padding:3rem 0 2rem}
         <span class="eyebrow">Get in Touch</span>
         <div class="divider"></div>
         <h2 class="sec-title" id="con-h">Connect With <span>ArkChurch</span></h2>
-        <p>Whether you want to partner with us, attend a service, inquire about MCI screening, plant a chapel, or simply say hello — we'd love to hear from you. Every conversation matters.</p>
+        <p>Whether you want to partner with us, attend a service, inquire about MCI screening, plant a chapel, or simply say hello, we would love to hear from you. Every conversation matters.</p>
         <div class="con-detail">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
           <a href="mailto:contact@arkchurch.church">contact@arkchurch.church</a>
@@ -828,7 +846,7 @@ footer{background:var(--dark);color:rgba(255,248,230,.65);padding:3rem 0 2rem}
           <span>arkchurch.church</span>
         </div>
         <div style="margin-top:1.4rem;padding:1.15rem;background:var(--gold-pale);border-radius:var(--r-lg);border-left:3px solid var(--gold)">
-          <p style="font-family:var(--ff);font-style:italic;font-size:.93rem;color:var(--text);line-height:1.72">"For where two or three gather in my name, there am I with them."<br><span style="font-size:.6rem;letter-spacing:.1em;color:var(--text-dim);font-style:normal">— Matthew 18:20</span></p>
+          <p style="font-family:var(--ff);font-style:italic;font-size:.93rem;color:var(--text);line-height:1.72">"For where two or three gather in my name, there am I with them."<br><span style="font-size:.6rem;letter-spacing:.1em;color:var(--text-dim);font-style:normal">Matthew 18:20</span></p>
         </div>
       </div>
       <div class="con-form reveal">
@@ -871,7 +889,7 @@ footer{background:var(--dark);color:rgba(255,248,230,.65);padding:3rem 0 2rem}
     <div class="ft-grid">
       <div class="ft-brand">
         <div class="ft-logo"><img src="img/appchurch round logo.png" alt="ArkChurch"><span>ArkChurch</span></div>
-        <p>Where faith meets the future. A global digital church and chapel network proclaiming Jesus Christ in the age of AI, technology, and convergence.</p>
+        <p>Where faith meets the future. A global digital church and chapel network proclaiming Jesus Christ in the age of technology and digital life.</p>
       </div>
       <div class="ft-sec"><h4>Ministry</h4><ul class="ft-links"><li><a href="#about">About Us</a></li><li><a href="#ministry">What We Do</a></li><li><a href="#support">Give / Support</a></li><li><a href="#contact">Contact</a></li></ul></div>
       <div class="ft-sec"><h4>Community</h4><ul class="ft-links"><li><a href="#community">Community Services</a></li><li><a href="#goodnews">Good News</a></li><li><a href="#ann">Events</a></li><li><a href="https://legacy1892.coffee" target="_blank" rel="noopener">Legacy 1892 Coffee</a></li></ul></div>
@@ -879,7 +897,7 @@ footer{background:var(--dark);color:rgba(255,248,230,.65);padding:3rem 0 2rem}
     </div>
     <div class="ft-bot">
       <p class="ft-copy">© 2020–<span id="yr"></span> ArkChurch, an initiative of AppChurch Global Foundation. All rights reserved.</p>
-      <p class="ft-kw" aria-hidden="true">faith · Christian · technology · AI · future · life · meaning · save · purpose · coffee · cafe · robot · digital · internet · convergence · MCI · cognitive health · community · chapel · gospel · Jesus · prayer · worship · mission · revival · salvation · hope</p>
+      <p class="ft-kw" aria-hidden="true">ArkChurch · digital church · Christian · faith · technology · worship · chapel · MCI · cognitive health · community · gospel · mission · revival · salvation</p>
     </div>
   </div>
 </footer>
@@ -888,8 +906,8 @@ footer{background:var(--dark);color:rgba(255,248,230,.65);padding:3rem 0 2rem}
 
 <script>
 // ═══ EMBEDDED DATA (auto-updated by GitHub Actions / editor.html) ═══
-const GOOD_NEWS_DATA = [{"scannedAt":"2026-06-24T16:22:02.725590+00:00","scanDate":"June 24, 2026","items":[{"rank":1,"title":"Can Churches Become a Force for Restoration in the Criminal Justice System?","summary":"Roughly 77% of Christians believe the Bible commands them to care about people in prison. Churches should be a transformative presence.","source":"Church Leaders","sourceUrl":"https://churchleaders.com/outreach-missions/2219294-churches-restoration-prison.html","category":"persecution","image":"https://cdn.churchleaders.com/wp-content/uploads/2026/06/church-restoration-criminal-justice-system.jpg"},{"rank":2,"title":"Pope Leo proclaims church’s best-kept secret in ‘Magnifica Humanitas’","summary":"(RNS) — Chapter 2 of the encyclical might be called the official ‘Cliff Notes’ version of Catholic social teaching.","source":"Religion News Service","sourceUrl":"https://religionnews.com/2026/06/24/pope-leo-proclaims-churchs-best-kept-secret-in-magnifica-humanitas/","category":"religion","image":"img/hero3.jpg"},{"rank":3,"title":"Why it’s OK to say ‘namaste’ in yoga class","summary":"(The Conversation) — In a polarized world, the greeting may be an acknowledgment of our interconnectedness.","source":"Religion News Service","sourceUrl":"https://religionnews.com/2026/06/24/why-its-ok-to-say-namaste-in-yoga-class/","category":"religion","image":"img/hero4.jpg"},{"rank":4,"title":"Why Women Are Quietly Walking Out of Your Church’s Women’s Ministry","summary":"We know that some women love women's ministry, but there are others who will never attend. Why is that? And how can those of us passionate about women's ministry be even more effective?","source":"Church Leaders","sourceUrl":"https://churchleaders.com/pastors/pastor-articles/163607-bianca-olthoff-women-like-womens-ministry.html","category":"faith","image":"https://cdn.churchleaders.com/wp-content/uploads/2021/09/womens-ministry-challenges.jpg"},{"rank":5,"title":"We Need a Better Anthropology. We Need the Gospel More.","summary":"‘Humanity Matters’ offers an encouraging emphasis on recovering a robust biblical anthropology.","source":"The Gospel Coalition","sourceUrl":"https://www.thegospelcoalition.org/reviews/humanity-matters-reenchanting/","category":"faith","image":"https://media.thegospelcoalition.org/wp-content/uploads/2026/06/13193252/humanity-matters-review-1.jpg"},{"rank":6,"title":"What Jesus Actually Meant by ‘Judge Not’","summary":"When ‘judge not’ is used to shut down moral conversation, it’s asserting we don’t have the right to correct each other’s views. But we need to be deeply concerned with one another.","source":"The Gospel Coalition","sourceUrl":"https://www.thegospelcoalition.org/article/jesus-meant-judge-not/","category":"faith","image":"https://media.thegospelcoalition.org/wp-content/uploads/2026/06/13191939/jesus-meant-judge-not-1.jpg"}]},{"scannedAt":"2026-06-23T16:26:30.378268+00:00","scanDate":"June 23, 2026","items":[{"rank":1,"title":"How enslaved African Muslims resisted bondage through their faith and writing","summary":"(The Conversation) — As the US approaches the 250th anniversary of the signing of the Declaration of Independence, two scholars revisit the rich legacy of American Muslims.","source":"Religion News Service","sourceUrl":"https://religionnews.com/2026/06/23/how-enslaved-african-muslims-resisted-bondage-through-their-faith-and-writing/","category":"faith","image":"img/hero2.jpg"},{"rank":2,"title":"Bonfires, Maypoles and a saint’s day: How Europe celebrates the longest day of the year","summary":"(The Conversation) — Midsummer celebrations throughout Europe coincide with the solstice. Many blend pre-Christian and Christian traditions.","source":"Religion News Service","sourceUrl":"https://religionnews.com/2026/06/23/bonfires-maypoles-and-a-saints-day-how-europe-celebrates-the-longest-day-of-the-year/","category":"religion","image":"img/hero3.jpg"},{"rank":3,"title":"Planting a Church","summary":"Matt Smethurst and Ligon Duncan discuss the joys, challenges, and realities of church planting.","source":"The Gospel Coalition","sourceUrl":"https://www.thegospelcoalition.org/podcasts/everyday-pastor/planting-a-church/","category":"faith","image":"https://media.thegospelcoalition.org/wp-content/uploads/2026/06/23084233/plating-a-church-TN-scaled.jpg"},{"rank":4,"title":"How Church Abuse Affects People’s Faith Long After They Leave","summary":"When some people leave the church, they leave behind the version of themselves that believed healing was possible there. That sentence lands differently depending on where you stand. And you may already know which side you’re on. If you&#82…","source":"Church Leaders","sourceUrl":"https://churchleaders.com/pastors/2218741-spiritual-abuse-church-hurt-recovery.html","category":"faith","image":"https://cdn.churchleaders.com/wp-content/uploads/2026/06/How-Church-Abuse-Affects-Faith-Long-After-People-Walk-Away.jpg"},{"rank":5,"title":"Jesus Said to Love Your Enemies. So Why Are Christians So Angry on Facebook?","summary":"We keep forgetting the second commandment is a command. We want our religion to be private, just “me and the Lord.”","source":"Church Leaders","sourceUrl":"https://churchleaders.com/pastors/pastor-articles/391266-10-big-things-jesus-said-which-we-keep-forgetting.html","category":"faith","image":"https://cdn.churchleaders.com/wp-content/uploads/2025/12/Jesus-Said-to-Love-Your-Enemies.-So-Why-Are-Christians-So-Angry-on-Facebook-1.jpg"},{"rank":6,"title":"What Is a Christian? One Who Belongs.","summary":"Whatever fear you carry, whatever burden weighs you down, name it, and then remind yourself, ’I am his. Body and soul. Life and death.’","source":"The Gospel Coalition","sourceUrl":"https://www.thegospelcoalition.org/article/what-christian-means-matters/","category":"faith","image":"https://media.thegospelcoalition.org/wp-content/uploads/2026/06/12194043/what-christian-actually-means.jpg"}]},{"scannedAt":"2026-06-22T18:11:58.613332+00:00","scanDate":"June 22, 2026","items":[{"rank":1,"title":"Is Bethany’s break with LGBTQ+ people a bellwether for foster care?","summary":"(RNS) — LGBTQ+ advocates worry the change will mean fewer beds for foster youth.","source":"Religion News Service","sourceUrl":"https://religionnews.com/2026/06/22/is-bethanys-break-with-lgbtq-people-a-bellwether-for-foster-care/","category":"religion","image":"img/hero2.jpg"},{"rank":2,"title":"Police charge a third suspect in a Melbourne synagogue arson allegedly directed by Iran","summary":"MELBOURNE, Australia (AP) — The Victorian Joint Counter Terrorism Team, which brings together federal and state police with a spy agency, charged the man, who has not been named, with offenses including arson.","source":"Religion News Service","sourceUrl":"https://religionnews.com/2026/06/22/police-charge-a-third-suspect-in-a-melbourne-synagogue-arson-allegedly-directed-by-iran/","category":"religion","image":"img/hero3.jpg"},{"rank":3,"title":"‘Me and My Wife Are Best Friends’—Jelly Roll Breaks Silence on Divorce","summary":"Country superstar and “Hard Fought Hallelujah” singer Jelly Roll is speaking out amid rumors surrounding his divorce from wife Alisa DeFord.","source":"Church Leaders","sourceUrl":"https://churchleaders.com/news/2219171-jelly-roll-breaks-silence-on-divorce.html","category":"faith","image":"https://cdn.churchleaders.com/wp-content/uploads/2026/06/jelly-roll-rumors.jpg"},{"rank":4,"title":"Your Kids Won’t Remember Your Advice. They’ll Remember Whether You Showed Up.","summary":"A child can forget most of what a father says and still carry the weight of who he was. The tone of his voice during a hard week. Whether he showed up. Whether he prayed out loud or only when someone was watching. Christian fatherhood is no…","source":"Church Leaders","sourceUrl":"https://churchleaders.com/christianity/2219164-christian-fatherhood-faithful-presence.html","category":"faith","image":"https://cdn.churchleaders.com/wp-content/uploads/2026/06/Your-Kids-Wont-Remember-Your-Advice.-Theyll-Remember-Whether-You-Showed-Up.jpg"},{"rank":5,"title":"On My Shelf: Life and Books with Kevin Burrell","summary":"Kevin Burrell talks about what’s on his bedside table, favorite fiction, favorite rereads, and more.","source":"The Gospel Coalition","sourceUrl":"https://www.thegospelcoalition.org/article/on-my-shelf-kevin-burrell/","category":"faith","image":"https://media.thegospelcoalition.org/wp-content/uploads/2026/06/11211658/on-my-shelf-kevin-burrell.jpg"},{"rank":6,"title":"Your Kids Need to Know About Jonathan Edwards","summary":"Jonathan Edwards and other heroes like him can help us, and our kids, follow the great Hero.","source":"The Gospel Coalition","sourceUrl":"https://www.thegospelcoalition.org/article/kids-need-jonathan-edwards/","category":"faith","image":"https://media.thegospelcoalition.org/wp-content/uploads/2026/06/12191851/kids-need-jonathan-edwards-1.jpg"}]},{"scannedAt":"2026-06-21T15:51:11.192653+00:00","scanDate":"June 21, 2026","items":[{"rank":1,"title":"Raising Kids in the Faith Is Simpler Than You May Think","summary":"The strongest predictor of a child’s adult religiosity is how religious the parents were during the upbringing.","source":"The Gospel Coalition","sourceUrl":"https://www.thegospelcoalition.org/article/kids-faith-simpler/","category":"faith","image":"https://media.thegospelcoalition.org/wp-content/uploads/2026/06/15191616/christian-parents-need-to-preach-what-they-practice.jpg"},{"rank":2,"title":"Christian Football Players in the NFL Who Love Jesus","summary":"Here's our latest list of notable Christian football players. These outspoken NFL players are strong in their faith and are not afraid to share their Christian beliefs.","source":"Church Leaders","sourceUrl":"https://churchleaders.com/news/331424-15-players-of-faith-to-watch-this-year-in-the-nfl.html","category":"faith","image":"https://cdn.churchleaders.com/wp-content/uploads/2021/09/christian-football-players-1.jpg"},{"rank":3,"title":"Pastoral Ethics: 13 Standards Every Church Leader Needs","summary":"Pastoral ethics and integrity are foundational to a thriving ministry. Church leaders are entrusted with guiding others in faith, providing counsel, and representing biblical values in both their personal and professional lives.","source":"Church Leaders","sourceUrl":"https://churchleaders.com/pastors/508655-13-pastoral-ethics-that-every-church-leader-must-uphold.html","category":"faith","image":"https://cdn.churchleaders.com/wp-content/uploads/2026/06/Pastoral-Ethics-13-Standards-Every-Church-Leader-Needs.jpg"},{"rank":4,"title":"Paul, Brad, and the Kids: A Snapshot of an American Family for Pride","summary":"Plus: Guthrie Graves-Fitzsimmons, author of a new report on same-gender marriage and religious freedom","source":"Religion News Service","sourceUrl":"https://religionnews.com/2026/06/20/paul-brad-and-the-kids-a-snapshot-of-an-american-family-for-pride/","category":"religion","image":"img/hero5.jpg"},{"rank":5,"title":"Videos Show Damage to Historic Iraqi Assyrian Church","summary":"Videos circulating on social media this week appear to show extensive damage inside Mar Kiryakos Church in the village of Sharanish in Iraq’s Dohuk Governorate, prompting concern among Assyrians and other Christians over the fate of one of…","source":"Intl Christian Concern","sourceUrl":"https://persecution.org/2026/06/19/videos-show-damage-to-historic-iraqi-assyrian-church/","category":"persecution","image":"img/hero6.jpg"},{"rank":6,"title":"With Cuba in crisis, faith groups work to influence policy, deliver aid","summary":"(RNS) — U.S. Republican administrations have long seen faith groups as a cornerstone for humanitarian aid and community trust as they push for regime change in Cuba.","source":"Religion News Service","sourceUrl":"https://religionnews.com/2026/06/19/with-cuba-in-crisis-faith-groups-work-to-influence-policy-deliver-aid/","category":"faith","image":"img/congregation1.jpg"}]},{"scannedAt":"2026-06-20T15:45:13.386449+00:00","scanDate":"June 20, 2026","items":[{"rank":1,"title":"The Good and Bad of Retrieval Theology","summary":"By elevating Thomas to almost canonical status, well-intentioned retrieval theologians may well have opened a floodgate that won’t be shut before many have abandoned Protestantism.","source":"The Gospel Coalition","sourceUrl":"https://www.thegospelcoalition.org/article/good-bad-retrieval-theology/","category":"faith","image":"https://media.thegospelcoalition.org/wp-content/uploads/2026/06/11213346/good-bad-retrieval-theology.jpg"},{"rank":2,"title":"Christian Football Players in the NFL Who Love Jesus","summary":"Here's our latest list of notable Christian football players. These outspoken NFL players are strong in their faith and are not afraid to share their Christian beliefs.","source":"Church Leaders","sourceUrl":"https://churchleaders.com/news/331424-15-players-of-faith-to-watch-this-year-in-the-nfl.html","category":"faith","image":"https://cdn.churchleaders.com/wp-content/uploads/2021/09/christian-football-players-1.jpg"},{"rank":3,"title":"Pastoral Ethics: 13 Standards Every Church Leader Needs","summary":"Pastoral ethics and integrity are foundational to a thriving ministry. Church leaders are entrusted with guiding others in faith, providing counsel, and representing biblical values in both their personal and professional lives.","source":"Church Leaders","sourceUrl":"https://churchleaders.com/pastors/508655-13-pastoral-ethics-that-every-church-leader-must-uphold.html","category":"faith","image":"https://cdn.churchleaders.com/wp-content/uploads/2026/06/Pastoral-Ethics-13-Standards-Every-Church-Leader-Needs.jpg"},{"rank":4,"title":"Videos Show Damage to Historic Iraqi Assyrian Church","summary":"Videos circulating on social media this week appear to show extensive damage inside Mar Kiryakos Church in the village of Sharanish in Iraq’s Dohuk Governorate, prompting concern among Assyrians and other Christians over the fate of one of…","source":"Intl Christian Concern","sourceUrl":"https://persecution.org/2026/06/19/videos-show-damage-to-historic-iraqi-assyrian-church/","category":"persecution","image":"img/hero5.jpg"},{"rank":5,"title":"With Cuba in crisis, faith groups work to influence policy, deliver aid","summary":"(RNS) — U.S. Republican administrations have long seen faith groups as a cornerstone for humanitarian aid and community trust as they push for regime change in Cuba.","source":"Religion News Service","sourceUrl":"https://religionnews.com/2026/06/19/with-cuba-in-crisis-faith-groups-work-to-influence-policy-deliver-aid/","category":"faith","image":"img/hero6.jpg"},{"rank":6,"title":"Egyptian Christian Imprisoned for Social Media Posts","summary":"On Jan. 3, Egyptian Christian Augustinos Samaan was sentenced to five years of hard labor after he was convicted of “contempt of religion” and “misuse of social media.” Samaan has a YouTube channel on which he posts apologetics videos compa…","source":"Intl Christian Concern","sourceUrl":"https://persecution.org/2026/06/19/egyptian-christian-imprisoned-for-social-media-posts/","category":"persecution","image":"img/congregation1.jpg"}]},{"scannedAt":"2026-06-19T16:31:26.576694+00:00","scanDate":"June 19, 2026","items":[{"rank":1,"title":"The quiet faithfulness of ordinary fathers in an age of performative masculinity","summary":"(RNS) — Conspicuously missing from the manosphere is a vision for fatherhood.","source":"Religion News Service","sourceUrl":"https://religionnews.com/2026/06/19/the-quiet-faithfulness-of-ordinary-fathers-in-an-age-of-performative-masculinity/","category":"faith","image":"img/hero2.jpg"},{"rank":2,"title":"Sixpence None The Richer Bassist Justin Cary Dies After Suffering Stroke","summary":"Christian rock band Sixpence None The Richer shared that the band’s bassist, Justin Cary, died after suffering a stroke.","source":"Church Leaders","sourceUrl":"https://churchleaders.com/news/2219094-sixpence-none-the-richer-justin-cary-dies.html","category":"faith","image":"https://cdn.churchleaders.com/wp-content/uploads/2026/06/sixpence.jpg"},{"rank":3,"title":"UFC Star Conor McGregor: ‘I Forgive Myself for Disgracing the Position God Put Me In’","summary":"Conor McGregor, the former UFC featherweight and lightweight champion, spoke about forgiving himself and how God is helping him.","source":"Church Leaders","sourceUrl":"https://churchleaders.com/news/2219083-conor-mcgregor-ufc-forgive-disgracing-god.html","category":"faith","image":"https://cdn.churchleaders.com/wp-content/uploads/2026/06/mcgregor-conor-faith.jpg"},{"rank":4,"title":"Is the Bible Invited to the Juneteenth Cookout?","summary":"The Bible pumped the antigospel institution of slavery so full of Christ until it burst.","source":"The Gospel Coalition","sourceUrl":"https://www.thegospelcoalition.org/article/bible-juneteenth-cookout/","category":"faith","image":"https://media.thegospelcoalition.org/wp-content/uploads/2026/06/19091233/bible-juneteenth-cookout.jpg"},{"rank":5,"title":"Which Bible passages are in Texas’ proposed student reading list? Here’s what the sections reveal.","summary":"(RNS) — The chosen readings, to be voted on by the State Board of Education, draw heavily from Christian perspectives.","source":"Religion News Service","sourceUrl":"https://religionnews.com/2026/06/19/which-bible-passages-are-in-texas-proposed-student-reading-list/","category":"religion","image":"img/hero6.jpg"},{"rank":6,"title":"Believer Assaulted in Bangladesh","summary":"“Arif Salam,” 55, is a bicycle mechanic, husband, and father. He is also an independent preacher, openly sharing the gospel in his predominantly Muslim country, Bangladesh. During the afternoon of June 5, Salam heard knocking on his door. A…","source":"Intl Christian Concern","sourceUrl":"https://persecution.org/2026/06/18/believer-assaulted-in-bangladesh/","category":"persecution","image":"img/congregation1.jpg"}]},{"scannedAt":"2026-06-18T16:56:10.520280+00:00","scanDate":"June 18, 2026","items":[{"rank":1,"title":"New book paints the ADL as a neoconservative bastion dedicated to US and Israel interests","summary":"(RNS) — The Anti-Defamation League may have appropriated the language of civil rights, writes Emmaia Gelman in a new book, but the group’s actions have mostly been in defense of state interests.","source":"Religion News Service","sourceUrl":"https://religionnews.com/2026/06/18/new-book-paints-the-adl-as-a-neoconservative-bastion-dedicated-to-us-and-israel-interests/","category":"religion","image":"img/hero2.jpg"},{"rank":2,"title":"161 years after Juneteenth, there is unfinished work of freedom","summary":"(RNS) — The forces that threaten freedom continually take new forms.","source":"Religion News Service","sourceUrl":"https://religionnews.com/2026/06/18/161-years-after-juneteenth-there-is-unfinished-work-of-freedom/","category":"religion","image":"img/hero3.jpg"},{"rank":3,"title":"Sadie Robertson Huff Says Critics of Her Preaching Have Told Her To ‘Sit Down and Shut Up’ Because She’s a Woman","summary":"Sadie Robertson Huff told John Crist that she has been told to “sit down and shut up” because she is a woman who preaches.","source":"Church Leaders","sourceUrl":"https://churchleaders.com/news/2218997-sadie-robertson-huff-john-crist-women-preaching.html","category":"faith","image":"https://cdn.churchleaders.com/wp-content/uploads/2026/06/sadie-crist-women-preaching.jpg"},{"rank":4,"title":"How to Handle Church Conflict Biblically Without Tearing the Church Apart","summary":"Have you ever stood near a firestorm? The flames climb to heights that seem impossible. As the air heats and rushes upward, cooler air rushes in below to fill the vacuum. Now you have wind racing toward the fire and wind inside the inferno…","source":"Church Leaders","sourceUrl":"https://churchleaders.com/pastors/2213630-how-to-handle-church-conflict-biblical-response-church-fights.html","category":"faith","image":"https://cdn.churchleaders.com/wp-content/uploads/2026/02/How-to-Handle-Church-Conflict-Biblically-Without-Tearing-the-Church-Apart.jpg"},{"rank":5,"title":"Surrender and Vocation in the Life of Lilias Trotter","summary":"Lilias Trotter believed that a person’s greatest need is the gospel of Christ, and this drove everything she did.","source":"The Gospel Coalition","sourceUrl":"https://www.thegospelcoalition.org/reviews/if-only-we-could-see/","category":"faith","image":"https://media.thegospelcoalition.org/wp-content/uploads/2026/06/09215559/if-only-we-could-see.jpg"},{"rank":6,"title":"Did God Command Genocide in Deuteronomy 7?","summary":"Christians fight with spiritual weapons against principalities and powers, not with guns and bombs against other human beings. But we’re still at war.","source":"The Gospel Coalition","sourceUrl":"https://www.thegospelcoalition.org/article/did-god-command-genocide/","category":"faith","image":"https://media.thegospelcoalition.org/wp-content/uploads/2026/06/11193801/did-god-command-genocide.jpg"}]}];
-const ANNOUNCEMENT_DATA = [{"title":"Community Partnership: Dementia & MCI Screening Initiative","body":"The 2026 Community Dementia and MCI Screening Initiative is officially launched. AppChurch Global Foundation is welcoming interested entities in the public, private, and nonprofit sectors to partner with us on this endeavor. Together we can reach thousands of families in the only window that matters.","image":"img/MCIcover.png","link":"MCIpartner.html","date":"2026-05-04","tag":"MCI screening, partner, initiative"},{"title":"Dementia & MCI Community Screening","body":"ArkChurch is working with community partners to provide Mild Cognitive Impairment (MCI) screening. Please contact us if your organization wants to co-host and share this information with your loved ones, who need it.","image":"https://static.foxnews.com/foxnews.com/content/uploads/2025/06/3165c6e6-b9e72000-bill-gates-and-bill-gates-sr._2008-scaled.jpg","link":"wad2026.html","date":"2026-05-06","tag":"MCI Screening"}];
+const GOOD_NEWS_DATA = [{"scannedAt":"2026-06-25T10:12:38.687148+00:00","scanDate":"June 25, 2026","items":[{"rank":1,"title":"As some praise Texas’ proposed ‘Judeo-Christian’ curriculum, rabbis say it dismisses Judaism","summary":"AUSTIN, Texas (RNS) — The phrase ‘Judeo-Christian’ was frequently heard this week in support of Texas’ revised public school curriculum, even as many Jewish testifiers distanced themselves from the term and the curriculum.","source":"Religion News Service","sourceUrl":"https://religionnews.com/2026/06/25/rabbis-reject-texas-judeo-christian-proposed-reading-list/","category":"religion","image":"https://religionnews.com/wp-content/uploads/2026/06/webRNS-Texas-Board-of-Education1.jpg"},{"rank":2,"title":"8 Idols Church Leaders Still Worship (And How To Spot Them)","summary":"What do you worship today? Beware of subtle idols that can creep into your church ministry. Here are 8 idols I and/or other leaders struggle with.","source":"Church Leaders","sourceUrl":"https://churchleaders.com/pastors/pastor-articles/176681-carey-nieuwhof-idols-church-leaders-still-worship-today.html","category":"faith","image":"https://cdn.churchleaders.com/wp-content/uploads/2025/06/The-weight-of-priorities.jpg"},{"rank":3,"title":"Passing Our Faith to the Next Generation (with Laura Wifler and Amy Gannett)","summary":"Melissa talks with Amy Gannett and Laura Wifler about how to parent in a way that passes on the Christian faith.","source":"The Gospel Coalition","sourceUrl":"https://www.thegospelcoalition.org/podcasts/deep-dish/passing-faith-next-generation/","category":"faith","image":"https://media.thegospelcoalition.org/wp-content/uploads/2026/06/08215944/TDD40-scaled.jpg"},{"rank":4,"title":"‘Please Don’t Ever Get Stupid’: The Blunt Warning This Pastor Has Never Forgotten","summary":"If you aspire to ministry, there are things a pastor should not do. Don’t be stupid. Decide now to avoid these obvious pitfalls.","source":"Church Leaders","sourceUrl":"https://churchleaders.com/pastors/pastor-articles/164995-lee-grady-10-stupid-things-pastors-should-never-do.html","category":"faith","image":"https://cdn.churchleaders.com/wp-content/uploads/2021/12/Please-Dont-Ever-Get-Stupid-The-Blunt-Warning-This-Pastor-Has-Never-Forgotten.jpg"},{"rank":5,"title":"Who Should Be Admitted to the Lord’s Supper? 4 Views","summary":"If communion is a precious and profound privilege, who participates is important.","source":"The Gospel Coalition","sourceUrl":"https://www.thegospelcoalition.org/article/admitted-lords-supper/","category":"faith","image":"https://media.thegospelcoalition.org/wp-content/uploads/2026/06/15181307/admitted-lords-supper-1.jpg"},{"rank":6,"title":"As Ebola spreads in war-torn eastern Congo, faith leaders adapt","summary":"(RNS) — As conflict and a deadly Ebola outbreak compound suffering in eastern Congo, pastors and church leaders are adapting worship, pastoral care and funeral traditions while helping communities navigate fear and misinformation.","source":"Religion News Service","sourceUrl":"https://religionnews.com/2026/06/24/as-ebola-spreads-in-war-torn-eastern-congo-faith-leaders-adapt/","category":"faith","image":"https://religionnews.com/wp-content/uploads/2026/06/webRNS-Congo-Ebola1-062426.jpg"}]},{"scannedAt":"2026-06-24T16:22:02.725590+00:00","scanDate":"June 24, 2026","items":[{"rank":1,"title":"Can Churches Become a Force for Restoration in the Criminal Justice System?","summary":"Roughly 77% of Christians believe the Bible commands them to care about people in prison. Churches should be a transformative presence.","source":"Church Leaders","sourceUrl":"https://churchleaders.com/outreach-missions/2219294-churches-restoration-prison.html","category":"persecution","image":"https://cdn.churchleaders.com/wp-content/uploads/2026/06/church-restoration-criminal-justice-system.jpg"},{"rank":2,"title":"Pope Leo proclaims church’s best-kept secret in ‘Magnifica Humanitas’","summary":"(RNS) — Chapter 2 of the encyclical might be called the official ‘Cliff Notes’ version of Catholic social teaching.","source":"Religion News Service","sourceUrl":"https://religionnews.com/2026/06/24/pope-leo-proclaims-churchs-best-kept-secret-in-magnifica-humanitas/","category":"religion","image":"img/hero3.jpg"},{"rank":3,"title":"Why it’s OK to say ‘namaste’ in yoga class","summary":"(The Conversation) — In a polarized world, the greeting may be an acknowledgment of our interconnectedness.","source":"Religion News Service","sourceUrl":"https://religionnews.com/2026/06/24/why-its-ok-to-say-namaste-in-yoga-class/","category":"religion","image":"img/hero4.jpg"},{"rank":4,"title":"Why Women Are Quietly Walking Out of Your Church’s Women’s Ministry","summary":"We know that some women love women's ministry, but there are others who will never attend. Why is that? And how can those of us passionate about women's ministry be even more effective?","source":"Church Leaders","sourceUrl":"https://churchleaders.com/pastors/pastor-articles/163607-bianca-olthoff-women-like-womens-ministry.html","category":"faith","image":"https://cdn.churchleaders.com/wp-content/uploads/2021/09/womens-ministry-challenges.jpg"},{"rank":5,"title":"We Need a Better Anthropology. We Need the Gospel More.","summary":"‘Humanity Matters’ offers an encouraging emphasis on recovering a robust biblical anthropology.","source":"The Gospel Coalition","sourceUrl":"https://www.thegospelcoalition.org/reviews/humanity-matters-reenchanting/","category":"faith","image":"https://media.thegospelcoalition.org/wp-content/uploads/2026/06/13193252/humanity-matters-review-1.jpg"},{"rank":6,"title":"What Jesus Actually Meant by ‘Judge Not’","summary":"When ‘judge not’ is used to shut down moral conversation, it’s asserting we don’t have the right to correct each other’s views. But we need to be deeply concerned with one another.","source":"The Gospel Coalition","sourceUrl":"https://www.thegospelcoalition.org/article/jesus-meant-judge-not/","category":"faith","image":"https://media.thegospelcoalition.org/wp-content/uploads/2026/06/13191939/jesus-meant-judge-not-1.jpg"}]},{"scannedAt":"2026-06-23T16:26:30.378268+00:00","scanDate":"June 23, 2026","items":[{"rank":1,"title":"How enslaved African Muslims resisted bondage through their faith and writing","summary":"(The Conversation) — As the US approaches the 250th anniversary of the signing of the Declaration of Independence, two scholars revisit the rich legacy of American Muslims.","source":"Religion News Service","sourceUrl":"https://religionnews.com/2026/06/23/how-enslaved-african-muslims-resisted-bondage-through-their-faith-and-writing/","category":"faith","image":"img/hero2.jpg"},{"rank":2,"title":"Bonfires, Maypoles and a saint’s day: How Europe celebrates the longest day of the year","summary":"(The Conversation) — Midsummer celebrations throughout Europe coincide with the solstice. Many blend pre-Christian and Christian traditions.","source":"Religion News Service","sourceUrl":"https://religionnews.com/2026/06/23/bonfires-maypoles-and-a-saints-day-how-europe-celebrates-the-longest-day-of-the-year/","category":"religion","image":"img/hero3.jpg"},{"rank":3,"title":"Planting a Church","summary":"Matt Smethurst and Ligon Duncan discuss the joys, challenges, and realities of church planting.","source":"The Gospel Coalition","sourceUrl":"https://www.thegospelcoalition.org/podcasts/everyday-pastor/planting-a-church/","category":"faith","image":"https://media.thegospelcoalition.org/wp-content/uploads/2026/06/23084233/plating-a-church-TN-scaled.jpg"},{"rank":4,"title":"How Church Abuse Affects People’s Faith Long After They Leave","summary":"When some people leave the church, they leave behind the version of themselves that believed healing was possible there. That sentence lands differently depending on where you stand. And you may already know which side you’re on. If you&#82…","source":"Church Leaders","sourceUrl":"https://churchleaders.com/pastors/2218741-spiritual-abuse-church-hurt-recovery.html","category":"faith","image":"https://cdn.churchleaders.com/wp-content/uploads/2026/06/How-Church-Abuse-Affects-Faith-Long-After-People-Walk-Away.jpg"},{"rank":5,"title":"Jesus Said to Love Your Enemies. So Why Are Christians So Angry on Facebook?","summary":"We keep forgetting the second commandment is a command. We want our religion to be private, just “me and the Lord.”","source":"Church Leaders","sourceUrl":"https://churchleaders.com/pastors/pastor-articles/391266-10-big-things-jesus-said-which-we-keep-forgetting.html","category":"faith","image":"https://cdn.churchleaders.com/wp-content/uploads/2025/12/Jesus-Said-to-Love-Your-Enemies.-So-Why-Are-Christians-So-Angry-on-Facebook-1.jpg"},{"rank":6,"title":"What Is a Christian? One Who Belongs.","summary":"Whatever fear you carry, whatever burden weighs you down, name it, and then remind yourself, ’I am his. Body and soul. Life and death.’","source":"The Gospel Coalition","sourceUrl":"https://www.thegospelcoalition.org/article/what-christian-means-matters/","category":"faith","image":"https://media.thegospelcoalition.org/wp-content/uploads/2026/06/12194043/what-christian-actually-means.jpg"}]},{"scannedAt":"2026-06-22T18:11:58.613332+00:00","scanDate":"June 22, 2026","items":[{"rank":1,"title":"Is Bethany’s break with LGBTQ+ people a bellwether for foster care?","summary":"(RNS) — LGBTQ+ advocates worry the change will mean fewer beds for foster youth.","source":"Religion News Service","sourceUrl":"https://religionnews.com/2026/06/22/is-bethanys-break-with-lgbtq-people-a-bellwether-for-foster-care/","category":"religion","image":"img/hero2.jpg"},{"rank":2,"title":"Police charge a third suspect in a Melbourne synagogue arson allegedly directed by Iran","summary":"MELBOURNE, Australia (AP) — The Victorian Joint Counter Terrorism Team, which brings together federal and state police with a spy agency, charged the man, who has not been named, with offenses including arson.","source":"Religion News Service","sourceUrl":"https://religionnews.com/2026/06/22/police-charge-a-third-suspect-in-a-melbourne-synagogue-arson-allegedly-directed-by-iran/","category":"religion","image":"img/hero3.jpg"},{"rank":3,"title":"‘Me and My Wife Are Best Friends’—Jelly Roll Breaks Silence on Divorce","summary":"Country superstar and “Hard Fought Hallelujah” singer Jelly Roll is speaking out amid rumors surrounding his divorce from wife Alisa DeFord.","source":"Church Leaders","sourceUrl":"https://churchleaders.com/news/2219171-jelly-roll-breaks-silence-on-divorce.html","category":"faith","image":"https://cdn.churchleaders.com/wp-content/uploads/2026/06/jelly-roll-rumors.jpg"},{"rank":4,"title":"Your Kids Won’t Remember Your Advice. They’ll Remember Whether You Showed Up.","summary":"A child can forget most of what a father says and still carry the weight of who he was. The tone of his voice during a hard week. Whether he showed up. Whether he prayed out loud or only when someone was watching. Christian fatherhood is no…","source":"Church Leaders","sourceUrl":"https://churchleaders.com/christianity/2219164-christian-fatherhood-faithful-presence.html","category":"faith","image":"https://cdn.churchleaders.com/wp-content/uploads/2026/06/Your-Kids-Wont-Remember-Your-Advice.-Theyll-Remember-Whether-You-Showed-Up.jpg"},{"rank":5,"title":"On My Shelf: Life and Books with Kevin Burrell","summary":"Kevin Burrell talks about what’s on his bedside table, favorite fiction, favorite rereads, and more.","source":"The Gospel Coalition","sourceUrl":"https://www.thegospelcoalition.org/article/on-my-shelf-kevin-burrell/","category":"faith","image":"https://media.thegospelcoalition.org/wp-content/uploads/2026/06/11211658/on-my-shelf-kevin-burrell.jpg"},{"rank":6,"title":"Your Kids Need to Know About Jonathan Edwards","summary":"Jonathan Edwards and other heroes like him can help us, and our kids, follow the great Hero.","source":"The Gospel Coalition","sourceUrl":"https://www.thegospelcoalition.org/article/kids-need-jonathan-edwards/","category":"faith","image":"https://media.thegospelcoalition.org/wp-content/uploads/2026/06/12191851/kids-need-jonathan-edwards-1.jpg"}]},{"scannedAt":"2026-06-21T15:51:11.192653+00:00","scanDate":"June 21, 2026","items":[{"rank":1,"title":"Raising Kids in the Faith Is Simpler Than You May Think","summary":"The strongest predictor of a child’s adult religiosity is how religious the parents were during the upbringing.","source":"The Gospel Coalition","sourceUrl":"https://www.thegospelcoalition.org/article/kids-faith-simpler/","category":"faith","image":"https://media.thegospelcoalition.org/wp-content/uploads/2026/06/15191616/christian-parents-need-to-preach-what-they-practice.jpg"},{"rank":2,"title":"Christian Football Players in the NFL Who Love Jesus","summary":"Here's our latest list of notable Christian football players. These outspoken NFL players are strong in their faith and are not afraid to share their Christian beliefs.","source":"Church Leaders","sourceUrl":"https://churchleaders.com/news/331424-15-players-of-faith-to-watch-this-year-in-the-nfl.html","category":"faith","image":"https://cdn.churchleaders.com/wp-content/uploads/2021/09/christian-football-players-1.jpg"},{"rank":3,"title":"Pastoral Ethics: 13 Standards Every Church Leader Needs","summary":"Pastoral ethics and integrity are foundational to a thriving ministry. Church leaders are entrusted with guiding others in faith, providing counsel, and representing biblical values in both their personal and professional lives.","source":"Church Leaders","sourceUrl":"https://churchleaders.com/pastors/508655-13-pastoral-ethics-that-every-church-leader-must-uphold.html","category":"faith","image":"https://cdn.churchleaders.com/wp-content/uploads/2026/06/Pastoral-Ethics-13-Standards-Every-Church-Leader-Needs.jpg"},{"rank":4,"title":"Paul, Brad, and the Kids: A Snapshot of an American Family for Pride","summary":"Plus: Guthrie Graves-Fitzsimmons, author of a new report on same-gender marriage and religious freedom","source":"Religion News Service","sourceUrl":"https://religionnews.com/2026/06/20/paul-brad-and-the-kids-a-snapshot-of-an-american-family-for-pride/","category":"religion","image":"img/hero5.jpg"},{"rank":5,"title":"Videos Show Damage to Historic Iraqi Assyrian Church","summary":"Videos circulating on social media this week appear to show extensive damage inside Mar Kiryakos Church in the village of Sharanish in Iraq’s Dohuk Governorate, prompting concern among Assyrians and other Christians over the fate of one of…","source":"Intl Christian Concern","sourceUrl":"https://persecution.org/2026/06/19/videos-show-damage-to-historic-iraqi-assyrian-church/","category":"persecution","image":"img/hero6.jpg"},{"rank":6,"title":"With Cuba in crisis, faith groups work to influence policy, deliver aid","summary":"(RNS) — U.S. Republican administrations have long seen faith groups as a cornerstone for humanitarian aid and community trust as they push for regime change in Cuba.","source":"Religion News Service","sourceUrl":"https://religionnews.com/2026/06/19/with-cuba-in-crisis-faith-groups-work-to-influence-policy-deliver-aid/","category":"faith","image":"img/congregation1.jpg"}]},{"scannedAt":"2026-06-20T15:45:13.386449+00:00","scanDate":"June 20, 2026","items":[{"rank":1,"title":"The Good and Bad of Retrieval Theology","summary":"By elevating Thomas to almost canonical status, well-intentioned retrieval theologians may well have opened a floodgate that won’t be shut before many have abandoned Protestantism.","source":"The Gospel Coalition","sourceUrl":"https://www.thegospelcoalition.org/article/good-bad-retrieval-theology/","category":"faith","image":"https://media.thegospelcoalition.org/wp-content/uploads/2026/06/11213346/good-bad-retrieval-theology.jpg"},{"rank":2,"title":"Christian Football Players in the NFL Who Love Jesus","summary":"Here's our latest list of notable Christian football players. These outspoken NFL players are strong in their faith and are not afraid to share their Christian beliefs.","source":"Church Leaders","sourceUrl":"https://churchleaders.com/news/331424-15-players-of-faith-to-watch-this-year-in-the-nfl.html","category":"faith","image":"https://cdn.churchleaders.com/wp-content/uploads/2021/09/christian-football-players-1.jpg"},{"rank":3,"title":"Pastoral Ethics: 13 Standards Every Church Leader Needs","summary":"Pastoral ethics and integrity are foundational to a thriving ministry. Church leaders are entrusted with guiding others in faith, providing counsel, and representing biblical values in both their personal and professional lives.","source":"Church Leaders","sourceUrl":"https://churchleaders.com/pastors/508655-13-pastoral-ethics-that-every-church-leader-must-uphold.html","category":"faith","image":"https://cdn.churchleaders.com/wp-content/uploads/2026/06/Pastoral-Ethics-13-Standards-Every-Church-Leader-Needs.jpg"},{"rank":4,"title":"Videos Show Damage to Historic Iraqi Assyrian Church","summary":"Videos circulating on social media this week appear to show extensive damage inside Mar Kiryakos Church in the village of Sharanish in Iraq’s Dohuk Governorate, prompting concern among Assyrians and other Christians over the fate of one of…","source":"Intl Christian Concern","sourceUrl":"https://persecution.org/2026/06/19/videos-show-damage-to-historic-iraqi-assyrian-church/","category":"persecution","image":"img/hero5.jpg"},{"rank":5,"title":"With Cuba in crisis, faith groups work to influence policy, deliver aid","summary":"(RNS) — U.S. Republican administrations have long seen faith groups as a cornerstone for humanitarian aid and community trust as they push for regime change in Cuba.","source":"Religion News Service","sourceUrl":"https://religionnews.com/2026/06/19/with-cuba-in-crisis-faith-groups-work-to-influence-policy-deliver-aid/","category":"faith","image":"img/hero6.jpg"},{"rank":6,"title":"Egyptian Christian Imprisoned for Social Media Posts","summary":"On Jan. 3, Egyptian Christian Augustinos Samaan was sentenced to five years of hard labor after he was convicted of “contempt of religion” and “misuse of social media.” Samaan has a YouTube channel on which he posts apologetics videos compa…","source":"Intl Christian Concern","sourceUrl":"https://persecution.org/2026/06/19/egyptian-christian-imprisoned-for-social-media-posts/","category":"persecution","image":"img/congregation1.jpg"}]},{"scannedAt":"2026-06-19T16:31:26.576694+00:00","scanDate":"June 19, 2026","items":[{"rank":1,"title":"The quiet faithfulness of ordinary fathers in an age of performative masculinity","summary":"(RNS) — Conspicuously missing from the manosphere is a vision for fatherhood.","source":"Religion News Service","sourceUrl":"https://religionnews.com/2026/06/19/the-quiet-faithfulness-of-ordinary-fathers-in-an-age-of-performative-masculinity/","category":"faith","image":"img/hero2.jpg"},{"rank":2,"title":"Sixpence None The Richer Bassist Justin Cary Dies After Suffering Stroke","summary":"Christian rock band Sixpence None The Richer shared that the band’s bassist, Justin Cary, died after suffering a stroke.","source":"Church Leaders","sourceUrl":"https://churchleaders.com/news/2219094-sixpence-none-the-richer-justin-cary-dies.html","category":"faith","image":"https://cdn.churchleaders.com/wp-content/uploads/2026/06/sixpence.jpg"},{"rank":3,"title":"UFC Star Conor McGregor: ‘I Forgive Myself for Disgracing the Position God Put Me In’","summary":"Conor McGregor, the former UFC featherweight and lightweight champion, spoke about forgiving himself and how God is helping him.","source":"Church Leaders","sourceUrl":"https://churchleaders.com/news/2219083-conor-mcgregor-ufc-forgive-disgracing-god.html","category":"faith","image":"https://cdn.churchleaders.com/wp-content/uploads/2026/06/mcgregor-conor-faith.jpg"},{"rank":4,"title":"Is the Bible Invited to the Juneteenth Cookout?","summary":"The Bible pumped the antigospel institution of slavery so full of Christ until it burst.","source":"The Gospel Coalition","sourceUrl":"https://www.thegospelcoalition.org/article/bible-juneteenth-cookout/","category":"faith","image":"https://media.thegospelcoalition.org/wp-content/uploads/2026/06/19091233/bible-juneteenth-cookout.jpg"},{"rank":5,"title":"Which Bible passages are in Texas’ proposed student reading list? Here’s what the sections reveal.","summary":"(RNS) — The chosen readings, to be voted on by the State Board of Education, draw heavily from Christian perspectives.","source":"Religion News Service","sourceUrl":"https://religionnews.com/2026/06/19/which-bible-passages-are-in-texas-proposed-student-reading-list/","category":"religion","image":"img/hero6.jpg"},{"rank":6,"title":"Believer Assaulted in Bangladesh","summary":"“Arif Salam,” 55, is a bicycle mechanic, husband, and father. He is also an independent preacher, openly sharing the gospel in his predominantly Muslim country, Bangladesh. During the afternoon of June 5, Salam heard knocking on his door. A…","source":"Intl Christian Concern","sourceUrl":"https://persecution.org/2026/06/18/believer-assaulted-in-bangladesh/","category":"persecution","image":"img/congregation1.jpg"}]}];
+const ANNOUNCEMENT_DATA = [{"title":"Community Partnership: Dementia & MCI Screening Initiative","body":"The 2026 Community Dementia and MCI Screening Initiative is officially launched. ArkChurch is welcoming interested entities in the public, private, and nonprofit sectors to partner with us on this endeavor. Together we can reach thousands of families in the only window that matters.","image":"img/MCIcover.png","link":"MCIpartner.html","date":"2026-05-04","tag":"MCI screening, partner, initiative"},{"title":"Dementia & MCI Community Screening","body":"ArkChurch is working with community partners to provide Mild Cognitive Impairment (MCI) screening. Please contact us if your organization wants to co host and share this information with your loved ones who need it.","image":"img/MCIcover.png","link":"wad2026.html","date":"2026-05-06","tag":"MCI Screening"}];
 </script>
 <script>
 // ═══ NAV ═══
@@ -899,87 +917,142 @@ hbg.addEventListener('click',()=>{const o=drw.classList.toggle('open');hbg.class
 function closeD(){drw.classList.remove('open');hbg.classList.remove('open');hbg.setAttribute('aria-expanded',false);drw.setAttribute('aria-hidden',true)}
 
 // ═══ ANNOUNCEMENTS ═══
+let annPage=0;
+const ANN_PER_PAGE=4;
 function annTargetLink(a){
-  // Resolve the click-through target for an announcement.
-  // Falls back to announcements.html when no per-announcement link is set.
   return (a && a.link && String(a.link).trim()) ? String(a.link).trim() : 'announcements.html';
+}
+function syncLayout(){
+  const banner=document.getElementById('ann-banner');
+  const nav=document.getElementById('nav');
+  const shown=banner&&banner.classList.contains('show');
+  document.body.classList.toggle('has-ann-banner',shown);
+  const bh=shown&&banner?banner.offsetHeight:0;
+  document.documentElement.style.setProperty('--banner-h',bh+'px');
+  if(nav) document.documentElement.style.setProperty('--nav-h',nav.offsetHeight+'px');
+}
+function annPageNav(dir){
+  const total=(ANNOUNCEMENT_DATA||[]).length;
+  const pages=Math.ceil(total/ANN_PER_PAGE);
+  if(pages<=1) return;
+  annPage=(annPage+dir+pages)%pages;
+  renderAnn();
+}
+function renderAnnCards(items){
+  const track=document.getElementById('ann-track');
+  if(!track) return;
+  track.innerHTML=items.map(a=>{
+    const href=annTargetLink(a);
+    const safe=href.replace(/'/g,'%27');
+    return `<div class="ann-card" role="listitem" style="cursor:pointer" onclick="openContentUrl('${safe}')" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openContentUrl('${safe}')}"><div class="ann-date">${a.date?new Date(a.date).toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'}):''}</div><h3>${esc(a.title||'')}</h3><p>${esc(a.body||'')}</p>${a.tag?`<span class="ann-tag">${esc(a.tag)}</span>`:''}</div>`;
+  }).join('');
 }
 function renderAnn(){
   const banner=document.getElementById('ann-banner');
   const sec=document.getElementById('ann');
-  const track=document.getElementById('ann-track');
   const bannerContent=document.getElementById('ann-banner-content');
   const bannerLink=document.getElementById('ann-banner-link');
-  let d;
-  try{d=JSON.parse(localStorage.getItem('appchurch_announcements'))||[];}catch(e){d=[];}
-  if(!d.length)d=ANNOUNCEMENT_DATA||[];
-  if(!d.length){banner.classList.remove('show');sec.style.display='none';return;}
-  // Banner: show first announcement, link to its target page
+  const prevBtn=document.getElementById('ann-prev');
+  const nextBtn=document.getElementById('ann-next');
+  const d=ANNOUNCEMENT_DATA||[];
+  if(!d.length){
+    if(banner) banner.classList.remove('show');
+    if(sec) sec.style.display='none';
+    document.body.classList.remove('has-ann-banner');
+    syncLayout();
+    return;
+  }
   const first=d[0];
   const firstLink=annTargetLink(first);
-  bannerContent.innerHTML='<span class="ann-banner-title">'+esc(first.title||'')+'</span>'+(first.body?'<span class="ann-banner-body"> — '+esc(first.body.slice(0,90))+(first.body.length>90?'…':'')+'</span>':'');
+  if(bannerContent){
+    bannerContent.innerHTML='<span class="ann-banner-title">'+esc(first.title||'')+'</span>'+(first.body?'<span class="ann-banner-body"> · '+esc(first.body.slice(0,90))+(first.body.length>90?'…':'')+'</span>':'');
+  }
   if(bannerLink){
-    bannerLink.onclick=function(){ window.location.href=firstLink; };
+    bannerLink.onclick=function(){ openContentUrl(firstLink); };
     bannerLink.setAttribute('title','Open: '+(first.title||'Announcement'));
   }
-  banner.classList.add('show');
+  if(banner) banner.classList.add('show');
 
-  // Hero Overlay Card — point to first announcement's target page
-  const heroCard = document.getElementById('hero-ann-card');
-  if (heroCard) {
-    document.getElementById('hero-ann-title').textContent = first.title || '';
-    document.getElementById('hero-ann-desc').textContent = first.body || '';
-    heroCard.setAttribute('href', firstLink);
-    heroCard.style.display = 'block';
+  const heroCard=document.getElementById('hero-ann-card');
+  if(heroCard){
+    document.getElementById('hero-ann-title').textContent=first.title||'';
+    document.getElementById('hero-ann-desc').textContent=first.body||'';
+    heroCard.setAttribute('href',firstLink);
+    heroCard.style.display='block';
   }
 
-  // Section: show all — each card links to its own announcement target page
-  sec.style.display='block';
-  track.innerHTML=d.slice(0,8).map(a=>{
-    const href=annTargetLink(a);
-    return `<div class="ann-card" role="listitem" style="cursor:pointer" onclick="window.location.href='${href.replace(/'/g,'%27')}'" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();window.location.href='${href.replace(/'/g,'%27')}'}"><div class="ann-date">${a.date?new Date(a.date).toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'}):''}</div><h3>${esc(a.title||'')}</h3><p>${esc(a.body||'')}</p>${a.tag?`<span class="ann-tag">${esc(a.tag)}</span>`:''}</div>`;
-  }).join('');
+  const pages=Math.ceil(d.length/ANN_PER_PAGE);
+  if(annPage>=pages) annPage=0;
+  const start=annPage*ANN_PER_PAGE;
+  if(sec) sec.style.display='block';
+  renderAnnCards(d.slice(start,start+ANN_PER_PAGE));
+  const showNav=d.length>ANN_PER_PAGE;
+  if(prevBtn){ prevBtn.classList.toggle('hide',!showNav); }
+  if(nextBtn){ nextBtn.classList.toggle('hide',!showNav); }
+  requestAnimationFrame(syncLayout);
 }
-function closeBanner(){document.getElementById('ann-banner').classList.remove('show')}
+function closeBanner(){
+  document.getElementById('ann-banner').classList.remove('show');
+  document.body.classList.remove('has-ann-banner');
+  syncLayout();
+}
 
 // ═══ GOOD NEWS ═══
+function isSourceImage(url){
+  if(!url) return false;
+  const u=String(url).trim();
+  if(/^img\/hero/i.test(u)) return false;
+  return true;
+}
+function isInternalUrl(url){
+  if(!url) return false;
+  return !/^https?:\/\//i.test(String(url).trim());
+}
+function openContentUrl(url){
+  if(!url) return;
+  if(isInternalUrl(url)) window.location.href=url;
+  else window.open(url,'_blank','noopener');
+}
+function gnCardImg(it){
+  if(it.category==='announcement' && it.image) return `<img class="gn-card-img" src="${it.image}" alt="${esc(it.title)}" loading="lazy" onerror="this.style.display='none'">`;
+  if(isSourceImage(it.image)) return `<img class="gn-card-img" src="${it.image}" alt="${esc(it.title)}" loading="lazy" onerror="this.style.display='none'">`;
+  return '';
+}
 function renderGN(cat){
   cat=cat||'all';
   const g=document.getElementById('gn-grid');
   const tl=document.getElementById('gn-timeline');
-  let bx;try{bx=JSON.parse(localStorage.getItem('appchurch_news'))||[];}catch(e){bx=[];}
-  if(!bx.length&&GOOD_NEWS_DATA.length)bx=GOOD_NEWS_DATA;
+  const bx=GOOD_NEWS_DATA||[];
   if(!bx.length){
     g.innerHTML='<div class="gn-empty" role="listitem"><p>⛪</p><p>Good News is updated daily at 9AM EST.<br>Check back soon for today\'s updates.</p></div>';
     if(tl)tl.innerHTML='';
     document.getElementById('gn-ts').textContent='';
     return;
   }
-  // ── Today's news: most recent batch, up to 6 items (3×2 grid) ──
   const todayAll=(bx[0].items||[]);
   let todayItems=(cat==='all'?[...todayAll]:todayAll.filter(i=>i.category===cat));
-
-  let anns;
-  try{anns=JSON.parse(localStorage.getItem('appchurch_announcements'))||[];}catch(e){anns=[];}
-  if(!anns.length)anns=ANNOUNCEMENT_DATA||[];
-  if(cat==='all' && anns.length) {
-    const a = anns[0];
+  const anns=ANNOUNCEMENT_DATA||[];
+  if(cat==='all' && anns.length){
+    const a=anns[0];
     todayItems.unshift({
-      title: a.title,
-      summary: a.body,
-      source: "ArkChurch",
-      sourceUrl: annTargetLink(a),
-      category: "announcement",
-      rank: "📢",
-      image: a.image || "img/appchurchlogo.jpg"
+      title:a.title,
+      summary:a.body,
+      source:'ArkChurch',
+      sourceUrl:annTargetLink(a),
+      category:'announcement',
+      rank:'📢',
+      image:a.image||''
     });
   }
-  todayItems = todayItems.slice(0,6);
+  todayItems=todayItems.slice(0,6);
 
   g.innerHTML=todayItems.length
-    ?todayItems.map(it=>`<article class="gn-card ${it.category==='announcement'?'announcement':''}" role="listitem" onclick="window.open('${(it.sourceUrl||'#').replace(/'/g,'%27')}','_blank')" tabindex="0" aria-label="${esc(it.title)}">${it.image?`<img class="gn-card-img" src="${it.image}" alt="${esc(it.title)}" loading="lazy" onerror="this.style.display='none'">`:''}<div class="gn-card-body"><div class="gn-meta"><span class="gn-rank" ${it.category==='announcement'?'style="font-size:.65rem;border-color:transparent;background:transparent"':''}>${it.rank||1}</span><span class="gn-badge ${it.category||'christian'}">${cl(it.category)}</span></div><h3 class="gn-title">${esc(it.title||'')}</h3><p class="gn-sum">${esc(it.summary||'')}</p><div class="gn-src">Source: <a href="${(it.sourceUrl||'#').replace(/'/g,'%27')}" target="_blank" rel="noopener" onclick="event.stopPropagation()">${esc(it.source||'Unknown')}</a></div></div></article>`).join('')
+    ?todayItems.map(it=>{
+      const href=(it.sourceUrl||'#').replace(/'/g,'%27');
+      const ext=!isInternalUrl(it.sourceUrl);
+      return `<article class="gn-card ${it.category==='announcement'?'announcement':''}" role="listitem" onclick="openContentUrl('${href}')" tabindex="0" aria-label="${esc(it.title)}">${gnCardImg(it)}<div class="gn-card-body"><div class="gn-meta"><span class="gn-rank" ${it.category==='announcement'?'style="font-size:.65rem;border-color:transparent;background:transparent"':''}>${it.rank||1}</span><span class="gn-badge ${it.category||'christian'}">${cl(it.category)}</span></div><h3 class="gn-title">${esc(it.title||'')}</h3><p class="gn-sum">${esc(it.summary||'')}</p><div class="gn-src">Source: <a href="${href}" ${ext?'target="_blank" rel="noopener"':''} onclick="event.stopPropagation()">${esc(it.source||'Unknown')}</a></div></div></article>`;
+    }).join('')
     :'<div class="gn-empty" role="listitem"><p>⛪</p><p>No stories in this category today.<br>Select "All" to see all news.</p></div>';
-  // ── Historical timeline: previous batches ──
   if(tl){
     const hist=bx.slice(1);
     if(!hist.length){tl.innerHTML='';} else {
@@ -989,10 +1062,13 @@ function renderGN(cat){
         const d=new Date(batch.scannedAt);
         const ds=d.toLocaleDateString('en-US',{weekday:'short',month:'short',day:'numeric',year:'numeric'});
         return `<div class="gn-tl-day"><div class="gn-tl-date-row"><span class="gn-tl-date-line"></span><span class="gn-tl-date-txt">${ds}</span><span class="gn-tl-date-line"></span></div>`+
-          its.map(it=>`<div class="gn-tl-item" onclick="window.open('${(it.sourceUrl||'#').replace(/'/g,'%27')}','_blank')" tabindex="0"><span class="gn-tl-dot"></span><span class="gn-badge ${it.category||'christian'}">${cl(it.category)}</span><span class="gn-tl-title">${esc(it.title||'')}</span><span class="gn-tl-src">${esc(it.source||'')}</span></div>`).join('')+
+          its.map(it=>{
+            const href=(it.sourceUrl||'#').replace(/'/g,'%27');
+            return `<div class="gn-tl-item" onclick="openContentUrl('${href}')" tabindex="0"><span class="gn-tl-dot"></span><span class="gn-badge ${it.category||'christian'}">${cl(it.category)}</span><span class="gn-tl-title">${esc(it.title||'')}</span><span class="gn-tl-src">${esc(it.source||'')}</span></div>`;
+          }).join('')+
           '</div>';
       }).filter(Boolean).join('');
-      tl.innerHTML=rows?`<div class="gn-tl-label">— Previous Days —</div>${rows}`:'';
+      tl.innerHTML=rows?`<div class="gn-tl-label">Previous Days</div>${rows}`:'';
     }
   }
   const l=new Date(bx[0].scannedAt);
@@ -1092,19 +1168,13 @@ function initNewsTicker(){
 
   var items = [];
 
-  // Announcements first (up to 3)
-  var anns = [];
-  try{ anns = JSON.parse(localStorage.getItem('appchurch_announcements'))||[]; }catch(e){}
-  if(!anns.length) anns = ANNOUNCEMENT_DATA || [];
+  var anns = ANNOUNCEMENT_DATA || [];
   anns.slice(0,3).forEach(function(a){
-    var txt = (a.title||'') + (a.body ? ' — '+a.body.slice(0,70)+(a.body.length>70?'…':'') : '');
+    var txt = (a.title||'') + (a.body ? ' · '+a.body.slice(0,70)+(a.body.length>70?'…':'') : '');
     if(txt) items.push({type:'ann', text:txt, href:annTargetLink(a)});
   });
 
-  // Latest 6 news headlines
-  var bx = [];
-  try{ bx = JSON.parse(localStorage.getItem('appchurch_news'))||[]; }catch(e){}
-  if(!bx.length && GOOD_NEWS_DATA.length) bx = GOOD_NEWS_DATA;
+  var bx = GOOD_NEWS_DATA || [];
   var newsItems = (bx[0] && bx[0].items) ? bx[0].items : [];
   newsItems.slice(0,6).forEach(function(n){
     if(n.title) items.push({type:'news', text:n.title, href:n.sourceUrl||null});
@@ -1114,7 +1184,7 @@ function initNewsTicker(){
 
   function mkSet(arr){
     return arr.map(function(it){
-      var click = it.href ? 'onclick="window.open(\''+it.href.replace(/'/g,'%27')+'\',\'_blank\')"' : '';
+      var click = it.href ? 'onclick="openContentUrl(\''+it.href.replace(/'/g,'%27')+'\')"' : '';
       var badge = it.type==='ann'
         ? '<span class="nt-badge ann">📢 Announcement</span>'
         : '<span class="nt-badge news">✦ News</span>';
@@ -1152,6 +1222,8 @@ function esc(s){
 renderAnn();
 renderGN('all');
 initNewsTicker();
+syncLayout();
+window.addEventListener('resize',syncLayout,{passive:true});
 </script>
 </body>
 </html>

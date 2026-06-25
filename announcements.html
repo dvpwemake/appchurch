@@ -77,11 +77,6 @@ body{background:var(--bg);color:var(--text);font-family:var(--fs);line-height:1.
         console.error("Failed to fetch index.html", err);
       }
 
-      // Fallback
-      if (!data.length) {
-        try { data = JSON.parse(localStorage.getItem('appchurch_announcements')) || []; } catch(e) {}
-      }
-
       if (!data.length) {
         container.innerHTML = '<div class="loading">Currently no active announcements. Check back later!</div>';
         return;

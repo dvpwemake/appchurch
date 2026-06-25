@@ -170,8 +170,10 @@ tbody td{padding:.6rem .85rem;vertical-align:middle}
 .scan-log .log-err{color:#fca5a5}
 .scan-log .log-warn{color:#fde68a}
 .news-preview-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:.85rem;margin-top:.75rem}
-.np-card{background:#fff;border:1px solid var(--border);border-radius:var(--r);padding:.9rem 1rem;transition:box-shadow var(--tr)}
+.np-card{background:#fff;border:1px solid var(--border);border-radius:var(--r);padding:.9rem 1rem;transition:box-shadow var(--tr);overflow:hidden}
 .np-card:hover{box-shadow:var(--sh)}
+.np-img{width:100%;height:140px;object-fit:cover;border-radius:6px;margin-bottom:.65rem;background:var(--bg)}
+.np-noimg{font-size:.7rem;color:var(--text-dim);margin-bottom:.5rem;font-style:italic}
 .np-rank{display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:50%;background:var(--navy);color:#fff;font-size:.72rem;font-weight:700;margin-bottom:.5rem}
 .np-title{font-weight:600;font-size:.84rem;color:var(--text);margin-bottom:.4rem;line-height:1.4}
 .np-sum{font-size:.77rem;color:var(--text-mid);line-height:1.55;margin-bottom:.5rem;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
@@ -399,7 +401,7 @@ tbody td{padding:.6rem .85rem;vertical-align:middle}
       ════════════════════════════════════════ -->
       <div class="panel" id="panel-scan">
         <div class="panel-title">🔄 Run Scan</div>
-        <div class="panel-sub">Trigger the GitHub Actions workflow to run the RSS scanner immediately. No API key required — uses your configured sources and algorithm.</div>
+        <div class="panel-sub">Trigger the GitHub Actions workflow to run the RSS scanner immediately. No API key required. Uses your configured sources and algorithm.</div>
 
         <div class="card">
           <div class="card-title">🚀 Manual Trigger</div>
@@ -434,7 +436,7 @@ Method: RSS crawler — no API key required</div>
       ════════════════════════════════════════ -->
       <div class="panel" id="panel-preview">
         <div class="panel-title">👁 News Preview</div>
-        <div class="panel-sub">Live preview of the current Good News data embedded in the site. This reflects what visitors see right now.</div>
+        <div class="panel-sub">Live preview of Good News data embedded in <code>index.html</code>. Only header images from news sources are shown on the public site.</div>
         <div class="card">
           <div class="flex ai-c jb" style="margin-bottom:.85rem">
             <div class="card-title" style="margin:0">Current Stories</div>
@@ -451,7 +453,7 @@ Method: RSS crawler — no API key required</div>
       ════════════════════════════════════════ -->
       <div class="panel" id="panel-ann">
         <div class="panel-title">📢 Announcements</div>
-        <div class="panel-sub">Manage announcements shown in the top banner and the Announcements section. Published announcements are loaded from <code>index.html</code> automatically — edit or delete any item, then click <strong>Save to GitHub</strong> to update the live site.</div>
+        <div class="panel-sub">Manage announcements shown in the top banner and the Announcements section. Published announcements are loaded from <code>index.html</code> automatically. Edit or delete any item, then click <strong>Save to GitHub</strong> to update the live site.</div>
 
         <div class="card">
           <div class="flex ai-c jb" style="margin-bottom:1rem">
@@ -476,7 +478,7 @@ Method: RSS crawler — no API key required</div>
       ════════════════════════════════════════ -->
       <div class="panel" id="panel-github">
         <div class="panel-title">🐙 GitHub Settings</div>
-        <div class="panel-sub">Configure your GitHub Personal Access Token and repository. This editor uses the GitHub API to save config files and trigger workflows directly — no server required.</div>
+        <div class="panel-sub">Configure your GitHub Personal Access Token and repository. This editor uses the GitHub API to save config files and trigger workflows directly. No server required.</div>
 
         <div class="card">
           <div class="card-title">🔑 Credentials</div>
@@ -623,7 +625,7 @@ Method: RSS crawler — no API key required</div>
     </div>
     <div class="form-row">
       <label>Head Image URL</label>
-      <input id="ann-image" class="form-input" type="url" placeholder="https://... or img/hero.jpg">
+      <input id="ann-image" class="form-input" type="url" placeholder="https://... or img/MCIcover.png">
     </div>
     <div class="form-row">
       <label>Target Announcement Page Link</label>
@@ -1098,23 +1100,46 @@ function log(msg, type=''){
 // ═══════════════════════════════════════════════════════════════════
 //  PREVIEW
 // ═══════════════════════════════════════════════════════════════════
-function renderPreview(){
+function isSourceImage(url){
+  if(!url) return false;
+  const u=String(url).trim();
+  if(/^img\/hero/i.test(u)) return false;
+  return true;
+}
+function parseGoodNewsData(html){
+  const m=html.match(/const GOOD_NEWS_DATA\s*=\s*(\[.*?\]);/s);
+  if(!m) return [];
+  try{ return JSON.parse(m[1]); }catch(e){ return []; }
+}
+async function renderPreview(){
   const grid=document.getElementById('preview-grid');
   const tsEl=document.getElementById('preview-ts');
-  // Try to read GOOD_NEWS_DATA from parent frame (if opened from same origin)
-  // Otherwise parse from stored data
-  let batches = [];
+  let batches=[];
   try{
-    const raw = window.opener?.GOOD_NEWS_DATA || null;
-    if(raw) batches = raw;
+    const raw=window.opener?.GOOD_NEWS_DATA||null;
+    if(raw) batches=raw;
   }catch(e){}
-  if(!batches.length) batches = LS.get('cached_news') || [];
-  if(!batches.length){ grid.innerHTML='<div class="ann-empty">No cached data. Run a scan to populate news stories.<br><br>Or open this editor from the live site to see current data.</div>'; tsEl.textContent=''; return; }
+  if(!batches.length){
+    try{
+      const res=await fetch('index.html');
+      if(res.ok) batches=parseGoodNewsData(await res.text());
+    }catch(e){}
+  }
+  if(!batches.length) batches=LS.get('cached_news')||[];
+  if(!batches.length){
+    grid.innerHTML='<div class="ann-empty">No news data found. Run a scan to populate stories in <code>index.html</code>.</div>';
+    tsEl.textContent='';
+    return;
+  }
   const batch=batches[0];
   const items=batch.items||[];
   tsEl.textContent='Scanned: '+(batch.scanDate||'unknown');
-  grid.innerHTML=items.map(it=>`
-    <div class="np-card">
+  grid.innerHTML=items.map(it=>{
+    const img=isSourceImage(it.image)
+      ? `<img class="np-img" src="${esc(it.image)}" alt="" loading="lazy" onerror="this.style.display='none'">`
+      : '<div class="np-noimg">No source header image</div>';
+    return `<div class="np-card">
+      ${img}
       <div class="np-rank">${it.rank}</div>
       <div class="np-title">${esc(it.title)}</div>
       <div class="np-sum">${esc(it.summary)}</div>
@@ -1122,7 +1147,8 @@ function renderPreview(){
         <span class="cat-badge cat-${it.category}">${it.category}</span>
         <a href="${esc(it.sourceUrl)}" target="_blank" rel="noopener">${esc(it.source)}</a>
       </div>
-    </div>`).join('');
+    </div>`;
+  }).join('');
 }
 
 // ═══════════════════════════════════════════════════════════════════

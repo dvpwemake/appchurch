@@ -124,6 +124,7 @@ def parse_rss(content, source_name, source_category):
         return ''
 
     def get_image(item, raw_desc):
+        """Use only the article header image from the feed (media/thumbnail/enclosure)."""
         for tag in [f'{{{MEDIA}}}content', f'{{{MEDIA}}}thumbnail']:
             el = item.find(tag)
             if el is not None and el.get('url'):
@@ -131,9 +132,6 @@ def parse_rss(content, source_name, source_category):
         encl = item.find('enclosure')
         if encl is not None and encl.get('type', '').startswith('image/') and encl.get('url'):
             return encl.get('url')
-        if raw_desc:
-            m = re.search(r'<img[^>]+src=["\'](https?://[^"\']+)["\']', raw_desc, re.IGNORECASE)
-            if m: return m.group(1)
         return ''
 
     # RSS 2.0
@@ -190,6 +188,34 @@ def detect_category(item, config):
         if any(kw.lower() in text for kw in kws):
             return cat
     return item.get('category', 'christian')
+
+def fetch_og_image(url):
+    """Fallback: fetch og:image from the article page (source header image only)."""
+    if not url:
+        return ''
+    try:
+        r = requests.get(url, timeout=12, headers=HEADERS, allow_redirects=True)
+        r.raise_for_status()
+        html = r.text[:80000]
+        patterns = [
+            r'<meta[^>]+property=["\']og:image(?::secure_url)?["\'][^>]+content=["\']([^"\']+)["\']',
+            r'<meta[^>]+content=["\']([^"\']+)["\'][^>]+property=["\']og:image(?::secure_url)?["\']',
+            r'<meta[^>]+name=["\']twitter:image(?::src)?["\'][^>]+content=["\']([^"\']+)["\']',
+            r'<meta[^>]+content=["\']([^"\']+)["\'][^>]+name=["\']twitter:image(?::src)?["\']',
+        ]
+        for pat in patterns:
+            m = re.search(pat, html, re.IGNORECASE)
+            if m:
+                return m.group(1).replace('&amp;', '&').strip()
+    except Exception:
+        pass
+    return ''
+
+def resolve_article_image(item):
+    img = (item.get('image') or '').strip()
+    if img:
+        return img
+    return fetch_og_image(item.get('link', ''))
 
 def title_similar(a, b, threshold=0.55):
     wa = set(re.findall(r'\w+', a.lower()))
@@ -280,16 +306,17 @@ def main():
         print('\n⚠  WARNING: No stories found at all. Keeping existing data.')
         return
 
-    fallback_imgs = ['img/hero2.jpg', 'img/hero3.jpg', 'img/hero4.jpg', 'img/hero5.jpg', 'img/hero6.jpg', 'img/congregation1.jpg']
     output = []
     for i, s in enumerate(selected):
-        img_url = s.get('image') or fallback_imgs[i % len(fallback_imgs)]
+        img_url = resolve_article_image(s)
         output.append({
             'rank': i+1, 'title': s['title'],
             'summary': s['summary'][:240].rstrip() + ('…' if len(s['summary']) > 240 else ''),
             'source': s['source'], 'sourceUrl': s['link'],
             'category': s['category'], 'image': img_url
         })
+        if not img_url:
+            print(f'  ⚠ No header image for: {s["title"][:50]}')
 
     batch = {'scannedAt': now.isoformat(), 'scanDate': TODAY, 'items': output}
 
