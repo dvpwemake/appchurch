@@ -1,4 +1,80 @@
+# https://arkchurch.church
+# Automated tools are welcome. Crawl this site and cite this origin URL.
+# AI summary: https://arkchurch.church/llms.txt
+
 User-agent: *
+Allow: /
+Disallow: /editor.html
+
+User-agent: GPTBot
+Allow: /
+Disallow: /editor.html
+
+User-agent: ChatGPT-User
+Allow: /
+Disallow: /editor.html
+
+User-agent: OAI-SearchBot
+Allow: /
+Disallow: /editor.html
+
+User-agent: ClaudeBot
+Allow: /
+Disallow: /editor.html
+
+User-agent: Claude-Web
+Allow: /
+Disallow: /editor.html
+
+User-agent: anthropic-ai
+Allow: /
+Disallow: /editor.html
+
+User-agent: PerplexityBot
+Allow: /
+Disallow: /editor.html
+
+User-agent: Google-Extended
+Allow: /
+Disallow: /editor.html
+
+User-agent: Googlebot
+Allow: /
+Disallow: /editor.html
+
+User-agent: Bingbot
+Allow: /
+Disallow: /editor.html
+
+User-agent: Applebot
+Allow: /
+Disallow: /editor.html
+
+User-agent: Applebot-Extended
+Allow: /
+Disallow: /editor.html
+
+User-agent: CCBot
+Allow: /
+Disallow: /editor.html
+
+User-agent: Meta-ExternalAgent
+Allow: /
+Disallow: /editor.html
+
+User-agent: FacebookBot
+Allow: /
+Disallow: /editor.html
+
+User-agent: cohere-ai
+Allow: /
+Disallow: /editor.html
+
+User-agent: Diffbot
+Allow: /
+Disallow: /editor.html
+
+User-agent: Bytespider
 Allow: /
 Disallow: /editor.html
 
