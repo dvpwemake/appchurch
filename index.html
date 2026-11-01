@@ -213,7 +213,7 @@
 
             <!-- Action Buttons -->
             <div class="hidden sm:flex items-center space-x-4">
-                <a href="https://www.zeffy.com/en-US/donation-form/donate-to-appchurch" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center min-h-[44px] px-5 text-xs font-bold tracking-widest text-white gold-gradient-bg rounded-full shadow-sm hover:opacity-95 transition-opacity">
+                <a href="#donate" class="inline-flex items-center justify-center min-h-[44px] px-5 text-xs font-bold tracking-widest text-white gold-gradient-bg rounded-full shadow-sm hover:opacity-95 transition-opacity">
                     DONATE
                 </a>
                 <a href="#contact" class="inline-flex items-center justify-center min-h-[44px] px-5 text-xs font-bold tracking-widest text-slate-800 bg-white border border-gold-300 rounded-full hover:bg-parchment transition-opacity">
@@ -236,7 +236,7 @@
             <a href="#roadmap" onclick="toggleMobileMenu()" class="block text-base font-medium text-slate-800 hover:text-gold-600">Strategic Vision</a>
             <a href="#governance" onclick="toggleMobileMenu()" class="block text-base font-medium text-slate-800 hover:text-gold-600">Stewardship</a>
             <div class="pt-4 border-t border-gold-200 flex flex-col gap-3">
-                <a href="https://www.zeffy.com/en-US/donation-form/donate-to-appchurch" target="_blank" rel="noopener noreferrer" class="w-full inline-flex items-center justify-center min-h-[44px] px-5 text-xs font-bold tracking-widest text-white gold-gradient-bg rounded-full shadow-sm">
+                <a href="#donate" onclick="toggleMobileMenu()" class="w-full inline-flex items-center justify-center min-h-[44px] px-5 text-xs font-bold tracking-widest text-white gold-gradient-bg rounded-full shadow-sm">
                     DONATE
                 </a>
                 <a href="#contact" onclick="toggleMobileMenu()" class="w-full inline-flex items-center justify-center min-h-[44px] px-5 text-xs font-bold tracking-widest text-slate-800 bg-white border border-gold-300 rounded-full">
@@ -633,12 +633,12 @@
             <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
                 <span class="font-cinzel text-xs font-bold tracking-widest text-gold-600 uppercase">Give</span>
                 <h2 class="font-cinzel text-3xl font-bold text-charcoal mt-2">Donate</h2>
-                <p class="text-slate-600 text-sm mt-3">Gifts to App Church Global Foundation are received on Zeffy.</p>
-                <a href="https://www.zeffy.com/en-US/donation-form/donate-to-appchurch" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center min-h-[44px] mt-8 px-8 text-xs font-bold tracking-widest text-white gold-gradient-bg rounded-full shadow-lg hover:opacity-95 transition-opacity">
-                    DONATE
-                </a>
+                <p class="text-slate-600 text-sm mt-3">Gifts to App Church Global Foundation are received on Zeffy. The form is on this page.</p>
+                <div class="mt-8 text-left" style="position:relative;overflow:hidden;height:1200px;width:100%;">
+                    <iframe title="Donation form powered by Zeffy" src="https://www.zeffy.com/en-US/embed/donation-form/donate-to-appchurch" style="position:absolute;border:0;top:0;left:0;bottom:0;right:0;width:100%;height:100%" allowpaymentrequest allow="payment" allowtransparency="true"></iframe>
+                </div>
                 <p class="mt-4 text-xs break-all">
-                    <a href="https://www.zeffy.com/en-US/donation-form/donate-to-appchurch" target="_blank" rel="noopener noreferrer" class="text-gold-700 underline hover:text-gold-900">https://www.zeffy.com/en-US/donation-form/donate-to-appchurch</a>
+                    <a href="https://www.zeffy.com/en-US/donation-form/donate-to-appchurch" class="text-gold-700 underline hover:text-gold-900">Open the form on Zeffy</a>
                 </p>
             </div>
         </section>
@@ -712,7 +712,7 @@
                     <p class="text-xs text-slate-400 leading-relaxed">
                         A faith-based non-profit umbrella foundation pursuing the divine-human relationship amidst global transition.
                     </p>
-                    <a href="https://www.zeffy.com/en-US/donation-form/donate-to-appchurch" target="_blank" rel="noopener noreferrer" class="inline-block text-xs font-bold tracking-widest text-gold-400 hover:text-gold-300">DONATE</a>
+                    <a href="#donate" class="inline-block text-xs font-bold tracking-widest text-gold-400 hover:text-gold-300">DONATE</a>
                 </div>
 
                 <!-- Col 2: Subsidiary Links -->
