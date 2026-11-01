@@ -722,13 +722,13 @@
                 <div>
                     <h4 class="font-cinzel text-xs font-bold tracking-widest text-gold-400 uppercase mb-4">Portal Deployment</h4>
                     <p class="text-xs text-slate-400 mb-3">Official domain: <span class="text-gold-200">appchurchglobal.org</span></p>
-                    <p class="text-xs text-slate-500">© 2026 App Church Global Foundation</p>
+                    <p class="text-xs text-slate-500">© 2020～<span data-copy-year>2026</span> App Church Global Foundation</p>
                 </div>
 
             </div>
 
             <div class="pt-8 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between text-[11px] text-slate-500">
-                <p>© 2026 App Church Global Foundation. All rights reserved.</p>
+                <p>© 2020～<span data-copy-year>2026</span> App Church Global Foundation. All rights reserved.</p>
                 <p class="mt-2 sm:mt-0 font-garamond italic text-slate-400">Glory to God in the Highest</p>
             </div>
         </div>
@@ -740,6 +740,10 @@
             const menu = document.getElementById('mobileMenu');
             menu.classList.toggle('hidden');
         }
+
+        document.querySelectorAll("[data-copy-year]").forEach((el) => {
+            el.textContent = String(new Date().getFullYear());
+        });
 
         function handleFormSubmit(e) {
             e.preventDefault();
