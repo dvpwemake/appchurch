@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Primary Meta Tags (SEO) -->
+    <title>App Church Global Foundation | Faith, Technology & Human Transformation</title>
+    <meta name="title" content="App Church Global Foundation | Faith, Technology & Human Transformation">
+    <meta name="description" content="App Church Global Foundation is a faith-based non-profit umbrella organization pursuing the divine-human relationship amidst technological evolution, ethical AI stewardship, cognitive wellness, and social enterprise.">
+    <meta name="keywords" content="App Church Global, Ark Church, Cognitive Well, Legacy 1892 Coffee, Fourth Wave Coffee, Faith and Technology, AI Ethics, Christian Non-Profit Foundation, Mental Wellness, Faith-Based AI">
+    <meta name="author" content="App Church Global Foundation">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    
+    <!-- AI Crawling & Search Engine Metadata -->
+    <meta name="ai-crawling" content="allow">
+    <meta name="chatgpt-crawl" content="allow">
+    <meta name="anthropic-crawl" content="allow">
+    <meta name="google-ai" content="allow">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://appchurchglobal.org/">
+    <meta property="og:title" content="App Church Global Foundation | Faith, Technology & Human Transformation">
+    <meta property="og:description" content="An overarching non-profit foundation uniting Ark Church, Cognitive Well, Legacy 1892, and Fourth Wave Coffee in guiding divine truth through modern technological shifts.">
+    <meta property="og:image" content="https://appchurchglobal.org/img/futurechurch1.jpg">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://appchurchglobal.org/">
+    <meta name="twitter:title" content="App Church Global Foundation">
+    <meta name="twitter:description" content="An overarching non-profit foundation uniting Ark Church, Cognitive Well, Legacy 1892, and Fourth Wave Coffee.">
+    <meta name="twitter:image" content="https://appchurchglobal.org/img/futurechurch1.jpg">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://appchurchglobal.org/">
+
+    <!-- JSON-LD Structured Data (Schema.org Organization & NGO) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "NGO",
+      "name": "App Church Global Foundation",
+      "alternateName": "App Church Global",
+      "url": "https://appchurchglobal.org",
+      "logo": "https://appchurchglobal.org/img/futurechurch1.jpg",
+      "description": "App Church Global Foundation is a faith-based non-profit umbrella organization pursuing the ultimate meaning of the divine-human relationship amidst technological and societal evolution.",
+      "subOrganization": [
+        {
+          "@type": "Organization",
+          "name": "Ark Church",
+          "url": "https://arkchurch.church"
+        },
+        {
+          "@type": "Organization",
+          "name": "Cognitive Well",
+          "url": "https://cognitivewell.org"
+        },
+        {
+          "@type": "Organization",
+          "name": "Legacy 1892 Coffee",
+          "url": "https://legacy1892.coffee"
+        },
+        {
+          "@type": "Organization",
+          "name": "Fourth Wave Coffee",
+          "url": "https://fourthwavecoffee.org"
+        }
+      ],
+      "sameAs": [
+        "https://arkchurch.church",
+        "https://cognitivewell.org",
+        "https://legacy1892.coffee",
+        "https://fourthwavecoffee.org"
+      ]
+    }
+    </script>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts for Classical & Modern Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        gold: {
+                            50: '#FAF8EE',
+                            100: '#F3EDD4',
+                            200: '#E4D3A2',
+                            300: '#D2B66C',
+                            400: '#C1993D',
+                            500: '#B28728',
+                            600: '#946A1D',
+                            700: '#755017',
+                            800: '#5C3E16',
+                            900: '#432C13',
+                        },
+                        marble: '#FDFBF7',
+                        parchment: '#F8F5EE',
+                        charcoal: '#1A1C1E',
+                        silver: '#E2E8F0',
+                        slate: '#334155'
+                    },
+                    fontFamily: {
+                        cinzel: ['Cinzel', 'serif'],
+                        garamond: ['Cormorant Garamond', 'serif'],
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    boxShadow: {
+                        'gold-glow': '0 0 25px rgba(178, 135, 40, 0.18)',
+                        'classic': '0 10px 30px -5px rgba(0, 0, 0, 0.05)',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #FDFBF7;
+            color: #1A1C1E;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .gold-gradient-bg {
+            background: linear-gradient(135deg, #F3EDD4 0%, #D2B66C 50%, #B28728 100%);
+        }
+
+        .gold-text-gradient {
+            background: linear-gradient(135deg, #A87A1E 0%, #D2B66C 50%, #755017 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .silver-cross-shadow {
+            filter: drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.35));
+        }
+
+        .greek-frieze-pattern {
+            background-color: #FDFBF7;
+            background-image: radial-gradient(#D2B66C 0.75px, transparent 0.75px), radial-gradient(#D2B66C 0.75px, #FDFBF7 0.75px);
+            background-size: 30px 30px;
+            background-position: 0 0, 15px 15px;
+            opacity: 0.15;
+        }
+
+        .column-border-left {
+            border-left: 2px solid rgba(210, 182, 108, 0.3);
+        }
+
+        .column-border-right {
+            border-right: 2px solid rgba(210, 182, 108, 0.3);
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-gold-200 selection:text-gold-900 flex flex-col min-h-screen">
+
+    <!-- Header / Navigation -->
+    <header class="sticky top-0 z-50 bg-marble/90 backdrop-blur-md border-b border-gold-200/60 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            
+            <!-- Brand Logo & Title -->
+            <a href="#" class="flex items-center gap-3.5 group">
+                <div class="relative w-11 h-11 rounded-full p-[2px] gold-gradient-bg shadow-md group-hover:scale-105 transition-transform duration-300">
+                    <svg viewBox="0 0 200 200" class="w-full h-full rounded-full" aria-label="App Church Global Emblem">
+                        <defs>
+                            <linearGradient id="goldMatteGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="#F3EDD4"/>
+                                <stop offset="35%" stop-color="#D2B66C"/>
+                                <stop offset="70%" stop-color="#B28728"/>
+                                <stop offset="100%" stop-color="#845E1B"/>
+                            </linearGradient>
+                            <linearGradient id="silverGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="#FFFFFF"/>
+                                <stop offset="40%" stop-color="#E2E8F0"/>
+                                <stop offset="70%" stop-color="#CBD5E1"/>
+                                <stop offset="100%" stop-color="#94A3B8"/>
+                            </linearGradient>
+                            <filter id="silverDropShadow" x="-20%" y="-20%" width="140%" height="140%">
+                                <feDropShadow dx="1" dy="2" stdDeviation="2" flood-color="#000000" flood-opacity="0.3"/>
+                            </filter>
+                        </defs>
+                        <circle cx="100" cy="100" r="96" fill="url(#goldMatteGrad)" stroke="#F3EDD4" stroke-width="2"/>
+                        <circle cx="100" cy="100" r="88" fill="none" stroke="#755017" stroke-width="1" stroke-opacity="0.4"/>
+                        <g filter="url(#silverDropShadow)">
+                            <rect x="88" y="32" width="24" height="136" rx="2" fill="url(#silverGrad)" stroke="#FFFFFF" stroke-width="0.5"/>
+                            <rect x="42" y="72" width="116" height="24" rx="2" fill="url(#silverGrad)" stroke="#FFFFFF" stroke-width="0.5"/>
+                        </g>
+                    </svg>
+                </div>
+                
+                <div class="flex flex-col">
+                    <span class="font-cinzel text-lg sm:text-xl font-bold tracking-widest text-charcoal">APP CHURCH</span>
+                    <span class="font-sans text-[10px] tracking-[0.25em] text-gold-600 font-semibold uppercase">Global Foundation</span>
+                </div>
+            </a>
+
+            <!-- Desktop Navigation -->
+            <nav class="hidden md:flex items-center space-x-8 text-sm font-medium text-slate-700">
+                <a href="#about" class="hover:text-gold-600 transition-colors">Our Purpose</a>
+                <a href="#initiatives" class="hover:text-gold-600 transition-colors">Initiatives</a>
+                <a href="#gallery" class="hover:text-gold-600 transition-colors">Community Sanctuary</a>
+                <a href="#pillars" class="hover:text-gold-600 transition-colors">Core Pillars</a>
+                <a href="#roadmap" class="hover:text-gold-600 transition-colors">Strategic Vision</a>
+                <a href="#governance" class="hover:text-gold-600 transition-colors">Stewardship</a>
+            </nav>
+
+            <!-- Action Button -->
+            <div class="hidden sm:flex items-center space-x-4">
+                <a href="#contact" class="px-5 py-2.5 text-xs font-bold tracking-widest text-white gold-gradient-bg rounded-full shadow-sm hover:opacity-95 transition-opacity">
+                    CONNECT
+                </a>
+            </div>
+
+            <!-- Mobile Menu Toggle Button -->
+            <button id="menuBtn" onclick="toggleMobileMenu()" class="md:hidden p-2 text-slate-700 hover:text-gold-600 focus:outline-none" aria-label="Toggle Navigation Menu">
+                <svg id="menuIcon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+            </button>
+        </div>
+
+        <!-- Mobile Dropdown Navigation -->
+        <div id="mobileMenu" class="hidden md:hidden bg-marble border-b border-gold-200 px-6 py-6 space-y-4 shadow-xl">
+            <a href="#about" onclick="toggleMobileMenu()" class="block text-base font-medium text-slate-800 hover:text-gold-600">Our Purpose</a>
+            <a href="#initiatives" onclick="toggleMobileMenu()" class="block text-base font-medium text-slate-800 hover:text-gold-600">Initiatives</a>
+            <a href="#gallery" onclick="toggleMobileMenu()" class="block text-base font-medium text-slate-800 hover:text-gold-600">Community Sanctuary</a>
+            <a href="#pillars" onclick="toggleMobileMenu()" class="block text-base font-medium text-slate-800 hover:text-gold-600">Core Pillars</a>
+            <a href="#roadmap" onclick="toggleMobileMenu()" class="block text-base font-medium text-slate-800 hover:text-gold-600">Strategic Vision</a>
+            <a href="#governance" onclick="toggleMobileMenu()" class="block text-base font-medium text-slate-800 hover:text-gold-600">Stewardship</a>
+            <div class="pt-4 border-t border-gold-200 flex flex-col gap-3">
+                <a href="#contact" onclick="toggleMobileMenu()" class="w-full text-center px-5 py-2.5 text-xs font-bold tracking-widest text-white gold-gradient-bg rounded-full shadow-sm">
+                    CONNECT
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="flex-grow">
+        <!-- Hero Section -->
+        <section class="relative py-20 sm:py-32 overflow-hidden bg-gradient-to-b from-marble via-parchment/60 to-marble border-b border-gold-200/50">
+            <div class="absolute inset-0 greek-frieze-pattern pointer-events-none"></div>
+            
+            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+                <!-- Hero Image Feature -->
+                <div class="mb-10 max-w-4xl mx-auto overflow-hidden rounded-3xl border-2 border-gold-300 shadow-2xl relative">
+                    <img src="img/futurechurch1.jpg" alt="Future Church Architectural Vision - App Church Global Sanctuary" class="w-full h-80 sm:h-96 object-cover transform hover:scale-105 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-charcoal/80 via-transparent to-transparent flex items-end p-6 sm:p-10">
+                        <p class="font-cinzel text-white text-sm sm:text-base font-semibold tracking-wider text-left">
+                            Harmonizing Eternal Faith with Next-Generation Innovation & Eco-Architecture
+                        </p>
+                    </div>
+                </div>
+
+                <p class="font-cinzel text-xs sm:text-sm font-semibold tracking-[0.3em] text-gold-700 uppercase mb-4">
+                    The Global Umbrella Foundation
+                </p>
+
+                <h1 class="font-cinzel text-3xl sm:text-5xl lg:text-6xl font-bold text-charcoal tracking-tight leading-tight mb-8">
+                    At the Intersection of <br class="hidden sm:inline">
+                    <span class="gold-text-gradient">Faith, Technology,</span> and <br class="hidden sm:inline">
+                    Human Transformation
+                </h1>
+
+                <p class="font-garamond text-xl sm:text-2xl text-slate-700 max-w-3xl mx-auto leading-relaxed mb-10 italic">
+                    "Anchored in eternal truth, serving as a sanctified beacon through the epochal paradigm shifts of AI, human consciousness, and global enterprise."
+                </p>
+
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                    <a href="#initiatives" class="w-full sm:w-auto px-8 py-3.5 text-xs font-bold tracking-widest text-white gold-gradient-bg rounded-full shadow-lg hover:shadow-xl transition-all">
+                        EXPLORE INITIATIVES
+                    </a>
+                    <a href="#about" class="w-full sm:w-auto px-8 py-3.5 text-xs font-bold tracking-widest text-slate-800 bg-white border border-gold-300 rounded-full hover:bg-parchment transition-all">
+                        OUR FOUNDATIONAL MISSION
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Foundation & Origin Section -->
+        <section id="about" class="py-20 bg-marble relative">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                    
+                    <div class="lg:col-span-5 space-y-6">
+                        <div class="inline-block p-2 bg-gold-50 border-l-4 border-gold-500 rounded-r-md">
+                            <span class="font-cinzel text-xs font-bold tracking-widest text-gold-700 uppercase">Sacred Origin & Evolution</span>
+                        </div>
+                        <h2 class="font-cinzel text-3xl sm:text-4xl font-bold text-charcoal">
+                            An Endeavor for the Ultimate Meaning
+                        </h2>
+                        <p class="text-slate-600 leading-relaxed text-base">
+                            Originally established through the spiritual lineage of <strong>Ark Church</strong>, App Church Global (`appchurchglobal.org`) has evolved into an overarching umbrella non-profit foundation.
+                        </p>
+                        <p class="text-slate-600 leading-relaxed text-base">
+                            As humanity faces unprecedented technological disruption and cognitive evolution, our charter extends beyond traditional boundaries. We stand at the frontier—guiding tech-driven social enterprise, cognitive well-being, and theological ethics while upholding the permanent endeavor of deepening man’s relationship with God.
+                        </p>
+                    </div>
+
+                    <!-- Classical Quote & Image Showcase -->
+                    <div class="lg:col-span-7 bg-parchment p-8 sm:p-12 rounded-2xl border border-gold-200 shadow-classic relative overflow-hidden">
+                        <img src="img/congregation4.jpg" alt="Historic Ark Church Sanctuary" class="w-full h-64 object-cover rounded-xl mb-6 border border-gold-300">
+                        <blockquote class="font-garamond text-2xl sm:text-3xl text-slate-800 italic leading-snug mb-6">
+                            "Technology provides the vessel, mind provides the locus, but faith alone reveals the eternal destination."
+                        </blockquote>
+                        <div class="flex items-center gap-4 pt-4 border-t border-gold-200">
+                            <div>
+                                <div class="font-cinzel text-sm font-bold text-charcoal">APP CHURCH GLOBAL CHARTER</div>
+                                <div class="text-xs text-gold-700">Faith-Based Non-Profit Foundation</div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Subsidiary Initiatives Showcase -->
+        <section id="initiatives" class="py-20 bg-parchment/50 border-y border-gold-200/60">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <span class="font-cinzel text-xs font-bold tracking-widest text-gold-600 uppercase">The Ecosystem</span>
+                    <h2 class="font-cinzel text-3xl sm:text-4xl font-bold text-charcoal mt-2">
+                        Subsidiaries & Strategic Missions
+                    </h2>
+                    <p class="font-garamond text-xl text-slate-600 mt-4 italic">
+                        Four distinct institutions united under one sovereign non-profit vision.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    
+                    <!-- Card 1: Ark Church -->
+                    <div class="bg-marble rounded-2xl border border-gold-200 p-8 hover:shadow-gold-glow transition-all duration-300 flex flex-col justify-between group">
+                        <div>
+                            <div class="overflow-hidden rounded-xl mb-6 h-48 border border-gold-200">
+                                <img src="img/congregation2.jpg" alt="Ark Church Worship Space" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            </div>
+                            <div class="flex items-center justify-between mb-4">
+                                <div class="w-10 h-10 rounded-full bg-gold-100 flex items-center justify-center text-gold-700 font-cinzel font-bold text-lg">
+                                    01
+                                </div>
+                                <span class="px-3 py-1 bg-gold-50 text-gold-700 rounded-full text-xs font-semibold tracking-wider border border-gold-200">
+                                    Spiritual Core
+                                </span>
+                            </div>
+                            <h3 class="font-cinzel text-2xl font-bold text-charcoal group-hover:text-gold-700 transition-colors">
+                                Ark Church
+                            </h3>
+                            <p class="font-sans text-xs text-gold-600 mb-4 font-mono">https://arkchurch.church</p>
+                            <p class="text-slate-600 text-sm leading-relaxed mb-6">
+                                The spiritual sanctuary and foundational root of our organization. Ark Church serves as the liturgical and theological anchor, nurturing worship, fellowship, and divine connection in a modern world.
+                            </p>
+                        </div>
+                        <a href="https://arkchurch.church" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-xs font-bold tracking-wider text-gold-700 hover:text-gold-900 group-hover:translate-x-1 transition-all">
+                            <span>VISIT SANCTUARY</span>
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                        </a>
+                    </div>
+
+                    <!-- Card 2: Cognitive Well -->
+                    <div class="bg-marble rounded-2xl border border-gold-200 p-8 hover:shadow-gold-glow transition-all duration-300 flex flex-col justify-between group">
+                        <div>
+                            <div class="overflow-hidden rounded-xl mb-6 h-48 border border-gold-200">
+                                <img src="img/congregation33.jpg" alt="Cognitive Well Reflection and Support Gathering" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            </div>
+                            <div class="flex items-center justify-between mb-4">
+                                <div class="w-10 h-10 rounded-full bg-gold-100 flex items-center justify-center text-gold-700 font-cinzel font-bold text-lg">
+                                    02
+                                </div>
+                                <span class="px-3 py-1 bg-gold-50 text-gold-700 rounded-full text-xs font-semibold tracking-wider border border-gold-200">
+                                    Mental & Spiritual Health
+                                </span>
+                            </div>
+                            <h3 class="font-cinzel text-2xl font-bold text-charcoal group-hover:text-gold-700 transition-colors">
+                                Cognitive Well
+                            </h3>
+                            <p class="font-sans text-xs text-gold-600 mb-4 font-mono">https://cognitivewell.org</p>
+                            <p class="text-slate-600 text-sm leading-relaxed mb-6">
+                                Pioneering research and holistic care bridging cognitive science, mental wellness, and spiritual resilience. Dedicated to restoring clarity, emotional harmony, and soul health.
+                            </p>
+                        </div>
+                        <a href="https://cognitivewell.org" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-xs font-bold tracking-wider text-gold-700 hover:text-gold-900 group-hover:translate-x-1 transition-all">
+                            <span>EXPLORE RESEARCH</span>
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                        </a>
+                    </div>
+
+                    <!-- Card 3: Legacy 1892 Coffee -->
+                    <div class="bg-marble rounded-2xl border border-gold-200 p-8 hover:shadow-gold-glow transition-all duration-300 flex flex-col justify-between group">
+                        <div>
+                            <div class="overflow-hidden rounded-xl mb-6 h-48 border border-gold-200">
+                                <img src="img/congregation32.jpg" alt="Legacy 1892 Fellowship Gathering" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            </div>
+                            <div class="flex items-center justify-between mb-4">
+                                <div class="w-10 h-10 rounded-full bg-gold-100 flex items-center justify-center text-gold-700 font-cinzel font-bold text-lg">
+                                    03
+                                </div>
+                                <span class="px-3 py-1 bg-gold-50 text-gold-700 rounded-full text-xs font-semibold tracking-wider border border-gold-200">
+                                    Heritage & Fellowship
+                                </span>
+                            </div>
+                            <h3 class="font-cinzel text-2xl font-bold text-charcoal group-hover:text-gold-700 transition-colors">
+                                Legacy 1892 Coffee
+                            </h3>
+                            <p class="font-sans text-xs text-gold-600 mb-4 font-mono">https://legacy1892.coffee</p>
+                            <p class="text-slate-600 text-sm leading-relaxed mb-6">
+                                Honoring timeless heritage through artisanal craftsmanship. Legacy 1892 creates sacred community gathering spaces and artisanal coffee that funds community relief endeavors.
+                            </p>
+                        </div>
+                        <a href="https://legacy1892.coffee" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-xs font-bold tracking-wider text-gold-700 hover:text-gold-900 group-hover:translate-x-1 transition-all">
+                            <span>DISCOVER HERITAGE</span>
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                        </a>
+                    </div>
+
+                    <!-- Card 4: Fourth Wave Coffee -->
+                    <div class="bg-marble rounded-2xl border border-gold-200 p-8 hover:shadow-gold-glow transition-all duration-300 flex flex-col justify-between group">
+                        <div>
+                            <div class="overflow-hidden rounded-xl mb-6 h-48 border border-gold-200">
+                                <img src="img/congregation1.jpg" alt="Fourth Wave Community Outreach" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            </div>
+                            <div class="flex items-center justify-between mb-4">
+                                <div class="w-10 h-10 rounded-full bg-gold-100 flex items-center justify-center text-gold-700 font-cinzel font-bold text-lg">
+                                    04
+                                </div>
+                                <span class="px-3 py-1 bg-gold-50 text-gold-700 rounded-full text-xs font-semibold tracking-wider border border-gold-200">
+                                    Social Enterprise
+                                </span>
+                            </div>
+                            <h3 class="font-cinzel text-2xl font-bold text-charcoal group-hover:text-gold-700 transition-colors">
+                                Fourth Wave Coffee
+                            </h3>
+                            <p class="font-sans text-xs text-gold-600 mb-4 font-mono">https://fourthwavecoffee.org</p>
+                            <p class="text-slate-600 text-sm leading-relaxed mb-6">
+                                A sustainable social impact brand redefining coffee culture through direct ethical trade, ecological stewardship, and funding transformational global humanitarian initiatives.
+                            </p>
+                        </div>
+                        <a href="https://fourthwavecoffee.org" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-xs font-bold tracking-wider text-gold-700 hover:text-gold-900 group-hover:translate-x-1 transition-all">
+                            <span>VIEW ENTERPRISE</span>
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Visual Sanctuary Gallery Section -->
+        <section id="gallery" class="py-20 bg-marble relative">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <span class="font-cinzel text-xs font-bold tracking-widest text-gold-600 uppercase">Community & Sanctuary</span>
+                    <h2 class="font-cinzel text-3xl sm:text-4xl font-bold text-charcoal mt-2">
+                        Worship, Prayer & Global Fellowship
+                    </h2>
+                    <p class="font-garamond text-xl text-slate-600 mt-3 italic">
+                        Capturing moments of spiritual unity and human connection across our global congregations.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="rounded-2xl overflow-hidden border border-gold-200 shadow-md group">
+                        <img src="img/congregation1_2.jpg" alt="Praise and Worship Sanctuary" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="p-4 bg-parchment">
+                            <h4 class="font-cinzel text-sm font-bold text-charcoal">Sacred Worship & Devotion</h4>
+                            <p class="text-xs text-slate-500 mt-1">Lifting hearts in communal prayer and sanctuary worship.</p>
+                        </div>
+                    </div>
+
+                    <div class="rounded-2xl overflow-hidden border border-gold-200 shadow-md group">
+                        <img src="img/congregation3.jpg" alt="Shared Hands in Prayer" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="p-4 bg-parchment">
+                            <h4 class="font-cinzel text-sm font-bold text-charcoal">Intercessory Fellowship</h4>
+                            <p class="text-xs text-slate-500 mt-1">Building bonds of faith and mutual spiritual support.</p>
+                        </div>
+                    </div>
+
+                    <div class="rounded-2xl overflow-hidden border border-gold-200 shadow-md group">
+                        <img src="img/congregation2_2.jpg" alt="Gothic Cathedral Sanctuary Evening Service" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="p-4 bg-parchment">
+                            <h4 class="font-cinzel text-sm font-bold text-charcoal">Cathedral Liturgy & Tradition</h4>
+                            <p class="text-xs text-slate-500 mt-1">Honoring historical sacred architecture and liturgy.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Core Pillars Section -->
+        <section id="pillars" class="py-20 bg-parchment/60 relative">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <span class="font-cinzel text-xs font-bold tracking-widest text-gold-600 uppercase">Foundational Pillars</span>
+                    <h2 class="font-cinzel text-3xl sm:text-4xl font-bold text-charcoal mt-2">
+                        Guiding Principles for a Changing World
+                    </h2>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Pillar 1 -->
+                    <div class="p-8 bg-marble rounded-2xl border-t-4 border-gold-500 shadow-sm column-border-left">
+                        <div class="font-cinzel text-gold-600 font-bold text-xl mb-3">PILLAR I</div>
+                        <h3 class="font-cinzel text-xl font-bold text-charcoal mb-4">Faith & Theological Depth</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed">
+                            Upholding divine revelation, ancient wisdom, and sacred fellowship. Ensuring that humanity's spiritual core remains unshakeable amidst technological shifts.
+                        </p>
+                    </div>
+
+                    <!-- Pillar 2 -->
+                    <div class="p-8 bg-marble rounded-2xl border-t-4 border-gold-500 shadow-sm">
+                        <div class="font-cinzel text-gold-600 font-bold text-xl mb-3">PILLAR II</div>
+                        <h3 class="font-cinzel text-xl font-bold text-charcoal mb-4">Technological Ethics</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed">
+                            Stewarding Artificial Intelligence and emerging capabilities toward human flourishing, divine purpose, and moral integrity rather than spiritual detachment.
+                        </p>
+                    </div>
+
+                    <!-- Pillar 3 -->
+                    <div class="p-8 bg-marble rounded-2xl border-t-4 border-gold-500 shadow-sm column-border-right">
+                        <div class="font-cinzel text-gold-600 font-bold text-xl mb-3">PILLAR III</div>
+                        <h3 class="font-cinzel text-xl font-bold text-charcoal mb-4">Social Enterprise & Stewardship</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed">
+                            Creating sustainable, non-profit driven enterprises that foster community fellowship, cognitive wellness, and practical impact globally.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Strategic Vision & Timeline -->
+        <section id="roadmap" class="py-20 bg-marble border-t border-gold-200">
+            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <span class="font-cinzel text-xs font-bold tracking-widest text-gold-600 uppercase">Strategic Horizon</span>
+                    <h2 class="font-cinzel text-3xl sm:text-4xl font-bold text-charcoal mt-2">
+                        Roadmap of Transformation
+                    </h2>
+                </div>
+
+                <div class="relative border-l-2 border-gold-300 ml-4 sm:ml-32 space-y-12">
+                    
+                    <!-- Phase 1 -->
+                    <div class="relative pl-8 sm:pl-10">
+                        <div class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-gold-500 border-4 border-marble"></div>
+                        <span class="sm:absolute sm:-left-32 sm:top-1 font-cinzel text-xs font-bold text-gold-700 tracking-wider">PHASE 01</span>
+                        <h3 class="font-cinzel text-lg font-bold text-charcoal">Umbrella Structure Alignment</h3>
+                        <p class="text-slate-600 text-sm mt-2">
+                            Establishing App Church Global as the central governance non-profit, consolidating Ark Church, Cognitive Well, Legacy 1892, and Fourth Wave Coffee under a single mission vision.
+                        </p>
+                    </div>
+
+                    <!-- Phase 2 -->
+                    <div class="relative pl-8 sm:pl-10">
+                        <div class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-gold-500 border-4 border-marble"></div>
+                        <span class="sm:absolute sm:-left-32 sm:top-1 font-cinzel text-xs font-bold text-gold-700 tracking-wider">PHASE 02</span>
+                        <h3 class="font-cinzel text-lg font-bold text-charcoal">AI & Cognitive Ethics Research</h3>
+                        <p class="text-slate-600 text-sm mt-2">
+                            Deploying interdisciplinary initiatives linking theology, mental wellness, and ethical AI stewardship to serve global communities in transition.
+                        </p>
+                    </div>
+
+                    <!-- Phase 3 -->
+                    <div class="relative pl-8 sm:pl-10">
+                        <div class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-gold-500 border-4 border-marble"></div>
+                        <span class="sm:absolute sm:-left-32 sm:top-1 font-cinzel text-xs font-bold text-gold-700 tracking-wider">PHASE 03</span>
+                        <h3 class="font-cinzel text-lg font-bold text-charcoal">Global Social Enterprise Expansion</h3>
+                        <p class="text-slate-600 text-sm mt-2">
+                            Scaling our sustainable coffee and health initiatives globally to fund community building, spiritual sanctuaries, and educational programs.
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Stewardship & Transparency -->
+        <section id="governance" class="py-20 bg-parchment/40">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="bg-marble rounded-3xl p-8 sm:p-12 border border-gold-300/80 shadow-classic">
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+                        <div>
+                            <span class="font-cinzel text-xs font-bold tracking-widest text-gold-700 uppercase">Non-Profit Governance</span>
+                            <h2 class="font-cinzel text-3xl font-bold text-charcoal mt-2 mb-4">
+                                Sacred Stewardship & Transparency
+                            </h2>
+                            <p class="text-slate-600 text-sm leading-relaxed mb-6">
+                                As a 501(c)(3) aligned non-profit entity, App Church Global maintains the highest standards of financial integrity, board oversight, and spiritual accountability. Every enterprise endeavor directly feeds into our charitable and spiritual mission.
+                            </p>
+                            <div class="grid grid-cols-2 gap-4 text-center">
+                                <div class="bg-parchment p-4 rounded-xl border border-gold-200">
+                                    <div class="font-cinzel text-2xl font-bold text-gold-700">100%</div>
+                                    <div class="text-xs text-slate-500 mt-1">Mission Reinvestment</div>
+                                </div>
+                                <div class="bg-parchment p-4 rounded-xl border border-gold-200">
+                                    <div class="font-cinzel text-2xl font-bold text-gold-700">4</div>
+                                    <div class="text-xs text-slate-500 mt-1">Global Pillars</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="space-y-4">
+                            <div class="p-4 bg-parchment rounded-xl border border-gold-200 flex items-start gap-3">
+                                <div class="text-gold-600 text-lg">✦</div>
+                                <div>
+                                    <h4 class="font-cinzel text-sm font-bold text-charcoal">Ethical Capital Allocation</h4>
+                                    <p class="text-xs text-slate-500">Rigorous audit processes for all subsidiary enterprise revenues.</p>
+                                </div>
+                            </div>
+                            <div class="p-4 bg-parchment rounded-xl border border-gold-200 flex items-start gap-3">
+                                <div class="text-gold-600 text-lg">✦</div>
+                                <div>
+                                    <h4 class="font-cinzel text-sm font-bold text-charcoal">Independent Advisory Board</h4>
+                                    <p class="text-xs text-slate-500">Guided by leaders in theology, technology, medicine, and business.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact & Newsletter -->
+        <section id="contact" class="py-20 bg-marble relative">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12">
+                    <span class="font-cinzel text-xs font-bold tracking-widest text-gold-600 uppercase">Connect With Us</span>
+                    <h2 class="font-cinzel text-3xl font-bold text-charcoal mt-2">
+                        Join the Global Endeavor
+                    </h2>
+                    <p class="text-slate-600 text-sm mt-2">
+                        Reach out for partnerships, spiritual dialogue, or social enterprise collaborations.
+                    </p>
+                </div>
+
+                <form onsubmit="handleFormSubmit(event)" class="bg-parchment p-8 rounded-2xl border border-gold-200 space-y-6 shadow-sm">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-xs font-cinzel font-bold text-charcoal mb-2">FULL NAME</label>
+                            <input type="text" required placeholder="John Doe" class="w-full px-4 py-3 rounded-lg border border-gold-300 bg-marble text-sm focus:outline-none focus:ring-2 focus:ring-gold-500">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-cinzel font-bold text-charcoal mb-2">EMAIL ADDRESS</label>
+                            <input type="email" required placeholder="john@example.org" class="w-full px-4 py-3 rounded-lg border border-gold-300 bg-marble text-sm focus:outline-none focus:ring-2 focus:ring-gold-500">
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-cinzel font-bold text-charcoal mb-2">AREA OF INTEREST</label>
+                        <select class="w-full px-4 py-3 rounded-lg border border-gold-300 bg-marble text-sm focus:outline-none focus:ring-2 focus:ring-gold-500">
+                            <option>General Fellowship & Inquiry</option>
+                            <option>Ark Church Ministry</option>
+                            <option>Cognitive Well Research</option>
+                            <option>Social Enterprise Partnerships</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-cinzel font-bold text-charcoal mb-2">MESSAGE</label>
+                        <textarea rows="4" required placeholder="Share your message or inquiry..." class="w-full px-4 py-3 rounded-lg border border-gold-300 bg-marble text-sm focus:outline-none focus:ring-2 focus:ring-gold-500"></textarea>
+                    </div>
+                    <button type="submit" class="w-full py-4 text-xs font-bold tracking-widest text-white gold-gradient-bg rounded-lg hover:opacity-95 transition-opacity shadow-md">
+                        SEND MESSAGE
+                    </button>
+                </form>
+                
+                <div id="formStatus" class="hidden mt-4 p-4 bg-emerald-50 text-emerald-800 rounded-lg text-sm text-center border border-emerald-200">
+                    Thank you. Your message has been received by the App Church Global Secretariat.
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-charcoal text-parchment py-16 border-t-2 border-gold-500">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
+                
+                <!-- Col 1: Brand -->
+                <div class="space-y-4 md:col-span-1">
+                    <div class="flex items-center gap-3">
+                        <div class="w-8 h-8 rounded-full gold-gradient-bg p-[1.5px]">
+                            <svg viewBox="0 0 200 200" class="w-full h-full rounded-full" aria-label="Footer Emblem">
+                                <circle cx="100" cy="100" r="96" fill="url(#goldMatteGrad)"/>
+                                <rect x="88" y="32" width="24" height="136" rx="2" fill="url(#silverGrad)"/>
+                                <rect x="42" y="72" width="116" height="24" rx="2" fill="url(#silverGrad)"/>
+                            </svg>
+                        </div>
+                        <span class="font-cinzel text-base font-bold tracking-widest text-white">APP CHURCH</span>
+                    </div>
+                    <p class="text-xs text-slate-400 leading-relaxed">
+                        A faith-based non-profit umbrella foundation pursuing the divine-human relationship amidst global transition.
+                    </p>
+                </div>
+
+                <!-- Col 2: Subsidiary Links -->
+                <div>
+                    <h4 class="font-cinzel text-xs font-bold tracking-widest text-gold-400 uppercase mb-4">Entities</h4>
+                    <ul class="space-y-2 text-xs text-slate-300">
+                        <li><a href="https://arkchurch.church" target="_blank" class="hover:text-gold-300 transition-colors">Ark Church</a></li>
+                        <li><a href="https://cognitivewell.org" target="_blank" class="hover:text-gold-300 transition-colors">Cognitive Well</a></li>
+                        <li><a href="https://legacy1892.coffee" target="_blank" class="hover:text-gold-300 transition-colors">Legacy 1892 Coffee</a></li>
+                        <li><a href="https://fourthwavecoffee.org" target="_blank" class="hover:text-gold-300 transition-colors">Fourth Wave Coffee</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 3: Principles -->
+                <div>
+                    <h4 class="font-cinzel text-xs font-bold tracking-widest text-gold-400 uppercase mb-4">Core Focus</h4>
+                    <ul class="space-y-2 text-xs text-slate-300">
+                        <li>Theology & Divine Truth</li>
+                        <li>Cognitive Health & Soul Care</li>
+                        <li>Technological Stewardship</li>
+                        <li>Social Enterprise</li>
+                    </ul>
+                </div>
+
+                <!-- Col 4: Domain -->
+                <div>
+                    <h4 class="font-cinzel text-xs font-bold tracking-widest text-gold-400 uppercase mb-4">Portal Deployment</h4>
+                    <p class="text-xs text-slate-400 mb-3">Official domain: <span class="text-gold-200">appchurchglobal.org</span></p>
+                    <p class="text-xs text-slate-500">© 2026 App Church Global Foundation</p>
+                </div>
+
+            </div>
+
+            <div class="pt-8 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between text-[11px] text-slate-500">
+                <p>© 2026 App Church Global Foundation. All rights reserved.</p>
+                <p class="mt-2 sm:mt-0 font-garamond italic text-slate-400">Glory to God in the Highest</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Interactive Scripts -->
+    <script>
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('hidden');
+        }
+
+        function handleFormSubmit(e) {
+            e.preventDefault();
+            const status = document.getElementById('formStatus');
+            status.classList.remove('hidden');
+            e.target.reset();
+            setTimeout(() => {
+                status.classList.add('hidden');
+            }, 6000);
+        }
+    </script>
+</body>
+</html>

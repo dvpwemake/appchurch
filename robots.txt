@@ -1,0 +1,17 @@
+User-agent: *
+Allow: /
+
+# Directives for Search Engines and AI Crawlers
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+Sitemap: https://appchurchglobal.org/sitemap.xml
